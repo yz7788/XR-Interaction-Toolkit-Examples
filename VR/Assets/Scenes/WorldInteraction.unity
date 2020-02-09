@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -170,6 +171,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -251,6 +253,7 @@ GameObject:
   - component: {fileID: 73608634}
   - component: {fileID: 73608633}
   - component: {fileID: 73608632}
+  - component: {fileID: 73608636}
   m_Layer: 0
   m_Name: Left Ray Interactor
   m_TagString: Untagged
@@ -388,6 +391,7 @@ LineRenderer:
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -500,24 +504,16 @@ MonoBehaviour:
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_ToggleSelect: 0
+  m_SelectActionTrigger: 1
   m_HideControllerOnSelect: 0
   m_PlayAudioClipOnSelectEnter: 1
   m_AudioClipForOnSelectEnter: {fileID: 8300000, guid: 8a637dbbf2e23804fa47557ba567e56a,
@@ -562,6 +558,7 @@ MonoBehaviour:
   m_RaycastTriggerInteraction: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
+  m_EnableUIInteraction: 1
 --- !u!114 &73608635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,6 +573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UpdateTrackingType: 0
   m_EnableInputActions: 1
+  m_PoseProvider: {fileID: 0}
   m_ControllerNode: 4
   m_SelectUsage: 2
   m_ActivateUsage: 2
@@ -586,6 +584,18 @@ MonoBehaviour:
   m_AnimateModel: 0
   m_ModelSelectTransition: 
   m_ModelDeSelectTransition: 
+--- !u!114 &73608636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73608630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427acccbb385bb4d9b4878524fe09fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &172127836
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +678,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -852,43 +863,27 @@ MonoBehaviour:
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 825711716}
   m_AttachEaseInTime: 0.15
@@ -930,6 +925,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &233368269
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1043,6 +1039,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1125,6 +1122,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1209,6 +1207,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1293,6 +1292,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1375,6 +1375,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1459,6 +1460,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1546,24 +1548,16 @@ MonoBehaviour:
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_ToggleSelect: 0
+  m_SelectActionTrigger: 1
   m_HideControllerOnSelect: 0
   m_PlayAudioClipOnSelectEnter: 1
   m_AudioClipForOnSelectEnter: {fileID: 8300000, guid: 8a637dbbf2e23804fa47557ba567e56a,
@@ -1616,6 +1610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UpdateTrackingType: 0
   m_EnableInputActions: 1
+  m_PoseProvider: {fileID: 0}
   m_ControllerNode: 5
   m_SelectUsage: 2
   m_ActivateUsage: 2
@@ -1717,6 +1712,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1857,23 +1853,15 @@ MonoBehaviour:
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -1928,6 +1916,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2010,6 +1999,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2100,43 +2090,27 @@ MonoBehaviour:
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -2178,6 +2152,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &752517576
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2209,6 +2184,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2371,6 +2347,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2453,6 +2430,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2535,6 +2513,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2617,6 +2596,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2675,8 +2655,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938000549}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.9254902, b: 0.7294118, a: 1}
   m_Intensity: 1.32
   m_Range: 10
@@ -2790,6 +2771,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -2872,6 +2854,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3024,6 +3007,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3106,6 +3090,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3196,43 +3181,27 @@ MonoBehaviour:
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -3274,6 +3243,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &1088503777
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3305,6 +3275,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3401,6 +3372,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3483,6 +3455,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3565,6 +3538,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3655,43 +3629,27 @@ MonoBehaviour:
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -3733,6 +3691,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &1146976356
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3764,6 +3723,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3860,6 +3820,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -3942,6 +3903,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4024,6 +3986,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4106,6 +4069,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4188,6 +4152,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4272,6 +4237,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4354,6 +4320,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4436,6 +4403,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4526,43 +4494,27 @@ MonoBehaviour:
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -4604,6 +4556,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &1438830973
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4635,6 +4588,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4731,6 +4685,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4847,6 +4802,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5082,43 +5038,27 @@ MonoBehaviour:
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -5160,6 +5100,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &1516089320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5191,6 +5132,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5289,6 +5231,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5371,6 +5314,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5453,6 +5397,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5537,6 +5482,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5619,6 +5565,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5701,6 +5648,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5827,7 +5775,8 @@ MonoBehaviour:
   m_RigBaseGameObject: {fileID: 1722201098}
   m_CameraFloorOffsetObject: {fileID: 1848199855}
   m_CameraGameObject: {fileID: 1513096270}
-  m_TrackingSpace: 0
+  m_TrackingOriginMode: 1
+  m_TrackingSpace: 3
   m_CameraYOffset: 1.36144
 --- !u!114 &1722201101
 MonoBehaviour:
@@ -5842,12 +5791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 0}
-  m_EnablePrimaryDevice: 1
-  m_PrimaryDeviceNode: 0
-  m_PrimaryDeviceTurnAxis: 0
-  m_EnableSecondaryDevice: 1
-  m_SecondaryDeviceNode: 0
-  m_SecondaryDeviceTurnAxis: 0
+  m_TurnUsage: 0
+  m_Controllers: []
   m_TurnAmount: 45
   m_DebounceTime: 0.5
   m_DeadZone: 0.15
@@ -5927,6 +5872,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6021,6 +5967,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6102,6 +6049,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6184,6 +6132,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6266,6 +6215,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6389,43 +6339,27 @@ MonoBehaviour:
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -6467,6 +6401,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &1875956803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6498,6 +6433,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6595,6 +6531,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6691,6 +6628,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6773,6 +6711,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6891,6 +6830,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6973,6 +6913,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7055,6 +6996,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7178,43 +7120,27 @@ MonoBehaviour:
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnLastHoverExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectEnter:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnActivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent, Unity.XR.Interaction.Toolkit,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -7256,6 +7182,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &2005941299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7287,6 +7214,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7383,6 +7311,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7504,6 +7433,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7587,6 +7517,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7669,6 +7600,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7751,6 +7683,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
