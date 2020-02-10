@@ -16,7 +16,7 @@ public class Controller_Move_Test : MonoBehaviour
         Vector3 tempVector3 = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
         {
-            print(this.transform.forward);
+            //print(this.transform.forward);
             tempVector3 = transform.forward * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
