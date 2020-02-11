@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WorldInteractionDemo.unity
     guid: cd5458b6a8920b348b4fbd0dd1cd06f4
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8db34b777bb33d244a0c1ff8aaa057ff,
+      type: 2}
