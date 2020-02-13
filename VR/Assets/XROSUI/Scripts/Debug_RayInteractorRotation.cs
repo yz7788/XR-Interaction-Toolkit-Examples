@@ -7,27 +7,34 @@ public class Debug_RayInteractorRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 tempVector3 = Vector3.zero;
+        if (Input.GetKey(KeyCode.W))
+        {
+            //print(this.transform.forward);
+            tempVector3 = 3 * transform.forward * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            tempVector3 = 3 * -transform.forward * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            tempVector3 = transform.right * Time.deltaTime;
+        }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.RotateAround(transform.position, Vector3.up, -10f * Time.deltaTime);
+            tempVector3 = -transform.right * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.RotateAround(transform.position, Vector3.up, 10f * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.W))
-        {//Moving forwards
-            transform.Rotate(new Vector3(-10f * Time.deltaTime, 0, 0));
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.Rotate(new Vector3(10f * Time.deltaTime, 0, 0));
-        }
+        //TODO Add Rotation
+        //TODO Add Up & Down
+        //TODO Add Speed Adjustment
+
+        transform.position += tempVector3;
     }
 }

@@ -20,8 +20,8 @@ public class CharacterCreatorScript : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Z))
         {
-            //inputField.text += "z";
-            key.DisplayInput(inputField, 'z');
+            inputField.text += "z";
+            //key.DisplayInput(inputField, 'z');
         }
     }
 
