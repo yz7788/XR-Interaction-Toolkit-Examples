@@ -12,11 +12,21 @@ public class CharacterCreatorScript : MonoBehaviour
     private void Awake()
     {
         //do some loops to generate QWERTY
-        GameObject go = Instantiate(PF_Key, new Vector3(0, 0, 0), Quaternion.identity);
-        print(go.name);
-        Key key = go.GetComponent<Key>(); //这个key从哪里取？
-        print(this+ " is not null");
-        key.cc = this;
+        for(int i=0; i<26; i++)
+        {
+            GameObject go = Instantiate(PF_Key, new Vector3(1, i*0.21f, 1), Quaternion.identity);
+            go.transform.SetParent(this.transform);
+            XRKey key = go.GetComponent<XRKey>(); //这个key从哪里取？
+            string s = ""+(char)(i + 97);
+            key.myKey = s;
+            key.gameObject.name = "Key: "+s;
+            print(key.myKey + " " + i);
+            key.characterCreator = this;
+
+            Text t=go.GetComponent<Text>();
+            t.text = s;
+        }
+        
         
         //what if I want to arrange these 26 blocks in some order?
     }
@@ -40,6 +50,6 @@ public class CharacterCreatorScript : MonoBehaviour
     //TODO Handle information from Key here
     public void RegisterInput(string s)
     {
-        //cube a: how to call this function onHoverEnter?
+        inputField.text += s;
     }
 }

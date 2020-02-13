@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class XRKey : MonoBehaviour
 {
-    public CharacterCreatorScript cc;
+    public CharacterCreatorScript characterCreator;
 
-    public string myKey = "test";
+    public string myKey = "1";
 
     //Handle Collision here
     void OnCollisionEnter(Collision collision)
     {
         //Check for User's Input Device
         //if()
-        cc.RegisterInput(myKey);
+        characterCreator.RegisterInput(myKey);
 
         //foreach (ContactPoint contact in collision.contacts)
         //{

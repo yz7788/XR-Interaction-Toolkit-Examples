@@ -21,9 +21,4 @@ public class CollisionDetector : MonoBehaviour
         print(col.gameObject.name + " printing collision");
     }
 
-    void DisplayInput(InputField inputfield, char ch)
-    {
-        inputfield.text += ch;
-        print("inputfield added " + inputfield.text);
-    }
 }
