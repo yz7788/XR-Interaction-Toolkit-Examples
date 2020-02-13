@@ -80,6 +80,11 @@ public class Controller_Audio : MonoBehaviour
         }
     }
 
+    public void AdjustVolume(float f)
+    {
+        print(f);
+        music_source.volume = f;
+    }
     #region Play Audio
     public void PlayMusic(string acname)
     {
