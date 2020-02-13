@@ -3470,6 +3470,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyboardPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1786875281334374, guid: 6332cefa0c3c02049842fbed64b35e5b, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114197039701560264, guid: 6332cefa0c3c02049842fbed64b35e5b,
+        type: 3}
+      propertyPath: m_Text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 114530343568638564, guid: 6332cefa0c3c02049842fbed64b35e5b,
+        type: 3}
+      propertyPath: m_Text
+      value: S
+      objectReference: {fileID: 0}
     - target: {fileID: 224119391041730924, guid: 6332cefa0c3c02049842fbed64b35e5b,
         type: 3}
       propertyPath: m_AnchorMin.y

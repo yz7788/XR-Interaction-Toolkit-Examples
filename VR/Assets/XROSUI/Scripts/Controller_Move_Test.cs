@@ -17,11 +17,11 @@ public class Controller_Move_Test : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             //print(this.transform.forward);
-            tempVector3 = transform.forward * Time.deltaTime;
+            tempVector3 = 3*transform.forward * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            tempVector3 = -transform.forward * Time.deltaTime;
+            tempVector3 = 3*-transform.forward * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
