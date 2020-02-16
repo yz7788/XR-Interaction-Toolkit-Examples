@@ -8,21 +8,36 @@ public class CharacterCreatorScript : MonoBehaviour
     //public Transform key;
     public GameObject PF_Key; //Prefab for a 3D key
     private string inputString;
-
+    public GameObject row0 = null;
+    public GameObject row1 = null;
+    public GameObject row2 = null;
+    public GameObject row3 = null;
+    public GameObject row4 = null;
     private void Awake()
     {
+        GameObject keys = this.transform.GetChild(0).gameObject;
+        row0 = keys.transform.GetChild(0).gameObject;
+        row1 = keys.transform.GetChild(1).gameObject;
+        row2 = keys.transform.GetChild(2).gameObject;
+        row3 = keys.transform.GetChild(3).gameObject;
+        row4 = keys.transform.GetChild(4).gameObject;
         //do some loops to generate QWERTY
-        for(int i=0; i<26; i++)
+        for (int i = 0; i< 11; i++)
+        {
+            GameObject go = Instantiate(PF_Key, new Vector3(1, i * 0.21f, 1), Quaternion.identity);
+            go.transform.SetParent(row0.transform);
+        }
+
+        for (int i=0; i<26; i++)
         {
             GameObject go = Instantiate(PF_Key, new Vector3(1, i*0.21f, 1), Quaternion.identity);
-            go.transform.SetParent(this.transform);
+            go.transform.SetParent(row1.transform);
             XRKey key = go.GetComponent<XRKey>(); //这个key从哪里取？
             string s = ""+(char)(i + 97);
             key.myKey = s;
             key.gameObject.name = "Key: "+s;
             print(key.myKey + " " + i);
             key.characterCreator = this;
-
             Text t=go.GetComponent<Text>();
             t.text = s;
         }

@@ -9,10 +9,11 @@ public class XRKey : MonoBehaviour
     public string myKey = "1";
 
     //Handle Collision here
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
         //Check for User's Input Device
         //if()
+        print("triggered");
         characterCreator.RegisterInput(myKey);
 
         //foreach (ContactPoint contact in collision.contacts)
