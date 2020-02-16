@@ -481,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 8786134308086043992, guid: 32d366059d36f43fda3ec2d938072b57,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8786134308086043992, guid: 32d366059d36f43fda3ec2d938072b57,
         type: 3}
@@ -4861,11 +4861,11 @@ RectTransform:
   m_Father: {fileID: 1709023871}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.25, y: 1.7}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 66.8, y: 66.22}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1332955896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5970,8 +5970,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1583813975}
+  - component: {fileID: 1583813976}
   - component: {fileID: 1583813974}
+  - component: {fileID: 1583813975}
   m_Layer: 0
   m_Name: CharacterCreator
   m_TagString: Untagged
@@ -5998,21 +5999,47 @@ MonoBehaviour:
   row2: {fileID: 0}
   row3: {fileID: 0}
   row4: {fileID: 0}
---- !u!4 &1583813975
-Transform:
+--- !u!223 &1583813975
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583813973}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1583813976
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583813973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.42, y: 0, z: -4.816106}
+  m_LocalPosition: {x: 0, y: 0, z: 66.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1709023871}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.78, y: -8.41}
+  m_SizeDelta: {x: 11.32, y: 3.95}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1589910679
 GameObject:
   m_ObjectHideFlags: 0
@@ -6627,6 +6654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1709023871}
+  - component: {fileID: 1709023872}
   m_Layer: 0
   m_Name: keys
   m_TagString: Untagged
@@ -6634,8 +6662,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1709023871
-Transform:
+--- !u!224 &1709023871
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6650,9 +6678,39 @@ Transform:
   - {fileID: 1592179175}
   - {fileID: 780784334}
   - {fileID: 1589910680}
-  m_Father: {fileID: 1583813975}
+  m_Father: {fileID: 1583813976}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.5, y: 3.32}
+  m_SizeDelta: {x: 36.82, y: 24.52}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1709023872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709023870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &1722201098
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,11 @@ public class CharacterCreatorScript : MonoBehaviour
         {
             GameObject go = Instantiate(PF_Key, new Vector3(1, i * 0.21f, 1), Quaternion.identity);
             go.transform.SetParent(row0.transform);
+            XRKey key = go.GetComponent<XRKey>();
+            string s = "" + (i);
+            key.myKey = s;
+            key.gameObject.name = "Key: " + s;
+            key.characterCreator = this;
         }
 
         for (int i=0; i<26; i++)
