@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RightControllerMove : MonoBehaviour
 {
+    public float speedBooster = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,13 @@ public class RightControllerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float speedModifier = 1;
         Vector3 tempVector3 = Vector3.zero;
+        
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speedModifier = speedBooster;
+        }
         if (Input.GetKey(KeyCode.W))
         {
             //print(this.transform.forward);
@@ -42,6 +49,6 @@ public class RightControllerMove : MonoBehaviour
         {
             tempVector3 += -transform.up * Time.deltaTime;
         }
-        transform.position += tempVector3;
+        transform.position += tempVector3*speedModifier;
     }
 }

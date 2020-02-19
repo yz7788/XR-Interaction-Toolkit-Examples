@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class XRKey : MonoBehaviour
 {
     public CharacterCreatorScript characterCreator;
 
     public string myKey = "1";
-
+    public Text myText;
+    public void Setup(string s, CharacterCreatorScript ccs)
+    {
+        this.myKey = s;
+        this.characterCreator = ccs;
+        this.name = "Key: " + s;
+        myText.text = s;
+    }
     //Handle Collision here
     void OnTriggerEnter(Collider other)
     {
