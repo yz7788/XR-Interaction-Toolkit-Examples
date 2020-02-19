@@ -1242,12 +1242,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69bcbe8a3c723a8459bad61946074109, type: 3}
---- !u!4 &353996226 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4769098102207602864, guid: c91b6479bcc5dc94f8290551ae3e6d76,
-    type: 3}
-  m_PrefabInstance: {fileID: 4769098102525881714}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &368690394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,12 +2704,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!4 &775357100 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4769098102207602864, guid: c91b6479bcc5dc94f8290551ae3e6d76,
-    type: 3}
-  m_PrefabInstance: {fileID: 695084009}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &776277983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2801,11 +2789,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 776277983}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &792027074 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4769098102207602864, guid: c91b6479bcc5dc94f8290551ae3e6d76,
+--- !u!224 &783955208 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7096758254466896863, guid: c91b6479bcc5dc94f8290551ae3e6d76,
     type: 3}
-  m_PrefabInstance: {fileID: 1729341775}
+  m_PrefabInstance: {fileID: 1145377229}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &796479748
 GameObject:
@@ -3285,6 +3273,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859477105}
   m_CullTransparentMesh: 0
+--- !u!224 &860233672 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7096758254466896863, guid: c91b6479bcc5dc94f8290551ae3e6d76,
+    type: 3}
+  m_PrefabInstance: {fileID: 695084009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &872268606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4257412417454173056, guid: ed79eaa9dbed71a46b42588537c577a7,
@@ -4372,13 +4366,13 @@ Transform:
   - {fileID: 454402922}
   - {fileID: 368690395}
   - {fileID: 1484918968}
-  - {fileID: 775357100}
-  - {fileID: 792027074}
-  - {fileID: 1843325962}
+  - {fileID: 860233672}
+  - {fileID: 1687208233}
+  - {fileID: 783955208}
   - {fileID: 730859141}
   - {fileID: 953836447}
   - {fileID: 1164082384}
-  - {fileID: 353996226}
+  - {fileID: 2116961857}
   - {fileID: 1258138856}
   - {fileID: 1441015000}
   - {fileID: 872268606}
@@ -5824,6 +5818,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 898393205}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1687208233 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7096758254466896863, guid: c91b6479bcc5dc94f8290551ae3e6d76,
+    type: 3}
+  m_PrefabInstance: {fileID: 1729341775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1707976571
 GameObject:
   m_ObjectHideFlags: 0
@@ -6413,12 +6413,6 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
---- !u!4 &1843325962 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4769098102207602864, guid: c91b6479bcc5dc94f8290551ae3e6d76,
-    type: 3}
-  m_PrefabInstance: {fileID: 1145377229}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1870525474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7426,6 +7420,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8869558519484475673}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &2116961857 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7096758254466896863, guid: c91b6479bcc5dc94f8290551ae3e6d76,
+    type: 3}
+  m_PrefabInstance: {fileID: 4769098102525881714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2143694267
 GameObject:
   m_ObjectHideFlags: 0
@@ -7701,6 +7701,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!65 &1174435681032161
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8033,6 +8034,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!65 &1544310753573365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8210,6 +8212,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
+  m_RetainTransformParent: 1
 --- !u!54 &1622505853958277
 Rigidbody:
   m_ObjectHideFlags: 0

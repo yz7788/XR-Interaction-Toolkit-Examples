@@ -7073,10 +7073,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: XRRig
       objectReference: {fileID: 0}
+    - target: {fileID: 3317059036423006741, guid: a22c196b0dcf2a84f86471c0eabb9e54,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3317059036423006742, guid: a22c196b0dcf2a84f86471c0eabb9e54,
         type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1707976572}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3317059035678934605, guid: a22c196b0dcf2a84f86471c0eabb9e54, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a22c196b0dcf2a84f86471c0eabb9e54, type: 3}

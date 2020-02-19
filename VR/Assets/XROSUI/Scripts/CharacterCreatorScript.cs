@@ -1,55 +1,88 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI; //create public inputfield 
 public class CharacterCreatorScript : MonoBehaviour
 {
     public InputField inputField;
-    //public Transform key;
-    public GameObject PF_Key; //Prefab for a 3D key
+
+    //Prefab for a 3D key
+    public GameObject PF_Key; 
+
+    //Track the input string
     private string inputString;
 
+    public GameObject head;
+    public GameObject row0 = null;
+    public GameObject row1 = null;
+    public GameObject row2 = null;
+    public GameObject row3 = null;
+    public GameObject row4 = null;
     private void Awake()
     {
-        //do some loops to generate QWERTY
-        for(int i=0; i<26; i++)
+        //These can be assigned in Inspector which is less prone to order changes
+        GameObject keys = this.transform.GetChild(0).gameObject;
+        row0 = keys.transform.GetChild(0).gameObject;
+        row1 = keys.transform.GetChild(1).gameObject;
+        row2 = keys.transform.GetChild(2).gameObject;
+        row3 = keys.transform.GetChild(3).gameObject;
+        row4 = keys.transform.GetChild(4).gameObject;
+
+        for (int i = 0; i < 10; i++)
         {
-            GameObject go = Instantiate(PF_Key, new Vector3(1, i*0.21f, 1), Quaternion.identity);
-            go.transform.SetParent(this.transform);
-            XRKey key = go.GetComponent<XRKey>(); //这个key从哪里取？
-            string s = ""+(char)(i + 97);
-            key.myKey = s;
-            key.gameObject.name = "Key: "+s;
-            print(key.myKey + " " + i);
-            key.characterCreator = this;
-
-            Text t=go.GetComponent<Text>();
-            t.text = s;
+            string s = "" + (i);
+            CreateKey(s, row0, i);
         }
-        
-        
-        //what if I want to arrange these 26 blocks in some order?
+        char[] row1Keys = { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' };
+        for (int i = 0; i < row1Keys.Length; i++)
+        {
+            string s = "" + row1Keys[i];
+            CreateKey(s, row1, i);
+        }
+
+        char[] row2Keys = { 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' };
+        for (int i = 0; i < row2Keys.Length; i++)
+        {
+            string s = "" + row2Keys[i];
+            CreateKey(s, row2, i);
+        }
+
+        char[] row3Keys = { 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
+        for (int i = 0; i < row3Keys.Length; i++)
+        {
+            string s = "" + row3Keys[i];
+            CreateKey(s, row3, i);
+        }
+
+        //space
+        CreateKey(" ", row4, 0);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        this.transform.position = head.transform.position + head.transform.forward * 0.3f;
     }
-
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Z))
         {
             inputField.text += "z";
-            //key.DisplayInput(inputField, 'z');
         }
     }
 
-    //TODO Handle information from Key here
+    //Handle information from Key here
     public void RegisterInput(string s)
     {
         inputField.text += s;
+    }
+
+    private XRKey CreateKey(string s, GameObject parent, int position)
+    {
+        GameObject go = Instantiate(PF_Key, this.transform.position, Quaternion.identity);
+        go.transform.SetParent(parent.transform);
+
+        XRKey key = go.GetComponent<XRKey>();
+        key.Setup(s, this);
+        
+        return key;
     }
 }
