@@ -17,12 +17,17 @@ public class VREquipment : MonoBehaviour
     public GameObject goggleMenu;
 
 
+    float lastHeldTime;
+    public float timeBeforeReturn = 0.5f;
+    public GameObject socket;
+
     void OnEnable()
     {
         m_GrabInteractable = GetComponent<XRGrabInteractable>();
         m_MeshRenderer = GetComponent<MeshRenderer>();
 
-        m_GrabInteractable.onFirstHoverEnter.AddListener(OnHoverEnter);
+        m_GrabInteractable.onFirstHoverEnter.AddListener(onFirstHoverEnter);
+        m_GrabInteractable.onHoverEnter.AddListener(OnHoverEnter);
         m_GrabInteractable.onLastHoverExit.AddListener(OnHoverExit);
         m_GrabInteractable.onSelectEnter.AddListener(OnGrabbed);
         m_GrabInteractable.onSelectExit.AddListener(OnReleased);
@@ -31,7 +36,8 @@ public class VREquipment : MonoBehaviour
 
     private void OnDisable()
     {
-        m_GrabInteractable.onFirstHoverEnter.RemoveListener(OnHoverEnter);
+        m_GrabInteractable.onFirstHoverEnter.RemoveListener(onFirstHoverEnter);
+        m_GrabInteractable.onHoverEnter.RemoveListener(OnHoverEnter);
         m_GrabInteractable.onLastHoverExit.RemoveListener(OnHoverExit);
         m_GrabInteractable.onSelectEnter.RemoveListener(OnGrabbed);
         m_GrabInteractable.onSelectExit.RemoveListener(OnReleased);
@@ -40,7 +46,7 @@ public class VREquipment : MonoBehaviour
     private void OnGrabbed(XRBaseInteractor obj)
     {
         m_MeshRenderer.material.color = m_UnityCyan;
-        print("Grabbed: " + this.name);
+        //print("Grabbed: " + this.name);
         m_Held = true;
         this.transform.SetParent(null);
     }
@@ -59,17 +65,42 @@ public class VREquipment : MonoBehaviour
         }
     }
 
+    void onFirstHoverEnter(XRBaseInteractor obj)
+    {
+        if (!m_Held)
+        {
+            //print("Hover: " + this.name);
+            m_MeshRenderer.material.color = m_UnityMagenta;
+        }
+    }
+
     void OnHoverEnter(XRBaseInteractor obj)
     {
         if (!m_Held)
         {
-            print("Hover: " + this.name);
-            m_MeshRenderer.material.color = m_UnityMagenta;
+            //Vibrate
+            //foreach(XRBaseInteractor hi in this.m_GrabInteractable.hoveringInteractors)
+            //{
+               
+            //}
         }
     }
 
     public virtual void AlternateFunction()
     {
 
+    }
+
+    void Update()
+    {
+        if (m_Held)
+        {
+            lastHeldTime = Time.time;
+        }
+        else if (!m_Held && Time.time > lastHeldTime + timeBeforeReturn)
+        {
+            this.transform.position = socket.transform.position;
+            this.transform.SetParent(socket.transform);
+        }
     }
 }
