@@ -17,18 +17,18 @@ public class MovementControllerRight : MonoBehaviour
         GameObject target= GameObject.Find("LaserSeducer");
 
         if(Input.GetKey(KeyCode.A)){
-            transform.RotateAround(laser.transform.position,Vector3.up,-10f*Time.deltaTime);
+            transform.RotateAround(laser.transform.position,Vector3.up,-30f*Time.deltaTime);
         }
          if(Input.GetKey(KeyCode.D)){
-            transform.RotateAround(laser.transform.position,Vector3.up,10f*Time.deltaTime);
+            transform.RotateAround(laser.transform.position,Vector3.up,30f*Time.deltaTime);
         }
         if(Input.GetKey(KeyCode.W)){//Moving forwards
             // transform.Rotate(new Vector3(-10f*Time.deltaTime,0,0));
-            transform.RotateAround(laser.transform.position,laser.transform.right,-10f*Time.deltaTime);
+            transform.RotateAround(laser.transform.position,laser.transform.right,-30f*Time.deltaTime);
         }
         if(Input.GetKey(KeyCode.S)){
             // transform.Rotate(new Vector3(10f*Time.deltaTime,0,0));
-            transform.RotateAround(laser.transform.position,laser.transform.right,10f*Time.deltaTime);
+            transform.RotateAround(laser.transform.position,laser.transform.right,30f*Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.Q)){
             // print("Q pressed");

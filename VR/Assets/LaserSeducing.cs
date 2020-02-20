@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class LaserSeducing : MonoBehaviour
 {
@@ -10,8 +12,8 @@ public class LaserSeducing : MonoBehaviour
   static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
   static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
 
-  GameObject laser=GameObject.Find("RightBaseController");//Parent node of right hand controller
-  GameObject target= GameObject.Find("LaserSeducer");//The cube supposed to be locked on
+    GameObject laser;
+    GameObject target;
 
   bool m_Held = false;
 
@@ -65,8 +67,9 @@ public class LaserSeducing : MonoBehaviour
     // Start is called before the first frame update
   void Start()
   {
-
-  }
+        laser = GameObject.Find("RightBaseController");//Parent node of right hand controller
+        target = GameObject.Find("LaserSeducer");//The cube supposed to be locked on
+    }
 
     // Update is called once per frame
   void Update()
