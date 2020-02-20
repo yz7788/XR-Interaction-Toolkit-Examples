@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class RightBaseControllerInteraction : MonoBehaviour
 {
   XRGrabInteractable m_GrabInteractable;
   MeshRenderer m_MeshRenderer;
   Vector3 LeftBaseControllerDirection;
-  GameObject leftController=GameObject.Find("LeftBaseController");
-  GameObject laser=GameObject.Find("RightBaseController");
+  GameObject leftController;
+  GameObject laser;
 
   static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
   static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
@@ -37,7 +39,7 @@ public class RightBaseControllerInteraction : MonoBehaviour
   {
       m_MeshRenderer.material.color = m_UnityCyan;
       m_Held = true;
-      this.LeftBaseControllerDirection=leftController.tranform.forward;
+      this.LeftBaseControllerDirection=leftController.transform.forward;
   }
 
   void OnReleased(XRBaseInteractor obj)
@@ -66,7 +68,8 @@ public class RightBaseControllerInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        laser = GameObject.Find("RightBaseController");
+        leftController = GameObject.Find("LeftBaseController");
     }
 
     // Update is called once per frame
@@ -74,7 +77,7 @@ public class RightBaseControllerInteraction : MonoBehaviour
     {
       Vector3 newDirection=leftController.transform.forward;
       Vector3 normalVector=Vector3.Cross(newDirection,LeftBaseControllerDirection);
-      transform.RotateAround(laser.transform.position,NormalVector,Vector3.Angle(LeftBaseControllerDirection,newDirection));
+      transform.RotateAround(laser.transform.position,normalVector,Vector3.Angle(LeftBaseControllerDirection,newDirection));
       this.LeftBaseControllerDirection=newDirection;
     }
 }
