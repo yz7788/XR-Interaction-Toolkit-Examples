@@ -13,8 +13,8 @@ Hanyuan (Cornelius) Xiao, Hong Liu, (Jessie) Jia, (Robert), Shinyee Lin, Tommy K
 ## Approaches
 
 ## Progress Log & Important Dates
-* [01/13/2020 - 02/22/2020](blog/log_02_20_20.md)
-* (**In progress**) [02/23/2020 - 02/29/2020]
+* [01/13/2020 - 02/22/2020](blog/log_02_20_20.html)
+* (**In progress**) [02/23/2020 - 02/29/2020]()
 * [03/01/2020 - 03/07/2020]
 * **03/12/2020 - Midterm Presentation**
 * [03/08/2020 - 03/14/2020]
@@ -36,3 +36,4 @@ Hanyuan (Cornelius) Xiao, Hong Liu, (Jessie) Jia, (Robert), Shinyee Lin, Tommy K
 6. Play.
 
 ## References
+[[1]]() 
