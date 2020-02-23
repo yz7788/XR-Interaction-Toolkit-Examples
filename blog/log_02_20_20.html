@@ -23,8 +23,8 @@
       <nav class="nav-extended grey" role="navigation">
         <div class="nav-wrapper container">
             <div class="row">
-                <div class="col s5 m6 l6"><h5 class="left-align">Weekly Log 1</h5></div>
-                <div class="col s7 m6 l6"><h5 class="right-align">01/13/2020 - 02/22/2020</h5></div>
+                <div class="col s12 m6 l6"><h5 class="left-align">Weekly Log 1</h5></div>
+                <div class="col s12 m6 l6"><h5 class="right-align">01/13/2020 - 02/22/2020</h5></div>
             </div>
         </div>
 
@@ -44,8 +44,11 @@
             <h4>Headline</h4>
             <div class="divider"></div>
             <ul class="browser-default">
+              <!-- ############# HEADLINES START HERE !!! ############# -->
               <li>
-                <h5><i>We developed a ... !</i></h5>
+                <h5><b>[Subsystem 1]</b> The function to track motion and gestures of body (can be extended to head and fingers) is realized by <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a>. See our demo pictures.</h5>
+                <p><div class="container center"><img class="materialboxed" width="50%" src="./misc/log1/log1_img1.jpg"></div></p>
+                <p><div class="container center"><img class="materialboxed" width="50%" src="./misc/log1/log1_img2.jpg"></div></p>
               </li>
             </ul>
 
@@ -70,8 +73,17 @@
                             </div>
                             <div class="col s10 m10 l10">
                                 <ul class="browser-default">
-                                    <li>Researched ready-for-use algorithms for full-body tracking in VR (for example, <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a> and <a href="https://github.com/facebookresearch/detectron2">Detectron 2</a>)</li>
+                                    <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
+                                    <li>Researched ready-for-use algorithms for full-body tracking in VR.
+                                      <ul class="browser-default">
+                                        <li><a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a></li>
+                                        <li><a href="https://github.com/facebookresearch/detectron2">Detectron 2</a></li>
+                                      </ul>
+                                    </li>
                                     <li>Full-body tracking system setup and initial testing</li>
+                                    <li>A flowchart for this subsystem so far. In the flowchart, <i>Deep Learning Network</i> is being tested using OpenPose. Detailed feedback such as realism and accuracy of alignment will be received and reported upon test in <a href="https://unity.com/">Unity</a>.
+                                      <p><div class="container center"><img class="materialboxed" width="50%" src="./misc/log1/log1_img3.jpg"></div></p>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -101,7 +113,17 @@
                               </div>
                               <div class="col s10 m10 l10">
                                   <ul class="browser-default">
-                                    <li>Multi-camera alignment and extrinsic matrices extraction</li>
+                                    <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
+                                    <li>Multi-camera alignment and extrinsic matrices extraction. So far, we have got a checkerboard for camera calibration. Researched available softwares or open-source algorithms are available.
+                                      <ul class="browser-default">
+                                        <li><a href="https://www.agisoft.com/">Agisoft</a> (commercial software, complete pipeline, <b>NOT</b> free)</li>
+                                        <li><a href="http://www.vision.caltech.edu/bouguetj/calib_doc/">Camera Calibration Toolbox for Matlab</a> (accuracy is not as high as others, free)</li>
+                                        <li><a href="https://github.com/skhadem/3D-BoundingBox">Pytorch 3D</a> (new, machine learning method, free)</li>
+                                      </ul>
+                                      <p><div class="container center"><img class="materialboxed" width="50%" src="./misc/log1/log1_img4.jpg"></div></p>
+                                    </li>
+                                    <li>Construction of 3D skeleton (joints) by <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a> and quality testing.</li>
+                                    <li>Importation of 3D skeleton to <a href="https://unity.com/">Unity</a> project.</li>
                                   </ul>
                               </div>
                           </div>
