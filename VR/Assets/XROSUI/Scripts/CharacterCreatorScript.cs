@@ -58,14 +58,14 @@ public class CharacterCreatorScript : MonoBehaviour
 
     private void Start()
     {
-        this.transform.position = head.transform.position + head.transform.forward * 0.3f;
+        //this.transform.position = head.transform.position + head.transform.forward * 0.3f;
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Z))
+        if (Input.GetKeyUp(KeyCode.Backspace))
         {
-            inputField.text += "z";
+            inputField.text = "";
         }
     }
 
