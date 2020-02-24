@@ -1,9 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI; //create public inputfield 
-public class CharacterCreatorScript : KeyboardController
+[RequireComponent(typeof(LineRenderer))]
+public class SeparateKeyboardCharacterCreator: KeyboardController
 {
+    [Range(0, 50)]
+    public int segments = 50;
+    [Range(0, 5)]
+    public float xradius = 5;
+    [Range(0, 5)]
+    public float yradius = 5;
+    LineRenderer line;
+
     //Prefab for a 3D key
-    public GameObject PF_Key; 
+    public GameObject PF_Key;
+
+    //Track the input string
+    private string inputString;
+
     public GameObject head;
     public GameObject row0 = null;
     public GameObject row1 = null;
@@ -12,6 +25,8 @@ public class CharacterCreatorScript : KeyboardController
     public GameObject row4 = null;
     private void Awake()
     {
+
+        
         //These can be assigned in Inspector which is less prone to order changes
         GameObject keys = this.transform.GetChild(0).gameObject;
         row0 = keys.transform.GetChild(0).gameObject;
@@ -52,11 +67,20 @@ public class CharacterCreatorScript : KeyboardController
 
     private void Start()
     {
+        line = gameObject.GetComponent<LineRenderer>();
+
+        line.SetVertexCount(segments + 1);
+        line.useWorldSpace = false;
+        CreatePoints();
         //this.transform.position = head.transform.position + head.transform.forward * 0.3f;
     }
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.Backspace))
+        {
+            inputField.text = "";
+        }
     }
 
     //Handle information from Key here
@@ -74,5 +98,24 @@ public class CharacterCreatorScript : KeyboardController
         key.Setup(s, this);
         
         return key;
+    }
+
+    void CreatePoints()
+    {
+        float x;
+        float y;
+        float z;
+
+        float angle = 20f;
+
+        for (int i = 0; i < (segments + 1); i++)
+        {
+            x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
+            y = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
+
+            line.SetPosition(i, new Vector3(x, y, 0));
+
+            angle += (360f / segments);
+        }
     }
 }

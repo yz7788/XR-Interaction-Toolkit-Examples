@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 public class XRKey : MonoBehaviour
 {
-    public CharacterCreatorScript characterCreator;
+    public KeyboardController keyboardController;
 
     public string myKey = "1";
     public Text myText;
-    public void Setup(string s, CharacterCreatorScript ccs)
+    public void Setup(string s, KeyboardController kc)
     {
         this.myKey = s;
-        this.characterCreator = ccs;
+        this.keyboardController = kc;
         this.name = "Key: " + s;
         myText.text = s;
     }
@@ -21,7 +21,7 @@ public class XRKey : MonoBehaviour
         //Check for User's Input Device
         //if()
         print("triggered");
-        characterCreator.RegisterInput(myKey);
+        keyboardController.RegisterInput(myKey);
 
         //foreach (ContactPoint contact in collision.contacts)
         //{
