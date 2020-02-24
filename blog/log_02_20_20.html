@@ -50,6 +50,12 @@
                 <p><div class="container center"><img class="materialboxed" width="50%" src="./misc/log1/log1_img1.jpg"></div></p>
                 <p><div class="container center"><img class="materialboxed" width="50%" src="./misc/log1/log1_img2.jpg"></div></p>
               </li>
+
+              <li>
+                <h5><b>[Subsystem 2]</b> The prefab which enables controller's laser module adjustable to different directions. Direction can be changed by interacting(grab) with right hand controller or pointing and grabbing a specific object in the scene, in the case, the laser will lock on the object which user moves their controller. The demo video will be updated on Feb 24, 2020.</h5>
+                <p><div class="container center"></div></p>
+                <p><div class="container center"></div></p>
+              </li>
             </ul>
 
           </div>
@@ -84,6 +90,37 @@
                                     <li>A flowchart for this subsystem so far. In the flowchart, <i>Deep Learning Network</i> is being tested using OpenPose. Detailed feedback such as realism and accuracy of alignment will be received and reported upon test in <a href="https://unity.com/">Unity</a>.
                                       <p><div class="container center"><img class="materialboxed" width="50%" src="./misc/log1/log1_img3.jpg"></div></p>
                                     </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s12 m12 l12">
+                  <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Robert(Feiyu) Miao</span>
+                        <div class="divider"></div>
+                        <br>
+                        <div class="row valign-wrapper">
+                            <div class="col s2 m2 l2">
+                                <img src="misc/avatar_feiyu_miao.jpg" alt="" class="circle responsive-img" width="70%">
+                            </div>
+                            <div class="col s10 m10 l10">
+                                <ul class="browser-default">
+                                    <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
+                                    <li>Learning and refreshing the knowledge of unity and C#.</li>
+                                    <li>Learning and deploy the VR environment(VIVE).</li>
+                                    <li>Research the different approach to implement the functionality. 
+                                      <ul class="browser-default">
+                                        <li>By having a child node implementing laser component. (Failed: not able to listen to user interaction events) </li>
+                                        <li>By having a parent node wrapping a controller node. (Failed: not able to maintain moving direction of controller) </li>
+                                        <li>By inheriting the laser class from package. (Failed: not able to access necessary private variables and methods) </li>
+                                        <li>By implementing a new laser class. (Failed: ditto) </li>
+                                        <li>By changing the transform of laser class. (Succeed) </li>
+                                      </ul>
+                                    </li>
+                                    <li> Implementing the prefab which enable the functionality of adjustable laser.</li>
                                 </ul>
                             </div>
                         </div>
@@ -130,7 +167,36 @@
                       </div>
                     </div>
                 </div>
-  
+
+                <div class="col s12 m12 l12">
+                    <div class="card">
+                      <div class="card-content">
+                          <span class="card-title">Robert(Feiyu) Miao</span>
+                          <div class="divider"></div>
+                          <br>
+                          <div class="row valign-wrapper">
+                              <div class="col s2 m2 l2">
+                                  <img src="misc/avatar_feiyu_miao.jpg" alt="" class="circle responsive-img" width="70%">
+                              </div>
+                              <div class="col s10 m10 l10">
+                                  <ul class="browser-default">
+                                    <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
+                                    <li>Migrating the prefab to the official one, which will enable other developer to use it in their applications.</li>
+                                    <li>Explorering new features which may help users interact with system more conveniently.
+                                      <ul class="browser-default">
+                                        <li>Laser length changing by interaction of 2 controller(grabbing).</li>
+                                        <li>Laser position offsets, which may make pointing at corners much easier.</li>
+                                        <li>More to be considered and discussed.</li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+
+
             </div>
           </div>
         </div>
