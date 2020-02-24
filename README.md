@@ -2,7 +2,7 @@
 ## Team
 **Team Leader**: Powen Yao, **Project Manager**: (Sophie)
 
-Hanyuan (Cornelius) Xiao, Hong Liu, (Jessie) Jia, (Robert), Shinyee Lin, Tommy Kim
+Hanyuan (Cornelius) Xiao, Hong Liu, (Jessie) Jia, (Robert), Shinyee Lin, Hyuck Ju (Tommy) Kim
 
 ## Motivation
 
