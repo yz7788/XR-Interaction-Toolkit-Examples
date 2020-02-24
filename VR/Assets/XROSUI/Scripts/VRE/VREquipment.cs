@@ -13,6 +13,7 @@ public class VREquipment : MonoBehaviour
     protected bool m_Held = false;
 
     public GameObject mainMenu;
+    public GameObject settingMenu;
     public GameObject audioMenu;
     public GameObject goggleMenu;
 

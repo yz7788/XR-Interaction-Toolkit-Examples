@@ -12,6 +12,8 @@ public class VRGoggle : VREquipment
     {
         print(this.name);
         mainMenu.SetActive(false);
+        settingMenu.SetActive(false);
+        audioMenu.SetActive(false);
         goggleMenu.SetActive(true);
     }
 }

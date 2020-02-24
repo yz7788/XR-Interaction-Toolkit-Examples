@@ -16,6 +16,8 @@ public class VRHeadphone : VREquipment
     {
         print(this.name);
         mainMenu.SetActive(false);
+        settingMenu.SetActive(false);
+        goggleMenu.SetActive(false);
         audioMenu.SetActive(true);
     }
  }
