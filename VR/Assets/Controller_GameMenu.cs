@@ -5,6 +5,7 @@ public class Controller_GameMenu : MonoBehaviour
 {
     public GameObject XRRig;
 
+    public GameObject UICanvas;
     public GameObject Menu_General;
     public GameObject Menu_Setting;
     public GameObject Menu_Audio;
@@ -16,6 +17,8 @@ public class Controller_GameMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.UICanvas.GetComponent<Canvas>().worldCamera = XRRig.GetComponent<XRRig_XROS>().WorldCamera;
+        //this.Menu_Audio.GetComponent<>
         this.transform.position = XRRig.transform.position + XRRig.transform.forward * 2.5f;
         this.transform.LookAt(XRRig.transform);
         this.transform.Rotate(Vector3.up, 180);
@@ -80,6 +83,8 @@ public class Controller_GameMenu : MonoBehaviour
         {
             OpenMenu("Menu_Visual");
         }
-
+        this.transform.position = XRRig.transform.position + XRRig.transform.forward * 2.5f;
+        this.transform.LookAt(XRRig.transform);
+        this.transform.Rotate(Vector3.up, 180);
     }
 }
