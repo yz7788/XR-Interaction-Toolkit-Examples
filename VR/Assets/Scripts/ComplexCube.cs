@@ -38,7 +38,6 @@ public class ComplexCube : MonoBehaviour
     {
         m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
-
     }
     
     void OnReleased(XRBaseInteractor obj)
