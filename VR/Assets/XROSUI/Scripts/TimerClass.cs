@@ -1,37 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TimerClass : MonoBehaviour
-{    
+{
     float startTime;
     float currentTime;
 
- 
- public Text timerText;
-bool timerStarted = false;
+    public Text Text_Timer;
+    bool btimerStarted = false;
     // Start is called before the first frame update
     void Start()
     {
-        timerText = this.GetComponent<Text>();
+        Text_Timer = this.GetComponent<Text>();
         //SetTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timerStarted)
+        if (btimerStarted)
         {
-        currentTime += Time.deltaTime;
-        timerText.text = ""+currentTime;
-
+            currentTime += Time.deltaTime;
+            Text_Timer.text = "" + currentTime;
         }
     }
     public void SetTimer()
     {
-        timerStarted = true;
+        btimerStarted = true;
         startTime = Time.time;
-        currentTime =  startTime;
+        currentTime = startTime;
     }
 }
