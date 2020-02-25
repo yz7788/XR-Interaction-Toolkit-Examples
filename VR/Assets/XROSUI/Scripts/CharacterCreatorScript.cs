@@ -57,6 +57,10 @@ public class CharacterCreatorScript : KeyboardController
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.F5))
+        {
+            inputField.text = "";
+        }
     }
 
     //Handle information from Key here
