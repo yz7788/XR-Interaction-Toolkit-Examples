@@ -7,11 +7,15 @@ public class TimerClass : MonoBehaviour
     float currentTime;
 
     public Text Text_Timer;
+    public Button Button_Timer;
+    public Text Text_Button_Timer;
     bool btimerStarted = false;
     // Start is called before the first frame update
     void Start()
     {
-        Text_Timer = this.GetComponent<Text>();
+        //Text_Timer = this.GetComponent<Text>();
+        Text_Button_Timer.text = "Start";
+        Button_Timer.onClick.AddListener(SetTimer);
         //SetTimer();
     }
 
@@ -21,13 +25,13 @@ public class TimerClass : MonoBehaviour
         if (btimerStarted)
         {
             currentTime += Time.deltaTime;
-            Text_Timer.text = "" + currentTime;
+            Text_Timer.text = currentTime.ToString("0.0");
         }
     }
     public void SetTimer()
     {
         btimerStarted = true;
-        startTime = Time.time;
+        startTime = 0;
         currentTime = startTime;
     }
 }
