@@ -16,6 +16,7 @@ public class TimerClass : MonoBehaviour
         //Text_Timer = this.GetComponent<Text>();
         Text_Button_Timer.text = "Start";
         Button_Timer.onClick.AddListener(SetTimer);
+        //Button_Timer.onClick.AddListener(StopTimer);
         //SetTimer();
     }
 
@@ -30,8 +31,13 @@ public class TimerClass : MonoBehaviour
     }
     public void SetTimer()
     {
-        btimerStarted = true;
-        startTime = 0;
-        currentTime = startTime;
+        if (!btimerStarted)
+        {
+            btimerStarted = true;
+            startTime = 0;
+            currentTime = startTime;
+        }
+
     }
+
 }

@@ -4,8 +4,10 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 {
     public GameObject system;
     public int segments = 10;
-    public float xradius = 0.01f;
-    public float yradius = 0.01f;
+    public float xradius;
+    public float yradius;
+    public float smallXradius; //radius for first and last rows of keyboard
+    public float smallYradius;
     //Prefab for a 3D key
     public GameObject PF_Key;
 
@@ -42,15 +44,16 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     void CreatePoints()
     {
-        CreateLine(-0.2f, 0.3f +2f, -8f, -20f, "qwert");
-        CreateLine(0.2f, 0.3f + 2f, -8f, 22f, "yuiop");
-        CreateLine(-0.2f, 0.2f+2f, -8f, -20f, "asdfg");
-        CreateLine(0.2f, 0.2f + 2f, -8f,+22f, "hjkl;");
-        CreateLine(-0.2f, 0.1f + 2f, -8f,-20f, "zxcv");
-        CreateLine(0.2f, 0.1f + 2f, -8f,22f, "bnm,");
+        CreateCurvedLine(smallXradius, smallYradius, -0.2f, 0.3f + 2f, -0.05f + -8f, -20f, "qwert");
+        CreateCurvedLine(smallXradius, smallYradius, 0.2f, 0.3f + 2f, -0.05f + -8f, 22f, "yuiop");
+        CreateCurvedLine(xradius, yradius,-0.2f, 0.2f+2f, -8f, -20f, "asdfg");
+        CreateCurvedLine(xradius, yradius, 0.2f, 0.2f + 2f, -8f,+22f, "hjkl;");
+        CreateCurvedLine(smallXradius, smallYradius, -0.2f, 0.1f + 2f, -0.05f + -8f, -20f, "zxcv");
+        CreateCurvedLine(smallXradius, smallYradius, 0.2f, 0.1f + 2f, -0.05f + -8f, 22f, "bnm,");
     }
 
-    void CreateLine(float offsetX, float offsetY, float offsetZ, float angleOffset,string letters)
+
+    void CreateCurvedLine(float xradius, float yradius, float offsetX, float offsetY, float offsetZ, float angleOffset,string letters)
     {
         float x;
         float z;
@@ -60,6 +63,7 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         {
             x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
             z = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
+            print("x, y, z: " + (x + offsetX) + " " + offsetY + " " + (z + offsetZ));
             GameObject go = Instantiate(PF_Key, new Vector3(x + offsetX, offsetY, z + offsetZ), new Quaternion(0, 0, 0, 0)); ;
             go.transform.SetParent(this.transform);
             XRKey key = go.GetComponent<XRKey>();
