@@ -20,6 +20,11 @@ public class KeyboardController : MonoBehaviour
 
     public void RegisterInput(string s)
     {
+        int length = inputField.text.Length;
+        if (length >=18)
+        {
+            inputField.text = inputField.text.Substring(1, length-1);
+        }
         inputField.text += s;
     }
 }

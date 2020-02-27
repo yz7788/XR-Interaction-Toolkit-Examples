@@ -11,7 +11,6 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     private void Awake()
     {
-
     }
 
     private void Start()
@@ -40,12 +39,12 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     void CreatePoints()
     {
-        CreateLine(0, 0.2f, -5f, "qwert");
-        CreateLine(1f, 0.2f, -5f, "yuiop");
-        CreateLine(0, 0.1f, -5f, "asdfg");
-        CreateLine(1f, 0.1f, -5f, "hjkl;");
-        CreateLine(0, 0f, -5f, "zxcv");
-        CreateLine(1f, 0f, -5f, "bnm,");
+        CreateLine(-0.25f, 0.3f +2f, -8f, "qwert");
+        CreateLine(0.25f, 0.3f + 2f, -8f, "yuiop");
+        CreateLine(-0.25f, 0.2f+2f, -8f, "asdfg");
+        CreateLine(0.25f, 0.2f + 2f, -8f, "hjkl;");
+        CreateLine(-0.25f, 0.1f + 2f, -8f, "zxcv");
+        CreateLine(0.25f, 0.1f + 2f, -8f, "bnm,");
     }
 
     void CreateLine(float offsetX, float offsetY, float offsetZ, string letters)
@@ -53,13 +52,13 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         float x;
         float z;
 
-        float angle = 300f - letters.Length * 4f;
+        float angle = 300f - letters.Length * 2f;
         float tempAngle = angle;
         for (int i = 0; i < (letters.Length); i++)
         {
             x = Mathf.Sin(Mathf.Deg2Rad * tempAngle) * xradius;
             z = Mathf.Cos(Mathf.Deg2Rad * tempAngle) * yradius;
-            GameObject go = Instantiate(PF_Key, new Vector3(x + offsetX, offsetY, z + offsetZ), Quaternion.identity);
+            GameObject go = Instantiate(PF_Key, new Vector3(x + offsetX, offsetY, z + offsetZ), new Quaternion(0, 0, 0, 0)); ;
             go.transform.SetParent(this.transform);
             XRKey key = go.GetComponent<XRKey>();
             key.Setup("" + letters[i], this);

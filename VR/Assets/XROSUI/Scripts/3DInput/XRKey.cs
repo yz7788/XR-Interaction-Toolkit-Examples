@@ -18,16 +18,8 @@ public class XRKey : MonoBehaviour
     //Handle Collision here
     void OnTriggerEnter(Collider other)
     {
-        //Check for User's Input Device
-        //if()
         print("triggered");
         keyboardController.RegisterInput(myKey);
 
-        //foreach (ContactPoint contact in collision.contacts)
-        //{
-        //    Debug.DrawRay(contact.point, contact.normal, Color.white);
-        //}
-        //if (collision.relativeVelocity.magnitude > 2)
-        //    audioSource.Play();
     }
 }
