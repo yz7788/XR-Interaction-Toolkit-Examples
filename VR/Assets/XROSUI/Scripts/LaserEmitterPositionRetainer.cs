@@ -44,10 +44,18 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     {
         m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
-        this.priorDirection=this.rightBaseController.transform.forward;
+        // this.priorDirection=this.rightBaseController.transform.forward;
+        this.priorDirection=(this.rightBaseController.transform.position-this.transform.position).normalized;
         // InvokeRepeating("positionRetainer",0,0.005f);//Works
     }
     
+    void onGrabingObject(){
+        GameObject LeftLaserEmitter=GameObject.Find("LeftLaserEmitter");
+        GameObject LeftBaseController=GameObject.Find("LeftBaseController");
+        priorDirection=LeftLaserEmitter.transform.forward;
+        LeftLaserEmitter.transform.forward=LeftBaseController.transform.forward;
+    }
+
     void OnReleased(XRBaseInteractor obj)
     {
         m_MeshRenderer.material.color = Color.white;
@@ -79,7 +87,7 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
             // print("grabbing " + Time.time);
             transform.position=leftBaseController.transform.position + leftBaseController.transform.forward*0.06f;
 
-            Vector3 newDirection=rightBaseController.transform.forward;
+            Vector3 newDirection=(rightBaseController.transform.position-this.transform.position).normalized;
             Vector3 normalVector=Vector3.Cross(newDirection,this.priorDirection);
             transform.RotateAround(transform.position,normalVector,-Vector3.Angle(priorDirection,newDirection));
             priorDirection=newDirection;
