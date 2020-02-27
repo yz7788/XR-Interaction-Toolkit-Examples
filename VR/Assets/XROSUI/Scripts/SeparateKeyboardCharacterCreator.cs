@@ -42,12 +42,12 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     void CreatePoints()
     {
-        CreateLine(-0.25f, 0.3f +2f, -8f, -20f, "qwert");
-        CreateLine(0.25f, 0.3f + 2f, -8f, 22f, "yuiop");
-        CreateLine(-0.25f, 0.2f+2f, -8f, -20f, "asdfg");
-        CreateLine(0.25f, 0.2f + 2f, -8f,+22f, "hjkl;");
-        CreateLine(-0.25f, 0.1f + 2f, -8f,-20f, "zxcv");
-        CreateLine(0.25f, 0.1f + 2f, -8f,22f, "bnm,");
+        CreateLine(-0.2f, 0.3f +2f, -8f, -20f, "qwert");
+        CreateLine(0.2f, 0.3f + 2f, -8f, 22f, "yuiop");
+        CreateLine(-0.2f, 0.2f+2f, -8f, -20f, "asdfg");
+        CreateLine(0.2f, 0.2f + 2f, -8f,+22f, "hjkl;");
+        CreateLine(-0.2f, 0.1f + 2f, -8f,-20f, "zxcv");
+        CreateLine(0.2f, 0.1f + 2f, -8f,22f, "bnm,");
     }
 
     void CreateLine(float offsetX, float offsetY, float offsetZ, float angleOffset,string letters)
