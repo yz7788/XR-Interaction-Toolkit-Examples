@@ -12,8 +12,10 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     
     GameObject leftBaseController;
     GameObject rightBaseController;
-
     Vector3 priorDirection;
+
+    Vector3 normalVector;
+    float angle;
 
     static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
     static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
@@ -49,11 +51,15 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
         // InvokeRepeating("positionRetainer",0,0.005f);//Works
     }
     
-    void onGrabingObject(){
-        GameObject LeftLaserEmitter=GameObject.Find("LeftLaserEmitter");
-        GameObject LeftBaseController=GameObject.Find("LeftBaseController");
-        priorDirection=LeftLaserEmitter.transform.forward;
-        LeftLaserEmitter.transform.forward=LeftBaseController.transform.forward;
+    public void onGrabingObject(){
+        this.angle = Vector3.Angle(leftBaseController.transform.forward, this.transform.forward);
+        this.normalVector = Vector3.Cross(leftBaseController.transform.forward, this.transform.forward);
+        this.transform.forward=leftBaseController.transform.forward;
+    }
+
+    public void onReleasingObject()
+    {
+        this.transform.RotateAround(this.transform.position, normalVector, angle);
     }
 
     void OnReleased(XRBaseInteractor obj)
@@ -98,7 +104,7 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     {
         this.leftBaseController=GameObject.Find("LeftBaseController");
         this.rightBaseController=GameObject.Find("RightBaseController");
-        
+
     }
 
     // Update is called once per frame
