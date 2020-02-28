@@ -12,8 +12,10 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     
     GameObject leftBaseController;
     GameObject rightBaseController;
-
     Vector3 priorDirection;
+
+    Vector3 normalVector;
+    float angle;
 
     static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
     static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
@@ -44,10 +46,22 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     {
         m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
-        this.priorDirection=this.rightBaseController.transform.forward;
+        // this.priorDirection=this.rightBaseController.transform.forward;
+        this.priorDirection=(this.rightBaseController.transform.position-this.transform.position).normalized;
         // InvokeRepeating("positionRetainer",0,0.005f);//Works
     }
     
+    public void onGrabingObject(){
+        this.angle = Vector3.Angle(leftBaseController.transform.forward, this.transform.forward);
+        this.normalVector = Vector3.Cross(leftBaseController.transform.forward, this.transform.forward);
+        this.transform.forward=leftBaseController.transform.forward;
+    }
+
+    public void onReleasingObject()
+    {
+        this.transform.RotateAround(this.transform.position, normalVector, angle);
+    }
+
     void OnReleased(XRBaseInteractor obj)
     {
         m_MeshRenderer.material.color = Color.white;
@@ -79,7 +93,7 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
             // print("grabbing " + Time.time);
             transform.position=leftBaseController.transform.position + leftBaseController.transform.forward*0.06f;
 
-            Vector3 newDirection=rightBaseController.transform.forward;
+            Vector3 newDirection=(rightBaseController.transform.position-this.transform.position).normalized;
             Vector3 normalVector=Vector3.Cross(newDirection,this.priorDirection);
             transform.RotateAround(transform.position,normalVector,-Vector3.Angle(priorDirection,newDirection));
             priorDirection=newDirection;
@@ -90,7 +104,7 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     {
         this.leftBaseController=GameObject.Find("LeftBaseController");
         this.rightBaseController=GameObject.Find("RightBaseController");
-        
+
     }
 
     // Update is called once per frame
