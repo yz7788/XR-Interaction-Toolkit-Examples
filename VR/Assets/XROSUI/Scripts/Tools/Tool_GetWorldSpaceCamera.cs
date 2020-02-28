@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Canvas))]
 public class Tool_GetWorldSpaceCamera : MonoBehaviour
 {
     public Canvas Canvas;
@@ -20,7 +21,6 @@ public class Tool_GetWorldSpaceCamera : MonoBehaviour
             Canvas = this.GetComponent<Canvas>();
         }
         Canvas.worldCamera = Camera.main;
-
     }
 
     // Update is called once per frame

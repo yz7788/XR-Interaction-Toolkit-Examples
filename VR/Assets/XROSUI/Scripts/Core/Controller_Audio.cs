@@ -8,6 +8,7 @@ using System.Collections.Generic;
 //Supported Audio Formats
 //https://docs.unity3d.com/Manual/AudioFiles.html
 
+public enum Audio_Type { master, voice, music, sfx }
 
 //Design Note:
 //a_source is used for basic system UI sound effects (such as error)
@@ -25,6 +26,7 @@ public class Controller_Audio : MonoBehaviour
     [Tooltip("Drag a GO_AudioSource Prefab to be used for all audio effects, through ObjectPooling")]
     public GO_AudioSource PF_AudioSource;
 
+    //public float currentVolume;
     //Tracks the different clips we have loaded
     Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
 
@@ -80,6 +82,7 @@ public class Controller_Audio : MonoBehaviour
         }
     }
 
+    /*
     public void AdjustVolume_Master(float f)
     {
         music_source.volume = f;
@@ -95,6 +98,7 @@ public class Controller_Audio : MonoBehaviour
     {
         music_source.volume = f;
     }
+    */
 
     #region Play Audio
     public void PlayMusic(string acname)
@@ -220,5 +224,63 @@ public class Controller_Audio : MonoBehaviour
     {
         Setting = saveData.audioSetting;
     }
-    #endregion
-}
+
+    public void AdjustVolume(float f, Audio_Type type)
+    {
+        
+        switch (type)
+        {
+            //TODO fix different type
+
+            case Audio_Type.master:
+                f += music_source.volume;
+                break;
+            case Audio_Type.music:
+                f += music_source.volume;
+                break;
+            case Audio_Type.voice:
+                f += music_source.volume;
+                break;
+            case Audio_Type.sfx:
+                f += music_source.volume;
+                break;
+            default:
+                break;
+        };
+        print("New Volume: " + f);
+        SetVolume(f, type);
+
+    }
+    public void SetVolume(float f, Audio_Type type)
+    {
+        if (f > 1)
+        {
+            f = 1;
+        }
+        else if (f < 0)
+        {
+            f = 0;
+        }
+
+        switch (type)
+        {
+            //TODO
+            case Audio_Type.master:
+                music_source.volume = f;
+                break;
+            case Audio_Type.music:
+                music_source.volume = f;
+                break;
+            case Audio_Type.voice:
+                music_source.volume = f;
+                break;
+            case Audio_Type.sfx:
+                music_source.volume = f;
+                break;
+            default:
+                break;
+
+        }
+    }
+        #endregion
+    }

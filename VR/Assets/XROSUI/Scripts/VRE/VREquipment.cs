@@ -92,6 +92,11 @@ public class VREquipment : MonoBehaviour
 
     }
 
+    public virtual void HandleGesture(ENUM_XROS_Gesture gesture)
+    {
+
+    }
+
     void Update()
     {
         if (m_Held)
