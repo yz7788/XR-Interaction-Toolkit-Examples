@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// This class is for Dev tools. Right now only consists of Dev Log feature
 /// </summary>
-    public delegate void EventHandler_NewLog(string logMessage);
+public delegate void EventHandler_NewLog(string logMessage);
 
 public static class Dev
 {

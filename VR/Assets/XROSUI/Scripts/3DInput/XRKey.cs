@@ -18,8 +18,9 @@ public class XRKey : MonoBehaviour
     //Handle Collision here
     void OnTriggerEnter(Collider other)
     {
-        print("triggered");
+        //print("triggered");
         keyboardController.RegisterInput(myKey);
 
+        XROSInput.AddInput(myKey);
     }
 }

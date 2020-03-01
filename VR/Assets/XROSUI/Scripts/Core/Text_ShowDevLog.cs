@@ -6,7 +6,7 @@ using TMPro;
 public class Text_ShowDevLog : MonoBehaviour
 {
     string compiledMessages = "";
-    List<string> logMessages = new List<string>();
+    //List<string> logMessages = new List<string>();
     public TMP_Text text;
 
     public void Awake()
@@ -36,7 +36,7 @@ public class Text_ShowDevLog : MonoBehaviour
 
     public void CompileMessage(string s)
     {
-        logMessages.Add(s);
+        //logMessages.Add(s);
 
         compiledMessages = "\n" + s + compiledMessages;
         text.text = compiledMessages;

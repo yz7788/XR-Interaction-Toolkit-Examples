@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI; //create public inputfield 
+
 public class SeparateKeyboardCharacterCreator: KeyboardController
 {
+
     public GameObject system;
     public int segments = 10;
     public float xradius = 0.01f;
@@ -9,14 +11,24 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     //Prefab for a 3D key
     public GameObject PF_Key;
 
-
+    public float startingZ = 0f;
+    public float startingY = 0f;
     private void Awake()
     {
+        CreatePoints();
+        GameObject go = CreateKey(-0.2f, -0.2f, 0, " ");
+        Vector3 scale = go.transform.localScale;
+        scale.x = 3 * scale.x;
+        go.transform.localScale =  scale;
+
+        go = CreateKey(0.2f, -0.2f, 0, " ");
+        scale = go.transform.localScale;
+        scale.x = 3 * scale.x;
+        go.transform.localScale = scale;
     }
 
     private void Start()
     {
-        CreatePoints();
     }
     // Update is called once per frame
     void Update()
@@ -25,8 +37,6 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         {
             inputField.text = "";
         }
-        
-
     }
 
     private XRKey CreateKey(string s, GameObject parent, int position)
@@ -36,18 +46,18 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
         XRKey key = go.GetComponent<XRKey>();
         key.Setup(s, this);
-        
+
         return key;
     }
 
     void CreatePoints()
     {
-        CreateLine(-0.2f, 0.3f +2f, -8f, -20f, "qwert");
-        CreateLine(0.2f, 0.3f + 2f, -8f, 22f, "yuiop");
-        CreateLine(-0.2f, 0.2f+2f, -8f, -20f, "asdfg");
-        CreateLine(0.2f, 0.2f + 2f, -8f,+22f, "hjkl;");
-        CreateLine(-0.2f, 0.1f + 2f, -8f,-20f, "zxcv");
-        CreateLine(0.2f, 0.1f + 2f, -8f,22f, "bnm,");
+        CreateLine(-0.2f, 0.1f +startingY, startingZ, -20f, "qwert");
+        CreateLine(0.2f, 0.1f + startingY, startingZ, 22f, "yuiop");
+        CreateLine(-0.2f, 0f+ startingY, startingZ, -20f, "asdfg");
+        CreateLine(0.2f, 0f + startingY, startingZ, +22f, "hjkl;");
+        CreateLine(-0.2f, -0.1f + startingY, startingZ, -20f, "zxcv");
+        CreateLine(0.2f, -0.1f + startingY, startingZ, 22f, "bnm,");
     }
 
     void CreateLine(float offsetX, float offsetY, float offsetZ, float angleOffset,string letters)
@@ -60,12 +70,24 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         {
             x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
             z = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
-            GameObject go = Instantiate(PF_Key, new Vector3(x + offsetX, offsetY, z + offsetZ), new Quaternion(0, 0, 0, 0)); ;
-            go.transform.SetParent(this.transform);
-            XRKey key = go.GetComponent<XRKey>();
-            key.Setup("" + letters[i], this);
+            CreateKey(x + offsetX, offsetY, z + offsetZ, "" + letters[i]);
+            //GameObject go = Instantiate(PF_Key, new Vector3(x + offsetX, offsetY, z + offsetZ), new Quaternion(0, 0, 0, 0)); ;
+            //go.transform.SetParent(this.transform);
+            //XRKey key = go.GetComponent<XRKey>();
+            //key.Setup("" + letters[i], this);
             //key.transform.LookAt(system.transform);
             angle += (180f / (letters.Length)) % 360;
         }
     }
+
+    GameObject CreateKey(float x, float y, float z, string s)
+    {
+        GameObject go = Instantiate(PF_Key, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0)); ;
+        go.transform.SetParent(this.transform);
+        XRKey key = go.GetComponent<XRKey>();
+        key.Setup(s, this);
+
+        return go;
+    }
 }
+

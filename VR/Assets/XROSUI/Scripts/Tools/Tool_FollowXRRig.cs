@@ -29,7 +29,6 @@ public class Tool_FollowXRRig : MonoBehaviour
 
     void FollowCamera()
     {
-        this.transform.position = GO_XRRigCamera.transform.position + new Vector3(offset_x, offset_y, offset_z);
-        
+        this.transform.position = GO_XRRigCamera.transform.position + new Vector3(offset_x, offset_y, offset_z);        
     }
 }
