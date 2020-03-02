@@ -7,6 +7,7 @@ public class OpenEquipmentMenu : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
+        print(other.name);
         if (other.CompareTag("AlternateFunction"))
         {
 

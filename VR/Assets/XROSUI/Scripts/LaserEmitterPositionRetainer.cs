@@ -10,8 +10,8 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     XRGrabInteractable m_GrabInteractable;
     MeshRenderer m_MeshRenderer;
     
-    GameObject leftBaseController;
-    GameObject rightBaseController;
+    public GameObject leftBaseController;
+    public GameObject rightBaseController;
     Vector3 priorDirection;
 
     Vector3 normalVector;
@@ -102,9 +102,8 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.leftBaseController=GameObject.Find("LeftBaseController");
-        this.rightBaseController=GameObject.Find("RightBaseController");
-
+        //this.leftBaseController=GameObject.Find("LeftBaseController");
+        //this.rightBaseController=GameObject.Find("RightBaseController");
     }
 
     // Update is called once per frame
@@ -116,8 +115,5 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
             // print("grabbing " + Time.time);
             this.positionRetainer();
         }
-
-        
-
     }
 }
