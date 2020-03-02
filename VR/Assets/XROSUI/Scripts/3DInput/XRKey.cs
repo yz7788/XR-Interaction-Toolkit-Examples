@@ -16,6 +16,7 @@ public class XRKey : MonoBehaviour
     static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
     static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
     bool m_Held = false;
+
     public void Setup(string s, KeyboardController kc)
     {
         this.myKey = s;
@@ -75,6 +76,11 @@ public class XRKey : MonoBehaviour
     {
         if (!m_Held)
         {
+            if (myKey == "DEL")
+            {
+                XROSInput.RemoveInput();
+                return;
+            }
             keyboardController.RegisterInput(myKey);
             XROSInput.AddInput(myKey);
             m_MeshRenderer.material.color = m_UnityMagenta;
