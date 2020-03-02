@@ -11,16 +11,11 @@ public class VREquipment : MonoBehaviour
     protected static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
 
     protected bool m_Held = false;
-
-    public GameObject mainMenu;
-    public GameObject settingMenu;
-    public GameObject audioMenu;
-    public GameObject goggleMenu;
-
-
     float lastHeldTime;
+
     public float timeBeforeReturn = 0.5f;
     public GameObject socket;
+    public XROSMenuTypes menuTypes = XROSMenuTypes.Menu_General;
 
     void OnEnable()
     {
@@ -31,7 +26,7 @@ public class VREquipment : MonoBehaviour
         m_GrabInteractable.onHoverEnter.AddListener(OnHoverEnter);
         m_GrabInteractable.onLastHoverExit.AddListener(OnHoverExit);
         m_GrabInteractable.onSelectEnter.AddListener(OnGrabbed);
-        m_GrabInteractable.onSelectExit.AddListener(OnReleased);
+        m_GrabInteractable.onSelectExit.AddListener(OnReleased);        
     }
 
 
@@ -89,7 +84,8 @@ public class VREquipment : MonoBehaviour
 
     public virtual void AlternateFunction()
     {
-
+        Dev.Log("Alternate Function: " + this.name);
+        XROSMenu.AddMenu(this.menuTypes);
     }
 
     public virtual void HandleGesture(ENUM_XROS_Gesture gesture)

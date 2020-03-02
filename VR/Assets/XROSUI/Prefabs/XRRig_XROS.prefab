@@ -550,12 +550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f30cf037a6944a82714aad2900f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  settingMenu: {fileID: 0}
-  audioMenu: {fileID: 0}
-  goggleMenu: {fileID: 0}
   timeBeforeReturn: 0.5
   socket: {fileID: 732234664}
+  menuTypes: 1
 --- !u!64 &807256648
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1077,12 +1074,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4597c898043bb459af367284a754f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  settingMenu: {fileID: 0}
-  audioMenu: {fileID: 0}
-  goggleMenu: {fileID: 0}
   timeBeforeReturn: 0.5
   socket: {fileID: 1773291435}
+  menuTypes: 1
   XRGrabHeadphone: {fileID: 0}
   volumeIncreaseRate: 0.1
   volumeDecreaseRate: -0.1

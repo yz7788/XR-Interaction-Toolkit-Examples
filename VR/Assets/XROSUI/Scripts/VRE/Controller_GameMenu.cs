@@ -1,41 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Setting, Menu_Audio, Menu_Visual }
+
 public class Controller_GameMenu : MonoBehaviour
 {
     public GameObject XRRig;
 
     public GameObject UICanvas;
+    public GameObject Menu_None;
     public GameObject Menu_General;
     public GameObject Menu_Setting;
     public GameObject Menu_Audio;
     public GameObject Menu_Visual;
 
-    public enum menuTypes { Menu_General, Menu_Setting, Menu_Audio, Menu_Visual }
 
     public IDictionary<string, GameObject> menus = new Dictionary<string, GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-       //this.UICanvas.GetComponent<Canvas>().worldCamera = XRRig.GetComponent<XRRig_XROS>().WorldCamera;
-        //this.Menu_Audio.GetComponent<>
-        //this.transform.position = XRRig.transform.position + XRRig.transform.forward * 2.5f;
-        //this.transform.LookAt(XRRig.transform);
-        //this.transform.Rotate(Vector3.up, 180);
-
-        print(menuTypes.Menu_General.ToString());
-        menus.Add(menuTypes.Menu_General.ToString(), Menu_General);
-        menus.Add(menuTypes.Menu_Setting.ToString(), Menu_Setting);
-        menus.Add(menuTypes.Menu_Audio.ToString(), Menu_Audio);
-        menus.Add(menuTypes.Menu_Visual.ToString(), Menu_Visual);
+        XROSMenu.EVENT_NewMenu += OpenMenu;
+        //print(menuTypes.Menu_General.ToString());
+        menus.Add(XROSMenuTypes.Menu_None.ToString(), Menu_None);
+        menus.Add(XROSMenuTypes.Menu_General.ToString(), Menu_General);
+        menus.Add(XROSMenuTypes.Menu_Setting.ToString(), Menu_Setting);
+        menus.Add(XROSMenuTypes.Menu_Audio.ToString(), Menu_Audio);
+        menus.Add(XROSMenuTypes.Menu_Visual.ToString(), Menu_Visual);
     }
 
+    //public void OpenMenu(XROSMenuTypes menuTypes)
+    //{
+    //    this.OpenMenu(menuTypes.ToString());
+    //}
     public void OpenMenu(string val)
     {
-        menuTypes currentMenu;
+        XROSMenuTypes currentMenu;
         if (Enum.TryParse(val, true, out currentMenu))
         {
-            if (Enum.IsDefined(typeof(menuTypes), currentMenu) | currentMenu.ToString().Contains(","))
+            if (Enum.IsDefined(typeof(XROSMenuTypes), currentMenu) | currentMenu.ToString().Contains(","))
             {
                 Console.WriteLine("Converted '{0}' to {1}", val, currentMenu.ToString());
             }
@@ -47,9 +49,7 @@ public class Controller_GameMenu : MonoBehaviour
         else
         {
             Console.WriteLine("{0} is not a member of the enum", val);
-        }
-        //GameObject currentMenuToOpen;
-
+        }       
 
         foreach (KeyValuePair<string, GameObject> item in menus)
         {
@@ -67,19 +67,23 @@ public class Controller_GameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.N))
+        if (Input.GetKey(KeyCode.F1))
+        {
+            OpenMenu("Menu_None");
+        }
+        if (Input.GetKey(KeyCode.F2))
         {
             OpenMenu("Menu_General");
         }
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetKey(KeyCode.F3))
         {
             OpenMenu("Menu_Setting");
         }
-        if (Input.GetKey(KeyCode.H))
+        if (Input.GetKey(KeyCode.F4))
         {
             OpenMenu("Menu_Audio");
         }
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKey(KeyCode.F5))
         {
             OpenMenu("Menu_Visual");
         }

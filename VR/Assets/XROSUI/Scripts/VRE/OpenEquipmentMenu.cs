@@ -13,6 +13,7 @@ public class OpenEquipmentMenu : MonoBehaviour
 
             if(other.GetComponent<VREquipment>())
             {
+                Dev.Log("Other: " + other.name);
                 VREquipment vre = other.GetComponent<VREquipment>();
                 vre.AlternateFunction();
             }

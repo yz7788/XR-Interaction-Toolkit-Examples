@@ -25,15 +25,6 @@ public class VRHeadphone : VREquipment
     }
     */
 
-    public override void AlternateFunction()
-    {
-        Dev.Log("Alternate Function: " + this.name);
-        mainMenu.SetActive(false);
-        settingMenu.SetActive(false);
-        goggleMenu.SetActive(false);
-        audioMenu.SetActive(true);
-    }
-
     public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {
         switch (gesture)
