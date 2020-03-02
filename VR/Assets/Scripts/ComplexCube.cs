@@ -11,7 +11,7 @@ public class ComplexCube : MonoBehaviour
     
     static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
     static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
-
+    static Color m_transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     bool m_Held = false;
 
     void OnEnable()

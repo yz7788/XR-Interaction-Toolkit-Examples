@@ -32,6 +32,7 @@ public class TimerClass : MonoBehaviour
     {
         btimerStarted = true;
         startTime = 0;
+        print(currentTime);
         currentTime = startTime;
     }
 }
