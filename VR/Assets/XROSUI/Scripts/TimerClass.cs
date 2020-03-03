@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+
 using TMPro;
 
 public class TimerClass : MonoBehaviour
@@ -7,7 +9,6 @@ public class TimerClass : MonoBehaviour
     public static string targetText = "Barbara had been waiting at the table for twenty minutes. it had been twenty long and excruciating minutes. David had promised that he would be on time today. He never was, but he had promised this one time. She had made him repeat the promise multiple times over the last week until she'd believed his promise. Now she was paying the price.";
     float startTime;
     float currentTime;
-
     public Text Text_Timer;
     public Button Button_Timer;
     public Text Text_Button_Timer;
@@ -35,7 +36,7 @@ public class TimerClass : MonoBehaviour
         }
         else
         {
-            Text_Button_Timer.text = "start";
+            Text_Button_Timer.text = "start"; 
         }
     }
     public void SetTimer()
@@ -47,6 +48,7 @@ public class TimerClass : MonoBehaviour
             startTime = 0;
             currentTime = startTime;
             content.text = targetText;
+            myInputContent.text = ""; // clear up input to start trial
         }
         else
         {
@@ -55,6 +57,7 @@ public class TimerClass : MonoBehaviour
             CalculateSpeed(currentTime);
             startTime = 0;
             currentTime = startTime;
+            myInputContent.text = ""; // clear up input for next trial
         }
     }
 
@@ -62,8 +65,8 @@ public class TimerClass : MonoBehaviour
     {
         float wordsPerMinute = 0;
         int numWords = myInputContent.text.Split(' ').Length;
-        Dev.Log(numWords);
         wordsPerMinute = numWords / (time/60);
-        content.text = "Your input speed is "+wordsPerMinute;
+        content.text = "Your input speed is "+wordsPerMinute+" words per minute";
+        
     }
 }
