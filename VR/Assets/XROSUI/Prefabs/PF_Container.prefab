@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4901279487370448513}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.4}
-  m_LocalScale: {x: 0.2, y: 0.15, z: 0.03}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4901279488281647992}
   m_RootOrder: 1
@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4901279487370448513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e56442dd6a18e5945b91578814fbe397, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -212,7 +212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4901279488281647997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.96, y: 1.38, z: -4.86}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4901279488109666088}
@@ -239,6 +239,10 @@ MonoBehaviour:
     type: 3}
   PF_layerObject: {fileID: 1492285529078304792, guid: 57a08df5f7ca4bf4a88537ede9ca8587,
     type: 3}
+  endpoint: {fileID: 0}
+  slidervalue: 0
+  planeTarget: {fileID: 0}
+  target: {fileID: 0}
 --- !u!114 &4901279488281647998
 MonoBehaviour:
   m_ObjectHideFlags: 0
