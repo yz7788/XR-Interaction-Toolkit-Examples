@@ -1334,8 +1334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d4a317f156dd245922ca135f0d3369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBaseController: {fileID: 7610560069621649448}
-  rightBaseController: {fileID: 1717954560309945980}
+  selfController: {fileID: 4746348274404650062}
+  secondController: {fileID: 1717954560873690078}
 --- !u!1 &1382917691937260189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,8 +3172,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1452955264934807170}
   m_HandleRect: {fileID: 1887947583652974525}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4780,5 +4780,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d4a317f156dd245922ca135f0d3369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBaseController: {fileID: 7610560069621649448}
-  rightBaseController: {fileID: 1717954560309945980}
+  selfController: {fileID: 1717954560873690078}
+  secondController: {fileID: 4746348274404650062}

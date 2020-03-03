@@ -10,8 +10,10 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     XRGrabInteractable m_GrabInteractable;
     MeshRenderer m_MeshRenderer;
     
-    public GameObject leftBaseController;
-    public GameObject rightBaseController;
+    public GameObject selfController;
+    public GameObject secondController;
+    // public GameObject Emitter;
+
     Vector3 priorDirection;
 
     Vector3 normalVector;
@@ -46,15 +48,15 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     {
         m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
-        // this.priorDirection=this.rightBaseController.transform.forward;
-        this.priorDirection=(this.rightBaseController.transform.position-this.transform.position).normalized;
+        // this.priorDirection=this.secondController.transform.forward;
+        this.priorDirection=(this.secondController.transform.position-this.transform.position).normalized;
         // InvokeRepeating("positionRetainer",0,0.005f);//Works
     }
     
     public void onGrabingObject(){
-        this.angle = Vector3.Angle(leftBaseController.transform.forward, this.transform.forward);
-        this.normalVector = Vector3.Cross(leftBaseController.transform.forward, this.transform.forward);
-        this.transform.forward=leftBaseController.transform.forward;
+        this.angle = Vector3.Angle(this.selfController.transform.forward, this.transform.forward);
+        this.normalVector = Vector3.Cross(this.selfController.transform.forward, this.transform.forward);
+        this.transform.forward=this.selfController.transform.forward;
     }
 
     public void onReleasingObject()
@@ -91,19 +93,17 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
         if(m_Held)
         {
             // print("grabbing " + Time.time);
-            transform.position=leftBaseController.transform.position + leftBaseController.transform.forward*0.06f;
-
-            Vector3 newDirection=(rightBaseController.transform.position-this.transform.position).normalized;
+            this.transform.position=this.selfController.transform.position + this.selfController.transform.forward*0.06f;
+            Vector3 newDirection=(secondController.transform.position-this.transform.position).normalized;
             Vector3 normalVector=Vector3.Cross(newDirection,this.priorDirection);
-            transform.RotateAround(transform.position,normalVector,-Vector3.Angle(priorDirection,newDirection));
+            this.transform.RotateAround(this.transform.position,normalVector,-Vector3.Angle(priorDirection,newDirection));
             priorDirection=newDirection;
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        //this.leftBaseController=GameObject.Find("LeftBaseController");
-        //this.rightBaseController=GameObject.Find("RightBaseController");
+        
     }
 
     // Update is called once per frame
