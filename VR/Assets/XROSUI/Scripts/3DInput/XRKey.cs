@@ -76,11 +76,11 @@ public class XRKey : MonoBehaviour
     {
         if (!m_Held)
         {
-            if (myKey == "DEL")
+/*            if (myKey == "DEL")
             {
                 XROSInput.RemoveInput();
                 return;
-            }
+            }*/
             keyboardController.RegisterInput(myKey);
             XROSInput.AddInput(myKey);
             m_MeshRenderer.material.color = m_UnityMagenta;
