@@ -14,6 +14,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         private int Clast =0;
         private float buffery=0.2f;
         private float bufferz=0.3f;
+        public float layervalue = 0f;
         public List<containerobject> containerobjectlist = new List<containerobject>();
         public void AddObject(GameObject go)
         {
@@ -23,19 +24,19 @@ namespace UnityEngine.XR.Interaction.Toolkit
             //Place object
             int Ri;
             int Ci;
-            print("set position:");
+            //print("set position:");
             Ri = Rlast;
-            print("Ri: " + Ri);
+            //print("Ri: " + Ri);
             Ci = Clast;
-            print("Ci: " + Ci); 
-            float x = this.transform.position.x + (Ci * buffery) - 0.3f;
-            float y = this.transform.position.y + (Ri * bufferz);
+           // print("Ci: " + Ci); 
+            float x = this.transform.position.x + (Ci * buffery) - 0.2f;
+            float y = this.transform.position.y + (Ri * bufferz)-0.15f;
             float z = this.transform.position.z;
             co.transform.position = new Vector3(x, y, z);
             co.transform.SetParent(this.transform);
             //Calculate Next Position
             Ci++;
-            print("calculate position");
+           // print("calculate position");
             if (Ci >= Cmax)
             {
                 Ci = 0;
@@ -44,17 +45,17 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 //print("Ri= " + Ri);
             }
             Rlast = Ri;
-            print("Rlast is" + Rlast);
+           // print("Rlast is" + Rlast);
             Clast = Ci;
-            print("Clast is" + Clast); 
+            //print("Clast is" + Clast); 
             if (Clast >= Cmax && Rlast >= Rmax)
             {
-                print("is full");
+               // print("is full");
             }
         }
         public bool IsFull()
         {
-            print("Is Full: " + (containerobjectlist.Count >= max));
+          //  print("Is Full: " + (containerobjectlist.Count >= max));
             return containerobjectlist.Count >= max;
         }
         // Start is called before the first frame update
@@ -67,10 +68,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
          float b = this.transform.localScale.y;
          float c = this.transform.localScale.z;
          Cmax = (int)(c / (buffery + (containerObjectRadius * 2)));
-            print("Cmax is "+ Cmax);
+           // print("Cmax is "+ Cmax);
          Rmax = (int)(b / (bufferz + (containerObjectRadius * 2)));
-            print("Rmax is "+ Rmax);
-            print(containerObjectRadius);
+           // print("Rmax is "+ Rmax);
+            //print(containerObjectRadius);
             //IsFull();
         }
          // Update is called once per frame

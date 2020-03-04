@@ -19,17 +19,17 @@ TagManager:
   - 
   - XROSController
   - XROSUI
+  - LeftHandDirect
+  - LeftHandRay
+  - LeftHandImitter
+  - LeftHandBody
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - RightHandDirect
+  - RightHandRay
+  - RightHandImitter
+  - RightHandBody
   - 
   - 
   - 
