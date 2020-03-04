@@ -12,11 +12,13 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     
     public GameObject selfController;
     public GameObject secondController;
+    public LaserLengthChange target;
     // public GameObject Emitter;
 
     Vector3 priorDirection;
 
     Vector3 normalVector;
+    Quaternion localRotation;
     float angle;
 
     static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
@@ -53,15 +55,18 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
         // InvokeRepeating("positionRetainer",0,0.005f);//Works
     }
     
-    public void onGrabingObject(){
-        this.angle = Vector3.Angle(this.selfController.transform.forward, this.transform.forward);
-        this.normalVector = Vector3.Cross(this.selfController.transform.forward, this.transform.forward);
-        this.transform.forward=this.selfController.transform.forward;
+    public void onGrabingObject(){//change the direction of laser 
+        // this.angle = Vector3.Angle(this.selfController.transform.forward, this.transform.forward);
+        // this.normalVector = Vector3.Cross(this.selfController.transform.forward, this.transform.forward);
+        // this.transform.forward=this.selfController.transform.forward;
+        this.localRotation=this.transform.localRotation;
+        this.transform.rotation=new Quaternion(0f,0f,0f,0f);
     }
 
-    public void onReleasingObject()
+    public void onReleasingObject()//go back to the direction of laser  before grabbing stuff.
     {
-        this.transform.RotateAround(this.transform.position, normalVector, angle);
+        // this.transform.RotateAround(this.transform.position, normalVector, angle);
+        this.transform.localRotation=this.localRotation;
     }
 
     void OnReleased(XRBaseInteractor obj)
