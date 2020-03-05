@@ -185,7 +185,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
-  m_RetainTransformParent: 1
+  m_RetainTransformParent: 0
 --- !u!114 &500872041962927489
 MonoBehaviour:
   m_ObjectHideFlags: 0

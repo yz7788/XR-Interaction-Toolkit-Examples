@@ -55,6 +55,27 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
                 
             }
+            for (int i = 0; i < 6; i++)
+            {
+                //print(true);
+                AddContainerObject();
+                CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.blue);
+
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                //print(true);
+                AddContainerObject();
+                CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.yellow);
+
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                //print(true);
+                AddContainerObject();
+                CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+
+            }
 
 
         }
@@ -125,18 +146,22 @@ namespace UnityEngine.XR.Interaction.Toolkit
             {
                 if (totalvalueleft <= containerlayerlist[i].layervalue)
                 {
+                    containerlayerlist[i].hidecontainerobject();
                     containerlayerlist[i].gameObject.SetActive(false);
                 }
                 else if (totalvalueright <= containerlayerlist[i].layervalue)
                 {
+                    containerlayerlist[i].hidecontainerobject();
                     containerlayerlist[i].gameObject.SetActive(false);
                 }
                 else if (totalvalueleft > containerlayerlist[i].layervalue)
                 {
+                    containerlayerlist[i].showcontainerobject();
                     containerlayerlist[i].gameObject.SetActive(true);
                 }
                 else if (totalvalueright > containerlayerlist[i].layervalue)
                 {
+                    containerlayerlist[i].showcontainerobject();
                     containerlayerlist[i].gameObject.SetActive(true);
                 }
             }

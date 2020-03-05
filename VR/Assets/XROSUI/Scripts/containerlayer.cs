@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace UnityEngine.XR.Interaction.Toolkit
@@ -140,6 +141,22 @@ namespace UnityEngine.XR.Interaction.Toolkit
         // Update is called once per frame
         void Update()
         {
+        }
+
+        public void hidecontainerobject()
+        {
+            for (int i=0;i<containerobjectlist.Count;i++)
+            {
+               containerobjectlist[i].gameObject.SetActive(false);
+            }
+        }
+
+        public void showcontainerobject()
+        {
+            for (int i = 0; i < containerobjectlist.Count; i++)
+            {
+                containerobjectlist[i].gameObject.SetActive(true);
+            }
         }
     }
 }

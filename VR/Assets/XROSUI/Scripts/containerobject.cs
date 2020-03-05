@@ -38,13 +38,13 @@ public class containerobject : MonoBehaviour
 
     private void OnGrabbed(XRBaseInteractor obj)
     {
-        m_MeshRenderer.material.color = m_UnityCyan;
+       // m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
     }
 
     void OnReleased(XRBaseInteractor obj)
     {
-        m_MeshRenderer.material.color = Color.white;
+        //m_MeshRenderer.material.color = Color.white;
         m_Held = false;
     }
 
