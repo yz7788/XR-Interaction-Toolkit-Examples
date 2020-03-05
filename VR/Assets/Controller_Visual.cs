@@ -22,7 +22,7 @@ public class Controller_Visual : MonoBehaviour
 
     public void AdjustLight(float f)
     {
-        f = f * 100;
+        f = f * 10;
         f += directionalLight.intensity;
         Dev.Log("New Light: " + f);
         SetLight(f);

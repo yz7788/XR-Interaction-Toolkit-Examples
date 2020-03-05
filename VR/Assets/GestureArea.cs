@@ -41,7 +41,7 @@ public class GestureArea : MonoBehaviour
     void Update()
     {
         gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
-        if (gestureDistance <= 0.5f * Area.transform.localScale.y)
+        if (gestureDistance >= 0.05f * Area.transform.localScale.y && gestureDistance <= 0.5f * Area.transform.localScale.y)
         {
             if (lastAskTime + coolDown < Time.time)
             {
