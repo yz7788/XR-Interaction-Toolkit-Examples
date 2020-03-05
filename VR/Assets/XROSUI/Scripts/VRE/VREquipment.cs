@@ -16,12 +16,12 @@ public class VREquipment : MonoBehaviour
     public float timeBeforeReturn = 0.5f;
     public GameObject socket;
     public XROSMenuTypes menuTypes = XROSMenuTypes.Menu_General;
-    Rigidbody m_Rigidbody;
+
     void OnEnable()
     {
         m_GrabInteractable = GetComponent<XRGrabInteractable>();
         m_MeshRenderer = GetComponent<MeshRenderer>();
-        m_Rigidbody = GetComponent<Rigidbody>();
+
         m_GrabInteractable.onFirstHoverEnter.AddListener(onFirstHoverEnter);
         m_GrabInteractable.onHoverEnter.AddListener(OnHoverEnter);
         m_GrabInteractable.onLastHoverExit.AddListener(OnHoverExit);
@@ -49,14 +49,8 @@ public class VREquipment : MonoBehaviour
 
     void OnReleased(XRBaseInteractor obj)
     {
-        print("Released");
         m_MeshRenderer.material.color = Color.white;
         m_Held = false;
-        m_Rigidbody.ResetCenterOfMass();
-        m_Rigidbody.ResetInertiaTensor();
-        m_Rigidbody.angularDrag = 0;
-        m_Rigidbody.angularVelocity = Vector3.zero;
-        //m_Rigidbody.sle1 = 0;
     }
 
     void OnHoverExit(XRBaseInteractor obj)

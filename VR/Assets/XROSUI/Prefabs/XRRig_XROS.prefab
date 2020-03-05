@@ -553,9 +553,6 @@ MonoBehaviour:
   timeBeforeReturn: 0.5
   socket: {fileID: 732234664}
   menuTypes: 1
-  XRGrabGoggle: {fileID: 0}
-  lightIncreaseRate: 0.01
-  lightDecreaseRate: -0.01
 --- !u!64 &807256648
 MeshCollider:
   m_ObjectHideFlags: 0
