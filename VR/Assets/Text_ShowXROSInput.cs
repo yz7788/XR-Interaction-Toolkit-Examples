@@ -15,6 +15,7 @@ public class Text_ShowXROSInput : MonoBehaviour
             text = this.GetComponent<TMP_Text>();
         }
         XROSInput.EVENT_NewInput += CompileMessage;
+        XROSInput.EVENT_NewRemoveInput += RemoveMessage;
     }
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class Text_ShowXROSInput : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Backspace))
         {
             text.text = "";
+            compiledMessages = "";
         }
     }
     public void CompileMessage(string s)
@@ -31,4 +33,9 @@ public class Text_ShowXROSInput : MonoBehaviour
         text.text = compiledMessages;
     }
 
+    public void RemoveMessage()
+    {
+        compiledMessages = "";
+        text.text = compiledMessages;
+    }
 }

@@ -49,6 +49,7 @@ public class TimerClass : MonoBehaviour
             currentTime = startTime;
             content.text = targetText;
             myInputContent.text = ""; // clear up input to start trial
+            XROSInput.RemoveInput();
         }
         else
         {
@@ -58,6 +59,7 @@ public class TimerClass : MonoBehaviour
             startTime = 0;
             currentTime = startTime;
             myInputContent.text = ""; // clear up input for next trial
+            XROSInput.RemoveInput();
         }
     }
 
