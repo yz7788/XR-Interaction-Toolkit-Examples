@@ -58,7 +58,7 @@ public class XRKey : MonoBehaviour
     {
         if (m_Held)
         {
-            print("grabbing " + Time.time);
+            /*print("grabbing " + Time.time);*/
         }
     }
 
@@ -72,30 +72,29 @@ public class XRKey : MonoBehaviour
 
     void OnHoverEnter(XRBaseInteractor obj)
     {
-        if (!m_Held & keyboardController.getWaiting() == false)
+        /*if (!m_Held & keyboardController.getWaiting() == false)
         {
-            /*            if (myKey == "DEL")
+            *//*            if (myKey == "DEL")
                         {
                             XROSInput.RemoveInput();
                             return;
-                        }*/
+                        }*//*
             keyboardController.wait();
             keyboardController.SetWaiting();
             keyboardController.RegisterInput(myText.text);
             XROSInput.AddInput(myText.text);
             m_MeshRenderer.material.color = m_UnityMagenta;
-        }
+        }*/
     }
     
     public void OnKeyClicked()
     {
-        if (!m_Held & keyboardController.getWaiting() == false)
-        {
-            keyboardController.wait();
-            keyboardController.SetWaiting();
-            keyboardController.RegisterInput(myText.text);
-            XROSInput.AddInput(myText.text);
-            m_MeshRenderer.material.color = m_UnityMagenta;
-        }
+        /*            keyboardController.wait();
+                    keyboardController.SetWaiting();*/
+        print("called");
+        keyboardController.RegisterInput(myText.text);
+        XROSInput.AddInput(myText.text);
+        m_MeshRenderer.material.color = m_UnityMagenta;
+        
     }
 }
