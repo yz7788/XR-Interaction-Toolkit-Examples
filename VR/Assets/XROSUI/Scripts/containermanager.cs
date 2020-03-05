@@ -8,6 +8,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
     {
         public List<containerobject> containerobjectlist = new List<containerobject>();
         public List<containerlayer> containerlayerlist = new List<containerlayer>();
+        public List<containersocket> containersocketlist = new List<containersocket>();
+        public GameObject PF_Socket;
         public GameObject PF_containerObject;
         public GameObject PF_layerObject;
         public GameObject startpoint;
@@ -16,9 +18,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
         public float lefthandvalue;
         public float righthandvalue;
         //GameObject Container_Cube;
-        private float value = 0;
+        private float depthValue = 0;
         //Debug only
         GameObject CO;
+        GameObject CS;
         //
         //
         public Transform planeTarget;
@@ -31,18 +34,33 @@ namespace UnityEngine.XR.Interaction.Toolkit
             for (int i = 0; i < 3; i++)
             {
                 GameObject go = Instantiate(PF_layerObject, this.transform.position + Vector3.back * 0.15f * i, Quaternion.identity);
-                value += 0.2f;
+                go.name = "Layer " + i;
+                depthValue += 0.2f;
                 //print("The " + i + " layer value is " + value);
                 go.transform.SetParent(this.transform);
                 containerlayer co = go.GetComponent<containerlayer>();
-                co.layervalue = value;
+                co.layervalue = depthValue;
                 containerlayerlist.Add(co);
             }
+            AddAllContainerSocket();
+            for (int i = 0; i < 5; i++)
+            {
+               //print(true);
+               AddContainerObject();
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                //print(true);
+                AddContainerObject();
+                CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                
+            }
+
+
         }
         // Update is called once per frame
         void Update()
         {  
-            AddContainerObject();
             CheckDistanceForEach();
             //CheckDistanceForRight();
             //GetDistanceToPoint();
@@ -65,13 +83,29 @@ namespace UnityEngine.XR.Interaction.Toolkit
             //print("hi");
             for (int i = 0; i < containerlayerlist.Count; i++)
             {
-                // print("hi2");
+                 //print("hi2");
                 if (!containerlayerlist[i].IsFull())
                 {
                     //print("hi3");
                     CO = Instantiate(PF_containerObject, transform.position + transform.forward * 2, Quaternion.identity);
+                    //CO.name = "CO";
                     containerlayerlist[i].AddObject(CO);
                     return;
+                }
+            }
+        }
+        public void AddAllContainerSocket()
+        {
+            //print("xhi");
+            for (int i = 0; i < containerlayerlist.Count; i++)
+            {
+                //print("xhi2" + containerlayerlist[i].GetMax());
+                //if (!containerlayerlist[i].IsFull())
+                for(int j=0; j<containerlayerlist[i].GetMax(); j++)
+                {
+                    //print("Max Socket " + containerlayerlist[i].GetMax());
+                    CS = Instantiate(PF_Socket, transform.position + transform.forward * 2, Quaternion.identity);
+                    containerlayerlist[i].AddObjectSocket(CS);
                 }
             }
         }
