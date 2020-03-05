@@ -17,7 +17,7 @@ public class Tool_GetWorldSpaceCamera : MonoBehaviour
         }
         else
         {
-            print("No World Camera assigned to Canvas at " + this.gameObject.name + ". Attempt to auto assignin camera");
+            //print("No World Camera assigned to Canvas at " + this.gameObject.name + ". Attempt to auto assignin camera");
             Canvas = this.GetComponent<Canvas>();
         }
         Canvas.worldCamera = Camera.main;

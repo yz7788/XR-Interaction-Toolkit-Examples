@@ -69,12 +69,12 @@ public class CharacterCreatorScript : KeyboardController
         inputField.text += s;
     }
 
-    private XRKey CreateKey(string s, GameObject parent, int position)
+    private XRKey2 CreateKey(string s, GameObject parent, int position)
     {
         GameObject go = Instantiate(PF_Key, this.transform.position, Quaternion.identity);
         go.transform.SetParent(parent.transform);
 
-        XRKey key = go.GetComponent<XRKey>();
+        XRKey2 key = go.GetComponent<XRKey2>();
         key.Setup(s, this);
         
         return key;
