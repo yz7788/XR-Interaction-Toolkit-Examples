@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WorldInteractionDemo.unity
-    guid: cd5458b6a8920b348b4fbd0dd1cd06f4
+    path: Assets/XROSUI/Scene/ControllerAudio.unity
+    guid: c367f5a685ab49842b53037a4dcf2e79
+  - enabled: 1
+    path: Assets/XROSUI/Scene/SeparateKeyboard3D.unity
+    guid: e6c477908da406c469dffb63f75439c8
+  - enabled: 1
+    path: Assets/XROSUI/Scene/grab.unity
+    guid: 400a5e75638c3364fa1241884abce1bc
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8db34b777bb33d244a0c1ff8aaa057ff,
       type: 2}
