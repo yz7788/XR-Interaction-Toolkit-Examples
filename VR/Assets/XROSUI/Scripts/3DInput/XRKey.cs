@@ -86,4 +86,16 @@ public class XRKey : MonoBehaviour
             m_MeshRenderer.material.color = m_UnityMagenta;
         }
     }
+    
+    public void OnKeyClicked()
+    {
+        if (!m_Held & keyboardController.getWaiting() == false)
+        {
+            keyboardController.wait();
+            keyboardController.SetWaiting();
+            keyboardController.RegisterInput(myText.text);
+            XROSInput.AddInput(myText.text);
+            m_MeshRenderer.material.color = m_UnityMagenta;
+        }
+    }
 }
