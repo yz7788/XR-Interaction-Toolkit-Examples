@@ -247,7 +247,7 @@ public class Controller_Audio : MonoBehaviour
             default:
                 break;
         };
-        print("New Volume: " + f);
+        Dev.Log("New Volume: " + f);
         SetVolume(f, type);
 
     }
