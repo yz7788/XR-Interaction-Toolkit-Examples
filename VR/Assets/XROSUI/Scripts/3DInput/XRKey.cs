@@ -8,7 +8,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class XRKey : MonoBehaviour
 {
     public KeyboardController keyboardController;
-    public string myKey = "1";
     public Text myText;
     Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     XRGrabInteractable m_GrabInteractable;
@@ -19,7 +18,6 @@ public class XRKey : MonoBehaviour
 
     public void Setup(string s, KeyboardController kc)
     {
-        this.myKey = s;
         this.keyboardController = kc;
         this.name = "Key: " + s;
         myText.text = s;
@@ -74,15 +72,17 @@ public class XRKey : MonoBehaviour
 
     void OnHoverEnter(XRBaseInteractor obj)
     {
-        if (!m_Held)
+        if (!m_Held & keyboardController.getWaiting() == false)
         {
-            if (myKey == "DEL")
-            {
-                XROSInput.RemoveInput();
-                return;
-            }
-            keyboardController.RegisterInput(myKey);
-            XROSInput.AddInput(myKey);
+            /*            if (myKey == "DEL")
+                        {
+                            XROSInput.RemoveInput();
+                            return;
+                        }*/
+            keyboardController.wait();
+            keyboardController.SetWaiting();
+            keyboardController.RegisterInput(myText.text);
+            XROSInput.AddInput(myText.text);
             m_MeshRenderer.material.color = m_UnityMagenta;
         }
     }

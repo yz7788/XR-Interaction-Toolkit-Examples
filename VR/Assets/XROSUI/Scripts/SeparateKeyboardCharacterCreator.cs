@@ -54,12 +54,12 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         CreateLine(0.15f, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
         //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
 
-        GameObject go = CreateKey(-0.15f, -0.14f+startingY, 0.1f+startingZ, " ");
+        GameObject go = CreateKey(-0.15f, -0.14f+startingY, 0.05f+startingZ, " ");
         Vector3 scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
 
-        go = CreateKey(0.15f, -0.14f+startingY, 0.1f + startingZ, " ");
+        go = CreateKey(0.15f, -0.14f+startingY, 0.05f + startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
