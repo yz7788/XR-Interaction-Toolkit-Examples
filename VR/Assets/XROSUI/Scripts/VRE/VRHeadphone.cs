@@ -10,8 +10,8 @@ public class VRHeadphone : VREquipment
 {
     public XRGrabInteractable XRGrabHeadphone;
 
-    public float volumeIncreaseRate = 0.1f;
-    public float volumeDecreaseRate = -0.1f;
+    public float volumeIncreaseRate = 0.01f;
+    public float volumeDecreaseRate = -0.01f;
 
     public void Start()
     {
@@ -31,9 +31,11 @@ public class VRHeadphone : VREquipment
         {
             case ENUM_XROS_Gesture.up:
                 Core.Ins.AudioManager.AdjustVolume(volumeIncreaseRate, Audio_Type.master);
+                //Debug.Log("upincrease");
                 break;
             case ENUM_XROS_Gesture.down:
                 Core.Ins.AudioManager.AdjustVolume(volumeDecreaseRate, Audio_Type.master);
+                //Debug.Log("downdecrease");
                 break;
             case ENUM_XROS_Gesture.forward:
                 break;
