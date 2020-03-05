@@ -10,16 +10,21 @@ public class GestureArea : MonoBehaviour
     public GameObject Area;
     public GameObject GO_VE;
     public VREquipment VE;
+    public float gestureDistance;
     public float DistanceY;
     public float DistanceZ;
     public float volume;
     public bool Y;
     public bool Z;
+    public float coolDown = 0.5f;
+    float lastAskTime = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //GameObject go = GameObject.Find("Headphone2");
+        this.RegisterVREquipment(GO_VE.GetComponent<VREquipment>());
     }
 
     public void RegisterVREquipment(VREquipment vre)
@@ -35,37 +40,49 @@ public class GestureArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
+        if (gestureDistance >= 0.05f * Area.transform.localScale.y && gestureDistance <= 0.5f * Area.transform.localScale.y)
+        {
+            if (lastAskTime + coolDown < Time.time)
+            {
+                MeasureDirect();
+                lastAskTime = Time.time;
+            }
+        }
+
+        /*
         if (Input.GetKey(KeyCode.Alpha7))
         {
-            print("[Debug] Register Equipment");
+            Dev.Log("[Debug] Register Equipment");
             GameObject go = GameObject.Find("Headphone2");
             this.RegisterVREquipment(go.GetComponent<VREquipment>());
         }
         if (Input.GetKey(KeyCode.Alpha8))
         {
-            print("[Debug] Deregister Equipment");
+            Dev.Log("[Debug] Deregister Equipment");
             this.UnregisterVREquipment();
         }
         if (Input.GetKey(KeyCode.O))
         {
-            print("[Debug] Move Equipment Up");
+            Dev.Log("[Debug] Move Equipment Up");
             GO_VE.transform.position += Vector3.up;
         }
         if (Input.GetKey(KeyCode.L))
         {
-            print("[Debug] Move Equipment Down");
-            print(GO_VE.transform.position);
+            Dev.Log("[Debug] Move Equipment Down");
+            Dev.Log(GO_VE.transform.position);
             GO_VE.transform.position += Vector3.down;
-            print(GO_VE.transform.position);
+            Dev.Log(GO_VE.transform.position);
         }
         if (GO_VE)
         {
             if (Input.GetKey(KeyCode.Alpha9))
             {
-                print("test");
+                Dev.Log("test");
                 MeasureDirect();
             }
         }
+        */
     }
 
     public void MeasureDirect()
@@ -73,7 +90,7 @@ public class GestureArea : MonoBehaviour
         //up/down
         DistanceY = GO_VE.transform.position.y - GestureCore.transform.position.y ;
         //volume = DistanceY / (Area.transform.localScale.y / 2);
-        Debug.Log("distance is " + DistanceY);
+        //Dev.Log("distance is " + DistanceY);
 
 
         //forward/backward
@@ -85,29 +102,32 @@ public class GestureArea : MonoBehaviour
             {
                 //Y = true;
                 this.VE.HandleGesture(ENUM_XROS_Gesture.up);
-                Debug.Log("up");
+                //Dev.Log("up");
             }
             else if (DistanceY < 0)
             {
                 //Y = false;
                 this.VE.HandleGesture(ENUM_XROS_Gesture.down);
-                Debug.Log("down");
+                //Dev.Log("down");
             }
-            else Debug.Log("no change");
+            //else Dev.Log("no change");
         }
 
         else
         {
             if (DistanceZ > 0)
             {
-                Z = true;
-                Debug.Log("backward");
+                //Z = true;
+                this.VE.HandleGesture(ENUM_XROS_Gesture.left);
+                //Dev.Log("left");
             }
             else if (DistanceZ < 0)
             {
-                Z = false;
-                Debug.Log("forward");
+                //Z = false;
+                this.VE.HandleGesture(ENUM_XROS_Gesture.right);
+                //Dev.Log("right");
             }
+            //else Dev.Log("no change");
         }
 
     }
