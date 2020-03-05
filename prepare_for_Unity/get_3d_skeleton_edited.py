@@ -71,8 +71,12 @@ def main(json_dir, output_dir, calibration_dir, cam0_json_dir, cam1_json_dir):
       curr_json = json.load(open(os.path.join(json_dir, cam + '\\' + case) + '_keypoints.json', 'r'))
       pose_kpd_2d_view_json = curr_json['people'][0]['pose_keypoints_2d']
       pose_kpd_2d_view = list()
+      count = 0
       for j in range(len(pose_kpd_2d_view_json) // 3):
-        pose_kpd_2d_view.append(pose_kpd_2d_view_json[j * 3: (j+1) * 3 - 1])
+        if count != 8 and count != 19 and count != 20 and count != 21 and count != 22 and count != 23 and count != 24:
+          #don't append these keypoints b/c we are using COCO model of 18 keypoints, not 25
+          pose_kpd_2d_view.append(pose_kpd_2d_view_json[j * 3: (j+1) * 3 - 1])
+        count += 1
       pose_kpd_2d.append(pose_kpd_2d_view)
     pose_kpd_2d = np.array(pose_kpd_2d)
     pts3d_all = list()
@@ -84,7 +88,21 @@ def main(json_dir, output_dir, calibration_dir, cam0_json_dir, cam1_json_dir):
     """ 
     Need to save to txt file here
     """
-    np.save(os.path.join(output_dir, '3d_data' + case + '.txt'), np.array(pts3d_all))
+    openrig_3d_array = np.array(pts3d_all)
+    openrig_3d_array = np.transpose(openrig_3d_array)
+
+    if case == "000000000000":
+      case = case.lstrip("0") + "0"
+    else:
+      case = case.lstrip("0")
+    f = open(os.path.join(output_dir, case + '.txt'), 'w')
+    f.write('[')
+    f.write(str(openrig_3d_array))
+    f.write(']')
+    f.close()
+    #f.close()
+    #np.savetxt(os.path.join(output_dir, '3d_data' + case + '.txt'), openrig_3d_array, fmt='%1.8f') 
+    #np.save(os.path.join(output_dir, '3d_data' + case + '.txt'), np.array(pts3d_all))
 
 if __name__ == "__main__":
   json_dir = 'C:\\Users\\CSCI-538-HP-Z240-ll\\Downloads\\cameraOutput'
@@ -98,48 +116,18 @@ if __name__ == "__main__":
 
   # Step 1: read in KRT for multiple cams
   # Step 2: load multi cams
-  main(json_dir, output_dir, calibration_dir, cam0_json_dir, cam1_json_dir)
+  
 
   # Step 3: call openpose for each cams (better assigning different GPU usage)
-
-  #runs batch file that opens two cmd prompts for each OpenPose using different cameras and different output folder
-  #currently one cam has better fps than other cam, thus creates output files faster/more than the other
-  #this may lead to wrong calculation
+  """
+  runs batch file that opens two cmd prompts for each OpenPose using different cameras and different output folder
+  currently one cam has better fps than other cam, thus creates output files faster/more than the other
+  this may lead to wrong calculation
+  """
 
   #subprocess.call([r'C:\\Users\\CSCI-538-HP-Z240-ll\Downloads\\openpose-1.5.1-binaries-win64-gpu-python-flir-3d_recommended\\openpose-1.5.1-binaries-win64-gpu-python-flir-3d_recommended\\openpose\\runTwice.bat'])
 
   # Step 4: format 2D skeletons
-"""
-// Result for BODY_25 (25 body parts consisting of COCO + foot)
-// const std::map<unsigned int, std::string> POSE_BODY_25_BODY_PARTS {
-//     {0,  "Nose"},
-//     {1,  "Neck"},
-//     {2,  "RShoulder"},
-//     {3,  "RElbow"},
-//     {4,  "RWrist"},
-//     {5,  "LShoulder"},
-//     {6,  "LElbow"},
-//     {7,  "LWrist"},
-//     {8,  "MidHip"},
-//     {9,  "RHip"},
-//     {10, "RKnee"},
-//     {11, "RAnkle"},
-//     {12, "LHip"},
-//     {13, "LKnee"},
-//     {14, "LAnkle"},
-//     {15, "REye"},
-//     {16, "LEye"},
-//     {17, "REar"},
-//     {18, "LEar"},
-//     {19, "LBigToe"},
-//     {20, "LSmallToe"},
-//     {21, "LHeel"},
-//     {22, "RBigToe"},
-//     {23, "RSmallToe"},
-//     {24, "RHeel"},
-//     {25, "Background"}
-// };
-"""
   # Step 5: call triangulation to get 3D skeleton
-
   # Step 6: format 3D skeleton file and save to proper location
+  main(json_dir, output_dir, calibration_dir, cam0_json_dir, cam1_json_dir)
