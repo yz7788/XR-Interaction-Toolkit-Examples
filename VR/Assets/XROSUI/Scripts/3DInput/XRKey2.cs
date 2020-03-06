@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using TMPro;
 
 //[RequireComponent(typeof(XRGrabInteractable))]
 public class XRKey2 : MonoBehaviour
 {
     public KeyboardController keyboardController;
-    public Text myText;
+    public TMP_Text myText;
     Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     //XRGrabInteractable m_GrabInteractable;
     MeshRenderer m_MeshRenderer;
@@ -27,7 +28,7 @@ public class XRKey2 : MonoBehaviour
     {
         m_GrabInteractable = GetComponent<XRGrabInteractable>();
         m_MeshRenderer = GetComponent<MeshRenderer>();
-        m_MeshRenderer.material.color = transparent;
+        m_MeshRenderer.material.color = transparent;s
         m_GrabInteractable.onFirstHoverEnter.AddListener(OnHoverEnter);
         m_GrabInteractable.onLastHoverExit.AddListener(OnHoverExit);
         m_GrabInteractable.onSelectEnter.AddListener(OnGrabbed);

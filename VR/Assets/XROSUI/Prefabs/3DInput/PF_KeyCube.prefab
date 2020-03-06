@@ -326,7 +326,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1985517254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1091542673462971397}
+        m_MethodName: OnKeyClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6466434483109733940
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +355,7 @@ GameObject:
   - component: {fileID: 826619064}
   - component: {fileID: 5214095724547231558}
   - component: {fileID: 8240110319954867103}
+  - component: {fileID: 179673171}
   m_Layer: 5
   m_Name: PF_KeyCube
   m_TagString: Untagged
@@ -428,7 +440,7 @@ BoxCollider:
   m_GameObject: {fileID: 6466434483109733940}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -447,13 +459,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6466434483109733940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09dc67f9a3fde534d8f51a7093961641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   keyboardController: {fileID: 0}
-  myText: {fileID: 5168924270533950914}
+  myText: {fileID: 311668792}
 --- !u!54 &826619064
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -587,7 +599,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1091542673462971397}
+      - m_Target: {fileID: 179673171}
         m_MethodName: OnKeyClicked
         m_Mode: 1
         m_Arguments:
@@ -598,6 +610,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &179673171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466434483109733940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6a785447228aa4fbfcce6b0f2030cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardController: {fileID: 0}
+  myText: {fileID: 311668792}
 --- !u!1 &8033562789211150261
 GameObject:
   m_ObjectHideFlags: 0
