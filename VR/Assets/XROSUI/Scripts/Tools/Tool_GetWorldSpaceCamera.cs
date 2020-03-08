@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Canvas))]
 public class Tool_GetWorldSpaceCamera : MonoBehaviour
 {
-    public Canvas Canvas;
+    private Canvas Canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +17,10 @@ public class Tool_GetWorldSpaceCamera : MonoBehaviour
         }
         else
         {
-            print("No World Camera assigned to Canvas at " + this.gameObject.name + ". Attempt to auto assignin camera");
+            //print("No World Camera assigned to Canvas at " + this.gameObject.name + ". Attempt to auto assignin camera");
             Canvas = this.GetComponent<Canvas>();
         }
-        Canvas.worldCamera = Camera.main;
+        Canvas.worldCamera = Camera.main;        
     }
 
     // Update is called once per frame

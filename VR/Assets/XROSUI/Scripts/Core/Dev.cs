@@ -202,7 +202,16 @@ public static class Dev
             CommunicationLogic.instance.AddSystemMessage(s);
         }
         */
-        Debug.Log(s);
+        //Debug.Log(s);
+    }
+
+    public static void LogError(string s)
+    {
+        if (EVENT_NewLog != null)
+        {
+            EVENT_NewLog(s);
+        }
+        Debug.LogError(s);
     }
     #endregion Dev Log
 }

@@ -555,6 +555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7728308403063287022}
   - component: {fileID: 8535043757550129267}
+  - component: {fileID: 953525960567679030}
   m_Layer: 5
   m_Name: Slider_Light
   m_TagString: Untagged
@@ -633,7 +634,31 @@ MonoBehaviour:
   m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 953525960567679030}
+        m_MethodName: SetLight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &953525960567679030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465274705255335034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c5ec76a745cec41bf3797326e274e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light_value: 0.0001
 --- !u!1 &998098165560817759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1064,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6880732830293409123}
-        m_MethodName: 
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2318,6 +2343,7 @@ GameObject:
   - component: {fileID: 7444080287515184534}
   - component: {fileID: 7444080287515184529}
   - component: {fileID: 7444080287515184533}
+  - component: {fileID: 6211004858225206237}
   m_Layer: 5
   m_Name: "\uF702UICanvas"
   m_TagString: Untagged
@@ -2426,6 +2452,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 2147483647
+--- !u!114 &6211004858225206237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444080287515184528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a77d721cc54224db3f039fa1fd38a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7555836682135583272
 GameObject:
   m_ObjectHideFlags: 0
