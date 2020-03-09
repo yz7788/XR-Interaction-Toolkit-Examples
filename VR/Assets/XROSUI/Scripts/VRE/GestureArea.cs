@@ -19,7 +19,6 @@ public class GestureArea : MonoBehaviour
     public float coolDown = 0.5f;
     float lastAskTime = 0;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +36,7 @@ public class GestureArea : MonoBehaviour
         this.VE = null;
         this.GO_VE = null;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -112,7 +112,6 @@ public class GestureArea : MonoBehaviour
             }
             //else Dev.Log("no change");
         }
-
         else
         {
             if (DistanceZ > 0)
@@ -129,6 +128,5 @@ public class GestureArea : MonoBehaviour
             }
             //else Dev.Log("no change");
         }
-
     }
 }

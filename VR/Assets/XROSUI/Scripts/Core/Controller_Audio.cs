@@ -231,7 +231,6 @@ public class Controller_Audio : MonoBehaviour
         switch (type)
         {
             //TODO fix different type
-
             case Audio_Type.master:
                 f += music_source.volume;
                 break;
@@ -247,7 +246,8 @@ public class Controller_Audio : MonoBehaviour
             default:
                 break;
         };
-        Dev.Log("New Volume: " + f);
+        //Dev.Log("New Volume: " + f);
+        //print("New Volume: " + f);
         SetVolume(f, type);
 
     }

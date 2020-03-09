@@ -79,11 +79,11 @@ public class VREquipment : MonoBehaviour
     void OnHoverEnter(XRBaseInteractor obj)
     {
         if (!m_Held)
-        {
+        {            
             //Vibrate
             //foreach(XRBaseInteractor hi in this.m_GrabInteractable.hoveringInteractors)
             //{
-               
+
             //}
         }
     }
@@ -107,8 +107,14 @@ public class VREquipment : MonoBehaviour
         }
         else if (!m_Held && Time.time > lastHeldTime + timeBeforeReturn)
         {
+            this.transform.localRotation = Quaternion.identity; 
             this.transform.position = socket.transform.position;
+            
             this.transform.SetParent(socket.transform);
+            m_Rigidbody.ResetCenterOfMass();
+            m_Rigidbody.ResetInertiaTensor();
+            m_Rigidbody.angularDrag = 0;
+            m_Rigidbody.angularVelocity = Vector3.zero;
         }
     }
 }

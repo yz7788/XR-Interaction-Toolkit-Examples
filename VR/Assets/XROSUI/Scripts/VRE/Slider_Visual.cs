@@ -5,17 +5,18 @@ using UnityEngine;
 public class Slider_Visual : MonoBehaviour
 {
     
-    Controller_Visual light;
+    //Controller_Visual m_light;
     public float light_value = 0.0001f;
     // Start is called before the first frame update
     void Start()
     {
-        light = Core.Ins.VisualManager;
+        //m_light = Core.Ins.VisualManager;
     }
 
     public void SetLight(float f)
     {
-        light.SetLight(f);
+        //m_light.SetLight(f);
+        Core.Ins.VisualManager.SetLight(f);
         light_value = f;
     }
 
