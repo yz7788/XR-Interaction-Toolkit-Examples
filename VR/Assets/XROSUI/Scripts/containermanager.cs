@@ -122,7 +122,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             {
                 //print("xhi2" + containerlayerlist[i].GetMax());
                 //if (!containerlayerlist[i].IsFull())
-                for(int j=0; j<containerlayerlist[i].GetMax(); j++)
+                for(int j=0; j<containerlayerlist[i].GetMaxSocket(); j++)
                 {
                     //print("Max Socket " + containerlayerlist[i].GetMax());
                     CS = Instantiate(PF_Socket, transform.position + transform.forward * 2, Quaternion.identity);

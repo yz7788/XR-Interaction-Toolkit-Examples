@@ -7,7 +7,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
     public class containerlayer : MonoBehaviour
     {
-        int max;
+        int maxSocket;
+       // int maxObject;
         private float containerObjectRadius = 0.05f;
         private int Rmax;
         private int Cmax;
@@ -104,7 +105,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 // print("is full");
             }
         }
-        public int GetMax()
+        public int GetMaxSocket()
         {
             float a = this.transform.localScale.x;
             float b = this.transform.localScale.y;
@@ -112,15 +113,27 @@ namespace UnityEngine.XR.Interaction.Toolkit
             Cmax = (int)(c / (buffery + (containerObjectRadius * 2)));
             // print("Cmax is "+ Cmax);
             Rmax = (int)(b / (bufferz + (containerObjectRadius * 2)));
-            max = Cmax * Rmax;
-            return max;
+            maxSocket = Cmax * Rmax;
+            return maxSocket;        
         }
+        //public int GetMaxObject()
+        //{
+        //    float a = this.transform.localScale.x;
+        //    float b = this.transform.localScale.y;
+        //    float c = this.transform.localScale.z;
+        //    Cmax = (int)(c / (buffery + (containerObjectRadius * 2)));
+        //    // print("Cmax is "+ Cmax);
+        //    Rmax = (int)(b / (bufferz + (containerObjectRadius * 2)));
+        //    maxObject = Cmax * Rmax;
+        //    return maxObject;
+        //}
+
         public bool IsFull()
         {
-            max = Cmax * Rmax;
-
+            maxSocket = Cmax * Rmax;
+            //maxObject = Cmax * Rmax;
             //  print("Is Full: " + (containerobjectlist.Count >= max));
-            return containerobjectlist.Count >= max;
+            return containerobjectlist.Count >= maxSocket;
         }
         // Start is called before the first frame update
         void Awake()
