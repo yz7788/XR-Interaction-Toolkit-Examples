@@ -1045,7 +1045,7 @@ PrefabInstance:
     - target: {fileID: 5434049765806929721, guid: 40ec07f304d5be842be579d180ef1b78,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Menu_Audio
+      value: Menu_Visual
       objectReference: {fileID: 0}
     - target: {fileID: 5434049765806929721, guid: 40ec07f304d5be842be579d180ef1b78,
         type: 3}

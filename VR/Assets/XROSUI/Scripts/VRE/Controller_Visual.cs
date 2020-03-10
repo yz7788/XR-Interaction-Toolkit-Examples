@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 //Maintained by Powen & Sophie
 
+//https://youtu.be/MDvPNNgIu7k
+
 public class Controller_Visual : MonoBehaviour
 {
     //Typicall the directionallightin the scene (as it represents the sun)
     public Light m_Light;
-
+    public bool bLightExists = false;
+    public float GammaCorrection;
     //
     //public float lightIntensityAdjuster = 100;
 
     // Start is called before the first frame update
     void Start()
     {
-        CheckIfLightExists();
+        bLightExists = CheckIfLightExists();
     }
 
     private bool CheckIfLightExists()
@@ -24,21 +27,46 @@ public class Controller_Visual : MonoBehaviour
             return true;
         }
         Dev.LogError("Controller_Visual is missing its light");
+
+        GameObject go = GameObject.Find("Directional Light");
+        if (go && go.GetComponent<Light>())
+        {
+            Dev.LogError("[Hack] Assigning Directional Light as light");
+            m_Light = go.GetComponent<Light>();
+            return true;
+        }
         return false;
     }
+
+    float changeRate2 = 0.11f;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             AdjustLight(0.5f);
         }
+
+        if (Input.GetKey(KeyCode.T))
+        {
+            //"You wouldn't want them to be able to turn it all the way up, but perhaps somewhere between 10% and 40% might be a good range for a general "brightness" slider."
+            GammaCorrection += changeRate2;
+            print(GammaCorrection);
+            RenderSettings.ambientLight = new Color(GammaCorrection, GammaCorrection, GammaCorrection, 1.0f);
+        }
+        if (Input.GetKey(KeyCode.G))
+        {
+            GammaCorrection -= changeRate2;
+            print(GammaCorrection);
+            RenderSettings.ambientLight = new Color(GammaCorrection, GammaCorrection, GammaCorrection, 1.0f);
+        }
+
     }
 
     public void AdjustLight(float f)
     {
         //f = f * lightIntensityAdjuster;
-        if (CheckIfLightExists())
+        if (bLightExists)
         {
             f += m_Light.intensity;
             //Dev.Log("New Light: " + f);
@@ -56,7 +84,7 @@ public class Controller_Visual : MonoBehaviour
             f = 0;
         }
 
-        if (CheckIfLightExists())
+        if (bLightExists)
         {
             m_Light.intensity = f;
         }
