@@ -2,7 +2,7 @@
 ## Team
 **Team Leader**: Powen Yao, **Project Manager**: (Sophie)
 
-Hanyuan (Cornelius) Xiao, Hong Liu, (Jessie) Jia, (Robert), Shinyee Lin, Hyuck Ju (Tommy) Kim
+Hanyuan (Cornelius) Xiao, Hong (Sherry) Liu, Ruoxi (Jessie) Jia, Feiyu (Robert) Miao, Hyuck Ju (Tommy) Kim, Shinyee Lin
 
 ## Motivation
 
@@ -31,7 +31,7 @@ Hanyuan (Cornelius) Xiao, Hong Liu, (Jessie) Jia, (Robert), Shinyee Lin, Hyuck J
 ## Usage
 1. Install [Unity], at least 2019.3 is required. (https://unity3d.com/unity/).
 2. Clone this project.
-3. Open either the AR or VR example projects.
+3. Open the VR example project.
 5. If using VR, Make sure Game view has focus (required for XR Input currently).
 6. Play.
 
