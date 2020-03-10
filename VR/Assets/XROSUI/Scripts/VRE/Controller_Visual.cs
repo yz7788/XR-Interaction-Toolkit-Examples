@@ -41,7 +41,7 @@ public class Controller_Visual : MonoBehaviour
         if (CheckIfLightExists())
         {
             f += m_Light.intensity;
-            Dev.Log("New Light: " + f);
+            //Dev.Log("New Light: " + f);
             SetLight(f);
         }
     }
