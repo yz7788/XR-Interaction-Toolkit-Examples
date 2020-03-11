@@ -66,12 +66,12 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
 
         // space
-        go = CreateKey(-0.15f, -0.14f+startingY, 0.05f+startingZ, " ");
+        go = CreateKey(-0.15f, -0.18f+startingY, 0.05f+startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
 
-        go = CreateKey(0.15f, -0.14f+startingY, 0.05f + startingZ, " ");
+        go = CreateKey(0.15f, -0.18f+startingY, 0.05f + startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;

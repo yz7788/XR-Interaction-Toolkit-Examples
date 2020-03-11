@@ -58,7 +58,7 @@ public class XRKey : MonoBehaviour
     {
         if (m_Held)
         {
-            /*print("grabbing " + Time.time);*/
+            print("grabbing " + Time.time);
         }
     }
 
@@ -77,6 +77,7 @@ public class XRKey : MonoBehaviour
             if (myText.text == "DEL")
             {
                 XROSInput.Backspace();
+                m_MeshRenderer.material.color = m_UnityMagenta;
                 return;
             }
             keyboardController.wait();

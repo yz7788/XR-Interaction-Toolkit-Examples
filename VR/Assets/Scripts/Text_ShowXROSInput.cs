@@ -43,6 +43,10 @@ public class Text_ShowXROSInput : MonoBehaviour
 
     public void Backspace()
     {
+        if (compiledMessages.Length == 0)
+        {
+            return;
+        }
         compiledMessages = compiledMessages.Substring(0, compiledMessages.Length - 1);
         text.text = compiledMessages;
     }
