@@ -46,7 +46,8 @@
                         <ul class="browser-default">
                             <!-- ############# HEADLINES START HERE !!! ############# -->
                             <li>
-                                <h5><b>[Subsystem 1]</b> We published <a href="camera_calibration_instruction.html">an instruction for multi-view camera calibration.</a></h5>
+                                <h5><b>[Subsystem 1]</b> 
+                                    Published <a href="camera_calibration_instruction.html">an instruction for multi-view camera calibration.</a></h5>
                             </li>
                         </ul>
                     </div>
@@ -61,23 +62,30 @@
                             <div class="col s12 m12 l12">
                                 <div class="card">
                                     <div class="card-content">
-                                        <span class="card-title">Hanyuan Xiao</span>
+                                        <span class="card-title">Hanyuan Xiao, Hyuck Ju (Tommy) Kim</span>
                                         <div class="divider"></div>
                                         <br>
                                         <div class="row valign-wrapper">
                                             <div class="col s2 m2 l2">
                                                 <img src="misc/avatar_hanyuan_xiao.jfif" alt="" class="circle responsive-img" width="70%">
-                                                    </div>
+                                                <img src="misc/avatar_tommy.jfif" alt="" class="circle responsive-img" width="70%">
+                                            </div>
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
                                                     <li>As we investigated and learned multiple camera calibration approaches, here we publish an <a href="camera_calibration_instruction.html">instruction</a> to the public.</li>
+                                                    <li>Finished and tested script to convert 2D keypoint to 3D keypoint.</li>
+                                                    <li>In order to feed data to Unity and transform the avatar's 3D joints, we used <a href="https://github.com/keel-210/OpenPose-Rig">openpose-rig</a> and edited the script</li>
+                                                    <li>The result was very bad as shown in the gif.</li>
+                                                    <li>Thus starting debugging, and realized that the 2D keypoints were fine, but the converted 3D keypoints were very off. </li>
+                                                    <p><div class="container center"><img class="materialboxed" width="100%" src="./misc/log3/triangulation_test_360.gif"></div></p>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             
                             <div class="col s12 m12 l12">
                                 <div class="card">
@@ -190,6 +198,7 @@
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
                                                     <li>Debug through 2D-3D skeleton extraction pipeline.</li>
+                                                    <li>Look into using Kinect v2 to make a real-time pose estimating unity avatar</li>
                                                 </ul>
                                             </div>
                                         </div>
