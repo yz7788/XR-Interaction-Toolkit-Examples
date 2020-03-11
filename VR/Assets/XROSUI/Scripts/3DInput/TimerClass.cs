@@ -17,13 +17,25 @@ public class TimerClass : MonoBehaviour
     public TMP_Text content;
     public TMP_Text myInputContent;
     bool btimerStarted = false;
+    TMP_TextInfo textInfo;
+    Color32 m_color;
+    Color32[] newVertexColors;
+    int old_length;
+    int currentCharacter;
     // Start is called before the first frame update
     void Start()
     {
         //Text_Timer = this.GetComponent<Text>();
         myInputContent.text = "";
         Text_Button_Timer.text = "Start";
-        testTarget.SetActive(false);
+        /*testTarget.SetActive(false);*/
+        content.color = Color.black;
+        content.outlineWidth = 0.15f;
+        content.outlineColor = Color.red;
+        textInfo = content.textInfo;
+        m_color = content.color;
+        old_length = 0;
+        currentCharacter = -1;
         //SetTimer();
     }
 
@@ -39,18 +51,51 @@ public class TimerClass : MonoBehaviour
         {
             Text_Button_Timer.text = "start"; 
         }
-        
-        if (string.Compare(myInputContent.text,targetText.Substring(0, myInputContent.text.Length)) == 0)
+
+        if (myInputContent.text.Length >= 1)
         {
-            print("the same");
-            content.color = Color.cyan;
+            print(old_length + " "+ myInputContent.text.Length);
+            
+            currentCharacter = myInputContent.text.Length - 1;
+            int materialIndex = textInfo.characterInfo[currentCharacter].materialReferenceIndex;
+            newVertexColors = textInfo.meshInfo[materialIndex].colors32;
+            int vertexIndex = textInfo.characterInfo[currentCharacter].vertexIndex;
+
+            if (old_length > myInputContent.text.Length)
+            {
+                vertexIndex = textInfo.characterInfo[old_length - 1].vertexIndex;
+                newVertexColors[vertexIndex + 0] = m_color;
+                newVertexColors[vertexIndex + 1] = m_color;
+                newVertexColors[vertexIndex + 2] = m_color;
+                newVertexColors[vertexIndex + 3] = m_color;
+                old_length = myInputContent.text.Length;
+                return;
+            }
+            old_length = myInputContent.text.Length;
+            if (string.Compare(myInputContent.text,targetText.Substring(0, myInputContent.text.Length)) == 0)
+            {
+
+                newVertexColors[vertexIndex + 0] = Color.cyan;
+                newVertexColors[vertexIndex + 1] = Color.cyan;
+                newVertexColors[vertexIndex + 2] = Color.cyan;
+                newVertexColors[vertexIndex + 3] = Color.cyan;
+                content.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
+
+
+            }
+            else
+            {
+                newVertexColors[vertexIndex + 0] = Color.red;
+                newVertexColors[vertexIndex + 1] = Color.red;
+                newVertexColors[vertexIndex + 2] = Color.red;
+                newVertexColors[vertexIndex + 3] = Color.red;
+                content.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
+                print("length "+myInputContent.text.Length);
+                print("my "+myInputContent.text);
+                print("target "+targetText.Substring(0, myInputContent.text.Length));
+            }
         }
-        else
-        {
-            print("length "+myInputContent.text.Length);
-            print("my "+myInputContent.text);
-            print("target "+targetText.Substring(0, myInputContent.text.Length));
-        }
+
     }
     public void SetTimer()
     {

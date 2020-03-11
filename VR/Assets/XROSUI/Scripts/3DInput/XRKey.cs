@@ -75,7 +75,7 @@ public class XRKey : MonoBehaviour
             hover_timer += Time.deltaTime;
         }
 
-        if (hover_timer >= 3f)
+        if (hover_timer >= 2f)
         {
             hover_start = false;
             hover_timer = 0;
