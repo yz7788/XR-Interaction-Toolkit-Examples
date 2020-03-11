@@ -843,7 +843,7 @@ PrefabInstance:
     - target: {fileID: 1717954560873690066, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_MaxRaycastDistance
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1717954560873690066, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
@@ -1465,6 +1465,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1091542673462971397, guid: ee964136cffec834983b24ef2a26e577,
+        type: 3}
+      propertyPath: keyboardController
+      value: 
+      objectReference: {fileID: 781510517}
+    - target: {fileID: 1091542673462971397, guid: ee964136cffec834983b24ef2a26e577,
+        type: 3}
+      propertyPath: Button_Timer
+      value: 
+      objectReference: {fileID: 629352671}
     - target: {fileID: 6466434483109733940, guid: ee964136cffec834983b24ef2a26e577,
         type: 3}
       propertyPath: m_Name
@@ -2051,6 +2061,18 @@ Transform:
   m_Father: {fileID: 223888546}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &629352671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 972553606, guid: 8449155b2edd0134bbb6ba499c70a6e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 238574994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &632531008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2625,6 +2647,18 @@ Transform:
   m_Father: {fileID: 223888546}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781510517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5074014946026510818, guid: 1b4544d75e966e84d9b684067b019518,
+    type: 3}
+  m_PrefabInstance: {fileID: 8682884270137338944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a6d0374e3ccdc4ca6f80225e294207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &825711715
 GameObject:
   m_ObjectHideFlags: 0
@@ -8533,6 +8567,11 @@ PrefabInstance:
       propertyPath: startingY
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5074014946026510818, guid: 1b4544d75e966e84d9b684067b019518,
+        type: 3}
+      propertyPath: Button_Timer
+      value: 
+      objectReference: {fileID: 629352671}
     - target: {fileID: 5074014946184135415, guid: 1b4544d75e966e84d9b684067b019518,
         type: 3}
       propertyPath: m_Enabled

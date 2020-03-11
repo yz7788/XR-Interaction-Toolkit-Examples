@@ -7,20 +7,30 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class XRKey : MonoBehaviour
 {
-    public KeyboardController keyboardController;
+    private KeyboardController keyboardController;
     public Text myText;
     Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     XRGrabInteractable m_GrabInteractable;
-    XRDirectInteractale m_DirectInteractable;
     MeshRenderer m_MeshRenderer;
     static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
     static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
     bool m_Held = false;
+    float hover_timer = 0;
+    bool hover_start = false;
+    private Button Button_Timer;
 
     public void Setup(string s, KeyboardController kc)
     {
         this.keyboardController = kc;
         this.name = "Key: " + s;
+        myText.text = s;
+    }
+
+    public void Setup(string s, KeyboardController kc, Button button)
+    {
+        this.keyboardController = kc;
+        this.name = "Key: " + s;
+        this.Button_Timer = button;
         myText.text = s;
     }
 
@@ -60,6 +70,19 @@ public class XRKey : MonoBehaviour
         if (m_Held)
         {
         }
+        if (hover_start)
+        {
+            hover_timer += Time.deltaTime;
+            print(hover_timer);
+        }
+
+        if (hover_timer >= 3f)
+        {
+            print("triggered");
+            hover_start = false;
+            hover_timer = 0;
+            Button_Timer.onClick.Invoke();
+        }
     }
 
     void OnHoverExit(XRBaseInteractor obj)
@@ -67,12 +90,19 @@ public class XRKey : MonoBehaviour
         if (!m_Held)
         {
             m_MeshRenderer.material.color = transparent;
+            hover_start = false;
+            hover_timer = 0;
         }
 
     }
 
     void OnHoverEnter(XRBaseInteractor obj)
     {
+        if (myText.text == "start" && hover_start == false)
+        {
+            hover_start = true;
+            return;
+        }
         if (!m_Held & keyboardController.getWaiting() == false)
         {
             if (myText.text == "DEL")
@@ -88,12 +118,12 @@ public class XRKey : MonoBehaviour
             m_MeshRenderer.material.color = m_UnityMagenta;
         }
     }
-    
+
     public void OnKeyClicked()
-    { 
+    {
         keyboardController.RegisterInput(myText.text);
         XROSInput.AddInput(myText.text);
         m_MeshRenderer.material.color = m_UnityMagenta;
-        
+
     }
 }

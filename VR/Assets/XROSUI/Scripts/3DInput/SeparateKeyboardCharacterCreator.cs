@@ -12,7 +12,7 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     public float smallerYradius;
     //Prefab for a 3D key
     public GameObject PF_Key;
-
+    public Button Button_Timer;
     public float startingZ = 0f;
     public float startingY = 0f;
     private void Awake()
@@ -66,7 +66,7 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
 
         // space
-        go = CreateKey(-0.15f, -0.18f+startingY, 0.05f+startingZ, " ");
+        go = CreateKey(-0.15f, -0.18f+startingY, 0.05f+startingZ, "start");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
@@ -97,7 +97,7 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         GameObject go = Instantiate(PF_Key, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0)); ;
         go.transform.SetParent(this.transform);
         XRKey key = go.GetComponent<XRKey>();
-        key.Setup(s, this);
+        key.Setup(s, this, Button_Timer);
 
         return go;
     }
