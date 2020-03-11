@@ -11,6 +11,9 @@ public class Controller_Visual : MonoBehaviour
     public Light m_Light;
     public bool bLightExists = false;
     public float GammaCorrection;
+
+    float minValue = 0;
+    float maxValue = 1;
     //
     //public float lightIntensityAdjuster = 100;
 
@@ -19,6 +22,14 @@ public class Controller_Visual : MonoBehaviour
     {
         bLightExists = CheckIfLightExists();
     }
+    public void OnEnable()
+    {
+        bLightExists = CheckIfLightExists();
+    }
+    public void OnDisable()
+    {
+        bLightExists = false;
+    }
 
     private bool CheckIfLightExists()
     {
@@ -26,15 +37,16 @@ public class Controller_Visual : MonoBehaviour
         {
             return true;
         }
-        Dev.LogError("Controller_Visual is missing its light");
 
         GameObject go = GameObject.Find("Directional Light");
         if (go && go.GetComponent<Light>())
         {
-            Dev.LogError("[Hack] Assigning Directional Light as light");
+            Dev.Log("[Hack] Assigning Directional Light as light");
             m_Light = go.GetComponent<Light>();
             return true;
         }
+
+        Dev.LogError("Controller_Visual is missing its light");
         return false;
     }
 
@@ -75,13 +87,13 @@ public class Controller_Visual : MonoBehaviour
     }
     public void SetLight(float f)
     {
-        if (f > 1)
+        if (f > maxValue)
         {
-            f = 1;
+            f = maxValue;
         }
-        else if (f < 0)
+        else if (f < minValue)
         {
-            f = 0;
+            f = minValue;
         }
 
         if (bLightExists)

@@ -43,11 +43,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7005877524998617188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a10005db311263b4e87729af50eb9a24, type: 3}
+  m_Script: {fileID: 11500000, guid: d77780e6aa58c3145a2f2d5e59a32eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerobjectlist:
-  - {fileID: 500872041962927489, guid: 7f067d6bbd1439a4c9551451b29c28c6, type: 3}
+  containerobjectlist: []
   containerlayerlist: []
   containersocketlist: []
   PF_Socket: {fileID: 8216828752256359590, guid: 7d10dd937a9cf4a4e90542210c9e97d7,
@@ -61,7 +60,7 @@ MonoBehaviour:
   controllerhand_Right: {fileID: 0}
   lefthandvalue: 0
   righthandvalue: 0
-  planeTarget: {fileID: 7005877525081581518}
+  planeTarget: {fileID: 0}
   target: {fileID: 0}
 --- !u!114 &7005877524998617189
 MonoBehaviour:

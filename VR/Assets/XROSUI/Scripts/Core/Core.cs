@@ -30,7 +30,7 @@ public class Core : MonoBehaviour
 
     public Controller_Audio AudioManager;
     public Controller_Visual VisualManager;
-
+    public Controller_Scene SceneManager;
     // Start is called before the first frame update
     void Start()
     {

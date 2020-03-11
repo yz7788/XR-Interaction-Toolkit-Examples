@@ -41,11 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492285529078304792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e0d94fa40460e4d96a5b75a138c6bc, type: 3}
+  m_Script: {fileID: 11500000, guid: d48e19676649b4b4b99110f40dad6e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layervalue: 0
   containerobjectlist: []
+  containersocketlist: []
 --- !u!1 &2500579573480396646
 GameObject:
   m_ObjectHideFlags: 0
