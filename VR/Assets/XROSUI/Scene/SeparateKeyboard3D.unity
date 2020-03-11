@@ -1210,22 +1210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 862490412, guid: 8449155b2edd0134bbb6ba499c70a6e4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1558865833, guid: 8449155b2edd0134bbb6ba499c70a6e4, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.084905684
-      objectReference: {fileID: 0}
-    - target: {fileID: 1558865833, guid: 8449155b2edd0134bbb6ba499c70a6e4, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.0028034912
-      objectReference: {fileID: 0}
-    - target: {fileID: 1558865833, guid: 8449155b2edd0134bbb6ba499c70a6e4, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.0028034912
-      objectReference: {fileID: 0}
     - target: {fileID: 1821271697, guid: 8449155b2edd0134bbb6ba499c70a6e4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1233,11 +1217,6 @@ PrefabInstance:
     - target: {fileID: 1821271697, guid: 8449155b2edd0134bbb6ba499c70a6e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1184729731341975867, guid: 8449155b2edd0134bbb6ba499c70a6e4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7040873453296314001, guid: 8449155b2edd0134bbb6ba499c70a6e4,
         type: 3}
