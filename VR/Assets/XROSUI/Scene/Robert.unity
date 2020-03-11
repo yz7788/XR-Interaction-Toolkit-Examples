@@ -5039,30 +5039,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 518765256, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 518765256, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 518765256, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 518765256, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 518765256, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 518765256, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 454507406, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
+      propertyPath: laserTracker
+      value: 
+      objectReference: {fileID: 1773779310}
     - target: {fileID: 787008196, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -5087,6 +5067,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1023132262, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
+      propertyPath: laserTracker
+      value: 
+      objectReference: {fileID: 1773779310}
     - target: {fileID: 189256214961945641, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -5115,6 +5099,11 @@ PrefabInstance:
     - target: {fileID: 189256214961945641, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026888305938186463, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1026888305938186463, guid: 15de75ba802bdca4faf70a66e3551439,
@@ -5125,11 +5114,6 @@ PrefabInstance:
     - target: {fileID: 1026888305938186463, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1026888305938186463, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1717954560309945982, guid: 15de75ba802bdca4faf70a66e3551439,
@@ -5227,29 +5211,39 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1887947583652974525, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1887947583652974525, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2139868768721196160, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3764525377186740012, guid: 15de75ba802bdca4faf70a66e3551439,
+    - target: {fileID: 3332622480278881513, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: laserTracker
+      value: 
+      objectReference: {fileID: 1773779310}
+    - target: {fileID: 4287526672414988393, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: laserTracker
+      value: 
+      objectReference: {fileID: 1773779310}
+    - target: {fileID: 5350785196629428557, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3764525377186740012, guid: 15de75ba802bdca4faf70a66e3551439,
+    - target: {fileID: 5350785196629428557, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5350785196629428557, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5350785196629428557, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5771378654680121717, guid: 15de75ba802bdca4faf70a66e3551439,
@@ -5257,15 +5251,30 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6517693803293028524, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517693803293028524, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070031960460767119, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070031960460767119, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8571633152985397455, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8606514739347863416, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8606514739347863416, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
@@ -6715,7 +6724,7 @@ PrefabInstance:
     - target: {fileID: 7517549319329480228, guid: 10297a1bb8a48324da4743a14b7528ef,
         type: 3}
       propertyPath: m_InteractionLayerMask.m_Bits
-      value: 2048
+      value: 262144
       objectReference: {fileID: 0}
     - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
         type: 3}
@@ -6780,7 +6789,7 @@ PrefabInstance:
     - target: {fileID: 7517549319329480230, guid: 10297a1bb8a48324da4743a14b7528ef,
         type: 3}
       propertyPath: m_Layer
-      value: 21
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7517549319329480234, guid: 10297a1bb8a48324da4743a14b7528ef,
         type: 3}
@@ -6812,6 +6821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b968087ae654aea488755dabff0f843e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LaserEmitter: {fileID: 1806821721}
+  laserTracker: {fileID: 1773779309}
+  m_Held: 0
 --- !u!1 &1793814119
 GameObject:
   m_ObjectHideFlags: 0
@@ -6894,6 +6906,12 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!1 &1806821721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1021177156824400002, guid: 15de75ba802bdca4faf70a66e3551439,
+    type: 3}
+  m_PrefabInstance: {fileID: 1316524946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1870525474
 PrefabInstance:
   m_ObjectHideFlags: 0

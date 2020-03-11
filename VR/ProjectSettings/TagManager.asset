@@ -21,14 +21,14 @@ TagManager:
   - XROSUI
   - LeftHandDirect
   - LeftHandRay
-  - LeftHandImitter
+  - LeftHandEmitter
   - LeftHandBody
   - containerobject
   - 
   - 
   - RightHandDirect
   - RightHandRay
-  - RightHandImitter
+  - RightHandEmitter
   - RightHandBody
   - 
   - 

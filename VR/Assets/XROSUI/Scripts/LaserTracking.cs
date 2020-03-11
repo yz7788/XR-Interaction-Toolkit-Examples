@@ -12,10 +12,10 @@ public class LaserTracking : MonoBehaviour
   static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
   static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
 
-    GameObject leftLaserEmitter;
-    GameObject laserTracker;
+    public GameObject LaserEmitter;
+    public GameObject laserTracker;
 
-  bool m_Held = false;
+  public bool m_Held = false;
 
   void OnEnable()
   {
@@ -40,6 +40,7 @@ public class LaserTracking : MonoBehaviour
   {
       m_MeshRenderer.material.color = m_UnityCyan;
       m_Held = true;
+      print("hahahah");
       // InvokeRepeating("Lockon",0,0.01f);
   }
 
@@ -69,8 +70,8 @@ public class LaserTracking : MonoBehaviour
     // Start is called before the first frame update
   void Start()
   {
-        leftLaserEmitter = GameObject.Find("LeftLaserEmitter");//Parent node of right hand controller
-        laserTracker = GameObject.Find("LaserTracker");//The cube supposed to be locked on
+        // leftLaserEmitter = GameObject.Find("LeftLaserEmitter");//Parent node of right hand controller
+        // laserTracker = GameObject.Find("LaserTracker");//The cube supposed to be locked on
     }
 
     // Update is called once per frame
@@ -87,7 +88,7 @@ public class LaserTracking : MonoBehaviour
   }
 
   void Lockon(){
-    Vector3 direction=laserTracker.transform.position-leftLaserEmitter.transform.position;
-    leftLaserEmitter.transform.forward=direction;
+    Vector3 direction=laserTracker.transform.position-LaserEmitter.transform.position;
+    LaserEmitter.transform.forward=direction;
   }
 }

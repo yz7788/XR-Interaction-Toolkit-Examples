@@ -10,6 +10,7 @@ public class RayControllerHidingLine : MonoBehaviour
     LineRenderer lineRenderer;
     XRInteractorLineVisual xRInteractorLineVisual;
     public LaserLengthChange grabbedTarget;
+    public LaserTracking laserTracker;
     bool grabbing;
 
     // Start is called before the first frame update
@@ -39,7 +40,7 @@ public class RayControllerHidingLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.grabbing&&!grabbedTarget.grabbed){
+        if(this.grabbing&&!grabbedTarget.grabbed&&!laserTracker.m_Held){
             // print("onGrab grabbed="+(grabbedTarget.grabbed? "true":"false"));
             // this.lineRenderer.enabled=false;
             if(this.xRInteractorLineVisual.enabled){

@@ -27,8 +27,8 @@ public class LaserLengthChange : MonoBehaviour
         m_GrabInteractable = GetComponent<XRGrabInteractable>();
         m_MeshRenderer = GetComponent<MeshRenderer>();
         this.LaserFromRay=LaserFrom.GetComponent<XRRayInteractor>();
-        m_GrabInteractable.onFirstHoverEnter.AddListener(OnHoverEnter);
-        m_GrabInteractable.onLastHoverExit.AddListener(OnHoverExit);
+        // m_GrabInteractable.onFirstHoverEnter.AddListener(OnHoverEnter);
+        // m_GrabInteractable.onLastHoverExit.AddListener(OnHoverExit);
         m_GrabInteractable.onSelectEnter.AddListener(OnGrabbed);
         m_GrabInteractable.onSelectExit.AddListener(OnReleased);
     }
