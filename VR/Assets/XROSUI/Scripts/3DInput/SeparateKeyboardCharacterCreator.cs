@@ -46,6 +46,17 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     void CreatePoints()
     {
+        // delete
+        GameObject go = CreateKey(-0.15f, 0.14f + startingY, 0.05f + startingZ, "DEL");
+        Vector3 scale = go.transform.localScale;
+        scale.x = 2 * scale.x;
+        go.transform.localScale = scale;
+
+        go = CreateKey(0.15f, 0.14f + startingY, 0.05f + startingZ, "DEL"); 
+        scale = go.transform.localScale;
+        scale.x = 2 * scale.x;
+        go.transform.localScale = scale;
+
         CreateLine(-0.15f, 0.06f +startingY, -0.05f+startingZ, -10f, smallerXradius, smallerYradius, "qwert");
         CreateLine(0.15f, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius,"yuiop");
         CreateLine(-0.15f, 0f+ startingY, startingZ, -10f, xradius, yradius,"asdfg");
@@ -54,8 +65,9 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         CreateLine(0.15f, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
         //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
 
-        GameObject go = CreateKey(-0.15f, -0.14f+startingY, 0.05f+startingZ, " ");
-        Vector3 scale = go.transform.localScale;
+        // space
+        go = CreateKey(-0.15f, -0.14f+startingY, 0.05f+startingZ, " ");
+        scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
 

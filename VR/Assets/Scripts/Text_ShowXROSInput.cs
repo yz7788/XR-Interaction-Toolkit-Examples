@@ -16,7 +16,9 @@ public class Text_ShowXROSInput : MonoBehaviour
         }
         XROSInput.EVENT_NewInput += CompileMessage;
         XROSInput.EVENT_NewRemoveInput += RemoveMessage;
+        XROSInput.EVENT_NewBackspace += Backspace;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -36,6 +38,12 @@ public class Text_ShowXROSInput : MonoBehaviour
     public void RemoveMessage()
     {
         compiledMessages = "";
+        text.text = compiledMessages;
+    }
+
+    public void Backspace()
+    {
+        compiledMessages = compiledMessages.Substring(0, compiledMessages.Length - 1);
         text.text = compiledMessages;
     }
 }

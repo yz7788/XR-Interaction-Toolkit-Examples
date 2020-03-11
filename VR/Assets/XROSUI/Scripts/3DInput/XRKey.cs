@@ -74,11 +74,11 @@ public class XRKey : MonoBehaviour
     {
         if (!m_Held & keyboardController.getWaiting() == false)
         {
-            /*if (myKey == "DEL")
+            if (myText.text == "DEL")
             {
-                XROSInput.RemoveInput();
+                XROSInput.Backspace();
                 return;
-            }*/
+            }
             keyboardController.wait();
             keyboardController.SetWaiting();
             keyboardController.RegisterInput(myText.text);
@@ -88,10 +88,7 @@ public class XRKey : MonoBehaviour
     }
     
     public void OnKeyClicked()
-    {
-        /*            keyboardController.wait();
-                    keyboardController.SetWaiting();*/
-        print("called");
+    { 
         keyboardController.RegisterInput(myText.text);
         XROSInput.AddInput(myText.text);
         m_MeshRenderer.material.color = m_UnityMagenta;
