@@ -73,12 +73,10 @@ public class XRKey : MonoBehaviour
         if (hover_start)
         {
             hover_timer += Time.deltaTime;
-            print(hover_timer);
         }
 
         if (hover_timer >= 3f)
         {
-            print("triggered");
             hover_start = false;
             hover_timer = 0;
             Button_Timer.onClick.Invoke();

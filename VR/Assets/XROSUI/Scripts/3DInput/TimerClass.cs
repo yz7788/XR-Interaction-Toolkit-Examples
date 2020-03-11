@@ -6,7 +6,7 @@ using TMPro;
 
 public class TimerClass : MonoBehaviour
 {
-    public static string targetText = "Barbara had been waiting at the table for twenty minutes. it had been twenty long and excruciating minutes. David had promised that he would be on time today. He never was, but he had promised this one time. She had made him repeat the promise multiple times over the last week until she'd believed his promise. Now she was paying the price.";
+    public static string targetText = "barbara had been waiting at the table for twenty minutes";
     float startTime;
     float currentTime;
     public Text Text_Timer;
@@ -21,6 +21,7 @@ public class TimerClass : MonoBehaviour
     void Start()
     {
         //Text_Timer = this.GetComponent<Text>();
+        myInputContent.text = "";
         Text_Button_Timer.text = "Start";
         testTarget.SetActive(false);
         //SetTimer();
@@ -37,6 +38,18 @@ public class TimerClass : MonoBehaviour
         else
         {
             Text_Button_Timer.text = "start"; 
+        }
+        
+        if (string.Compare(myInputContent.text,targetText.Substring(0, myInputContent.text.Length)) == 0)
+        {
+            print("the same");
+            content.color = Color.cyan;
+        }
+        else
+        {
+            print("length "+myInputContent.text.Length);
+            print("my "+myInputContent.text);
+            print("target "+targetText.Substring(0, myInputContent.text.Length));
         }
     }
     public void SetTimer()
@@ -66,7 +79,7 @@ public class TimerClass : MonoBehaviour
     void CalculateSpeed(float time)
     {
         float wordsPerMinute = 0;
-        int numWords = myInputContent.text.Split(' ').Length;
+        int numWords = myInputContent.text.Trim().Split(' ').Length;
         wordsPerMinute = numWords / (time/60);
         content.text = "Your input speed is "+wordsPerMinute+" words per minute";
         
