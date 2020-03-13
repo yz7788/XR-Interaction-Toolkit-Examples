@@ -8,6 +8,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VRHeadphone : VREquipment
 {
+    //public GameObject menuAudio;
+    //Controller_GameMenu gameMenu;
+
     public XRGrabInteractable XRGrabHeadphone;
 
     public float volumeIncreaseRate = 0.0025f;
@@ -25,7 +28,11 @@ public class VRHeadphone : VREquipment
     }
     */
 
-    public override void HandleGesture(ENUM_XROS_Gesture gesture)
+    /*public override void AlternateFunction()
+    {
+        //gameMenu.OpenMenu("Menu_Audio");
+    }*/
+public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {
         switch (gesture)
         {

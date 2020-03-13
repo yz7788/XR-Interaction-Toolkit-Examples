@@ -40,15 +40,20 @@ public class GestureArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
-        if (gestureDistance <= 0.5f * Area.transform.localScale.y)
+        
+        if (VE.m_Held)
         {
-            if (lastAskTime + coolDown < Time.time)
+            gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
+            if (gestureDistance <= 0.5f * Area.transform.localScale.y && gestureDistance > 0)
             {
-                MeasureDirect();
-                lastAskTime = Time.time;
+                if (lastAskTime + coolDown < Time.time)
+                {
+                    MeasureDirect();
+                    lastAskTime = Time.time;
+                }
             }
         }
+        
 
         /*
         if (Input.GetKey(KeyCode.Alpha7))

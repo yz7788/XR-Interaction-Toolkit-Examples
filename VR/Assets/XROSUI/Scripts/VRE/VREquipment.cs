@@ -4,13 +4,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class VREquipment : MonoBehaviour
 {
+   
     protected XRGrabInteractable m_GrabInteractable;
     protected MeshRenderer m_MeshRenderer;
 
     protected static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
     protected static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
 
-    protected bool m_Held = false;
+    public bool m_Held = false;
     float lastHeldTime;
 
     public float timeBeforeReturn = 0.5f;
@@ -90,15 +91,15 @@ public class VREquipment : MonoBehaviour
 
     public virtual void AlternateFunction()
     {
-        Dev.Log("Alternate Function: " + this.name);
-        XROSMenu.AddMenu(this.menuTypes);
+        //Dev.Log("Alternate Function: " + this.name);
+        Debug.Log("AlterAddmenu");
     }
 
     public virtual void HandleGesture(ENUM_XROS_Gesture gesture)
     {
 
     }
-
+    
     void Update()
     {
         if (m_Held)
@@ -115,6 +116,7 @@ public class VREquipment : MonoBehaviour
             m_Rigidbody.ResetInertiaTensor();
             m_Rigidbody.angularDrag = 0;
             m_Rigidbody.angularVelocity = Vector3.zero;
+            
         }
     }
 }

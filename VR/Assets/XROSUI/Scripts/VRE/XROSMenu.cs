@@ -11,7 +11,7 @@ public delegate void XROSMenu_NewMenu(string menuName);
 public static class XROSMenu
 {
     public static event XROSMenu_NewMenu EVENT_NewMenu;
-    
+    //public Controller_GameMenu 
 
     public static void AddMenu(XROSMenuTypes types)
     {
@@ -22,7 +22,7 @@ public static class XROSMenu
         if (EVENT_NewMenu != null)
         {
             EVENT_NewMenu(s);
-            //Debug.Log(s);
+            Debug.Log("Addmenu:"+ s);
         }
     }
 }
