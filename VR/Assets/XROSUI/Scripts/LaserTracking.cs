@@ -40,7 +40,7 @@ public class LaserTracking : MonoBehaviour
   {
       m_MeshRenderer.material.color = m_UnityCyan;
       m_Held = true;
-      print("hahahah");
+      // print("hahahah");
       // InvokeRepeating("Lockon",0,0.01f);
   }
 
