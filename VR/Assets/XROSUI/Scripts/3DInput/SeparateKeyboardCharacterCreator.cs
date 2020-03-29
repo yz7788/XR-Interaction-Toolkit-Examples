@@ -18,9 +18,10 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     public GameObject PF_Key;
     public Button Button_Timer;
 
+    public bool active = false;
+    ArrayList points = new ArrayList();
     private void Awake()
     {
-        //CreatePoints();
 
     }
 
@@ -44,16 +45,16 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     {
         print("starting" + startingX + " " + startingY + " " + startingZ);
         // delete
-        GameObject go = CreateKey(startingX, startingY, startingZ, "DEL");
+        GameObject go = CreateKey(-0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
         Vector3 scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-
+        points.Add(go);
         go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL"); 
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-
+        points.Add(go);
         CreateLine(-0.15f + startingX, 0.06f +startingY, -0.05f+startingZ, -10f, smallerXradius, smallerYradius, "qwert");
         CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius,"yuiop");
         CreateLine(-0.15f + startingX, 0f+ startingY, startingZ, -10f, xradius, yradius,"asdfg");
@@ -67,11 +68,12 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-
+        points.Add(go);
         go = CreateKey(0.15f + startingX, -0.18f+startingY, 0.05f + startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
+        points.Add(go);
     }
 
     void CreateLine(float offsetX, float offsetY, float offsetZ, float angleOffset, float xradius, float yradius, string letters)
@@ -95,10 +97,15 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         go.transform.SetParent(this.transform);
         XRKey key = go.GetComponent<XRKey>();
         key.Setup(s, this, Button_Timer);
-
+        points.Add(go);
         return go;
     }
 
-
+    public void DestroyPoints()
+    {
+        foreach (GameObject point in points){
+            Destroy(point);
+        }
+    }
 }
 

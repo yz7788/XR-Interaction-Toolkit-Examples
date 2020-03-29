@@ -37,9 +37,17 @@ public class KeyboardPositionSetter : MonoBehaviour
         m_Animator.SetTrigger(k_AnimTriggerUp);
         m_TriggerDown = false;
         m_TriggerHeldTime = 0;
-        kcc.CreatePoints(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
-        print(gameObject.name);
-        
+        if (kcc.active)
+        {
+            kcc.DestroyPoints();
+            kcc.active = false;
+        }
+        else
+        {
+            kcc.CreatePoints(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
+            kcc.active = true;
+        }
+
         // m_BubbleParticleSystem.Stop();
     }
 
