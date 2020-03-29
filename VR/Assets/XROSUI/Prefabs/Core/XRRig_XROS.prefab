@@ -2276,7 +2276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selfController: {fileID: 4746348274404650062}
   secondController: {fileID: 1717954560873690078}
-  laserTracker: {fileID: 0}
+  laserTracker: {fileID: 1773779310}
   target: {fileID: 5906475762776221322}
 --- !u!1 &1200797959861845026
 GameObject:
@@ -3147,7 +3147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbedTarget: {fileID: 511036855325281059}
-  laserTracker: {fileID: 0}
+  laserTracker: {fileID: 1773779310}
 --- !u!1 &1717954560958943209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,6 +3900,7 @@ Transform:
   - {fileID: 1717954560958943210}
   - {fileID: 7921647581709041990}
   - {fileID: 2568767417749335241}
+  - {fileID: 7517549318922687707}
   m_Father: {fileID: 1717954561456925283}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6515,7 +6516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbedTarget: {fileID: 5906475762776221322}
-  laserTracker: {fileID: 0}
+  laserTracker: {fileID: 1773779310}
 --- !u!1 &4798065429042649020
 GameObject:
   m_ObjectHideFlags: 0
@@ -7457,8 +7458,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6959674031185128029}
   m_HandleRect: {fileID: 1026888305938186463}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7536,6 +7537,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1773779310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517549318922687704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b968087ae654aea488755dabff0f843e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LaserEmitter: {fileID: 1021177156824400002}
+  laserTracker: {fileID: 7517549318922687704}
+  m_Held: 0
 --- !u!1 &7610560069621649448
 GameObject:
   m_ObjectHideFlags: 0
@@ -7877,7 +7893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selfController: {fileID: 1717954560873690078}
   secondController: {fileID: 4746348274404650062}
-  laserTracker: {fileID: 0}
+  laserTracker: {fileID: 1773779310}
   target: {fileID: 511036855325281059}
 --- !u!1 &8450232920633906644
 GameObject:
@@ -8227,4 +8243,130 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8887440323232691718, guid: f7efde6a6eb3ded47878a077ab21ff14,
     type: 3}
   m_PrefabInstance: {fileID: 332972043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &666970878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1717954561314460888}
+    m_Modifications:
+    - target: {fileID: 7517549319329480228, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_TrackPosition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480228, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_TrackRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480228, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_ThrowOnDetach
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480228, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_InteractionLayerMask.m_Bits
+      value: 262144
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.782
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.598
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.409
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15797998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15797998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480230, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserTracker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480230, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480234, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549319329480235, guid: 10297a1bb8a48324da4743a14b7528ef,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10297a1bb8a48324da4743a14b7528ef, type: 3}
+--- !u!4 &7517549318922687707 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 666970878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7517549318922687704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7517549319329480230, guid: 10297a1bb8a48324da4743a14b7528ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 666970878}
   m_PrefabAsset: {fileID: 0}
