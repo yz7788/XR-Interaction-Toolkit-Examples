@@ -36,7 +36,7 @@ public class KeyboardPositionSetter : MonoBehaviour
         }
         else
         {
-            kcc.CreatePoints(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
+            kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
             kcc.active = true;
         }
 
