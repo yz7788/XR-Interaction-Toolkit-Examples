@@ -515,6 +515,21 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5153925061032198239, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153925061032198239, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.0000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153925061032198239, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5829829952961426724, guid: cca5e4e0da45560479c022557d04fa1d,
         type: 3}
       propertyPath: m_Enabled
@@ -528,6 +543,21 @@ PrefabInstance:
     - target: {fileID: 7606424657617587099, guid: cca5e4e0da45560479c022557d04fa1d,
         type: 3}
       propertyPath: m_ThrowOnDetach
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606424657617587099, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_TrackRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606424657617587099, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_RetainTransformParent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606424657617587099, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_TrackPosition
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
