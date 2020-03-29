@@ -122,8 +122,8 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     {
         if(m_Held) 
         {
-            // print("grabbing " + Time.time);
-            this.positionRetainer();
+            print("grabbing " + Time.time);
+            //this.positionRetainer();
         }
     }
 }

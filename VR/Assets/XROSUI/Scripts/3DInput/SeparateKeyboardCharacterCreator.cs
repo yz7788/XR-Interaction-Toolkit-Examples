@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI; //create public inputfield 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Experimental.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(XRGrabInteractable))]
 public class SeparateKeyboardCharacterCreator: KeyboardController
 {
-
+    XRGrabInteractable m_InteractableBase;
     public GameObject system;
     public int segments = 10;
     public float xradius = 0.01f;
@@ -15,14 +20,28 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     public Button Button_Timer;
     public float startingZ = 0f;
     public float startingY = 0f;
+
+
+    // customization keyboard position
+    const string k_AnimTriggerDown = "TriggerDown";
+    const string k_AnimTriggerUp = "TriggerUp";
+    const float k_HeldThreshold = 0.1f;
+
+    float m_TriggerHeldTime;
+    bool m_TriggerDown;
     private void Awake()
     {
+        //CreatePoints();
         CreatePoints();
-        
+
     }
 
     private void Start()
     {
+        m_InteractableBase = GetComponent<XRGrabInteractable>();
+        m_InteractableBase.onSelectExit.AddListener(DroppedGun);
+        m_InteractableBase.onActivate.AddListener(TriggerPulled);
+        m_InteractableBase.onDeactivate.AddListener(TriggerReleased);
     }
     // Update is called once per frame
     void Update()
@@ -31,19 +50,20 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         {
             inputField.text = "";
         }
+
+        if (m_TriggerDown)
+        {
+
+            if (m_TriggerHeldTime >= k_HeldThreshold)
+            {
+                CreatePoints();
+            }
+            print("trigger down");
+        }
+
     }
 
-/*    private XRKey CreateKey(string s, GameObject parent, int position)
-    {
-        GameObject go = Instantiate(PF_Key, this.transform.position, Quaternion.identity);
-        go.transform.SetParent(parent.transform);
-
-        XRKey key = go.GetComponent<XRKey>();
-        key.Setup(s, this);
-
-        return key;
-    }*/
-
+    
     void CreatePoints()
     {
         // delete
@@ -100,6 +120,27 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         key.Setup(s, this, Button_Timer);
 
         return go;
+    }
+
+
+    void TriggerReleased(XRBaseInteractor obj)
+    {
+        m_TriggerDown = false;
+        m_TriggerHeldTime = 0;
+    }
+
+    void TriggerPulled(XRBaseInteractor obj)
+    {
+        m_TriggerDown = true;
+        print("trigger pulled");
+    }
+
+    void DroppedGun(XRBaseInteractor obj)
+    {
+        // In case the gun is dropped while in use.
+
+        m_TriggerDown = false;
+        m_TriggerHeldTime = 0;
     }
 }
 
