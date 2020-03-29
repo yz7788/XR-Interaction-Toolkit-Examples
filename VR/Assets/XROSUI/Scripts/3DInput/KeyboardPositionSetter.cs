@@ -5,12 +5,12 @@ using UnityEngine.Experimental.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(XRGrabInteractable))]
-public class BubbleGun : MonoBehaviour
+public class KeyboardPositionSetter : MonoBehaviour
 {
     public SeparateKeyboardCharacterCreator kcc;
     XRGrabInteractable m_InteractableBase;
     Animator m_Animator;
-    
+
     [SerializeField] ParticleSystem m_BubbleParticleSystem = null;
 
     const string k_AnimTriggerDown = "TriggerDown";
@@ -20,8 +20,11 @@ public class BubbleGun : MonoBehaviour
     float m_TriggerHeldTime;
     bool m_TriggerDown;
 
+
+    Transform llamaPositon;
     void Start()
     {
+        llamaPositon = gameObject.GetComponent<Transform>();
         m_InteractableBase = GetComponent<XRGrabInteractable>();
         m_Animator = GetComponent<Animator>();
         m_InteractableBase.onSelectExit.AddListener(DroppedGun);
@@ -34,7 +37,10 @@ public class BubbleGun : MonoBehaviour
         m_Animator.SetTrigger(k_AnimTriggerUp);
         m_TriggerDown = false;
         m_TriggerHeldTime = 0;
-        m_BubbleParticleSystem.Stop();
+        kcc.CreatePoints(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
+        print(gameObject.name);
+        
+        // m_BubbleParticleSystem.Stop();
     }
 
     void TriggerPulled(XRBaseInteractor obj)
@@ -50,7 +56,7 @@ public class BubbleGun : MonoBehaviour
 
         m_TriggerDown = false;
         m_TriggerHeldTime = 0;
-        m_BubbleParticleSystem.Stop();
+        //m_BubbleParticleSystem.Stop();
     }
 
     void Update()
@@ -61,11 +67,13 @@ public class BubbleGun : MonoBehaviour
 
             if (m_TriggerHeldTime >= k_HeldThreshold)
             {
-                if (!m_BubbleParticleSystem.isPlaying)
-                {
-                    m_BubbleParticleSystem.Play();
-                    //kcc.CreatePoints();
-                }
+
+                //if (!m_BubbleParticleSystem.isPlaying)
+                //{
+                // m_BubbleParticleSystem.Play();
+                
+                
+                //}
             }
         }
     }

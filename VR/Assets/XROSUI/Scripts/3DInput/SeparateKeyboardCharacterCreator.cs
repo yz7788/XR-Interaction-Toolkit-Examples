@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using UnityEngine.Experimental.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(XRGrabInteractable))]
 public class SeparateKeyboardCharacterCreator: KeyboardController
 {
     XRGrabInteractable m_InteractableBase;
@@ -18,30 +17,16 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     //Prefab for a 3D key
     public GameObject PF_Key;
     public Button Button_Timer;
-    public float startingZ = 0f;
-    public float startingY = 0f;
 
-
-    // customization keyboard position
-    const string k_AnimTriggerDown = "TriggerDown";
-    const string k_AnimTriggerUp = "TriggerUp";
-    const float k_HeldThreshold = 0.1f;
-
-    float m_TriggerHeldTime;
-    bool m_TriggerDown;
     private void Awake()
     {
         //CreatePoints();
-        CreatePoints();
 
     }
 
     private void Start()
     {
-        m_InteractableBase = GetComponent<XRGrabInteractable>();
-        m_InteractableBase.onSelectExit.AddListener(DroppedGun);
-        m_InteractableBase.onActivate.AddListener(TriggerPulled);
-        m_InteractableBase.onDeactivate.AddListener(TriggerReleased);
+
     }
     // Update is called once per frame
     void Update()
@@ -51,47 +36,39 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
             inputField.text = "";
         }
 
-        if (m_TriggerDown)
-        {
-
-            if (m_TriggerHeldTime >= k_HeldThreshold)
-            {
-                CreatePoints();
-            }
-            print("trigger down");
-        }
 
     }
 
     
-    void CreatePoints()
+    public void CreatePoints(float startingX, float startingY, float startingZ)
     {
+        print("starting" + startingX + " " + startingY + " " + startingZ);
         // delete
-        GameObject go = CreateKey(-0.15f, 0.14f + startingY, 0.05f + startingZ, "DEL");
+        GameObject go = CreateKey(startingX, startingY, startingZ, "DEL");
         Vector3 scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
 
-        go = CreateKey(0.15f, 0.14f + startingY, 0.05f + startingZ, "DEL"); 
+        go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL"); 
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
 
-        CreateLine(-0.15f, 0.06f +startingY, -0.05f+startingZ, -10f, smallerXradius, smallerYradius, "qwert");
-        CreateLine(0.15f, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius,"yuiop");
-        CreateLine(-0.15f, 0f+ startingY, startingZ, -10f, xradius, yradius,"asdfg");
-        CreateLine(0.15f, 0f + startingY, startingZ, +10f, xradius, yradius,"hjkl;");
-        CreateLine(-0.15f, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius,"zxcv");
-        CreateLine(0.15f, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
+        CreateLine(-0.15f + startingX, 0.06f +startingY, -0.05f+startingZ, -10f, smallerXradius, smallerYradius, "qwert");
+        CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius,"yuiop");
+        CreateLine(-0.15f + startingX, 0f+ startingY, startingZ, -10f, xradius, yradius,"asdfg");
+        CreateLine(0.15f + startingX, 0f + startingY, startingZ, +10f, xradius, yradius,"hjkl;");
+        CreateLine(-0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius,"zxcv");
+        CreateLine(0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
         //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
 
         // space
-        go = CreateKey(-0.15f, -0.18f+startingY, 0.05f+startingZ, "start");
+        go = CreateKey(-0.15f + startingX, -0.18f+startingY, 0.05f+startingZ, "start");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
 
-        go = CreateKey(0.15f, -0.18f+startingY, 0.05f + startingZ, " ");
+        go = CreateKey(0.15f + startingX, -0.18f+startingY, 0.05f + startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
@@ -123,24 +100,5 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     }
 
 
-    void TriggerReleased(XRBaseInteractor obj)
-    {
-        m_TriggerDown = false;
-        m_TriggerHeldTime = 0;
-    }
-
-    void TriggerPulled(XRBaseInteractor obj)
-    {
-        m_TriggerDown = true;
-        print("trigger pulled");
-    }
-
-    void DroppedGun(XRBaseInteractor obj)
-    {
-        // In case the gun is dropped while in use.
-
-        m_TriggerDown = false;
-        m_TriggerHeldTime = 0;
-    }
 }
 

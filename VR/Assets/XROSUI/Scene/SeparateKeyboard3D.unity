@@ -445,20 +445,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: LlamaBubbleGunPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3261333821449281204, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: kcc
+      value: 
+      objectReference: {fileID: 781510517}
+    - target: {fileID: 3261333821449281204, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4498450296475097182, guid: cca5e4e0da45560479c022557d04fa1d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498450296475097182, guid: cca5e4e0da45560479c022557d04fa1d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.898
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 4498450296475097182, guid: cca5e4e0da45560479c022557d04fa1d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.993
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4498450296475097182, guid: cca5e4e0da45560479c022557d04fa1d,
         type: 3}
@@ -499,6 +509,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153925061032198239, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606424657617587099, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606424657617587099, guid: cca5e4e0da45560479c022557d04fa1d,
+        type: 3}
+      propertyPath: m_ThrowOnDetach
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cca5e4e0da45560479c022557d04fa1d, type: 3}
@@ -1141,6 +1166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517549318922687707, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8070031960460767119, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
@@ -3147,6 +3177,26 @@ Transform:
   m_Father: {fileID: 233368270}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &827672863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 591921453833710157, guid: cca5e4e0da45560479c022557d04fa1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 230596706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &827672870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827672863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8287942e0a0905848af69cabeb19a194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kcc: {fileID: 781510517}
+  m_BubbleParticleSystem: {fileID: 0}
 --- !u!1 &837504119
 GameObject:
   m_ObjectHideFlags: 0
