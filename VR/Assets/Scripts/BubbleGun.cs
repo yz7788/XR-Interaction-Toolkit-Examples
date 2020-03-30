@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class BubbleGun : MonoBehaviour
 {
+    public SeparateKeyboardCharacterCreator kcc;
     XRGrabInteractable m_InteractableBase;
     Animator m_Animator;
     
@@ -62,7 +63,8 @@ public class BubbleGun : MonoBehaviour
             {
                 if (!m_BubbleParticleSystem.isPlaying)
                 {
-                    m_BubbleParticleSystem.Play();    
+                    m_BubbleParticleSystem.Play();
+                    //kcc.CreatePoints();
                 }
             }
         }

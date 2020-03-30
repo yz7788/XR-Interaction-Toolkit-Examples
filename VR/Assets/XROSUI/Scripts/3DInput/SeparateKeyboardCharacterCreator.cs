@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI; //create public inputfield 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Experimental.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SeparateKeyboardCharacterCreator: KeyboardController
 {
-
+    XRGrabInteractable m_InteractableBase;
     public GameObject system;
     public int segments = 10;
     public float xradius = 0.01f;
@@ -13,16 +17,17 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     //Prefab for a 3D key
     public GameObject PF_Key;
     public Button Button_Timer;
-    public float startingZ = 0f;
-    public float startingY = 0f;
+
+    public bool active = false;
+    ArrayList points = new ArrayList();
     private void Awake()
     {
-        CreatePoints();
-        
+
     }
 
     private void Start()
     {
+
     }
     // Update is called once per frame
     void Update()
@@ -31,50 +36,50 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         {
             inputField.text = "";
         }
+
+
     }
 
-/*    private XRKey CreateKey(string s, GameObject parent, int position)
+    public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
-        GameObject go = Instantiate(PF_Key, this.transform.position, Quaternion.identity);
-        go.transform.SetParent(parent.transform);
+        CreatePoints(startingX, startingY, startingZ);
+        MirrorKeys(startingX, startingY + 0.4f, startingZ);
+    }
 
-        XRKey key = go.GetComponent<XRKey>();
-        key.Setup(s, this);
-
-        return key;
-    }*/
-
-    void CreatePoints()
+    
+    public void CreatePoints(float startingX, float startingY, float startingZ)
     {
+        print("starting" + startingX + " " + startingY + " " + startingZ);
         // delete
-        GameObject go = CreateKey(-0.15f, 0.14f + startingY, 0.05f + startingZ, "DEL");
+        GameObject go = CreateKey(-0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
         Vector3 scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-
-        go = CreateKey(0.15f, 0.14f + startingY, 0.05f + startingZ, "DEL"); 
+        points.Add(go);
+        go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL"); 
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-
-        CreateLine(-0.15f, 0.06f +startingY, -0.05f+startingZ, -10f, smallerXradius, smallerYradius, "qwert");
-        CreateLine(0.15f, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius,"yuiop");
-        CreateLine(-0.15f, 0f+ startingY, startingZ, -10f, xradius, yradius,"asdfg");
-        CreateLine(0.15f, 0f + startingY, startingZ, +10f, xradius, yradius,"hjkl;");
-        CreateLine(-0.15f, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius,"zxcv");
-        CreateLine(0.15f, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
+        points.Add(go);
+        CreateLine(-0.15f + startingX, 0.06f +startingY, -0.05f+startingZ, -10f, smallerXradius, smallerYradius, "qwert");
+        CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius,"yuiop");
+        CreateLine(-0.15f + startingX, 0f+ startingY, startingZ, -10f, xradius, yradius,"asdfg");
+        CreateLine(0.15f + startingX, 0f + startingY, startingZ, +10f, xradius, yradius,"hjkl;");
+        CreateLine(-0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius,"zxcv");
+        CreateLine(0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
         //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
 
         // space
-        go = CreateKey(-0.15f, -0.18f+startingY, 0.05f+startingZ, "start");
+        go = CreateKey(-0.15f + startingX, -0.18f+startingY, 0.05f+startingZ, "start");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-
-        go = CreateKey(0.15f, -0.18f+startingY, 0.05f + startingZ, " ");
+        points.Add(go);
+        go = CreateKey(0.15f + startingX, -0.18f+startingY, 0.05f + startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
+        points.Add(go);
     }
 
     void CreateLine(float offsetX, float offsetY, float offsetZ, float angleOffset, float xradius, float yradius, string letters)
@@ -98,8 +103,21 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         go.transform.SetParent(this.transform);
         XRKey key = go.GetComponent<XRKey>();
         key.Setup(s, this, Button_Timer);
-
+        points.Add(go);
         return go;
+    }
+
+    public void DestroyPoints()
+    {
+        foreach (GameObject point in points){
+            Destroy(point);
+        }
+    }
+
+
+    void MirrorKeys(float startingX, float startingY, float startingZ)
+    {
+        CreatePoints(startingX, startingY, startingZ);
     }
 }
 

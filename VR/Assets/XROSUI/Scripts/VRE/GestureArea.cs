@@ -10,6 +10,7 @@ public class GestureArea : MonoBehaviour
     public GameObject Area;
     public GameObject GO_VE;
     public VREquipment VE;
+    public GameObject Text;
     public float gestureDistance;
     public float DistanceY;
     public float DistanceZ;
@@ -22,6 +23,7 @@ public class GestureArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Text.SetActive(false);
         //GameObject go = GameObject.Find("Headphone2");
         this.RegisterVREquipment(GO_VE.GetComponent<VREquipment>());
     }
@@ -40,7 +42,6 @@ public class GestureArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (VE.m_Held)
         {
             gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
@@ -48,10 +49,15 @@ public class GestureArea : MonoBehaviour
             {
                 if (lastAskTime + coolDown < Time.time)
                 {
+                    //Text.SetActive(true);
                     MeasureDirect();
                     lastAskTime = Time.time;
                 }
             }
+        }
+        //else
+        {
+            //Text.SetActive(false);
         }
         
 
@@ -95,6 +101,7 @@ public class GestureArea : MonoBehaviour
         //up/down
         DistanceY = GO_VE.transform.position.y - GestureCore.transform.position.y ;
         //volume = DistanceY / (Area.transform.localScale.y / 2);
+        //Debug.Log("distance is " + DistanceY);
         //Dev.Log("distance is " + DistanceY);
 
 

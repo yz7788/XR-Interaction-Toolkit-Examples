@@ -1,8 +1,10 @@
 ﻿
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 
 //Supported Audio Formats
@@ -16,6 +18,10 @@ public enum Audio_Type { master, voice, music, sfx }
 //Every other sound effect would be requested and created through an object pooler.
 public class Controller_Audio : MonoBehaviour
 {
+    public AudioMixer mixer;
+    float musicVol;
+    public Text text;
+    Text Text_volumeValue;
     //Public so we can drag child objects
     [Tooltip("Drag child object with an audiosource to be used as the default menu sfx audio source")]
     public AudioSource menuSfx_source;
@@ -34,6 +40,22 @@ public class Controller_Audio : MonoBehaviour
     [HideInInspector]
     public SettingSaveData Setting;
 
+
+    void Start() {
+        GameObject text = GameObject.Find("Text_volumeValue");
+
+        mixer.GetFloat("MusicVol", out musicVol);
+        if (text != null)
+        {
+            Text_volumeValue = text.GetComponent<Text>();
+            if (Text_volumeValue != null)
+            {
+                Text_volumeValue.text = "Volume:" + ((int)(Mathf.Pow(10f, musicVol / 20f) * 100f)).ToString() + "%";
+            }
+            else { Debug.LogError("[" + text.name + "]- Dose not contain a Text component"); }
+        }
+        else { Debug.LogError("Could not find Text_volumeValue"); };
+    }
     private void Awake()
     {
         PF_AudioSource.gameObject.SetActive(false);
@@ -225,23 +247,32 @@ public class Controller_Audio : MonoBehaviour
         Setting = saveData.audioSetting;
     }
 
+    public void ShowVolumeValue(float f, AudioMixer mixer)
+    {
+        mixer.GetFloat("MusicVol", out musicVol);
+        Debug.Log("MusicVol:"+musicVol);
+        Text_volumeValue.text = "Volume:" + ((int)(f* 100)).ToString() + "%";
+    }
+
     public void AdjustVolume(float f, Audio_Type type)
     {
-        
+        float musicVol = 0f;
+        mixer.GetFloat("MusicVol", out musicVol);
+        Debug.Log("MusicVol:" + musicVol);
         switch (type)
         {
             //TODO fix different type
             case Audio_Type.master:
-                f += music_source.volume;
+                f += Mathf.Pow(10f, musicVol / 20f);
                 break;
             case Audio_Type.music:
-                f += music_source.volume;
+                f += Mathf.Pow(10f, musicVol / 20f);
                 break;
             case Audio_Type.voice:
-                f += music_source.volume;
+                f += Mathf.Pow(10f, musicVol / 20f);
                 break;
             case Audio_Type.sfx:
-                f += music_source.volume;
+                f += Mathf.Pow(10f, musicVol / 20f);
                 break;
             default:
                 break;
@@ -266,16 +297,24 @@ public class Controller_Audio : MonoBehaviour
         {
             //TODO
             case Audio_Type.master:
-                music_source.volume = f;
+                mixer.SetFloat("MusicVol", Mathf.Log10(f) *20);
+                ShowVolumeValue(f,mixer);
+                //Debug.Log(Text_volumeValue.text);
                 break;
             case Audio_Type.music:
-                music_source.volume = f;
+                mixer.SetFloat("MusicVol", Mathf.Log10(f) *20);
+                ShowVolumeValue(f, mixer);
+                //Debug.Log(Text_volumeValue.text);
                 break;
             case Audio_Type.voice:
-                music_source.volume = f;
+                mixer.SetFloat("MusicVol", Mathf.Log10(f) * 20);
+                ShowVolumeValue(f, mixer);
+                //Debug.Log(Text_volumeValue.text);
                 break;
             case Audio_Type.sfx:
-                music_source.volume = f;
+                mixer.SetFloat("MusicVol", Mathf.Log10(f) * 20);
+                ShowVolumeValue(f, mixer);
+                //Debug.Log(Text_volumeValue.text);
                 break;
             default:
                 break;
