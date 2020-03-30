@@ -13,8 +13,8 @@ public class VRHeadphone : VREquipment
 
     public XRGrabInteractable XRGrabHeadphone;
 
-    public float volumeIncreaseRate = 0.0025f;
-    public float volumeDecreaseRate = -0.0025f;
+    public float volumeIncreaseRate = 0.003f;
+    public float volumeDecreaseRate = -0.003f;
 
     public void Start()
     {

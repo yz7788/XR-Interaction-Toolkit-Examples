@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //Maintained by Powen & Sophie
 
 //https://youtu.be/MDvPNNgIu7k
@@ -11,6 +12,9 @@ public class Controller_Visual : MonoBehaviour
     public Light m_Light;
     public bool bLightExists = false;
     public float GammaCorrection;
+    public Text text;
+    Text Text_brightnessValue;
+    float m_LightIntensity;
 
     float minValue = 0;
     float maxValue = 1;
@@ -21,6 +25,19 @@ public class Controller_Visual : MonoBehaviour
     void Start()
     {
         bLightExists = CheckIfLightExists();
+
+        GameObject text = GameObject.Find("Text_brightnessValue");
+        
+        if (text != null)
+        {
+            Text_brightnessValue = text.GetComponent<Text>();
+            if (Text_brightnessValue != null)
+            {
+                Text_brightnessValue.text = "Brightness:" + ((int)(m_LightIntensity *100f)).ToString() + "%";
+            }
+            else { Debug.LogError("[" + text.name + "]- Dose not contain a Text component"); }
+        }
+        else { Debug.LogError("Could not find Text_brightnessValue"); };
     }
     public void OnEnable()
     {
@@ -35,6 +52,7 @@ public class Controller_Visual : MonoBehaviour
     {
         if (m_Light)
         {
+            m_LightIntensity = m_Light.intensity;
             return true;
         }
 
@@ -54,7 +72,7 @@ public class Controller_Visual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        /*if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             AdjustLight(0.5f);
         }
@@ -71,7 +89,7 @@ public class Controller_Visual : MonoBehaviour
             GammaCorrection -= changeRate2;
             print(GammaCorrection);
             RenderSettings.ambientLight = new Color(GammaCorrection, GammaCorrection, GammaCorrection, 1.0f);
-        }
+        }*/
 
     }
 
@@ -99,6 +117,8 @@ public class Controller_Visual : MonoBehaviour
         if (bLightExists)
         {
             m_Light.intensity = f;
+            Debug.Log("bright"+f);
+            Text_brightnessValue.text = "Brightness:" + ((int)(f * 100f)).ToString() + "%";
         }
     }
 }
