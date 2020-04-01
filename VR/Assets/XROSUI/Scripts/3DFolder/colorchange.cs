@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
-namespace UnityEngine.XR.Interaction.Toolkit
-{ 
-public class colorchange : MonoBehaviour
+public class ColorChange : MonoBehaviour
 {
     public Material greenMaterial = null;
     public Material pinkMaterial = null;
-    private MeshRenderer meshRenderer = null;
+    private MeshRenderer m_Renderer = null;
     private XRGrabInteractable grabInteractable = null;
-       
+
     // Start is called before the first frame update
     private void Awake()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
-        grabInteractable= GetComponent<XRGrabInteractable>();
+        m_Renderer = GetComponent<MeshRenderer>();
+        grabInteractable = GetComponent<XRGrabInteractable>();
 
         grabInteractable.onActivate.AddListener(SetPink);
         grabInteractable.onDeactivate.AddListener(SetGreen);
@@ -28,11 +27,10 @@ public class colorchange : MonoBehaviour
     }
     private void SetGreen(XRBaseInteractor interactor)
     {
-        meshRenderer.material = greenMaterial;
+        m_Renderer.material = greenMaterial;
     }
     private void SetPink(XRBaseInteractor interactor)
     {
-        meshRenderer.material = pinkMaterial;
+        m_Renderer.material = pinkMaterial;
     }
-}
 }
