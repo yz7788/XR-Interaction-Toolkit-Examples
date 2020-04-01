@@ -23,7 +23,8 @@ public class GestureArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Text.SetActive(false);
+        Text.SetActive(false);
+        
         //GameObject go = GameObject.Find("Headphone2");
         this.RegisterVREquipment(GO_VE.GetComponent<VREquipment>());
     }
@@ -44,21 +45,30 @@ public class GestureArea : MonoBehaviour
     {
         if (VE.m_Held)
         {
+
             gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
             if (gestureDistance <= 0.5f * Area.transform.localScale.y && gestureDistance > 0)
             {
+                //if(!Text.activeSelf)
+                {
+                    //ShowValue
+                    //last activated = Time.time;
+                    Text.SetActive(true);
+                }
+
                 if (lastAskTime + coolDown < Time.time)
                 {
-                    //Text.SetActive(true);
+
                     MeasureDirect();
                     lastAskTime = Time.time;
                 }
             }
+            else
+            {
+                Text.SetActive(false);
+            }
         }
-        //else
-        {
-            //Text.SetActive(false);
-        }
+
         
 
         /*
