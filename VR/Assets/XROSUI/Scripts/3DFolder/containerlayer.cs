@@ -153,7 +153,7 @@ public class ContainerLayer : MonoBehaviour
     {
     }
 
-    public void hidecontainerobject()
+    public void HideContainerObject()
     {
         for (int i = 0; i < containerobjectlist.Count; i++)
         {
@@ -161,7 +161,7 @@ public class ContainerLayer : MonoBehaviour
         }
     }
 
-    public void showcontainerobject()
+    public void ShowContainerObject()
     {
         for (int i = 0; i < containerobjectlist.Count; i++)
         {

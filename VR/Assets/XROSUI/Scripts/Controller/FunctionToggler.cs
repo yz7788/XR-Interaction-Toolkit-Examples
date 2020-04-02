@@ -14,19 +14,24 @@ public class FunctionToggler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        state=InitalState;
+        state = InitalState;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void trigger(){
-        state=!state;
-        if(state){
+
+    public void Trigger()
+    {
+        state = !state;
+        if (state)
+        {
             TurnedOn.Invoke();
-        } else {
+        }
+        else
+        {
             TurnedOff.Invoke();
         }
     }

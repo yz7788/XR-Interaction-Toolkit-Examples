@@ -145,22 +145,22 @@ public class ContainerManager : MonoBehaviour
         {
             if (totalvalueleft <= containerlayerlist[i].layervalue)
             {
-                containerlayerlist[i].hidecontainerobject();
+                containerlayerlist[i].HideContainerObject();
                 containerlayerlist[i].gameObject.SetActive(false);
             }
             else if (totalvalueright <= containerlayerlist[i].layervalue)
             {
-                containerlayerlist[i].hidecontainerobject();
+                containerlayerlist[i].HideContainerObject();
                 containerlayerlist[i].gameObject.SetActive(false);
             }
             else if (totalvalueleft > containerlayerlist[i].layervalue)
             {
-                containerlayerlist[i].showcontainerobject();
+                containerlayerlist[i].ShowContainerObject();
                 containerlayerlist[i].gameObject.SetActive(true);
             }
             else if (totalvalueright > containerlayerlist[i].layervalue)
             {
-                containerlayerlist[i].showcontainerobject();
+                containerlayerlist[i].ShowContainerObject();
                 containerlayerlist[i].gameObject.SetActive(true);
             }
         }

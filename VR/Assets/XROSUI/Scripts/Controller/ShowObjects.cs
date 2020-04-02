@@ -29,27 +29,33 @@ public class ShowObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EnablePositionRetaining){
-            if(!relative){
-                HidenObject.transform.position = 
-            ParentObject.transform.position + 
-            new Vector3(RelativePosition_x,RelativePosition_y,RelativePosition_z);
-            } else {
-                HidenObject.transform.position = ParentObject.transform.position + 
-                ParentObject.transform.forward*RelativePosition_z+
-                ParentObject.transform.up*RelativePosition_y + 
-                ParentObject.transform.right* RelativePosition_x;
+        if (EnablePositionRetaining)
+        {
+            if (!relative)
+            {
+                HidenObject.transform.position =
+            ParentObject.transform.position +
+            new Vector3(RelativePosition_x, RelativePosition_y, RelativePosition_z);
             }
-            
+            else
+            {
+                HidenObject.transform.position = ParentObject.transform.position +
+                ParentObject.transform.forward * RelativePosition_z +
+                ParentObject.transform.up * RelativePosition_y +
+                ParentObject.transform.right * RelativePosition_x;
+            }
         }
     }
 
-    public void Show(){
-        m_Renderer.enabled= true;
+    public void Show()
+    {
+        m_Renderer.enabled = true;
         m_XRGrabInteractable.enabled = true;
     }
-    public void Hide(){
-        m_Renderer.enabled= true;
+
+    public void Hide()
+    {
+        m_Renderer.enabled = true;
         m_XRGrabInteractable.enabled = true;
     }
 }

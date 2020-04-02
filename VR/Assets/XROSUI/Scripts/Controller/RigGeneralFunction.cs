@@ -13,32 +13,37 @@ public class RigGeneralFunction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(PositionRetain){
+        if (PositionRetain)
+        {
             this.PositionReset();
         }
     }
-    /*this method is used 
-    to reposition itself*/
-    public void PositionReset(){
-        
-        if(!relative){
-            this.transform.position = 
-            Parent.transform.position + 
-            new Vector3(RelativePosition_x,RelativePosition_y,RelativePosition_z);
-        } else {
-                this.transform.position = Parent.transform.position + 
-                Parent.transform.forward*RelativePosition_z+
-                Parent.transform.up*RelativePosition_y + 
-                Parent.transform.right* RelativePosition_x;
+
+    //this method is used to reposition itself*/
+    public void PositionReset()
+    {
+        if (!relative)
+        {
+            this.transform.position =
+            Parent.transform.position +
+            new Vector3(RelativePosition_x, RelativePosition_y, RelativePosition_z);
+        }
+        else
+        {
+            this.transform.position = Parent.transform.position +
+            Parent.transform.forward * RelativePosition_z +
+            Parent.transform.up * RelativePosition_y +
+            Parent.transform.right * RelativePosition_x;
         }
     }
-    public void DirectionReset(){
-        this.transform.forward=Parent.transform.forward;
+    public void DirectionReset()
+    {
+        this.transform.forward = Parent.transform.forward;
     }
 }

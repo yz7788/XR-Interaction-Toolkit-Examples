@@ -49,13 +49,13 @@ public class TimerClass : MonoBehaviour
         }
         else
         {
-            Text_Button_Timer.text = "start"; 
+            Text_Button_Timer.text = "start";
         }
 
         if (myInputContent.text.Length >= 1)
         {
-            print(old_length + " "+ myInputContent.text.Length);
-            
+            print(old_length + " " + myInputContent.text.Length);
+
             currentCharacter = myInputContent.text.Length - 1;
             int materialIndex = textInfo.characterInfo[currentCharacter].materialReferenceIndex;
             newVertexColors = textInfo.meshInfo[materialIndex].colors32;
@@ -72,7 +72,7 @@ public class TimerClass : MonoBehaviour
                 return;
             }
             old_length = myInputContent.text.Length;
-            if (string.Compare(myInputContent.text,targetText.Substring(0, myInputContent.text.Length)) == 0)
+            if (string.Compare(myInputContent.text, targetText.Substring(0, myInputContent.text.Length)) == 0)
             {
 
                 newVertexColors[vertexIndex + 0] = Color.cyan;
@@ -80,8 +80,6 @@ public class TimerClass : MonoBehaviour
                 newVertexColors[vertexIndex + 2] = Color.cyan;
                 newVertexColors[vertexIndex + 3] = Color.cyan;
                 content.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
-
-
             }
             else
             {
@@ -90,13 +88,13 @@ public class TimerClass : MonoBehaviour
                 newVertexColors[vertexIndex + 2] = Color.red;
                 newVertexColors[vertexIndex + 3] = Color.red;
                 content.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
-                print("length "+myInputContent.text.Length);
-                print("my "+myInputContent.text);
-                print("target "+targetText.Substring(0, myInputContent.text.Length));
+                print("length " + myInputContent.text.Length);
+                print("my " + myInputContent.text);
+                print("target " + targetText.Substring(0, myInputContent.text.Length));
             }
         }
-
     }
+
     public void SetTimer()
     {
         if (!btimerStarted)
@@ -125,8 +123,7 @@ public class TimerClass : MonoBehaviour
     {
         float wordsPerMinute = 0;
         int numWords = myInputContent.text.Trim().Split(' ').Length;
-        wordsPerMinute = numWords / (time/60);
-        content.text = "Your input speed is "+wordsPerMinute+" words per minute";
-        
+        wordsPerMinute = numWords / (time / 60);
+        content.text = "Your input speed is " + wordsPerMinute + " words per minute";
     }
 }

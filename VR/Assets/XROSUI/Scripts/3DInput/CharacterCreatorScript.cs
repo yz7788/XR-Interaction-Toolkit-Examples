@@ -52,19 +52,13 @@ public class CharacterCreatorScript : KeyboardController
 
     private void Start()
     {
-        //this.transform.position = head.transform.position + head.transform.forward * 0.3f;
     }
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F5))
-        {
-            inputField.text = "";
-        }
+
     }
-
-    //Handle information from Key here
-
 
     private XRKey CreateKey(string s, GameObject parent, int position)
     {

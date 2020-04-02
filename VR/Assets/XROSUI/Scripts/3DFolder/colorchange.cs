@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
+//Test Script
+//Changes a grabbed object's color upon activation
+//Only used in 3DFolder
 public class ColorChange : MonoBehaviour
 {
     public Material greenMaterial = null;
