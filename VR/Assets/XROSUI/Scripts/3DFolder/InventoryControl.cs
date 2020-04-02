@@ -43,7 +43,6 @@ public class InventoryControl : MonoBehaviour
         }
     }
 
-
     public class PlayerItem
     {
         public Sprite iconSprite;

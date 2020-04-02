@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Light: {fileID: 0}
   bLightExists: 0
   GammaCorrection: 0
+  text: {fileID: 0}
 --- !u!1 &2422340281929535362
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6be26e2e6e6da44a6850d81c8aed36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: eec3dc314fe59c84fb1bccad214f7e77, type: 2}
+  text: {fileID: 0}
   menuSfx_source: {fileID: 6024458695807158799}
   music_source: {fileID: 7983793296232342114}
   errorClip: {fileID: 8300000, guid: d56ff287db9218543b9018e94c16948e, type: 3}
@@ -309,7 +312,8 @@ AudioSource:
   m_GameObject: {fileID: 4398332188907702400}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: eec3dc314fe59c84fb1bccad214f7e77,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

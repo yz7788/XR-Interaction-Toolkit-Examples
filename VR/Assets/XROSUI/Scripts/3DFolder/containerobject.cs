@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-
 [RequireComponent(typeof(XRGrabInteractable))]
-public class containerobject : MonoBehaviour
-
-
+public class ContainerObject : MonoBehaviour
 {
     XRGrabInteractable m_GrabInteractable;
     MeshRenderer m_MeshRenderer;
@@ -38,7 +35,7 @@ public class containerobject : MonoBehaviour
 
     private void OnGrabbed(XRBaseInteractor obj)
     {
-       // m_MeshRenderer.material.color = m_UnityCyan;
+        // m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
     }
 

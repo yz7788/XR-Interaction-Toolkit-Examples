@@ -103,6 +103,10 @@ public class Controller_Visual : MonoBehaviour
             SetLight(f);
         }
     }
+    public float GetBrightness()
+    {
+        return m_Light.intensity;
+    }
     public void SetLight(float f)
     {
         if (f > maxValue)
@@ -117,8 +121,8 @@ public class Controller_Visual : MonoBehaviour
         if (bLightExists)
         {
             m_Light.intensity = f;
-            Debug.Log("bright"+f);
-            Text_brightnessValue.text = "Brightness:" + ((int)(f * 100f)).ToString() + "%";
+            //Debug.Log("bright"+f);
+            //Text_brightnessValue.text = "Brightness:" + ((int)(f * 100f)).ToString() + "%";
         }
     }
 }

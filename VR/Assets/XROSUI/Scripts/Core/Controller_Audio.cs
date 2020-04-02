@@ -42,7 +42,9 @@ public class Controller_Audio : MonoBehaviour
 
 
     void Start() {
-        GameObject text = GameObject.Find("Text_volumeValue");
+
+        /*
+         * GameObject text = GameObject.Find("Text_volumeValue");
 
         mixer.GetFloat("MusicVol", out musicVol);
         if (text != null)
@@ -55,6 +57,7 @@ public class Controller_Audio : MonoBehaviour
             else { Debug.LogError("[" + text.name + "]- Dose not contain a Text component"); }
         }
         else { Debug.LogError("Could not find Text_volumeValue"); };
+        */
     }
     private void Awake()
     {
@@ -247,12 +250,14 @@ public class Controller_Audio : MonoBehaviour
         Setting = saveData.audioSetting;
     }
 
-    public void ShowVolumeValue(float f, AudioMixer mixer)
+    /*
+     * public void ShowVolumeValue(float f, AudioMixer mixer)
     {
         mixer.GetFloat("MusicVol", out musicVol);
         Debug.Log("MusicVol:"+musicVol);
         Text_volumeValue.text = "Volume:" + ((int)(f* 100)).ToString() + "%";
     }
+    */
 
     public void AdjustVolume(float f, Audio_Type type)
     {
@@ -282,6 +287,13 @@ public class Controller_Audio : MonoBehaviour
         SetVolume(f, type);
 
     }
+
+    public float GetVolume(Audio_Type type)
+    {
+        float v = 1;
+        mixer.GetFloat("MusicVol", out v);
+        return v;
+    }
     public void SetVolume(float f, Audio_Type type)
     {
         if (f > 1)
@@ -298,22 +310,19 @@ public class Controller_Audio : MonoBehaviour
             //TODO
             case Audio_Type.master:
                 mixer.SetFloat("MusicVol", Mathf.Log10(f) *20);
-                ShowVolumeValue(f,mixer);
+                //ShowVolumeValue(f,mixer);
                 //Debug.Log(Text_volumeValue.text);
                 break;
             case Audio_Type.music:
                 mixer.SetFloat("MusicVol", Mathf.Log10(f) *20);
-                ShowVolumeValue(f, mixer);
                 //Debug.Log(Text_volumeValue.text);
                 break;
             case Audio_Type.voice:
                 mixer.SetFloat("MusicVol", Mathf.Log10(f) * 20);
-                ShowVolumeValue(f, mixer);
                 //Debug.Log(Text_volumeValue.text);
                 break;
             case Audio_Type.sfx:
                 mixer.SetFloat("MusicVol", Mathf.Log10(f) * 20);
-                ShowVolumeValue(f, mixer);
                 //Debug.Log(Text_volumeValue.text);
                 break;
             default:
