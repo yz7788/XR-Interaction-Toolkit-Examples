@@ -64,10 +64,7 @@ public class CharacterCreatorScript : KeyboardController
     }
 
     //Handle information from Key here
-    public void RegisterInput(string s)
-    {
-        inputField.text += s;
-    }
+
 
     private XRKey CreateKey(string s, GameObject parent, int position)
     {

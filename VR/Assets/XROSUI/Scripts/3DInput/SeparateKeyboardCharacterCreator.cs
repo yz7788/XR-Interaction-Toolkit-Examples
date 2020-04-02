@@ -42,7 +42,9 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
+        // creating the actual keyboard at the bottom
         CreatePoints(startingX, startingY, startingZ);
+        // creating the mirror keyboard on top
         MirrorKeys(startingX, startingY + 0.4f, startingZ);
     }
 
@@ -107,6 +109,7 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         return go;
     }
 
+    // remove the whole keyboard
     public void DestroyPoints()
     {
         foreach (GameObject point in points){

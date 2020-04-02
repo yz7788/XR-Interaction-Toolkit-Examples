@@ -10,25 +10,20 @@ public class KeyboardPositionSetter : MonoBehaviour
     public SeparateKeyboardCharacterCreator kcc;
     XRGrabInteractable m_InteractableBase;
 
-    [SerializeField] ParticleSystem m_BubbleParticleSystem = null;
-
     const string k_AnimTriggerDown = "TriggerDown";
     const string k_AnimTriggerUp = "TriggerUp";
 
-    bool m_TriggerDown;
 
     Transform llamaPositon;
     void Start()
     {
         llamaPositon = gameObject.GetComponent<Transform>();
         m_InteractableBase = GetComponent<XRGrabInteractable>();
-        m_InteractableBase.onActivate.AddListener(TriggerPulled);
         m_InteractableBase.onDeactivate.AddListener(TriggerReleased);
     }
 
     void TriggerReleased(XRBaseInteractor obj)
     {
-        m_TriggerDown = false;
         if (kcc.active)
         {
             kcc.DestroyPoints();
@@ -40,12 +35,6 @@ public class KeyboardPositionSetter : MonoBehaviour
             kcc.active = true;
         }
 
-    }
-
-    void TriggerPulled(XRBaseInteractor obj)
-    {
-        m_TriggerDown = true;
-    }
 
 
     void Update()
