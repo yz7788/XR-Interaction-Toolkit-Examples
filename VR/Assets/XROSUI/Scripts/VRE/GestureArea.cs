@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GestureArea : MonoBehaviour
 {
-    public Audio_Type type;
-    new Controller_Audio audio;
+    //public Audio_Type type;
+    //new Controller_Audio audio;
     public GameObject GestureCore;
     public GameObject Area;
     public GameObject GO_VE;
     public VREquipment VE;
-    public GameObject Text;
+    //public GameObject Text;
     public float gestureDistance;
     public float DistanceY;
     public float DistanceZ;
@@ -23,7 +23,7 @@ public class GestureArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Text.SetActive(false);
+        //Text.SetActive(false);
         
         //GameObject go = GameObject.Find("Headphone2");
         this.RegisterVREquipment(GO_VE.GetComponent<VREquipment>());
@@ -53,7 +53,7 @@ public class GestureArea : MonoBehaviour
                 {
                     //ShowValue
                     //last activated = Time.time;
-                    Text.SetActive(true);
+                    //Text.SetActive(true);
                 }
 
                 if (lastAskTime + coolDown < Time.time)
@@ -65,7 +65,7 @@ public class GestureArea : MonoBehaviour
             }
             else
             {
-                Text.SetActive(false);
+                //Text.SetActive(false);
             }
         }
 

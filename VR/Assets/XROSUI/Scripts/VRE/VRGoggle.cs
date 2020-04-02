@@ -14,15 +14,8 @@ public class VRGoggle : VREquipment
 
     public void Start()
     {
-
-        //        fakeSocket = this.transform.parent.gameObject;
+        //fakeSocket = this.transform.parent.gameObject;
     }
-    /*
-    /void onEnable()
-    {
-        XRGrabHeadphone.onSelectEnter.AddListener();
-    }
-    */
 
     public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {
@@ -37,11 +30,11 @@ public class VRGoggle : VREquipment
             case ENUM_XROS_Gesture.backward:
                 break;
             case ENUM_XROS_Gesture.left:
-                Core.Ins.VisualManager.AdjustLight(lightDecreaseRate);
+                Core.Ins.VisualManager.AdjustBrightness(lightDecreaseRate);
                 //Debug.Log("decreaselight");
                 break;
             case ENUM_XROS_Gesture.right:
-                Core.Ins.VisualManager.AdjustLight(lightIncreaseRate);
+                Core.Ins.VisualManager.AdjustBrightness(lightIncreaseRate);
                 //Debug.Log("increaselight");
                 break;
             case ENUM_XROS_Gesture.rotate_clockwise:

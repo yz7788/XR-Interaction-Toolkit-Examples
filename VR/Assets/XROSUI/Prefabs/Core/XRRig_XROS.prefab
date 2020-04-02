@@ -140,7 +140,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 50.35
+  m_fontSize: 72
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -186,7 +186,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -954,7 +954,6 @@ GameObject:
   - component: {fileID: 845508603}
   - component: {fileID: 845508602}
   - component: {fileID: 845508601}
-  - component: {fileID: 845508600}
   - component: {fileID: 845508599}
   - component: {fileID: 845508598}
   - component: {fileID: 5181860215454526211}
@@ -964,7 +963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &845508597
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,21 +1038,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &845508600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845508596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aac69af13d56ee74a8f185aceeb3255c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_controller: {fileID: 0}
-  m_Button: {fileID: 0}
-  m_Emitter: {fileID: 0}
 --- !u!54 &845508599
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1974,7 +1958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5299262636833861653
 Transform:
   m_ObjectHideFlags: 0
@@ -7230,7 +7214,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 51.8
+  m_fontSize: 72
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7276,7 +7260,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

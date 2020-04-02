@@ -240,24 +240,6 @@ Transform:
   m_Father: {fileID: 1058287951}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &124266527 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1936949297, guid: 15de75ba802bdca4faf70a66e3551439,
-    type: 3}
-  m_PrefabInstance: {fileID: 2098937924}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &124266528 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1936949299, guid: 15de75ba802bdca4faf70a66e3551439,
-    type: 3}
-  m_PrefabInstance: {fileID: 2098937924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124266527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4597c898043bb459af367284a754f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &172127836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,8 +1577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ca21f97d87d5648ab52b45e2d72268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GO_VE: {fileID: 124266527}
-  VE: {fileID: 124266528}
 --- !u!1 &728389951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,7 +2427,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2098937924}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375636493}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
@@ -3530,7 +3510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1156814919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3582,8 +3562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ca21f97d87d5648ab52b45e2d72268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GO_VE: {fileID: 1375636493}
-  VE: {fileID: 1375636494}
 --- !u!1 &1173669941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,7 +3754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1193278144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3820,7 +3798,7 @@ PrefabInstance:
     - target: {fileID: 1739220732104587207, guid: 9150fe08e9ea0204286a9f1ca300d73e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2008020151281300215, guid: 9150fe08e9ea0204286a9f1ca300d73e,
         type: 3}
@@ -4403,24 +4381,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353727096}
   m_Mesh: {fileID: 4300176, guid: 5d99170346720004e81354b0000c797c, type: 3}
---- !u!1 &1375636493 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 807256640, guid: 15de75ba802bdca4faf70a66e3551439,
-    type: 3}
-  m_PrefabInstance: {fileID: 2098937924}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1375636494 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 807256642, guid: 15de75ba802bdca4faf70a66e3551439,
-    type: 3}
-  m_PrefabInstance: {fileID: 2098937924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375636493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da6f30cf037a6944a82714aad2900f34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1384761948
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,7 +4480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1392968382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5740,7 +5700,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2098937924}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124266527}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
@@ -7580,7 +7540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1976348422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9017,7 +8977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2127914230
 MonoBehaviour:
   m_ObjectHideFlags: 0

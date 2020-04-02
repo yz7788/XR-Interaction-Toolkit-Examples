@@ -290,8 +290,7 @@ public class Controller_Audio : MonoBehaviour
 
     public float GetVolume(Audio_Type type)
     {
-        float v = 1;
-        mixer.GetFloat("MusicVol", out v);
+        mixer.GetFloat("MusicVol", out float v);
         return v;
     }
     public void SetVolume(float f, Audio_Type type)

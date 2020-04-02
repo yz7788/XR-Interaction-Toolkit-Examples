@@ -7,12 +7,12 @@ public class InventoryControl : MonoBehaviour
     private List<PlayerItem> playerInventory;
     // Start is called before the first frame update
     [SerializeField]
-    private GameObject buttonTemplate;
+    public GameObject buttonTemplate;
     [SerializeField]
-    private GridLayoutGroup gridGroup;
+    public GridLayoutGroup gridGroup;
 
     [SerializeField]
-    private Sprite[] iconSprites;
+    public Sprite[] iconSprites;
     void Start()
     {
         playerInventory = new List<PlayerItem>();

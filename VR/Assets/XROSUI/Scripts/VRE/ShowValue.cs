@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ShowValue : MonoBehaviour
 {
-    public GameObject GO_VE;
-    public VREquipment VE;
+    //public GameObject GO_VE;
+    //public VREquipment VE;
     Text m_Text;
     float value;
     //float coolDown = 0.5f;
