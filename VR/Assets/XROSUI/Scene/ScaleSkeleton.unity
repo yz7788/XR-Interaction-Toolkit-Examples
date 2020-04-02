@@ -693,6 +693,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1306640934352848695, guid: 9483faebe4bcf0749a873b652bb2b50b,
         type: 3}
+    - target: {fileID: 1717954560958943210, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561456925282, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_Name
@@ -1181,6 +1186,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   default_skeleton_path: Assets/Data/skeleton.txt
+  animator: {fileID: 0}
+  BoneRoot: {fileID: 0}
+  BoneList: []
 --- !u!1 &293142023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5095,6 +5103,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2422340281929535362, guid: 90b64e8342fc675429cdd02125b168b7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2501370857823875829, guid: 90b64e8342fc675429cdd02125b168b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5716,7 +5729,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1770892674}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1903855800
 MonoBehaviour:

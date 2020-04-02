@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CalibrateSkeleton : MonoBehaviour
+public class CalibrateSkeletonForMergedScene : MonoBehaviour
 {
     public float Scale = 1.0f;
     // UI components
-    //public ScrollRect myScrollRect;
-    //public RectTransform scrollableContent;
+    public Button CalibrateButton;
+    public Text WorldScaleText;
     // Generic (from systems)
     GameObject LeftController;
     GameObject RightController;
@@ -43,21 +44,28 @@ public class CalibrateSkeleton : MonoBehaviour
 
     void Start()
     {
-        //myScrollRect.content = scrollableContent;
+        // UI initialization
+        Button calibrateBtn = CalibrateButton.GetComponent<Button>();
+        calibrateBtn.onClick.AddListener(Calibrate);
+        WorldScaleText = GameObject.Find("WorldScaleText").GetComponent<Text>();
+
+        // Function initialization
         LeftController = GameObject.Find("LeftController");
         RightController = GameObject.Find("RightController");
         HMD = GameObject.Find("HMD");
+
         // Step 1: Load and draw default skeleton
         // TODO
         // GetBones();
         // LoadSkeleton();
+
         Scale = ComputeScale();
         Debug.Log($"Default world scale: {Scale}");
     }
-    
+
     void Update()
     {
-        // Print out Instruction
+        // Print out instruction
 
         // Trigger option 1: Use keypoint Input
         if (Input.GetKeyDown(KeyCode.Space))
@@ -71,7 +79,9 @@ public class CalibrateSkeleton : MonoBehaviour
 
     public void Calibrate()
     {
-
+        Scale = ComputeScale();
+        Dev.Log($"World scale measured: {Scale}");
+        WorldScaleText.text = $"World scale measured: {Scale}";
     }
 
     float ComputeScale()
@@ -177,4 +187,25 @@ public class CalibrateSkeleton : MonoBehaviour
         }
     }
     */
+}
+
+enum JointsIdx
+{
+    Hips,
+    RightUpperLeg,
+    RightLowerLeg,
+    RightFoot,
+    LeftUpperLeg,
+    LeftLowerLeg,
+    LeftFoot,
+    Spine,
+    Chest,
+    Neck,
+    Head,
+    LeftUpperArm,
+    LeftLowerArm,
+    LeftHand,
+    RightUpperArm,
+    RightLowerArm,
+    RightHand
 }
