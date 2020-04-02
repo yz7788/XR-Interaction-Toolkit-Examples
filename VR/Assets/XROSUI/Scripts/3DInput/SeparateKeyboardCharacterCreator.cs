@@ -4,9 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Experimental.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.IO;
+using System;
 
 public class SeparateKeyboardCharacterCreator: KeyboardController
 {
+    [System.Serializable]
+    private class KeysWrapper
+    {
+        public string keyboardName;
+        public List<XRKey> keys;
+    }
+
     XRGrabInteractable m_InteractableBase;
     public GameObject system;
     public int segments = 10;
@@ -19,7 +28,9 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     public Button Button_Timer;
 
     public bool active = false;
-    ArrayList points = new ArrayList();
+    List<GameObject> points = new List<GameObject>();
+    List<XRKey> keys = new List<XRKey>();
+    
     private void Awake()
     {
 
@@ -39,11 +50,12 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
 
     }
-
+    
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
         // creating the actual keyboard at the bottom
         CreatePoints(startingX, startingY, startingZ);
+        SaveKeyPositions();
         // creating the mirror keyboard on top
         MirrorKeys(startingX, startingY + 0.4f, startingZ);
     }
@@ -106,6 +118,10 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         XRKey key = go.GetComponent<XRKey>();
         key.Setup(s, this, Button_Timer);
         points.Add(go);
+        key.x = x;
+        key.y = y;
+        key.z = z;
+        keys.Add(key);
         return go;
     }
 
@@ -121,6 +137,42 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     void MirrorKeys(float startingX, float startingY, float startingZ)
     {
         CreatePoints(startingX, startingY, startingZ);
+    }
+
+    public void SaveKeyPositions()
+    {
+        string filename = "positions.json";
+        FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
+        string json = "{\"keys\":[";
+        for (int i=0; i<keys.Count; i++ )
+        {
+
+            json += keys[i].ToString();
+            if (i!=keys.Count - 1)
+                json += ",";
+            else
+            {
+                print("last");
+            }
+        }
+        json += "]}";
+        StreamWriter writer = new StreamWriter(stream, System.Text.Encoding.UTF8);
+
+        try
+        {
+
+            print("writing");
+            writer.Write(json);
+        }
+        catch (Exception exp)
+        {
+            Console.Write(exp.Message);
+        }
+        finally
+        {
+            writer.Close();
+        }
+        print(json);
     }
 }
 

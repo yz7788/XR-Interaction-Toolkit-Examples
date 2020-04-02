@@ -35,6 +35,7 @@ public class KeyboardPositionSetter : MonoBehaviour
             kcc.active = true;
         }
 
+    }
 
 
     void Update()

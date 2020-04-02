@@ -5,18 +5,22 @@ using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(XRGrabInteractable))]
+[System.Serializable]
 public class XRKey : MonoBehaviour
 {
     private KeyboardController keyboardController;
     public Text myText;
-    Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-    XRGrabInteractable m_GrabInteractable;
-    MeshRenderer m_MeshRenderer;
-    static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
-    static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
-    bool m_Held = false;
-    float hover_timer = 0;
-    bool hover_start = false;
+    public float x;
+    public float y;
+    public float z;
+    private Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+    private XRGrabInteractable m_GrabInteractable;
+    private MeshRenderer m_MeshRenderer;
+    private static Color m_UnityMagenta = new Color(0.929f, 0.094f, 0.278f);
+    private static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
+    private bool m_Held = false;
+    private float hover_timer = 0;
+    private bool hover_start = false;
     private Button Button_Timer;
 
     public void Setup(string s, KeyboardController kc)
@@ -124,4 +128,11 @@ public class XRKey : MonoBehaviour
         m_MeshRenderer.material.color = m_UnityMagenta;
 
     }
+
+    public override string ToString()
+    {
+        return "{\"key\": \"" + myText.text + "\"," + "\"x\": " + x + "," + "\"y\": " + y + "," + "\"z\": " + z + "}";
+    }
+
+
 }
