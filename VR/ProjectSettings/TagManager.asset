@@ -8,6 +8,8 @@ TagManager:
   - MainMenu
   - AudioMenu
   - AlternateFunction
+  - VRGazeInteractable
+  - Heart
   layers:
   - Default
   - TransparentFX
