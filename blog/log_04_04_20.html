@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Weekly Log 3</title>
-            <meta name="description" content="Weekly Log 3">
+            <title>Weekly Log 4</title>
+            <meta name="description" content="Weekly Log 4">
                 <meta name="author" content="XROS">
                     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
                         <!--Import Google Icon Font-->
@@ -23,8 +23,8 @@
             <nav class="nav-extended blue lighten-1" role="navigation">
                 <div class="nav-wrapper container">
                     <div class="row">
-                        <div class="col s12 m6 l6"><h5 class="left-align">Weekly Log 3</h5></div>
-                        <div class="col s12 m6 l6"><h5 class="right-align">03/01/2020 - 03/07/2020</h5></div>
+                        <div class="col s12 m6 l6"><h5 class="left-align">Weekly Log 4</h5></div>
+                        <div class="col s12 m6 l6"><h5 class="right-align">03/08/2020 - 04/04/2020</h5></div>
                     </div>
                 </div>
                 
@@ -46,15 +46,8 @@
                         <ul class="browser-default">
                             <!-- ############# HEADLINES START HERE !!! ############# -->
                             <li>
-                                <h5><b>[Subsystem 1]</b> 
-                                    Published <a href="camera_calibration_instruction.html">an instruction for multi-view camera calibration.</a></h5>
+                                <h5>Primitive function of adjustment of world scale according to pose is uploaded.</h5>
                             </li>
-
-                            <li>
-                                <h5><b>[Subsystem 2]</b> 
-                                    Published <a href="layer_instruction.html">an instruction for usage of layers in the project.</a></h5>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
@@ -68,23 +61,24 @@
                             <div class="col s12 m12 l12">
                                 <div class="card">
                                     <div class="card-content">
-                                        <span class="card-title">Hanyuan Xiao, Hyuck Ju (Tommy) Kim</span>
+                                        <span class="card-title">Hanyuan Xiao</span>
                                         <div class="divider"></div>
                                         <br>
                                         <div class="row valign-wrapper">
                                             <div class="col s2 m2 l2">
                                                 <img src="misc/avatar_hanyuan_xiao.jfif" alt="" class="circle responsive-img" width="70%">
-                                                <img src="misc/avatar_tommy.jfif" alt="" class="circle responsive-img" width="70%">
                                             </div>
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
-                                                    <li>As we investigated and learned multiple camera calibration approaches, here we publish an <a href="camera_calibration_instruction.html">instruction</a> to the public.</li>
-                                                    <li>Finished and tested script to convert 2D keypoint to 3D keypoint.</li>
-                                                    <li>In order to feed data to Unity and transform the avatar's 3D joints, we used <a href="https://github.com/keel-210/OpenPose-Rig">openpose-rig</a> and edited the script</li>
-                                                    <li>The result was very bad as shown in the gif.</li>
-                                                    <li>Thus starting debugging, and realized that the 2D keypoints were fine, but the converted 3D keypoints were very off. </li>
-                                                    <p><div class="container center"><img class="materialboxed" width="100%" src="./misc/log3/triangulation_test_360.gif"></div></p>
+                                                    <li>Primitive function of adjustment of world scale according to pose is completed and uploaded.
+                                                    	<ul class="browser-default">
+                                                    		<li>Clicking "Calibrate" computes world scale based on current measurement.</li>
+															<li>Print out world scale on dialog below so users can see the change of the value.</li>
+															<li>Delegate global object to make the scale available to whole scene.</li>
+                                                    	</ul>
+                                                    </li>
+                                                    <p><div class="container center"><img class="materialboxed" width="100%" src="./misc/log4/scale_skeleton_UI.PNG"></div></p>
                                                 </ul>
                                             </div>
                                         </div>
@@ -106,15 +100,7 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
-                                                    <li>Adjust the size of the folder, enhance the user feelings.
-                                                    </li>
-                                                    <li>Make each layer of the folder semi-transparent so that you can see objects in the back layer.
-                                                    </li>
-                                                    <li>Add socket to the 3D folder, so that the containerobject can be attracted to the socket.
-                                                    </li>
-                                                    <li>Made a traditional folder to compare efficiency with the 3D folder.
-                                                    </li>
-                                                    <p><div class="container center"><img class="materialboxed" width="100%" src="./misc/log3/0309_3DFolders_sherry.gif"></div></p>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                             
@@ -138,13 +124,7 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
-                                                    <li>A traditional keyboard layout is implemented to compare input speed with 3d keyboards. A testing paragraph is added to both scenes so that if a user enters this paragraph with both layouts, we cam calculate the input speeds and compare.
-                                                    </li>
-                                                    <li>Challenges:
-                                                        Unable to make traditional keyboard layout clickable because the there is no parent canvas to the button.
-                                                    </li>
-                                                    <p><div class="container center"><img class="materialboxed" width="100%" src="./misc/log3/separatekeyboard.gif"></div></p>
-                                                    <p><div class="container center"><img class="materialboxed" width="100%" src="./misc/log3/keyboardclick.gif"></div></p>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -165,11 +145,7 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
-                                                    <li>Add a screenshot taker working on Unity Editor and PC Build (Test on Mac).
-                                                    </li>
-                                                    <li>Challenges:
-                                                        Unable to test it on Android and VR headset.
-                                                    </li>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -190,14 +166,7 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
-                                                    <li>Seperate components of controllers into different layers.</li>
-                                                    <li>Fixed the bug that some objects which have Movement Type of Velocity Tracking collide with the ray emitters.</li>
-                                                    <li>Fixed the bug that the object grabbed may change its forward direction and position when direction of ray is changed.</li>
-                                                    <li>Fixed the problem that components of controller may interact with other objects unexpectly.</li>
-                                                    <li>Fixed the problem that ray emitter may select its own controller body (sphere around the controller)</li>
-                                                    <li>Fixed the problem that if user's controller's ray emitter collide with other physical object while changing its dierection, the emitter may turning unexpectly.</li>
-                                                    <li>Implement the fucntion of ray length changes. User now could point to the sphere around the controllers and grab to change the length of the ray.</li>
-                                                    <p><img src="misc/Log_Robert/Part2.gif" alt=""></p>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -217,25 +186,27 @@
                             <div class="col s12 m12 l12">
                                 <div class="card">
                                     <div class="card-content">
-                                        <span class="card-title">Hanyuan Xiao, Hyuck Ju (Tommy) Kim</span>
+                                        <span class="card-title">Hanyuan Xiao</span>
                                         <div class="divider"></div>
                                         <br>
                                         <div class="row valign-wrapper">
                                             <div class="col s2 m2 l2">
                                                 <img src="misc/avatar_hanyuan_xiao.jfif" alt="" class="circle responsive-img" width="70%">
-                                                    <img src="misc/avatar_tommy.jfif" alt="" class="circle responsive-img" width="70%">
-                                                        </div>
+                                            </div>
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
-                                                    <li>Debug through 2D-3D skeleton extraction pipeline.</li>
-                                                    <li>Look into using Kinect v2 to make a real-time pose estimating unity avatar</li>
+                                                    <li>Adjust location of UIs in the scene accordingly.</li>
+                                                    <li>Create global API for all functions to access and adjust.</li>
+                                                    <li>Create function to compute position of all UIs according to calibration.</li>
+                                                    <li>Introduce skeleton from outside.</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col s12 m12 l12">
                                 <div class="card">
                                     <div class="card-content">
@@ -249,15 +220,13 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
-                                                    <li>Continue adjust 3D folder.</li>
-                                                    <li>Make a traditional 2D folder to compare with 3D folder.</li>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
                             
                             <div class="col s12 m12 l12">
                                 <div class="card">
@@ -272,15 +241,13 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
-                                                    <li>Add a backspace button to both layouts. Make testing paragraph lower so that users are able to see it easily.
-                                                    </li>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
                             
                             <div class="col s12 m12 l12">
                                 <div class="card">
@@ -295,8 +262,7 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
-                                                    <li>Add a panel with a scrollbar that shows multiple pictures like a simple photo gallery.
-                                                    </li>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -317,10 +283,7 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
-                                                    <li>Implement the function of movable ray emitters.</li>
-                                                    <li>Find the appropriate logrithmic function to map the length of ray to the distance between two controllers when user are changing the length of ray.</li>
-                                                    <li>Since Powen has given me the prior demonstration environment, I will try to implement it into the new project.</li>
-                                                    <li>Fix possible bugs.</li>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </div>
