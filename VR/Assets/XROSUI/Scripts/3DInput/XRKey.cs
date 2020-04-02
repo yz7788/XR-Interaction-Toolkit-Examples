@@ -10,9 +10,6 @@ public class XRKey : MonoBehaviour
 {
     private KeyboardController keyboardController;
     public Text myText;
-    public float x;
-    public float y;
-    public float z;
     private Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     private XRGrabInteractable m_GrabInteractable;
     private MeshRenderer m_MeshRenderer;
@@ -129,10 +126,10 @@ public class XRKey : MonoBehaviour
 
     }
 
-    public override string ToString()
+/*    public override string ToString()
     {
         return "{\"key\": \"" + myText.text + "\"," + "\"x\": " + x + "," + "\"y\": " + y + "," + "\"z\": " + z + "}";
-    }
+    }*/
 
 
 }

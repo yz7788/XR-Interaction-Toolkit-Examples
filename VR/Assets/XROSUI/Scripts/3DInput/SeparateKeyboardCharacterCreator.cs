@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI; //create public inputfield 
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Experimental.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.IO;
 using System;
@@ -10,10 +8,18 @@ using System;
 public class SeparateKeyboardCharacterCreator: KeyboardController
 {
     [System.Serializable]
-    private class KeysWrapper
+    private class KeyboardWrapper
     {
         public string keyboardName;
-        public List<XRKey> keys;
+        public List<KeyWrapper> keys = new List<KeyWrapper>();
+    }
+    [System.Serializable]
+    private class KeyWrapper
+    {
+        public String text;
+        public float x;
+        public float y;
+        public float z;
     }
 
     XRGrabInteractable m_InteractableBase;
@@ -29,17 +35,8 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     public bool active = false;
     List<GameObject> points = new List<GameObject>();
-    List<XRKey> keys = new List<XRKey>();
-    
-    private void Awake()
-    {
+    private KeyboardWrapper kw = new KeyboardWrapper();
 
-    }
-
-    private void Start()
-    {
-
-    }
     // Update is called once per frame
     void Update()
     {
@@ -55,7 +52,7 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     {
         // creating the actual keyboard at the bottom
         CreatePoints(startingX, startingY, startingZ);
-        SaveKeyPositions();
+        readKeyPositions();
         // creating the mirror keyboard on top
         MirrorKeys(startingX, startingY + 0.4f, startingZ);
     }
@@ -118,10 +115,12 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         XRKey key = go.GetComponent<XRKey>();
         key.Setup(s, this, Button_Timer);
         points.Add(go);
-        key.x = x;
-        key.y = y;
-        key.z = z;
-        keys.Add(key);
+        KeyWrapper keywrappper = new KeyWrapper();
+        keywrappper.text = s;
+        keywrappper.x = x;
+        keywrappper.y = y;
+        keywrappper.z = z;
+        kw.keys.Add(keywrappper);
         return go;
     }
 
@@ -141,21 +140,11 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     public void SaveKeyPositions()
     {
-        string filename = "positions.json";
+        string filename = "positions.JSON";
         FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
-        string json = "{\"keys\":[";
-        for (int i=0; i<keys.Count; i++ )
-        {
-
-            json += keys[i].ToString();
-            if (i!=keys.Count - 1)
-                json += ",";
-            else
-            {
-                print("last");
-            }
-        }
-        json += "]}";
+        string json;
+        kw.keyboardName = "lower";
+        json = JsonUtility.ToJson(kw);
         StreamWriter writer = new StreamWriter(stream, System.Text.Encoding.UTF8);
 
         try
@@ -173,6 +162,14 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
             writer.Close();
         }
         print(json);
+    }
+    void readKeyPositions()
+    {
+        String json;
+        json = File.ReadAllText("positions.JSON");
+        kw = JsonUtility.FromJson<KeyboardWrapper>(json);
+
+        print(kw.keys.Count);
     }
 }
 
