@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Core : MonoBehaviour
 {
-
+    public GameObject PF_Core;
     private static Core ins = null;
 
     // Game Instance Singleton
@@ -23,9 +23,11 @@ public class Core : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        ins = this;
-        DontDestroyOnLoad(this.gameObject);
+        else
+        {
+            ins = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 
     public Controller_Audio AudioManager;
@@ -34,7 +36,7 @@ public class Core : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

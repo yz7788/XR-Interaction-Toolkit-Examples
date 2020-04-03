@@ -3,8 +3,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(XRGrabInteractable))]
 public class VREquipment : MonoBehaviour
-{
-   
+{   
     protected XRGrabInteractable m_GrabInteractable;
     protected MeshRenderer m_MeshRenderer;
 

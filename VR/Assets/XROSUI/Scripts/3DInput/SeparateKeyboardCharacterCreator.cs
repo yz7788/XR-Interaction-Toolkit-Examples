@@ -44,8 +44,6 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         {
             inputField.text = "";
         }
-
-
     }
     
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)

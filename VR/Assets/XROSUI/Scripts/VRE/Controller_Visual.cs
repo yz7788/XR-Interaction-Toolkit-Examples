@@ -5,14 +5,12 @@ using UnityEngine.UI;
 //Maintained by Powen & Sophie
 //https://youtu.be/MDvPNNgIu7k
 
+public delegate void EventHandler_NewBrightness(float newValue);
+
 public class Controller_Visual : MonoBehaviour
 {
-    //Typically the directionallight in the scene (as it represents the sun)
-    public Light m_Light;
-    public bool bLightExists = false;
-    
-    public Text text;
-    Text Text_brightnessValue;
+    public static event EventHandler_NewBrightness EVENT_NewBrightness;
+
     float m_LightIntensity;
 
     float minValue = 0;
@@ -22,79 +20,45 @@ public class Controller_Visual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bLightExists = CheckIfLightExists();
 
-        GameObject text = GameObject.Find("Text_brightnessValue");
-
-        if (text != null)
-        {
-            Text_brightnessValue = text.GetComponent<Text>();
-            if (Text_brightnessValue != null)
-            {
-                Text_brightnessValue.text = "Brightness:" + ((int)(m_LightIntensity * 100f)).ToString() + "%";
-            }
-            else { Debug.LogError("[" + text.name + "]- Dose not contain a Text component"); }
-        }
-        else { Debug.LogError("Could not find Text_brightnessValue"); };
     }
     public void OnEnable()
     {
-        bLightExists = CheckIfLightExists();
     }
     public void OnDisable()
     {
-        bLightExists = false;
-    }
-
-    private bool CheckIfLightExists()
-    {
-        if (m_Light)
-        {
-            m_LightIntensity = m_Light.intensity;
-            return true;
-        }
-
-        GameObject go = GameObject.Find("Directional Light");
-        if (go && go.GetComponent<Light>())
-        {
-            Dev.Log("[Hack] Assigning Directional Light as light");
-            m_Light = go.GetComponent<Light>();
-            return true;
-        }
-
-        Dev.LogError("Controller_Visual is missing its light");
-        return false;
     }
 
     //float changeRate2 = 0.11f;
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            AdjustLight(0.5f);
-        }
-        */
+        ////For Debugging
+        //if (Input.GetKeyDown(KeyCode.Alpha9))
+        //{
+        //    AdjustBrightness(0.1f);
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha8))
+        //{
+        //    AdjustBrightness(-0.1f);
+        //}
     }
 
     public void AdjustBrightness(float f)
     {
-        //f = f * lightIntensityAdjuster;
-        if (bLightExists)
-        {
-            f += m_Light.intensity;
-            //Dev.Log("New Light: " + f);
-            SetLight(f);
-        }
+        m_LightIntensity += f;
+        //Dev.Log("New Light: " + f);
+        SetBrightness(m_LightIntensity);
     }
 
     public float GetBrightness()
     {
-        return m_Light.intensity;
+        return m_LightIntensity;
     }
 
-    public void SetLight(float f)
+    public void SetBrightness(float f)
     {
+        
         if (f > maxValue)
         {
             f = maxValue;
@@ -104,11 +68,13 @@ public class Controller_Visual : MonoBehaviour
             f = minValue;
         }
 
-        if (bLightExists)
+        if (EVENT_NewBrightness != null)
         {
-            m_Light.intensity = f;
-            //Debug.Log("bright"+f);
-            //Text_brightnessValue.text = "Brightness:" + ((int)(f * 100f)).ToString() + "%";
+            EVENT_NewBrightness(f);
         }
+
+        m_LightIntensity = f;
+        RenderSettings.ambientLight = new Color(f, f, f, 1);
+        //Debug.Log("Current brightness " + f);
     }
 }

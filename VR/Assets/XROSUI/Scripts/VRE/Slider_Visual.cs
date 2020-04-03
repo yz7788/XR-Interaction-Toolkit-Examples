@@ -16,7 +16,7 @@ public class Slider_Visual : MonoBehaviour
     public void SetLight(float f)
     {
         //m_light.SetLight(f);
-        Core.Ins.VisualManager.SetLight(f);
+        Core.Ins.VisualManager.SetBrightness(f);
         light_value = f;
     }
 

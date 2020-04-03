@@ -45,7 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Light: {fileID: 0}
   bLightExists: 0
-  GammaCorrection: 0
   text: {fileID: 0}
 --- !u!1 &2422340281929535362
 GameObject:
@@ -587,6 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce49c3cdff946d349947a0e12fa76693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PF_Core: {fileID: 9007357480386393275}
   AudioManager: {fileID: 2722912400812792514}
   VisualManager: {fileID: 448072968}
   SceneManager: {fileID: 722517313029938933}

@@ -87,16 +87,16 @@ public class ContainerManager : MonoBehaviour
         //CheckValue();
         //CheckAngle();
         //CheckDistance();
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            print("Containerforward" + this.transform.forward);
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //}
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //}
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    print("Containerforward" + this.transform.forward);
+        //}
     }
     public void AddContainerObject()
     {
