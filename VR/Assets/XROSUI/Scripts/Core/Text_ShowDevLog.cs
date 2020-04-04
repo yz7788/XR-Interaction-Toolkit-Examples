@@ -28,7 +28,7 @@ public class Text_ShowDevLog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F9))
+        if (Input.GetKeyUp(KeyCode.F8))
         {
             Dev.Log("Test");
         }

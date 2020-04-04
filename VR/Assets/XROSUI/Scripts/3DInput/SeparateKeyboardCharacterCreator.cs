@@ -40,10 +40,6 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Backspace))
-        {
-            inputField.text = "";
-        }
     }
     
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)

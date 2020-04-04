@@ -5,24 +5,35 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+//Ref: https://docs.unity3d.com/ScriptReference/Vector3.Dot.html
 
 public class FlipDetection : MonoBehaviour
 {
     public UnityEvent EnterFlipPosition;
     public UnityEvent ExitFlipPosition;
-    public float Tolerance = 0.5f;
-    bool m_IsFlipped;
+    [Range(0, 1)]
+    public float Tolerance = 0.25f;
+    bool m_IsFlipped = false;
+
+    public float Test;
+    public Transform Viewer;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.m_IsFlipped = false;
+        Viewer = Camera.main.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Dot(transform.up, -Camera.main.transform.forward) < (Tolerance - 1))
+        Vector3 toOther = Viewer.position - transform.position;        
+        //print(toOther + " " + Viewer.forward);
+        //print(Vector3.Dot(-this.transform.up, toOther));
+        Test = Vector3.Dot(-this.transform.up, toOther);
+        if (Vector3.Dot(-this.transform.up, toOther) > (Tolerance))
+        //if (Vector3.Dot(-this.transform.up, toOther) < (Tolerance -1))
+        //if (Vector3.Dot(transform.up, -Camera.main.transform.forward) < (Tolerance - 1))
         {
             if (!m_IsFlipped)
             {

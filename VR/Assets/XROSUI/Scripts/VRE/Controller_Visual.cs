@@ -22,14 +22,7 @@ public class Controller_Visual : MonoBehaviour
     {
 
     }
-    public void OnEnable()
-    {
-    }
-    public void OnDisable()
-    {
-    }
 
-    //float changeRate2 = 0.11f;
     // Update is called once per frame
     void Update()
     {
@@ -58,7 +51,7 @@ public class Controller_Visual : MonoBehaviour
 
     public void SetBrightness(float f)
     {
-        
+
         if (f > maxValue)
         {
             f = maxValue;

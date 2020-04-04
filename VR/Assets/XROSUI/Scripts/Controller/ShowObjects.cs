@@ -17,7 +17,6 @@ public class ShowObjects : MonoBehaviour
     XRGrabInteractable m_XRGrabInteractable;
     XRRayInteractor m_XRRayInteractor;
 
-
     void Start()
     {
         m_Renderer = HidenObject.GetComponent<MeshRenderer>();

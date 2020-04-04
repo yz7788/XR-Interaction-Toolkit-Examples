@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b247ba8fd8b43774897ec158cc018c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 4746348274404650062}
+  Parent: {fileID: 0}
   relative: 1
   PositionRetain: 1
   RelativePosition_x: 0
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b247ba8fd8b43774897ec158cc018c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 1717954560873690078}
+  Parent: {fileID: 0}
   relative: 1
   PositionRetain: 1
   RelativePosition_x: 0
@@ -2390,7 +2390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b247ba8fd8b43774897ec158cc018c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 4746348274404650062}
+  Parent: {fileID: 0}
   relative: 1
   PositionRetain: 0
   RelativePosition_x: 0
@@ -3331,6 +3331,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   Tolerance: 0.3
+  Test: 0
+  Viewer: {fileID: 0}
 --- !u!1 &1717954560958943209
 GameObject:
   m_ObjectHideFlags: 0
@@ -5532,7 +5534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b247ba8fd8b43774897ec158cc018c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 1717954560873690078}
+  Parent: {fileID: 0}
   relative: 1
   PositionRetain: 1
   RelativePosition_x: -0.08
@@ -7074,6 +7076,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   Tolerance: 0.3
+  Test: 0
+  Viewer: {fileID: 0}
 --- !u!1 &4798065429042649020
 GameObject:
   m_ObjectHideFlags: 0
@@ -8155,8 +8159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b968087ae654aea488755dabff0f843e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LaserEmitter: {fileID: 1021177156824400002}
-  laserTracker: {fileID: 7517549318922687704}
   m_Held: 0
 --- !u!1 &7610560069621649448
 GameObject:
@@ -8514,7 +8516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b247ba8fd8b43774897ec158cc018c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 1717954560873690078}
+  Parent: {fileID: 0}
   relative: 1
   PositionRetain: 0
   RelativePosition_x: 0
@@ -8864,7 +8866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b247ba8fd8b43774897ec158cc018c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 4746348274404650062}
+  Parent: {fileID: 0}
   relative: 1
   PositionRetain: 1
   RelativePosition_x: 0.08
@@ -9151,7 +9153,7 @@ PrefabInstance:
     - target: {fileID: 7517549319329480228, guid: 10297a1bb8a48324da4743a14b7528ef,
         type: 3}
       propertyPath: m_InteractionLayerMask.m_Bits
-      value: 262144
+      value: 264192
       objectReference: {fileID: 0}
     - target: {fileID: 7517549319329480229, guid: 10297a1bb8a48324da4743a14b7528ef,
         type: 3}
