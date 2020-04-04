@@ -44,28 +44,34 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
+
         // creating the actual keyboard at the bottom
         CreatePoints(startingX, startingY, startingZ);
-        readKeyPositions();
+
         // creating the mirror keyboard on top
         MirrorKeys(startingX, startingY + 0.4f, startingZ);
+        print(points.Count + " " + kw.keys.Count);
+/*        if (kw != null && kw.keys.Count != 0)
+        {
+            for (int i = 0; i < points.Count; i++)
+            {
+                points[i].transform.position = new Vector3(kw.keys[i].x, kw.keys[i].y, kw.keys[i].z);
+            }
+        }*/
     }
 
     
     public void CreatePoints(float startingX, float startingY, float startingZ)
     {
-        print("starting" + startingX + " " + startingY + " " + startingZ);
         // delete
         GameObject go = CreateKey(-0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
         Vector3 scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        points.Add(go);
         go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL"); 
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        points.Add(go);
         CreateLine(-0.15f + startingX, 0.06f +startingY, -0.05f+startingZ, -10f, smallerXradius, smallerYradius, "qwert");
         CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius,"yuiop");
         CreateLine(-0.15f + startingX, 0f+ startingY, startingZ, -10f, xradius, yradius,"asdfg");
@@ -79,12 +85,10 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        points.Add(go);
         go = CreateKey(0.15f + startingX, -0.18f+startingY, 0.05f + startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        points.Add(go);
     }
 
     void CreateLine(float offsetX, float offsetY, float offsetZ, float angleOffset, float xradius, float yradius, string letters)
@@ -124,6 +128,8 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         foreach (GameObject point in points){
             Destroy(point);
         }
+        points.Clear();
+        kw.keys.Clear();
     }
 
 
@@ -133,23 +139,22 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     }
 
     public void SaveKeyPositions()
-    {
+    {   
+
         string filename = "positions.JSON";
         FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
         string json;
-        kw.keyboardName = "lower";
+        kw.keyboardName = "lower2";
         json = JsonUtility.ToJson(kw);
         StreamWriter writer = new StreamWriter(stream, System.Text.Encoding.UTF8);
 
         try
         {
-
-            print("writing");
             writer.Write(json);
         }
         catch (Exception exp)
         {
-            Console.Write(exp.Message);
+            print(exp.Message);
         }
         finally
         {
@@ -157,13 +162,26 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         }
         print(json);
     }
-    void readKeyPositions()
+    public int ReadKeyPositions()
     {
         String json;
-        json = File.ReadAllText("positions.JSON");
-        kw = JsonUtility.FromJson<KeyboardWrapper>(json);
+        try
+        {
+            json = File.ReadAllText("positions.JSON");
+            kw = JsonUtility.FromJson<KeyboardWrapper>(json);
+        }
+        catch (Exception exp)
+        {
+            print(exp.Message);
+        }
 
-        print(kw.keys.Count);
+        if (kw != null && kw.keys!=null && kw.keys.Count!=0)
+        {
+            return 0;
+        }
+
+        print("null or empty");
+        return -1;
     }
 }
 

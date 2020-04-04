@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Experimental.XR;
+﻿using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(XRGrabInteractable))]
@@ -26,11 +23,15 @@ public class KeyboardPositionSetter : MonoBehaviour
     {
         if (kcc.active)
         {
+            print("destroying");
+            kcc.SaveKeyPositions();
             kcc.DestroyPoints();
             kcc.active = false;
         }
         else
         {
+            kcc.ReadKeyPositions();
+            print("creating");
             kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
             kcc.active = true;
         }

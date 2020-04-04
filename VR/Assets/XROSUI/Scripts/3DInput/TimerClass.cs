@@ -54,8 +54,6 @@ public class TimerClass : MonoBehaviour
 
         if (myInputContent.text.Length >= 1)
         {
-            print(old_length + " " + myInputContent.text.Length);
-
             currentCharacter = myInputContent.text.Length - 1;
             int materialIndex = textInfo.characterInfo[currentCharacter].materialReferenceIndex;
             newVertexColors = textInfo.meshInfo[materialIndex].colors32;
@@ -88,9 +86,6 @@ public class TimerClass : MonoBehaviour
                 newVertexColors[vertexIndex + 2] = Color.red;
                 newVertexColors[vertexIndex + 3] = Color.red;
                 content.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
-                print("length " + myInputContent.text.Length);
-                print("my " + myInputContent.text);
-                print("target " + targetText.Substring(0, myInputContent.text.Length));
             }
         }
     }
