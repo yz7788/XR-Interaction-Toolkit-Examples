@@ -864,7 +864,7 @@ PrefabInstance:
     - target: {fileID: 1717954560873690066, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_MaxRaycastDistance
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1717954560873690066, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
@@ -1041,7 +1041,7 @@ PrefabInstance:
     - target: {fileID: 3842368240290599793, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_MaxRaycastDistance
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5350785196629428557, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
