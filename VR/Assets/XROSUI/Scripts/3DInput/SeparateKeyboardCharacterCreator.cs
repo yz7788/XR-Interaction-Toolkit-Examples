@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using System.IO;
 using System;
 
-public class SeparateKeyboardCharacterCreator: KeyboardController
+public class SeparateKeyboardCharacterCreator : KeyboardController
 {
     [System.Serializable]
     private class KeyboardWrapper
@@ -36,61 +36,110 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     public bool active = false;
     List<GameObject> points = new List<GameObject>();
     private KeyboardWrapper kw = new KeyboardWrapper();
-
+    private Vector3 keyboardModelPosition;
     // Update is called once per frame
     void Update()
     {
     }
-    
+
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
 
-        // creating the actual keyboard at the bottom
-        CreatePoints(startingX, startingY, startingZ);
+        bool empty = ReadKeyPositions();
+        if (empty)
+        {
+            print("empty");
+            CreateDefaultPoints(startingX, startingY, startingZ);
+            //SaveKeyPositions();
+        }
+        else
+        {
+            print("custom");
+            CreateCustomPoints(startingX, startingY, startingZ);
+            print(kw.keys.Count);
+            kw.keys = kw.keys.GetRange(32, 32);
+            //SaveKeyPositions();
+        }
 
         // creating the mirror keyboard on top
-        MirrorKeys(startingX, startingY + 0.4f, startingZ);
+        //MirrorKeys(startingX, startingY + 0.4f, startingZ);
         print(points.Count + " " + kw.keys.Count);
-/*        if (kw != null && kw.keys.Count != 0)
-        {
-            for (int i = 0; i < points.Count; i++)
-            {
-                points[i].transform.position = new Vector3(kw.keys[i].x, kw.keys[i].y, kw.keys[i].z);
-            }
-        }*/
+        /*        if (kw != null && kw.keys.Count != 0)
+                {
+                    for (int i = 0; i < points.Count; i++)
+                    {
+                        points[i].transform.position = new Vector3(kw.keys[i].x, kw.keys[i].y, kw.keys[i].z);
+                    }
+                }*/
     }
 
-    
-    public void CreatePoints(float startingX, float startingY, float startingZ)
+
+    public void CreateDefaultPoints(float startingX, float startingY, float startingZ)
     {
+        keyboardModelPosition = new Vector3(startingX, startingY, startingZ);
         // delete
         GameObject go = CreateKey(-0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
         Vector3 scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL"); 
+        go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        CreateLine(-0.15f + startingX, 0.06f +startingY, -0.05f+startingZ, -10f, smallerXradius, smallerYradius, "qwert");
-        CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius,"yuiop");
-        CreateLine(-0.15f + startingX, 0f+ startingY, startingZ, -10f, xradius, yradius,"asdfg");
-        CreateLine(0.15f + startingX, 0f + startingY, startingZ, +10f, xradius, yradius,"hjkl;");
-        CreateLine(-0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius,"zxcv");
+        CreateLine(-0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "qwert");
+        CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "yuiop");
+        CreateLine(-0.15f + startingX, 0f + startingY, startingZ, -10f, xradius, yradius, "asdfg");
+        CreateLine(0.15f + startingX, 0f + startingY, startingZ, +10f, xradius, yradius, "hjkl;");
+        CreateLine(-0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "zxcv");
         CreateLine(0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
         //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
 
         // space
-        go = CreateKey(-0.15f + startingX, -0.18f+startingY, 0.05f+startingZ, "start");
+        go = CreateKey(-0.15f + startingX, -0.18f + startingY, 0.05f + startingZ, "start");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        go = CreateKey(0.15f + startingX, -0.18f+startingY, 0.05f + startingZ, " ");
+        go = CreateKey(0.15f + startingX, -0.18f + startingY, 0.05f + startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
     }
 
+    public void CreateCustomPoints(float startingX, float startingY, float startingZ)
+    {
+        keyboardModelPosition = new Vector3(startingX, startingY, startingZ);
+        for (int i = 0; i< 32; i++)
+        {
+            KeyWrapper key = kw.keys[i];
+            GameObject go = CreateKey(key.x + startingX, key.y + startingY, key.z + startingZ, key.text);
+        }
+        // delete
+        /*GameObject go = CreateKey(keyboardModelPosition.x + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
+        Vector3 scale = go.transform.localScale;
+        scale.x = 2 * scale.x;
+        go.transform.localScale = scale;
+        go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
+        scale = go.transform.localScale;
+        scale.x = 2 * scale.x;
+        go.transform.localScale = scale;
+        CreateLine(-0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "qwert");
+        CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "yuiop");
+        CreateLine(-0.15f + startingX, 0f + startingY, startingZ, -10f, xradius, yradius, "asdfg");
+        CreateLine(0.15f + startingX, 0f + startingY, startingZ, +10f, xradius, yradius, "hjkl;");
+        CreateLine(-0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "zxcv");
+        CreateLine(0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
+        //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
+
+        // space
+        go = CreateKey(-0.15f + startingX, -0.18f + startingY, 0.05f + startingZ, "start");
+        scale = go.transform.localScale;
+        scale.x = 2 * scale.x;
+        go.transform.localScale = scale;
+        go = CreateKey(0.15f + startingX, -0.18f + startingY, 0.05f + startingZ, " ");
+        scale = go.transform.localScale;
+        scale.x = 2 * scale.x;
+        go.transform.localScale = scale;*/
+    }
     void CreateLine(float offsetX, float offsetY, float offsetZ, float angleOffset, float xradius, float yradius, string letters)
     {
         float x;
@@ -115,9 +164,9 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         points.Add(go);
         KeyWrapper keywrappper = new KeyWrapper();
         keywrappper.text = s;
-        keywrappper.x = x;
-        keywrappper.y = y;
-        keywrappper.z = z;
+        keywrappper.x = x - keyboardModelPosition.x;
+        keywrappper.y = y - keyboardModelPosition.y;
+        keywrappper.z = z - keyboardModelPosition.z;
         kw.keys.Add(keywrappper);
         return go;
     }
@@ -125,7 +174,7 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
     // remove the whole keyboard
     public void DestroyPoints()
     {
-        foreach (GameObject point in points){
+        foreach (GameObject point in points) {
             Destroy(point);
         }
         points.Clear();
@@ -135,18 +184,18 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
 
     void MirrorKeys(float startingX, float startingY, float startingZ)
     {
-        CreatePoints(startingX, startingY, startingZ);
+        CreateDefaultPoints(startingX, startingY, startingZ);
     }
 
     public void SaveKeyPositions()
-    {   
+    {
 
         string filename = "positions.JSON";
-        FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
+        //FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
         string json;
         kw.keyboardName = "lower2";
         json = JsonUtility.ToJson(kw);
-        StreamWriter writer = new StreamWriter(stream, System.Text.Encoding.UTF8);
+        StreamWriter writer = new StreamWriter(filename, false);
 
         try
         {
@@ -162,7 +211,7 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
         }
         print(json);
     }
-    public int ReadKeyPositions()
+    public bool ReadKeyPositions()
     {
         String json;
         try
@@ -175,13 +224,12 @@ public class SeparateKeyboardCharacterCreator: KeyboardController
             print(exp.Message);
         }
 
-        if (kw != null && kw.keys!=null && kw.keys.Count!=0)
+        if (kw == null || kw.keys == null || kw.keys.Count == 0)
         {
-            return 0;
+            kw = new KeyboardWrapper();
+            return true; // positions.JSOn is empty or malformed
         }
-
-        print("null or empty");
-        return -1;
+        return false; // positions.JSON is not empty
     }
 }
 

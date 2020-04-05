@@ -23,15 +23,12 @@ public class KeyboardPositionSetter : MonoBehaviour
     {
         if (kcc.active)
         {
-            print("destroying");
             kcc.SaveKeyPositions();
             kcc.DestroyPoints();
             kcc.active = false;
         }
         else
         {
-            kcc.ReadKeyPositions();
-            print("creating");
             kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
             kcc.active = true;
         }

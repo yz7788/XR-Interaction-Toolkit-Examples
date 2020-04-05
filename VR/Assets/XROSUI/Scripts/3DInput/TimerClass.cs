@@ -55,6 +55,8 @@ public class TimerClass : MonoBehaviour
         if (myInputContent.text.Length >= 1)
         {
             currentCharacter = myInputContent.text.Length - 1;
+            if (currentCharacter < 0)
+                return;
             int materialIndex = textInfo.characterInfo[currentCharacter].materialReferenceIndex;
             newVertexColors = textInfo.meshInfo[materialIndex].colors32;
             int vertexIndex = textInfo.characterInfo[currentCharacter].vertexIndex;
