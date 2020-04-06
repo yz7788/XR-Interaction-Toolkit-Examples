@@ -5,8 +5,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 using System.IO;
 using System;
 using KeyboardPosition;
+
+
 public class SeparateKeyboardCharacterCreator : KeyboardController
 {
+    
+    int KEYS_NUMBER = 32; //how many keys are in the keyboard
 
 
     XRGrabInteractable m_InteractableBase;
@@ -21,9 +25,9 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     public Button Button_Timer;
 
     public bool active = false;
-    List<GameObject> points = new List<GameObject>();
+    List<GameObject> points = new List<GameObject>();  // including real/lower keys and mirror/upper keys
     private KeyboardWrapper kw = new KeyboardWrapper();
-    private Vector3 keyboardModelPosition;
+    private Vector3 keyboardModelPosition;   // only include real/lower keys but not mirror/upper keys
     // Update is called once per frame
     void Update()
     {
@@ -35,19 +39,16 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         bool empty = ReadKeyPositions();
         if (empty)
         {
-            print("empty");
             CreateDefaultPoints(startingX, startingY, startingZ);
         }
         else
         {
-            print("custom");
             CreateCustomPoints(startingX, startingY, startingZ);
-            print(kw.keys.Count);
             kw.keys = kw.keys.GetRange(32, 32);
         }
 
         // creating the mirror keyboard on top
-        //MirrorKeys(startingX, startingY + 0.4f, startingZ);
+        MirrorKeys(startingX, startingY + 0.4f, startingZ);
         print(points.Count + " " + kw.keys.Count);
     }
 
@@ -86,7 +87,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     public void CreateCustomPoints(float startingX, float startingY, float startingZ)
     {
         keyboardModelPosition = new Vector3(startingX, startingY, startingZ);
-        for (int i = 0; i< 32; i++)
+        for (int i = 0; i< KEYS_NUMBER; i++)
         {
             KeyWrapper key = kw.keys[i];
             GameObject go = CreateKey(key.x + startingX, key.y + startingY, key.z + startingZ, key.text);
@@ -108,7 +109,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         }
     }
 
-    GameObject CreateKey(float x, float y, float z, string s)
+    GameObject CreateKey(float x, float y, float z, string s, bool mirror = false)
     {
         GameObject go = Instantiate(PF_Key, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0)); ;
         go.transform.SetParent(this.transform);
@@ -116,7 +117,8 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         points.Add(go);
         KeyWrapper keywrappper = new KeyWrapper(s, x - keyboardModelPosition.x, y - keyboardModelPosition.y, z - keyboardModelPosition.z);
         key.Setup(s, this, Button_Timer, keywrappper);
-        kw.keys.Add(keywrappper);
+        if (mirror == false) // no need to store mirror keys
+            kw.keys.Add(keywrappper);
         return go;
     }
 
@@ -133,7 +135,11 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
 
     void MirrorKeys(float startingX, float startingY, float startingZ)
     {
-        CreateDefaultPoints(startingX, startingY, startingZ);
+        for (int i = 0; i < KEYS_NUMBER; i++)
+        {
+            KeyWrapper key = kw.keys[i];
+            GameObject go = CreateKey(key.x + startingX, key.y + startingY + 0.4f, key.z + startingZ, key.text, true);
+        }
     }
 
     public void SaveKeyPositions()
