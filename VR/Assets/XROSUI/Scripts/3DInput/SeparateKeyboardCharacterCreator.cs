@@ -4,23 +4,10 @@ using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.IO;
 using System;
-
+using KeyboardPosition;
 public class SeparateKeyboardCharacterCreator : KeyboardController
 {
-    [System.Serializable]
-    private class KeyboardWrapper
-    {
-        public string keyboardName;
-        public List<KeyWrapper> keys = new List<KeyWrapper>();
-    }
-    [System.Serializable]
-    private class KeyWrapper
-    {
-        public String text;
-        public float x;
-        public float y;
-        public float z;
-    }
+
 
     XRGrabInteractable m_InteractableBase;
     public GameObject system;
@@ -50,7 +37,6 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         {
             print("empty");
             CreateDefaultPoints(startingX, startingY, startingZ);
-            //SaveKeyPositions();
         }
         else
         {
@@ -58,19 +44,11 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
             CreateCustomPoints(startingX, startingY, startingZ);
             print(kw.keys.Count);
             kw.keys = kw.keys.GetRange(32, 32);
-            //SaveKeyPositions();
         }
 
         // creating the mirror keyboard on top
         //MirrorKeys(startingX, startingY + 0.4f, startingZ);
         print(points.Count + " " + kw.keys.Count);
-        /*        if (kw != null && kw.keys.Count != 0)
-                {
-                    for (int i = 0; i < points.Count; i++)
-                    {
-                        points[i].transform.position = new Vector3(kw.keys[i].x, kw.keys[i].y, kw.keys[i].z);
-                    }
-                }*/
     }
 
 
@@ -113,33 +91,8 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
             KeyWrapper key = kw.keys[i];
             GameObject go = CreateKey(key.x + startingX, key.y + startingY, key.z + startingZ, key.text);
         }
-        // delete
-        /*GameObject go = CreateKey(keyboardModelPosition.x + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
-        Vector3 scale = go.transform.localScale;
-        scale.x = 2 * scale.x;
-        go.transform.localScale = scale;
-        go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
-        scale = go.transform.localScale;
-        scale.x = 2 * scale.x;
-        go.transform.localScale = scale;
-        CreateLine(-0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "qwert");
-        CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "yuiop");
-        CreateLine(-0.15f + startingX, 0f + startingY, startingZ, -10f, xradius, yradius, "asdfg");
-        CreateLine(0.15f + startingX, 0f + startingY, startingZ, +10f, xradius, yradius, "hjkl;");
-        CreateLine(-0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "zxcv");
-        CreateLine(0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
-        //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
-
-        // space
-        go = CreateKey(-0.15f + startingX, -0.18f + startingY, 0.05f + startingZ, "start");
-        scale = go.transform.localScale;
-        scale.x = 2 * scale.x;
-        go.transform.localScale = scale;
-        go = CreateKey(0.15f + startingX, -0.18f + startingY, 0.05f + startingZ, " ");
-        scale = go.transform.localScale;
-        scale.x = 2 * scale.x;
-        go.transform.localScale = scale;*/
     }
+
     void CreateLine(float offsetX, float offsetY, float offsetZ, float angleOffset, float xradius, float yradius, string letters)
     {
         float x;
@@ -160,13 +113,9 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         GameObject go = Instantiate(PF_Key, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0)); ;
         go.transform.SetParent(this.transform);
         XRKey key = go.GetComponent<XRKey>();
-        key.Setup(s, this, Button_Timer);
         points.Add(go);
-        KeyWrapper keywrappper = new KeyWrapper();
-        keywrappper.text = s;
-        keywrappper.x = x - keyboardModelPosition.x;
-        keywrappper.y = y - keyboardModelPosition.y;
-        keywrappper.z = z - keyboardModelPosition.z;
+        KeyWrapper keywrappper = new KeyWrapper(s, x - keyboardModelPosition.x, y - keyboardModelPosition.y, z - keyboardModelPosition.z);
+        key.Setup(s, this, Button_Timer, keywrappper);
         kw.keys.Add(keywrappper);
         return go;
     }
@@ -191,9 +140,8 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     {
 
         string filename = "positions.JSON";
-        //FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
         string json;
-        kw.keyboardName = "lower2";
+        kw.keyboardName = "lower";
         json = JsonUtility.ToJson(kw);
         StreamWriter writer = new StreamWriter(filename, false);
 

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
-
-[RequireComponent(typeof(XRGrabInteractable))]
+using KeyboardPosition;
 [System.Serializable]
 public class XRKey : MonoBehaviour
 {
@@ -19,20 +18,26 @@ public class XRKey : MonoBehaviour
     private float hover_timer = 0;
     private bool hover_start = false;
     private Button Button_Timer;
+    public  KeyWrapper kw;
 
-    public void Setup(string s, KeyboardController kc)
+    private float oldX = 0;
+    private float oldY = 0;
+    private float oldZ = 0;
+    public void Setup(string s, KeyboardController kc, KeyWrapper kw)
     {
         this.keyboardController = kc;
         this.name = "Key: " + s;
         myText.text = s;
+        this.kw = kw;
     }
 
-    public void Setup(string s, KeyboardController kc, Button button)
+    public void Setup(string s, KeyboardController kc, Button button, KeyWrapper kw)
     {
         this.keyboardController = kc;
         this.name = "Key: " + s;
         this.Button_Timer = button;
         myText.text = s;
+        this.kw = kw;
     }
 
     void OnEnable()
@@ -59,12 +64,18 @@ public class XRKey : MonoBehaviour
     {
         m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
+        oldX = gameObject.transform.position.x;
+        oldY = gameObject.transform.position.y;
+        oldZ = gameObject.transform.position.z;
     }
 
     void OnReleased(XRBaseInteractor obj)
     {
         m_MeshRenderer.material.color = Color.white;
         m_Held = false;
+        this.kw.x += gameObject.transform.position.x-oldX;
+        this.kw.y += gameObject.transform.position.y-oldY;
+        this.kw.z += gameObject.transform.position.z-oldZ;
     }
     private void Update()
     {
