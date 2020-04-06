@@ -8,6 +8,11 @@ using UnityEngine.UI;
 public class CalibrateSkeletonForMergedScene : MonoBehaviour
 {
     public float Scale = 1.0f;
+    float a = 1.0f;     // a = (HMD - left_controller) / scale
+    float b = 1.2f;     // b = (HMD - left_controller) / single-arm-length
+    float c = 0.6f;     // c = distance to HMD
+    // UI to test position update ONLY (in the future, all UIs should call to update position)
+    GameObject thisUIPanel;
     // UI components
     public Button CalibrateButton;
     public Text WorldScaleText;
@@ -49,6 +54,9 @@ public class CalibrateSkeletonForMergedScene : MonoBehaviour
         calibrateBtn.onClick.AddListener(Calibrate);
         WorldScaleText = GameObject.Find("WorldScaleText").GetComponent<Text>();
 
+        // For test ONLY
+        thisUIPanel = GameObject.Find("ScaleDisplay");
+
         // Function initialization
         LeftController = GameObject.Find("LeftController");
         RightController = GameObject.Find("RightController");
@@ -82,6 +90,24 @@ public class CalibrateSkeletonForMergedScene : MonoBehaviour
         Scale = ComputeScale();
         Dev.Log($"World scale measured: {Scale}");
         WorldScaleText.text = $"World scale measured: {Scale}";
+
+        // Update UI position for test ONLY
+        UpdateUIPos(thisUIPanel);
+    }
+
+    public void UpdateUIPos(GameObject UIObject)
+    {
+        UIObject.transform.position = ComputePosition(UIObject.transform.position);
+        // Debug.Log(UIObject.transform.position);
+    }
+
+    Vector3 ComputePosition(Vector3 oldPosCenter)
+    {
+        float distance = c / b * a * Scale * 10.0f;
+        UpdateGenericPos();
+        Vector3 oldDirection = new Vector3(oldPosCenter.x - HMDPos.x, oldPosCenter.y - HMDPos.y, oldPosCenter.z - HMDPos.z);
+        Vector3 facingDirection = normalize(oldDirection);
+        return new Vector3(HMDPos.x + facingDirection.x * distance, HMDPos.y + facingDirection.y * distance, HMDPos.z + facingDirection.z * distance);
     }
 
     float ComputeScale()
@@ -97,9 +123,7 @@ public class CalibrateSkeletonForMergedScene : MonoBehaviour
     float ComputeGeneric()
     {
         // Load location of headset and left controller (default for right-handers)
-        LeftControllerPos = LeftController.transform.position;
-        // RightControllerPos = RightController.transform.position;
-        HMDPos = HMD.transform.position;
+        UpdateGenericPos();
         // Compute generic distance between HMD and left controller
         return ComputeDistance(LeftControllerPos, HMDPos);
     }
@@ -120,6 +144,20 @@ public class CalibrateSkeletonForMergedScene : MonoBehaviour
         float deltaZ = pos1[2] - pos2[2];
         return (float)Mathf.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
     }
+
+    void UpdateGenericPos()
+    {
+        LeftControllerPos = LeftController.transform.position;
+        RightControllerPos = RightController.transform.position;
+        HMDPos = HMD.transform.position;
+    }
+
+    Vector3 normalize(Vector3 vec)
+    {
+        float magnitude = vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
+        return new Vector3(vec.x / magnitude, vec.y / magnitude, vec.z / magnitude);
+    }
+
     /*
     void GetBones()
     {
