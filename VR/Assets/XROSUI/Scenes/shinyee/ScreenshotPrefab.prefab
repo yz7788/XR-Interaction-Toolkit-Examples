@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 9195866320521047503}
   - component: {fileID: 9195866320521047488}
   - component: {fileID: 9195866320521047489}
-  - component: {fileID: 9195866320521047490}
+  - component: {fileID: 8794258724770719035}
   m_Layer: 5
   m_Name: ScreenshotButton
   m_TagString: Untagged
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9195866320521047490}
+      - m_Target: {fileID: 8794258724770719035}
         m_MethodName: TakeAShot
         m_Mode: 1
         m_Arguments:
@@ -260,7 +260,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9195866320521047490
+--- !u!114 &8794258724770719035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9195866320521047492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f753ba725173b406a904a035df9ea5f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 542b2ac5bf076634488deb2d7c7a986a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9195866320873388033
