@@ -163,7 +163,6 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         {
             writer.Close();
         }
-        print(json);
     }
     public bool ReadKeyPositions()
     {
