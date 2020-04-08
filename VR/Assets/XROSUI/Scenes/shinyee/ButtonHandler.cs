@@ -9,11 +9,11 @@ public class ButtonHandler : MonoBehaviour
     //[SerializeField]
     //GameObject blink;
     //Text myButton;
-    TextMeshProUGUI myButton; 
+    public TextMeshProUGUI myButton; 
     public void Start()
     {
         //myButton = GetComponentInChildren<Text>();
-        myButton = FindObjectOfType<TextMeshProUGUI>();
+        myButton = GetComponentInChildren< TextMeshProUGUI>();
     }
     public void TakeAShot()
     {
