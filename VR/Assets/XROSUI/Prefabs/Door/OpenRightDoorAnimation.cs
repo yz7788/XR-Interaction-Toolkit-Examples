@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿
+/*
+ * Idea and code used from link:
+ * https://www.youtube.com/watch?v=JS4k_lwmZHk
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
