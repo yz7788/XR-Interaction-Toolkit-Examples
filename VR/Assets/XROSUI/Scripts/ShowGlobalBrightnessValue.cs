@@ -12,6 +12,6 @@ public class ShowGlobalBrightnessValue : ShowValue
 
     protected override string FormatValue(float f)
     {
-        return "Brightness:" + ((int)(f * 100f)).ToString() + "%";
+        return "Brightness: " + ((int)(f * 100f)).ToString() + "%";
     }
 }

@@ -7,7 +7,7 @@ public class Controller_GameMenu : MonoBehaviour
 {
     public GameObject XRRig;
 
-    public GameObject UICanvas;
+    //public GameObject UICanvas;
     public GameObject Menu_None;
     public GameObject Menu_General;
     public GameObject Menu_Setting;
