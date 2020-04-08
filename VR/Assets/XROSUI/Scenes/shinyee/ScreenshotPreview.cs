@@ -7,8 +7,7 @@ using System.IO;
 public class ScreenshotPreview : MonoBehaviour
 {
 
-    [SerializeField]
-    GameObject canvas;
+    public GameObject canvas;
     string[] files = null;
     int whichScreenShotIsShown = 0;
 

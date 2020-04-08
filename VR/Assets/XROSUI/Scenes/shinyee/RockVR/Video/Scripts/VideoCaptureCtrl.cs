@@ -19,6 +19,7 @@ namespace RockVR.Video
         /// </summary>
         [SerializeField]
         private AudioCapture _audioCapture;
+        string ffmpegPath;
         /// <summary>
         /// Get or set the <c>AudioCapture</c> component.
         /// </summary>
@@ -102,7 +103,10 @@ namespace RockVR.Video
                 );
                 return;
             }
-            if (!File.Exists(PathConfig.ffmpegPath))
+            Debug.LogError(PathConfig.ffmpegPath);
+            //if (!File.Exists(PathConfig.ffmpegPath))
+            //if (!Directory.Exists(PathConfig.ffmpegPath))
+            if (!true)
             {
                 Debug.LogError(
                     "[VideoCaptureCtrl::StartCapture] FFmpeg not found, please add " +

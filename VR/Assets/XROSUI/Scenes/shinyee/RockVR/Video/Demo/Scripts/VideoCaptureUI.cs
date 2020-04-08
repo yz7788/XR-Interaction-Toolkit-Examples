@@ -17,6 +17,7 @@ namespace RockVR.Video.Demo
             if (VideoCaptureCtrl.instance.status == VideoCaptureCtrl.StatusType.NOT_START)
             {
                 if (GUI.Button(new Rect(10, Screen.height - 60, 150, 50), "Start Capture"))
+                //if (GUI.Button(new Rect(Screen.width/2, Screen.height/2, 150, 50), "Start Capture"))
                 {
                     VideoCaptureCtrl.instance.StartCapture();
                 }

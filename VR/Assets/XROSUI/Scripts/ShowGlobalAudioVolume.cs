@@ -13,6 +13,6 @@ public class ShowGlobalAudioVolume : ShowValue
 
     protected override string FormatValue(float f)
     {
-        return "Volume:" + (f*100).ToString() + "%";// ((int)(Mathf.Pow(10f, value / 20f) * 100f)).ToString() + "%";
+        return "Volume: " + ((int)(f*100f)).ToString() + "%";// ((int)(Mathf.Pow(10f, value / 20f) * 100f)).ToString() + "%";
     }
 }
