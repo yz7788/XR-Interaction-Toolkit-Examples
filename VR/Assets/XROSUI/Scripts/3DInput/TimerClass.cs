@@ -25,10 +25,8 @@ public class TimerClass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Text_Timer = this.GetComponent<Text>();
         myInputContent.text = "";
         Text_Button_Timer.text = "Start";
-        /*testTarget.SetActive(false);*/
         content.color = Color.black;
         content.outlineWidth = 0.15f;
         content.outlineColor = Color.red;
@@ -36,7 +34,6 @@ public class TimerClass : MonoBehaviour
         m_color = content.color;
         old_length = 0;
         currentCharacter = -1;
-        //SetTimer();
     }
 
     // Update is called once per frame
@@ -55,7 +52,7 @@ public class TimerClass : MonoBehaviour
         if (myInputContent.text.Length >= 1)
         {
             currentCharacter = myInputContent.text.Length - 1;
-            if (currentCharacter < 0)
+            if (currentCharacter < 0 || currentCharacter >= textInfo.characterInfo.Length)
                 return;
             int materialIndex = textInfo.characterInfo[currentCharacter].materialReferenceIndex;
             newVertexColors = textInfo.meshInfo[materialIndex].colors32;
