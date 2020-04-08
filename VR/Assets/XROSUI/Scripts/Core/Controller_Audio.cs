@@ -25,7 +25,7 @@ public class Controller_Audio : MonoBehaviour
 
     public AudioMixer mixer;
     float musicVol;
-    public Text text;
+    //public Text text;
     Text Text_volumeValue;
     //Public so we can drag child objects
     [Tooltip("Drag child object with an audiosource to be used as the default menu sfx audio source")]
@@ -80,11 +80,11 @@ public class Controller_Audio : MonoBehaviour
         AudioClip newLevelMusicClip;
         if (scene.buildIndex == 0)
         {
-            newLevelMusicClip = LoadAudioClip("Memories (Loop)");
+            newLevelMusicClip = LoadAudioClip("Land of Knights (Long Loop)");
         }
         else
         {
-            newLevelMusicClip = LoadAudioClip("Stay (Loop)");
+            newLevelMusicClip = LoadAudioClip("Dreamland (Loop)");
         }
 
         Dev.Log("Playing Music: " + newLevelMusicClip.name, Dev.LogCategory.Audio);
