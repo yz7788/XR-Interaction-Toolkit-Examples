@@ -139,6 +139,7 @@ public class CalibrateSkeletonForMergedScene : MonoBehaviour
 
     float ComputeDistance(Vector3 pos1, Vector3 pos2)
     {
+        
         float deltaX = pos1[0] - pos2[0];
         float deltaY = pos1[1] - pos2[1];
         float deltaZ = pos1[2] - pos2[2];
