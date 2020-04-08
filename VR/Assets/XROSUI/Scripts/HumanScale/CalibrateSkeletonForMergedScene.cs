@@ -10,7 +10,11 @@ public class CalibrateSkeletonForMergedScene : MonoBehaviour
     public float Scale = 1.0f;
     float a = 1.0f;     // a = (HMD - left_controller) / scale
     float b = 1.2f;     // b = (HMD - left_controller) / single-arm-length
-    float c = 0.6f;     // c = distance to HMD
+    float c = 0.5f;     // c = distance to HMD
+    float k = 25.0f;    // a fixed multiplier applied to distance
+    float offset_x = 0.0f;     // This is for TEST UI ONLY
+    float offset_y = 0.0f;     // This is for TEST UI ONLY
+    float offset_z = -0.1f;     // This is for TEST UI ONLY
     // UI to test position update ONLY (in the future, all UIs should call to update position)
     GameObject thisUIPanel;
     // UI components
@@ -73,6 +77,7 @@ public class CalibrateSkeletonForMergedScene : MonoBehaviour
 
     void Update()
     {
+        UpdateGenericPos();
         // Print out instruction
 
         // Trigger option 1: Use keypoint Input
@@ -90,24 +95,27 @@ public class CalibrateSkeletonForMergedScene : MonoBehaviour
         Scale = ComputeScale();
         Dev.Log($"World scale measured: {Scale}");
         WorldScaleText.text = $"World scale measured: {Scale}";
-
         // Update UI position for test ONLY
-        UpdateUIPos(thisUIPanel);
+        Vector3 facingDirection = normalize(new Vector3(0.0f, 2.8f, -15.3f));
+        UpdateUIPos(thisUIPanel, facingDirection);
     }
 
-    public void UpdateUIPos(GameObject UIObject)
+    public void UpdateUIPos(GameObject UIObject, Vector3 facingDirection)
     {
-        UIObject.transform.position = ComputePosition(UIObject.transform.position);
+        Vector3 result = ComputePosition(UIObject.transform.position.y, facingDirection);
+        UIObject.transform.position = result;
+        // UIObject.transform.position = new Vector3(0.0f, 1.0f, -15.3f);
+
+        // Debug.Log("NEW 2");
         // Debug.Log(UIObject.transform.position);
     }
 
-    Vector3 ComputePosition(Vector3 oldPosCenter)
+    Vector3 ComputePosition(float oldPosCenter_y, Vector3 facingDirection)
     {
-        float distance = c / b * a * Scale * 10.0f;
-        UpdateGenericPos();
-        Vector3 oldDirection = new Vector3(oldPosCenter.x - HMDPos.x, oldPosCenter.y - HMDPos.y, oldPosCenter.z - HMDPos.z);
-        Vector3 facingDirection = normalize(oldDirection);
-        return new Vector3(HMDPos.x + facingDirection.x * distance, HMDPos.y + facingDirection.y * distance, HMDPos.z + facingDirection.z * distance);
+        float distance = c / b * a * Scale * k;
+        // oldDirection = new Vector3(oldPosCenter.x - HMDPos.x, oldPosCenter.y - HMDPos.y, oldPosCenter.z - HMDPos.z);
+        // Vector3 facingDirection = normalize(oldDirection);
+        return new Vector3(HMDPos.x + facingDirection.x * distance + offset_x, oldPosCenter_y + offset_y, HMDPos.z + facingDirection.z * distance + offset_z);
     }
 
     float ComputeScale()
