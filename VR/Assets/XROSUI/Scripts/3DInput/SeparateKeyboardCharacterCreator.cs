@@ -12,7 +12,9 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     
     int KEYS_NUMBER = 32; //how many keys are in the keyboard
 
-
+    public GameObject controllerPF;
+    GameObject mirrorControllerLeft;
+    GameObject mirrorControllerRight;
     XRGrabInteractable m_InteractableBase;
     public GameObject system;
     public int segments = 10;
@@ -32,7 +34,12 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     void Update()
     {
     }
+    private void Start()
+    {
+        mirrorControllerLeft = Instantiate(controllerPF, new Vector3(-0.14f, 1.395f, 0.67f), new Quaternion(0, 0, 0, 0));
+        mirrorControllerRight = Instantiate(controllerPF, new Vector3(-0.04f, 1.395f, 0.67f), new Quaternion(0,0,0,0));
 
+    }
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
 
