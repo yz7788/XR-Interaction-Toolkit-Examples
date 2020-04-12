@@ -11,10 +11,12 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
 {
     
     int KEYS_NUMBER = 32; //how many keys are in the keyboard
-
+    float mirrorRealDifference = 0.4f; // mirror keyboard and real keyboard height difference
     public GameObject controllerPF;
-    GameObject mirrorControllerLeft;
-    GameObject mirrorControllerRight;
+    public GameObject leftController; // left real controller
+    public GameObject rightController; // right real controller
+    GameObject mirrorControllerLeft; // left mirror controller
+    GameObject mirrorControllerRight; // right mirror controller
     XRGrabInteractable m_InteractableBase;
     public GameObject system;
     public int segments = 10;
@@ -25,38 +27,45 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     //Prefab for a 3D key
     public GameObject PF_Key;
     public Button Button_Timer;
-
     public bool active = false;
     List<GameObject> points = new List<GameObject>();  // including real/lower keys and mirror/upper keys
     private KeyboardWrapper kw = new KeyboardWrapper();
     private Vector3 keyboardModelPosition;   // only include real/lower keys but not mirror/upper keys
     // Update is called once per frame
-    void Update()
-    {
-    }
+    
     private void Start()
     {
-        mirrorControllerLeft = Instantiate(controllerPF, new Vector3(-0.14f, 1.395f, 0.67f), new Quaternion(0, 0, 0, 0));
-        mirrorControllerRight = Instantiate(controllerPF, new Vector3(-0.04f, 1.395f, 0.67f), new Quaternion(0,0,0,0));
 
+    }
+    private void Update()
+    {
+        if (mirrorControllerLeft)
+        {
+            mirrorControllerLeft.transform.position = leftController.transform.position + new Vector3(0f, mirrorRealDifference, 0);
+            mirrorControllerLeft.transform.rotation = leftController.transform.rotation;
+        }
+
+        if (mirrorControllerRight)
+        {
+            mirrorControllerRight.transform.position = rightController.transform.position + new Vector3(0f, mirrorRealDifference, 0);
+            mirrorControllerRight.transform.rotation = rightController.transform.rotation;
+        }
     }
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
 
         bool empty = ReadKeyPositions();
         if (empty)
-        {
             CreateDefaultPoints(startingX, startingY, startingZ);
-        }
         else
         {
             CreateCustomPoints(startingX, startingY, startingZ);
             kw.keys = kw.keys.GetRange(32, 32);
         }
-
         // creating the mirror keyboard on top
-        MirrorKeys(startingX, startingY + 0.4f, startingZ);
-        print(points.Count + " " + kw.keys.Count);
+        MirrorKeys(startingX, startingY + mirrorRealDifference, startingZ);
+        // create mirrored controllers
+        SetUpMirrorControllers(startingX, startingY, startingZ);
     }
 
 
@@ -137,6 +146,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         }
         points.Clear();
         kw.keys.Clear();
+        DestroyMirrorControllers();
     }
 
 
@@ -145,7 +155,8 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         for (int i = 0; i < KEYS_NUMBER; i++)
         {
             KeyWrapper key = kw.keys[i];
-            GameObject go = CreateKey(key.x + startingX, key.y + startingY + 0.4f, key.z + startingZ, key.text, true);
+            GameObject go = CreateKey(key.x + startingX, key.y + startingY, key.z + startingZ, key.text, true);
+            points[i].GetComponent<XRKey>().AssignMirroredKey(go);
         }
     }
 
@@ -190,6 +201,20 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
             return true; // positions.JSOn is empty or malformed
         }
         return false; // positions.JSON is not empty
+    }
+
+    private void SetUpMirrorControllers(float x, float y, float z)
+    {
+        mirrorControllerLeft = Instantiate(controllerPF, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0));
+        mirrorControllerLeft.name = "mirrorControllerLeft";
+        mirrorControllerRight = Instantiate(controllerPF, new Vector3(x, y, z), new Quaternion(0, 0, 0, 0));
+        mirrorControllerRight.name = "mirrorControllerRight";
+    }
+
+    private void DestroyMirrorControllers()
+    {
+        Destroy(mirrorControllerLeft);
+        Destroy(mirrorControllerRight);
     }
 }
 

@@ -18,7 +18,8 @@ public class XRKey : MonoBehaviour
     private float hover_timer = 0;
     private bool hover_start = false;
     private Button Button_Timer;
-    public  KeyWrapper kw;
+    public  KeyWrapper kw; // to record this XRKey's position
+    GameObject mirroredKey;
 
     private float oldX = 0;
     private float oldY = 0;
@@ -38,6 +39,11 @@ public class XRKey : MonoBehaviour
         this.Button_Timer = button;
         myText.text = s;
         this.kw = kw;
+    }
+
+    public void AssignMirroredKey(GameObject mirroredKey)
+    {
+        this.mirroredKey = mirroredKey;
     }
 
     void OnEnable()
@@ -100,6 +106,8 @@ public class XRKey : MonoBehaviour
         if (!m_Held)
         {
             m_MeshRenderer.material.color = transparent;
+            if (this.mirroredKey)
+                this.mirroredKey.GetComponent<MeshRenderer>().material.color = transparent;
             hover_start = false;
             hover_timer = 0;
         }
@@ -126,21 +134,9 @@ public class XRKey : MonoBehaviour
             keyboardController.RegisterInput(myText.text);
             XROSInput.AddInput(myText.text);
             m_MeshRenderer.material.color = m_UnityMagenta;
+            if (this.mirroredKey)
+                this.mirroredKey.GetComponent<MeshRenderer>().material.color = m_UnityMagenta;
         }
     }
-
-    public void OnKeyClicked()
-    {
-        keyboardController.RegisterInput(myText.text);
-        XROSInput.AddInput(myText.text);
-        m_MeshRenderer.material.color = m_UnityMagenta;
-
-    }
-
-/*    public override string ToString()
-    {
-        return "{\"key\": \"" + myText.text + "\"," + "\"x\": " + x + "," + "\"y\": " + y + "," + "\"z\": " + z + "}";
-    }*/
-
 
 }
