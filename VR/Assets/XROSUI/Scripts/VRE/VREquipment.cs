@@ -26,7 +26,9 @@ public class VREquipment : MonoBehaviour
         m_GrabInteractable.onHoverEnter.AddListener(OnHoverEnter);
         m_GrabInteractable.onLastHoverExit.AddListener(OnHoverExit);
         m_GrabInteractable.onSelectEnter.AddListener(OnGrabbed);
-        m_GrabInteractable.onSelectExit.AddListener(OnReleased);        
+        m_GrabInteractable.onSelectExit.AddListener(OnReleased);
+        m_GrabInteractable.onActivate.AddListener(OnActivated);
+        m_GrabInteractable.onDeactivate.AddListener(OnDeactivated);
     }
 
 
@@ -37,6 +39,17 @@ public class VREquipment : MonoBehaviour
         m_GrabInteractable.onLastHoverExit.RemoveListener(OnHoverExit);
         m_GrabInteractable.onSelectEnter.RemoveListener(OnGrabbed);
         m_GrabInteractable.onSelectExit.RemoveListener(OnReleased);
+        m_GrabInteractable.onActivate.RemoveListener(OnActivated);
+        m_GrabInteractable.onDeactivate.RemoveListener(OnDeactivated);
+    }
+
+    private void OnActivated(XRBaseInteractor obj)
+    {
+        print("Activated " + this.name);
+    }
+    private void OnDeactivated(XRBaseInteractor obj)
+    {
+        print("Deactivated " + this.name);
     }
 
     private void OnGrabbed(XRBaseInteractor obj)

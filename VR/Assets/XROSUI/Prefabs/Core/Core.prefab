@@ -676,3 +676,4 @@ MonoBehaviour:
   VisualManager: {fileID: 448072968}
   SceneManager: {fileID: 722517313029938933}
   UIEffectsManager: {fileID: 4486601820309987047}
+  HumanScaleManager: {fileID: 8360869154155029915}

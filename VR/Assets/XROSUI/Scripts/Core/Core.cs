@@ -34,6 +34,7 @@ public class Core : MonoBehaviour
     public Controller_Visual VisualManager;
     public Controller_Scene SceneManager;
     public Controller_UIEffects UIEffectsManager;
+    public Controller_HumanScale HumanScaleManager;
     // Start is called before the first frame update
     void Start()
     {

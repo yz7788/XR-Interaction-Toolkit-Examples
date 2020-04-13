@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Screenshot, Menu_Setting, Menu_Audio, Menu_Visual }
+public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Screenshot, Menu_Setting, Menu_Audio, Menu_Visual, Menu_User }
 
 public class Controller_GameMenu : MonoBehaviour
 {
