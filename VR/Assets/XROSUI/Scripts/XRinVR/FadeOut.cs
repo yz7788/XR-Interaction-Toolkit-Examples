@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class FadeOut : MonoBehaviour
 {
-    [SerializeField] private Animator animationController;
+    public Animator animationController;
     Camera m_MainCamera;
     private void OnTriggerEnter(Collider other)
     {

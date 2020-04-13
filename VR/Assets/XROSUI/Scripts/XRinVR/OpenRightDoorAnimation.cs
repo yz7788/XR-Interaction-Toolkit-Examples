@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class OpenRightDoorAnimation : MonoBehaviour
 {
-    [SerializeField] private Animator animationController;
+    public Animator animationController;
 
     private void OnTriggerEnter(Collider other)
     {
