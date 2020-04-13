@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Setting, Menu_Audio, Menu_Visual }
+public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Screenshot, Menu_Setting, Menu_Audio, Menu_Visual }
 
 public class Controller_GameMenu : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class Controller_GameMenu : MonoBehaviour
     //public GameObject UICanvas;
     public GameObject Menu_None;
     public GameObject Menu_General;
+    public GameObject Menu_Screenshot;
     public GameObject Menu_Setting;
     public GameObject Menu_Audio;
     public GameObject Menu_Visual;
@@ -23,6 +24,7 @@ public class Controller_GameMenu : MonoBehaviour
         //print(menuTypes.Menu_General.ToString());
         menus.Add(XROSMenuTypes.Menu_None.ToString(), Menu_None);
         menus.Add(XROSMenuTypes.Menu_General.ToString(), Menu_General);
+        menus.Add(XROSMenuTypes.Menu_Screenshot.ToString(), Menu_Screenshot);
         menus.Add(XROSMenuTypes.Menu_Setting.ToString(), Menu_Setting);
         menus.Add(XROSMenuTypes.Menu_Audio.ToString(), Menu_Audio);
         menus.Add(XROSMenuTypes.Menu_Visual.ToString(), Menu_Visual);
