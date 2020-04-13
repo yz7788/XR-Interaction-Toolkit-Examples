@@ -21,7 +21,7 @@ public class ButtonHandler : MonoBehaviour
         string fileName = "ScreenshotX" + timeStamp + ".png";//the screenshot image is name in this format, you can change it according to your need
         string pathToSave = fileName;
 
-        ScreenCapture.CaptureScreenshot(pathToSave);
+        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + pathToSave);
     }
 
     IEnumerator CaptureIt()
