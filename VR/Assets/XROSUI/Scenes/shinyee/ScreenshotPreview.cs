@@ -19,6 +19,7 @@ public class ScreenshotPreview : MonoBehaviour
     void Start()
     {
         files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png"); //to get the local files(screenshots)
+        //files = Directory.GetFiles(Application.streamingAssetsPath + "/", "*.png"); 
         if (files.Length > 0)
         {
             GetPictureAndShowIt();

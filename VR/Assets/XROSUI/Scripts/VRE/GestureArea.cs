@@ -108,16 +108,26 @@ public class GestureArea : MonoBehaviour
 
     public void MeasureDirect()
     {
+        bool m_Direction;
+        //detect the direction of user by the main camera.
+        //if (Vector3.Dot(Camera.main.transform.forward, GO_VE.transform.forward) < 0.9)//not work
+        if (Camera.main.transform.forward.z < 0f)
+        {
+            //back
+            m_Direction = false;
+            //Debug.Log("back");
+            }
+        else
+        {
+            //forward
+            m_Direction = true;
+            //Debug.Log("forward");
+        }
         //up/down
         DistanceY = GO_VE.transform.position.y - GestureCore.transform.position.y ;
-        //volume = DistanceY / (Area.transform.localScale.y / 2);
-        //Debug.Log("distance is " + DistanceY);
-        //Dev.Log("distance is " + DistanceY);
-
-
         //forward/backward
         DistanceZ = GO_VE.transform.position.z - GestureCore.transform.position.z ;
-
+        
         if (Mathf.Abs(DistanceY) >= Mathf.Abs(DistanceZ))
         {
             if (DistanceY > 0)
@@ -136,13 +146,15 @@ public class GestureArea : MonoBehaviour
         }
         else
         {
-            if (DistanceZ > 0)
+            if ((DistanceZ > 0 && m_Direction) || (DistanceZ < 0 && !m_Direction))
+            //if (DistanceZ > 0)
             {
                 //Z = true;
                 this.VE.HandleGesture(ENUM_XROS_Gesture.left);
                 //Dev.Log("left");
             }
-            else if (DistanceZ < 0)
+            else if ((DistanceZ < 0 && m_Direction) || (DistanceZ > 0 && !m_Direction))
+            //else if (DistanceZ < 0)
             {
                 //Z = false;
                 this.VE.HandleGesture(ENUM_XROS_Gesture.right);

@@ -16,8 +16,13 @@ public class OpenEquipmentMenu : MonoBehaviour
         print(other.name);
         if (other.CompareTag("AlternateFunction"))
         {
-
-            if(other.GetComponent<VREquipment>())
+            if (other.name == "RightLaserEmitter")
+            {
+                gameMenu.OpenMenu("Menu_General");
+                Debug.Log("Menu_General");
+            }
+            
+            if (other.GetComponent<VREquipment>())
             {
                 //Dev.Log("Other: " + other.name);
                 Debug.Log("triggerAlter");
@@ -38,6 +43,8 @@ public class OpenEquipmentMenu : MonoBehaviour
                         break;
                 }
             }
+            
+            
         }
     }
 }
