@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public enum TextDisplayType { Hint, Audio, System };
+public enum FlagsInControllerScenario { AuthenticateWithHeart, Flag1, Flag2 }
 
 public class XROS_Event
 {
@@ -65,14 +66,15 @@ public class Controller_Scenario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            ProcessEvent();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            this.SetFlag("AuthenticateWithHeart", true);
-        }
+        // if (Input.GetKeyDown(KeyCode.Alpha9))
+        // {
+        //     ProcessEvent();
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha0))
+        // {
+        //     this.SetFlag("AuthenticateWithHeart", true);
+        // }
+        ProcessEvent();
     }
     private void ProcessEvent()
     {
@@ -102,7 +104,7 @@ public class Controller_Scenario : MonoBehaviour
         }
         else
         {
-            print("Cannot handle event " + currentEventId);
+            // print("Cannot handle event " + currentEventId);
         }
     }
 
