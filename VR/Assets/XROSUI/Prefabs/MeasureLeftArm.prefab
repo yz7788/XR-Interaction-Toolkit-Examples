@@ -529,7 +529,7 @@ MonoBehaviour:
   LeftArmMeasureButton: {fileID: 6072940478675806446}
   LeftArmLengthText: {fileID: 6072940479168545428}
   LeftArmInstructionText: {fileID: 6072940480366745463}
-  workflowPose: {fileID: 0}
+  workflowPose: {fileID: 1971671884}
   workflowStep1: {fileID: 2800000, guid: 10de001ff5e4dca43bc1433dd919ba42, type: 3}
   workflowStep2: {fileID: 2800000, guid: 880f4ae7d21cf8d4e9cc77e4cff0f63d, type: 3}
 --- !u!1 &6072940480366745461
