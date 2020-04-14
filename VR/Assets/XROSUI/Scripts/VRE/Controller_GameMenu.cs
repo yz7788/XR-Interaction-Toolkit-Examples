@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Screenshot, Menu_Setting, Menu_Audio, Menu_Visual, Menu_User }
+public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Screenshot, Menu_Setting, Menu_Audio, Menu_Visual, Menu_User, Menu_Credit }
 
 public class Controller_GameMenu : MonoBehaviour
 {
-    public GameObject XRRig;
-
-    //public GameObject UICanvas;
     public GameObject Menu_None;
     public GameObject Menu_General;
     public GameObject Menu_Screenshot;
     public GameObject Menu_Setting;
     public GameObject Menu_Audio;
     public GameObject Menu_Visual;
-
+    public GameObject Menu_User;
+    public GameObject Menu_Credit;
 
     public IDictionary<string, GameObject> menus = new Dictionary<string, GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +27,8 @@ public class Controller_GameMenu : MonoBehaviour
         menus.Add(XROSMenuTypes.Menu_Setting.ToString(), Menu_Setting);
         menus.Add(XROSMenuTypes.Menu_Audio.ToString(), Menu_Audio);
         menus.Add(XROSMenuTypes.Menu_Visual.ToString(), Menu_Visual);
+        menus.Add(XROSMenuTypes.Menu_User.ToString(), Menu_User);
+        menus.Add(XROSMenuTypes.Menu_Credit.ToString(), Menu_Credit);
     }
 
     //public void OpenMenu(XROSMenuTypes menuTypes)
@@ -51,46 +52,69 @@ public class Controller_GameMenu : MonoBehaviour
         else
         {
             Console.WriteLine("{0} is not a member of the enum", val);
-        }       
+        }
 
         foreach (KeyValuePair<string, GameObject> item in menus)
         {
             Console.WriteLine("Key: {0}, Value: {1}", item.Key, item.Value);
-            if (item.Key != val)
+            if (item.Value != null)
             {
-                item.Value.SetActive(false);
+                if (item.Key != val)
+                {
+                    item.Value.SetActive(false);
+                }
+                else
+                {
+                    item.Value.SetActive(true);
+                }
             }
             else
             {
-                item.Value.SetActive(true);
+                Dev.LogError(item.Key + " does not exist");
             }
         }
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.F1))
+        DebugInput();
+    }
+
+    //Track Debug Inputs here
+    //https://docs.google.com/spreadsheets/d/1NMH43LMlbs5lggdhq4Pa4qQ569U1lr_O7HSHESEantU/edit#gid=0
+    private void DebugInput()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             OpenMenu("Menu_None");
         }
-        if (Input.GetKey(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
             OpenMenu("Menu_General");
         }
-        if (Input.GetKey(KeyCode.F3))
+        if (Input.GetKeyDown(KeyCode.F3))
         {
             OpenMenu("Menu_Setting");
         }
-        if (Input.GetKey(KeyCode.F4))
+        if (Input.GetKeyDown(KeyCode.F4))
         {
             OpenMenu("Menu_Audio");
         }
-        if (Input.GetKey(KeyCode.F5))
+        if (Input.GetKeyDown(KeyCode.F5))
         {
             OpenMenu("Menu_Visual");
         }
-        //this.transform.position = XRRig.transform.position + XRRig.transform.forward * 2.5f;
-        //this.transform.LookAt(XRRig.transform);
-        //this.transform.Rotate(Vector3.up, 180);
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            OpenMenu("Menu_User");
+        }
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            OpenMenu("Menu_Screenshot");
+        }
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            OpenMenu("Menu_Credit");
+        }
     }
 }

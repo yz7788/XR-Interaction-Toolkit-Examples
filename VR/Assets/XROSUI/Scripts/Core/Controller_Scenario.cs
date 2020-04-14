@@ -87,6 +87,11 @@ public class Controller_Scenario : MonoBehaviour
                 switch (currentEvent.TargetText)
                 {
                     case TextDisplayType.Hint:
+                        if(!Text_Hint)
+                        {
+                            print(currentEvent.TargetText + " does not exist in this scene");
+                            return;
+                        }
                         Text_Hint.text = currentEvent.content;
                         break;
                     case TextDisplayType.Audio:

@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Note this places object near the player based on the offset. It does not take into account of player's forward
-public class Tool_FollowXRRig : MonoBehaviour
+public class Tool_FollowXRRigV2 : MonoBehaviour
 {
     public GameObject GO_XRRigCamera;
     public bool bFollows;
-    public float offset_x = 1f;
-    public float offset_y = 0.1f;
-    public float offset_z = 0.1f;
+    public float offset_x = 0.5f;
+    public float offset_y = 0f;
+    public float offset_z = 0f;
+    public float UpdateFrequencyInSeconds = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class Tool_FollowXRRig : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (bFollows)
         {
@@ -30,6 +31,7 @@ public class Tool_FollowXRRig : MonoBehaviour
 
     void FollowCamera()
     {
-        this.transform.position = GO_XRRigCamera.transform.position + new Vector3(offset_x, offset_y, offset_z);        
+
+        this.transform.position = GO_XRRigCamera.transform.position + new Vector3(offset_x, offset_y, offset_z);
     }
 }

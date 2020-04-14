@@ -32,7 +32,17 @@ public class VRHeadphone : VREquipment
     {
         //gameMenu.OpenMenu("Menu_Audio");
     }*/
-public override void HandleGesture(ENUM_XROS_Gesture gesture)
+
+    private void OnActivated(XRBaseInteractor obj)
+    {
+        print("Activated 2" + this.name);
+    }
+    private void OnDeactivated(XRBaseInteractor obj)
+    {
+        print("Deactivated 2" + this.name);
+    }
+
+    public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {
         switch (gesture)
         {
