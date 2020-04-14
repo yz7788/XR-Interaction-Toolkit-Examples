@@ -15,6 +15,10 @@ public class MeasureLeftArmLength : MonoBehaviour
     public Button LeftArmMeasureButton;
     public Text LeftArmLengthText;
     public Text LeftArmInstructionText;
+    public RawImage workflowPose;
+    public Texture workflowStep1;
+    public Texture workflowStep2;
+    GameObject thisUIPanel;
     // Generic (from systems)
     GameObject LeftController;
     GameObject RightController;
@@ -22,7 +26,6 @@ public class MeasureLeftArmLength : MonoBehaviour
     Vector3 LeftControllerPos;
     Vector3 RightControllerPos;
     Vector3 HMDPos;
-    float LHDistanceGeneric = 1.0f;
 
     void Start()
     {
@@ -31,6 +34,9 @@ public class MeasureLeftArmLength : MonoBehaviour
         measureBtn.onClick.AddListener(MeasureLeftArm);
         LeftArmLengthText = GameObject.Find("LeftArmLengthText").GetComponent<Text>();
         LeftArmInstructionText = GameObject.Find("LeftArmInstructionText").GetComponent<Text>();
+        Image workflowPoseImg = workflowPose.GetComponent<Image>();
+
+        thisUIPanel = GameObject.Find("MeasureLeftArm");
 
         // Function initialization
         LeftController = GameObject.Find("LeftController");
@@ -50,6 +56,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             // Update instruction
             LeftArmInstructionText.text = $"Step 1. Stand still with your left arm straight down and use right controller to click \"Next\".";
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Next";
+            workflowPose.texture = workflowStep1;
 
             stepCounter++;
         }
@@ -59,6 +66,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             straightDownY = LeftControllerPos.y;
             // Update instruction
             LeftArmInstructionText.text = $"Step 2.Raise your left arm in parallel to groung while holding other body parts stationary. Again, use right controller to click \"Next\".";
+            workflowPose.texture = workflowStep2;
 
             stepCounter++;
         }
@@ -67,14 +75,25 @@ public class MeasureLeftArmLength : MonoBehaviour
             // Measure when left arm is raised to horizontal
             horizontalY = LeftControllerPos.y;
             armLength = Mathf.Abs(straightDownY - horizontalY);
+            Core.Ins.HumanScaleManager.setArmLength(armLength);
             LeftArmLengthText.text = $"Arm length: {armLength}";
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Start";
+            workflowPose.texture = null;
+
+            // Update UI position
+            UpdateUIPos(thisUIPanel);
 
             stepCounter = 0;
         }
 
     }
-    
+
+    void UpdateUIPos(GameObject UIObject)
+    {
+        Vector3 newPosition = new Vector3(UIObject.transform.position.x + armLength * 0.6f, UIObject.transform.position.y, UIObject.transform.position.z);
+        UIObject.transform.position = newPosition;
+    }
+
     float ComputeGeneric()
     {
         // Compute generic distance between HMD and left controller
