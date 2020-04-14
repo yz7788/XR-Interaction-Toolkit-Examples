@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class ChangeLocationOfCamera : MonoBehaviour
 {
-    public GameObject Destination;
+    public GameObject Destination1;
+    public GameObject Destination2;
+    public GameObject Destination3;
+    public GameObject Destination4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +26,8 @@ public class ChangeLocationOfCamera : MonoBehaviour
         Debug.Log("change location!!");
         if (message.Equals("ChangeLocation"))
         {
-            GameObject.Find("XRRig_XROS").transform.position = Destination.transform.position;
-            GameObject.Find("XRRig_XROS").transform.forward= -Destination.transform.forward;
+            GameObject.Find("XRRig_XROS").transform.position = Destination1.transform.position;
+            GameObject.Find("XRRig_XROS").transform.forward= -Destination1.transform.forward;
         }
     }
 }

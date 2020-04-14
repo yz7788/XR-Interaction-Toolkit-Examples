@@ -31,6 +31,13 @@ public class FadeOut : MonoBehaviour
             Debug.Log("fadeOut false");
         }
     }
+
+    public void Teleportation(string name)
+    {
+        animationController.SetBool("fadeOut", true);
+        Debug.Log("fadeOut true");
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
