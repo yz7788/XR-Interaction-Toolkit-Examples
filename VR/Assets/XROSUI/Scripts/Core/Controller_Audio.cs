@@ -333,12 +333,27 @@ public class Controller_Audio : MonoBehaviour
                 mixer.SetFloat("MasterVolume", f);                
                 break;
             case Audio_Type.music:
+                if (EVENT_NewMasterVolume != null)
+                {
+                    EVENT_NewMasterVolume(f);
+                }
+                f = Mathf.Log10(f) * 20;
                 mixer.SetFloat("MusicVolume", f);
                 break;
             case Audio_Type.voice:
+                if (EVENT_NewMasterVolume != null)
+                {
+                    EVENT_NewMasterVolume(f);
+                }
+                f = Mathf.Log10(f) * 20;
                 mixer.SetFloat("VoiceVolume", f);
                 break;
             case Audio_Type.sfx:
+                if (EVENT_NewMasterVolume != null)
+                {
+                    EVENT_NewMasterVolume(f);
+                }
+                f = Mathf.Log10(f) * 20;
                 mixer.SetFloat("SFXVolume", f);
                 break;
             default:

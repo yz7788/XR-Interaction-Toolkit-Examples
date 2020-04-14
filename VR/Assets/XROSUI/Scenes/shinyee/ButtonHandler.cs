@@ -26,7 +26,7 @@ public class ButtonHandler : MonoBehaviour
         string pathToSave = fileName;
 
         //ScreenCapture.CaptureScreenshot(pathToSave);
-        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + pathToSave);
+        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + pathToSave);       
 
     }
 
