@@ -1276,7 +1276,7 @@ GameObject:
   - component: {fileID: 1491044444}
   m_Layer: 17
   m_Name: Visualization_DirectGrabSphere
-  m_TagString: Untagged
+  m_TagString: AlternateFunction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8606514739347863416}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999976
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2196,7 +2196,7 @@ GameObject:
   - component: {fileID: 8104536999061329210}
   m_Layer: 19
   m_Name: RightLaserEmitter
-  m_TagString: Untagged
+  m_TagString: AlternateFunction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4320,10 +4320,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1717954561456925283}
   - component: {fileID: 1717954561456925284}
-  - component: {fileID: 1717954561456925285}
   - component: {fileID: 6255545169491779}
   - component: {fileID: 2294492462824139523}
   - component: {fileID: 5282046900426712237}
+  - component: {fileID: 7874243713957026239}
   m_Layer: 0
   m_Name: XRRig_XROS
   m_TagString: Untagged
@@ -4364,24 +4364,6 @@ MonoBehaviour:
   m_TrackingOriginMode: 1
   m_TrackingSpace: 3
   m_CameraYOffset: 1
---- !u!114 &1717954561456925285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717954561456925282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba706e5cce610884ab194e68db6a910e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ActivationButtons: 0b00000006000000
-  m_DeactivationButtons: 03000000
-  m_LeftBaseController: {fileID: 1717954560873690078}
-  m_LeftTeleportController: {fileID: 1717954561233508939}
-  m_RightBaseController: {fileID: 1717954560309945980}
-  m_RightTeleportController: {fileID: 1717954560958943209}
 --- !u!114 &6255545169491779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4429,6 +4411,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 2294492462824139523}
+--- !u!114 &7874243713957026239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717954561456925282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e863808316500e45bcc1b587bb8d032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActivationButtons: 0b00000006000000
+  m_DeactivationButtons: 03000000
+  m_LeftBaseController: {fileID: 1717954560873690078}
+  m_LeftTeleportController: {fileID: 1717954561233508939}
+  m_RightBaseController: {fileID: 1717954560309945980}
+  m_RightTeleportController: {fileID: 1717954560958943209}
 --- !u!1 &1717954561962503725
 GameObject:
   m_ObjectHideFlags: 0
@@ -4487,7 +4487,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717954562053134886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1385272523}
@@ -8239,7 +8239,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1026888305938186463}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
