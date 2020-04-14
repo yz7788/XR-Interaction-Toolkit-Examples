@@ -9,6 +9,8 @@ public class ScreenshotPreview : MonoBehaviour
     public GameObject canvas;
     string[] files = null;
     int whichScreenShotIsShown = 0;
+    public float coolDown = 0.5f;
+    float lastAskTime = 0;
 
     public void OnTriggerExit(Collider other)
     {
@@ -21,6 +23,21 @@ public class ScreenshotPreview : MonoBehaviour
         if (files.Length > 0)
         {
             GetPictureAndShowIt();
+        }
+    }
+
+    void Update()
+    {
+        if (lastAskTime + coolDown < Time.time)
+        {
+            files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png"); //to get the local files(screenshots)
+            //files = Directory.GetFiles(Application.streamingAssetsPath + "/", "*.png"); 
+            if (files.Length > 0)
+            {
+                GetPictureAndShowIt();
+            }
+
+            lastAskTime = Time.time;
         }
     }
 
