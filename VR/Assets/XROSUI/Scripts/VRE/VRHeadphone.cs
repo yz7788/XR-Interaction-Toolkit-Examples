@@ -19,25 +19,14 @@ public class VRHeadphone : VREquipment
     public void Start()
     {
 
-//        fakeSocket = this.transform.parent.gameObject;
     }
-    /*
-    /void onEnable()
-    {
-        XRGrabHeadphone.onSelectEnter.AddListener();
-    }
-    */
 
-    /*public override void AlternateFunction()
-    {
-        //gameMenu.OpenMenu("Menu_Audio");
-    }*/
-
-    private void OnActivated(XRBaseInteractor obj)
+    public override void OnActivated(XRBaseInteractor obj)
     {
         print("Activated 2" + this.name);
+        Core.Ins.AudioManager.PlayPauseMusic();
     }
-    private void OnDeactivated(XRBaseInteractor obj)
+    public override void OnDeactivated(XRBaseInteractor obj)
     {
         print("Deactivated 2" + this.name);
     }
