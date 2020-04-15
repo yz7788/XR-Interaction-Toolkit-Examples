@@ -8,9 +8,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VRHeadphone : VREquipment
 {
-    //public GameObject menuAudio;
-    //Controller_GameMenu gameMenu;
-
     public XRGrabInteractable XRGrabHeadphone;
 
     public float volumeIncreaseRate = 0.003f;

@@ -14,52 +14,31 @@ public class Controller_GameMenu : MonoBehaviour
     public GameObject Menu_User;
     public GameObject Menu_Credit;
 
-    public IDictionary<string, GameObject> menus = new Dictionary<string, GameObject>();
+    public IDictionary<XROSMenuTypes, GameObject> menus = new Dictionary<XROSMenuTypes, GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         XROSMenu.EVENT_NewMenu += OpenMenu;
         //print(menuTypes.Menu_General.ToString());
-        menus.Add(XROSMenuTypes.Menu_None.ToString(), Menu_None);
-        menus.Add(XROSMenuTypes.Menu_General.ToString(), Menu_General);
-        menus.Add(XROSMenuTypes.Menu_Screenshot.ToString(), Menu_Screenshot);
-        menus.Add(XROSMenuTypes.Menu_Setting.ToString(), Menu_Setting);
-        menus.Add(XROSMenuTypes.Menu_Audio.ToString(), Menu_Audio);
-        menus.Add(XROSMenuTypes.Menu_Visual.ToString(), Menu_Visual);
-        menus.Add(XROSMenuTypes.Menu_User.ToString(), Menu_User);
-        menus.Add(XROSMenuTypes.Menu_Credit.ToString(), Menu_Credit);
+        menus.Add(XROSMenuTypes.Menu_None, Menu_None);
+        menus.Add(XROSMenuTypes.Menu_General, Menu_General);
+        menus.Add(XROSMenuTypes.Menu_Screenshot, Menu_Screenshot);
+        menus.Add(XROSMenuTypes.Menu_Setting, Menu_Setting);
+        menus.Add(XROSMenuTypes.Menu_Audio, Menu_Audio);
+        menus.Add(XROSMenuTypes.Menu_Visual, Menu_Visual);
+        menus.Add(XROSMenuTypes.Menu_User, Menu_User);
+        menus.Add(XROSMenuTypes.Menu_Credit, Menu_Credit);
     }
 
-    //public void OpenMenu(XROSMenuTypes menuTypes)
-    //{
-    //    this.OpenMenu(menuTypes.ToString());
-    //}
-    public void OpenMenu(string val)
+    public void OpenMenu(XROSMenuTypes menuTypes)
     {
-        XROSMenuTypes currentMenu;
-        if (Enum.TryParse(val, true, out currentMenu))
-        {
-            if (Enum.IsDefined(typeof(XROSMenuTypes), currentMenu) | currentMenu.ToString().Contains(","))
-            {
-                Console.WriteLine("Converted '{0}' to {1}", val, currentMenu.ToString());
-            }
-            else
-            {
-                Console.WriteLine("{0} is not a value of the enum", val);
-            }
-        }
-        else
-        {
-            Console.WriteLine("{0} is not a member of the enum", val);
-        }
-
-        foreach (KeyValuePair<string, GameObject> item in menus)
+        foreach (KeyValuePair<XROSMenuTypes, GameObject> item in menus)
         {
             Console.WriteLine("Key: {0}, Value: {1}", item.Key, item.Value);
             if (item.Value != null)
             {
-                if (item.Key != val)
+                if (item.Key != menuTypes)
                 {
                     item.Value.SetActive(false);
                 }
@@ -73,6 +52,28 @@ public class Controller_GameMenu : MonoBehaviour
                 Dev.LogError(item.Key + " does not exist");
             }
         }
+    }
+    public void OpenMenu(string val)
+    {
+        XROSMenuTypes currentMenu;
+        if (Enum.TryParse(val, true, out currentMenu))
+        {
+            if (Enum.IsDefined(typeof(XROSMenuTypes), currentMenu) | currentMenu.ToString().Contains(","))
+            {
+                Console.WriteLine("Converted '{0}' to {1}", val, currentMenu.ToString());
+
+                OpenMenu(currentMenu);
+            }
+            else
+            {
+                Console.WriteLine("{0} is not a value of the enum", val);
+            }
+        }
+        else
+        {
+            Console.WriteLine("{0} is not a member of the enum", val);
+        }
+
     }
     // Update is called once per frame
     void Update()

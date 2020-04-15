@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Held: 0
   timeBeforeReturn: 0.5
   socket: {fileID: 732234664}
-  menuTypes: 4
+  menuTypes: 5
   XRGrabGoggle: {fileID: 807256644}
   lightIncreaseRate: 0.1
   lightDecreaseRate: -0.1
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Held: 0
   timeBeforeReturn: 0.5
   socket: {fileID: 1773291435}
-  menuTypes: 3
+  menuTypes: 4
   XRGrabHeadphone: {fileID: 1936949300}
   volumeIncreaseRate: 0.05
   volumeDecreaseRate: -0.05
