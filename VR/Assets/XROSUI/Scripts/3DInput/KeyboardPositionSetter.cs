@@ -38,6 +38,7 @@ public class KeyboardPositionSetter : MonoBehaviour
         else
         {
             kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
+            kcc.gameObject.transform.rotation = Camera.main.gameObject.transform.rotation;
             kcc.active = true;
             print(leftDirectConroller.transform.GetChild(4).name);
             this.Transform(leftDirectConroller, false);
