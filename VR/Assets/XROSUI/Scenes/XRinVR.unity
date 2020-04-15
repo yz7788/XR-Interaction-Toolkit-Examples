@@ -4091,6 +4091,11 @@ PrefabInstance:
       propertyPath: ScaleNumber
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1729844888767475252, guid: 75aa8e378477108468a407f7e11a30f9,
+        type: 3}
+      propertyPath: hemisphere
+      value: 
+      objectReference: {fileID: 922187689}
     - target: {fileID: 1729844888767475254, guid: 75aa8e378477108468a407f7e11a30f9,
         type: 3}
       propertyPath: m_Name
@@ -7332,6 +7337,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 548b55d3e2f945942be6ac7612199877, type: 3}
+--- !u!1 &922187689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6911706282747664342, guid: 1b4544d75e966e84d9b684067b019518,
+    type: 3}
+  m_PrefabInstance: {fileID: 894394446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &930060230
 GameObject:
   m_ObjectHideFlags: 0
