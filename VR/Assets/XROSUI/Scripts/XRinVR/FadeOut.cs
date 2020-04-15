@@ -18,7 +18,6 @@ public class FadeOut : MonoBehaviour
         {
             animationController.SetBool("fadeOut", true);
             Debug.Log("fadeOut true");
-
         }
     }
 
@@ -47,6 +46,9 @@ public class FadeOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            this.Teleportation("");
+        }
     }
 }

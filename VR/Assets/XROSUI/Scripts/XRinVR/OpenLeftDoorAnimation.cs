@@ -9,9 +9,7 @@ using UnityEngine;
 
 public class OpenLeftDoorAnimation : MonoBehaviour
 {
-
     public Animator animationController;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Heart"))
@@ -27,17 +25,5 @@ public class OpenLeftDoorAnimation : MonoBehaviour
         {
             animationController.SetBool("openLeftDoor", false);
         }
-    }
-    // Start is called before the first frame update
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
