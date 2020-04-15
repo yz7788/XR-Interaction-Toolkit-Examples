@@ -30,6 +30,6 @@ public class RotationAlongLocalAxis : MonoBehaviour
 
     void FollowCamera()
     {
-        this.transform.rotation = GO_XRRigCamera.transform.rotation;
+        //this.transform.rotation = GO_XRRigCamera.transform.rotation;
     }
 }
