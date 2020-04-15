@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7005877524998617187}
   - component: {fileID: 7005877524998617186}
-  - component: {fileID: 7005877524998617189}
   m_Layer: 0
   m_Name: PF_Container
   m_TagString: Untagged
@@ -49,36 +48,16 @@ MonoBehaviour:
   containerobjectlist: []
   containerlayerlist: []
   containersocketlist: []
-  PF_Socket: {fileID: 8216828752256359590, guid: 7d10dd937a9cf4a4e90542210c9e97d7,
-    type: 3}
-  PF_containerObject: {fileID: 144158694031246855, guid: 7f067d6bbd1439a4c9551451b29c28c6,
-    type: 3}
-  PF_layerObject: {fileID: 1492285529078304792, guid: 57a08df5f7ca4bf4a88537ede9ca8587,
-    type: 3}
-  startpoint: {fileID: 7005877525361650367}
+  PF_Socket: {fileID: 0}
+  PF_containerObject: {fileID: 0}
+  PF_layerObject: {fileID: 0}
+  startpoint: {fileID: 0}
   controllerhand_Left: {fileID: 0}
   controllerhand_Right: {fileID: 0}
   lefthandvalue: 0
   righthandvalue: 0
   planeTarget: {fileID: 0}
   target: {fileID: 0}
---- !u!114 &7005877524998617189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7005877524998617188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b85ec731d83195849a1a2714f470a562, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GO_XRRigCamera: {fileID: 0}
-  bFollows: 1
-  offset_x: 0.1
-  offset_y: 0
-  offset_z: 0.6
 --- !u!1 &7005877525361650367
 GameObject:
   m_ObjectHideFlags: 0

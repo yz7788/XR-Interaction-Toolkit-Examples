@@ -1,0 +1,25 @@
+{
+    "Items": [
+        {
+            "TargetText": 0,
+            "content": "Move your controller to the front of your eyes until you feel a vibration.Then push the grip button to enable Augmented Vision",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "AV",
+            "secondsToWait": -1
+        },
+        {
+            "TargetText": 0,
+            "content": "Grab your user credentials located in your chest and place it on the lock",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "OpenDoor",
+            "secondsToWait": -1
+        },
+        {
+            "TargetText": 0,
+            "content": "You have successfully authenticated!",
+            "HasPrerequisite": false,
+            "prerequisiteFlagId": "",
+            "secondsToWait": 3
+        }
+    ]
+}

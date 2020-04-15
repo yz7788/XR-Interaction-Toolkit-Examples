@@ -5,6 +5,9 @@ public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Screenshot, Menu_Setti
 
 public class Controller_GameMenu : MonoBehaviour
 {
+    public GameObject XRRig;
+
+    //public GameObject UICanvas;
     public GameObject Menu_None;
     public GameObject Menu_General;
     public GameObject Menu_Screenshot;
@@ -53,6 +56,7 @@ public class Controller_GameMenu : MonoBehaviour
             }
         }
     }
+
     public void OpenMenu(string val)
     {
         XROSMenuTypes currentMenu;
@@ -73,49 +77,47 @@ public class Controller_GameMenu : MonoBehaviour
         {
             Console.WriteLine("{0} is not a member of the enum", val);
         }
-
     }
+
     // Update is called once per frame
     void Update()
     {
         DebugInput();
     }
-
-    //Track Debug Inputs here
-    //https://docs.google.com/spreadsheets/d/1NMH43LMlbs5lggdhq4Pa4qQ569U1lr_O7HSHESEantU/edit#gid=0
     private void DebugInput()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKey(KeyCode.F1))
         {
             OpenMenu("Menu_None");
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKey(KeyCode.F2))
         {
             OpenMenu("Menu_General");
         }
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (Input.GetKey(KeyCode.F3))
         {
             OpenMenu("Menu_Setting");
         }
-        if (Input.GetKeyDown(KeyCode.F4))
+        if (Input.GetKey(KeyCode.F4))
         {
             OpenMenu("Menu_Audio");
         }
-        if (Input.GetKeyDown(KeyCode.F5))
+        if (Input.GetKey(KeyCode.F5))
         {
             OpenMenu("Menu_Visual");
         }
-        if (Input.GetKeyDown(KeyCode.F6))
+        if (Input.GetKey(KeyCode.F6))
         {
             OpenMenu("Menu_User");
         }
-        if (Input.GetKeyDown(KeyCode.F7))
+        if (Input.GetKey(KeyCode.F7))
         {
             OpenMenu("Menu_Screenshot");
         }
-        if (Input.GetKeyDown(KeyCode.F8))
+        if (Input.GetKey(KeyCode.F8))
         {
             OpenMenu("Menu_Credit");
         }
+
     }
 }
