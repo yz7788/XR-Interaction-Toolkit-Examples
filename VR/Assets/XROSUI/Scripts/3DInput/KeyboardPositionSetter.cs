@@ -42,6 +42,10 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
             this.Transform(leftDirectConroller, true);
             this.Transform(rightDirectController, true);
+            leftDirectConroller.transform.localScale = new Vector3(1, 1, 1);
+            rightDirectController.transform.localScale = new Vector3(1, 1, 1);
+            leftRayController.transform.localScale = new Vector3(1, 1, 1);
+            rightRayController.transform.localScale = new Vector3(1, 1, 1);
             //hemisphere.transform.LookAt(Camera.main.transform);
         }
         else
