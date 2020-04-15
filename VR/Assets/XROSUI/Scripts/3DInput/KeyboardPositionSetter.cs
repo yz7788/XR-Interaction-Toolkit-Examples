@@ -17,6 +17,7 @@ public class KeyboardPositionSetter : MonoBehaviour
     public GameObject controllerPF;
     public float ScaleNumber;
     Transform llamaPositon;
+    XRBaseInteractor controller;
     void Start()
     {
         llamaPositon = gameObject.GetComponent<Transform>();
@@ -46,7 +47,7 @@ public class KeyboardPositionSetter : MonoBehaviour
         else
         {
             kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
-            kcc.gameObject.transform.rotation = Camera.main.gameObject.transform.rotation;
+            //kcc.gameObject.transform.rotation = Camera.main.gameObject.transform.rotation;
             kcc.active = true;
 
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
@@ -55,6 +56,7 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightDirectController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             leftRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             rightRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            hemisphere.transform.RotateAround(obj.transform.position, transform.up, Camera.main.gameObject.transform.rotation.eulerAngles.y);
         }
 
     }
@@ -82,8 +84,8 @@ public class KeyboardPositionSetter : MonoBehaviour
     }
     void Update()
     {
-        //hemisphere.transform.RotateAround(hemisphere.GetComponent<MeshRenderer>().bounds.center, transform.up, Time.deltaTime * 90f);
-        //hemisphere.transform.Rotate(0, Time.deltaTime * 90f, 0, Space.Self);
+            
+
     }
 
 }
