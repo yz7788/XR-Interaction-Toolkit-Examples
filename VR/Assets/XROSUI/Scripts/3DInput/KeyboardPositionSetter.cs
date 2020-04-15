@@ -21,6 +21,12 @@ public class KeyboardPositionSetter : MonoBehaviour
         llamaPositon = gameObject.GetComponent<Transform>();
         m_InteractableBase = GetComponent<XRGrabInteractable>();
         m_InteractableBase.onDeactivate.AddListener(TriggerReleased);
+        m_InteractableBase.onSelectExit.AddListener(DropKeyboard);
+    }
+
+    void DropKeyboard(XRBaseInteractor obj)
+    {
+
     }
 
     void TriggerReleased(XRBaseInteractor obj)
@@ -50,7 +56,7 @@ public class KeyboardPositionSetter : MonoBehaviour
             this.Transform(rightDirectController, false);
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
-            leftDirectConroller.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            //leftDirectConroller.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             rightDirectController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             leftRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             rightRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
