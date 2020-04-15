@@ -62,7 +62,7 @@ public class VREquipment : MonoBehaviour
 
     void OnReleased(XRBaseInteractor obj)
     {
-        print("Released");
+        // print("Released");
         m_MeshRenderer.material.color = Color.white;
         m_Held = false;
         m_Rigidbody.ResetCenterOfMass();

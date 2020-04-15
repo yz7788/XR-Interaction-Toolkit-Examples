@@ -2,13 +2,6 @@
     "Items": [
         {
             "TargetText": 0,
-            "content": "Move your controller to the front of your eyes until you feel a vibration.Then push the grip button to enable Augmented Vision",
-            "HasPrerequisite": true,
-            "prerequisiteFlagId": "AV",
-            "secondsToWait": -1
-        },
-        {
-            "TargetText": 0,
             "content": "Grab your user credentials located in your chest and place it on the lock",
             "HasPrerequisite": true,
             "prerequisiteFlagId": "OpenDoor",
@@ -20,6 +13,28 @@
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",
             "secondsToWait": 3
+        },
+        {
+            "TargetText": 0,
+            "content": "Reach out to the \"I agree\" button with either controller and use the trigger button to confirm",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "AgreedCalibrition",
+            "secondsToWait": -1
+        },
+        {
+            "TargetText": 0,
+            "content": "Thank you, you have completed the calibration process, now teleporting you to the 3D input.",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "FinishedCalibrition",
+            "secondsToWait": -1
+        },
+        {
+            "TargetText": 0,
+            "content": "Finished",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "LastStep",
+            "secondsToWait": -1
         }
+        
     ]
 }

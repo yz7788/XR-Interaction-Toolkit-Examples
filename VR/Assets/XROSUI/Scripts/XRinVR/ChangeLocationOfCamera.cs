@@ -43,7 +43,7 @@ public class ChangeLocationOfCamera : MonoBehaviour
 
     public void ChangeLocation(int i)
     {
-        Debug.Log("change location!!");
+        // Debug.Log("change location!!");
         //if (message.Equals("ChangeLocation"))
         {
             currentLocationId++;

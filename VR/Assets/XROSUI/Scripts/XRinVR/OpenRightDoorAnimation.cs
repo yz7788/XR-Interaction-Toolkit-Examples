@@ -17,7 +17,8 @@ public class OpenRightDoorAnimation : MonoBehaviour
         if (other.CompareTag("Heart"))
         {
             animationController.SetBool("openRightDoor", true);
-            Debug.Log("openRightDoor");
+            Core.Ins.ScenarioManager.SetFlag("OpenDoor",true);//tell the Core you are openning the door.
+            // Debug.Log("openRightDoor");
         }
     }
 

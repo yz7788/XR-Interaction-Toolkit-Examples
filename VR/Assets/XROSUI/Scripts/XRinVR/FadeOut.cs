@@ -27,14 +27,14 @@ public class FadeOut : MonoBehaviour
         if (other.CompareTag("Heart"))
         {
             animationController.SetBool("fadeOut", false);
-            Debug.Log("fadeOut false");
+            // Debug.Log("fadeOut false");
         }
     }
 
     public void Teleportation(string name)
     {
         animationController.SetBool("fadeOut", true);
-        Debug.Log("fadeOut true");
+        // Debug.Log("fadeOut true");
         
     }
     // Start is called before the first frame update

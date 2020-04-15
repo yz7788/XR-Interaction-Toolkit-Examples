@@ -78,6 +78,7 @@ public class Controller_Scenario : MonoBehaviour
         string jsonString = File.ReadAllText(Application.dataPath+"/XROSUI/JSON/XROS_Event.json");//read the file
         events = JsonHelper.FromJson<XROS_Event>(jsonString);//deserilize it
         CheckFlag();//make sure every flag in the list is unique.
+        Initializer();
     }
     private bool CheckFlag(){
         foreach(XROS_Event e in events){
@@ -112,10 +113,12 @@ public class Controller_Scenario : MonoBehaviour
     }
     private void ProcessEvent()
     {
+        
         XROS_Event currentEvent = events[currentEventId];
         if (!currentEvent.HasPrerequisite || (currentEvent.HasPrerequisite && GetFlag(currentEvent.prerequisiteFlagId)))
         {
-            if(m_Waiting<0){// tome is up, go to the new event.
+            print(GetFlag(currentEvent.prerequisiteFlagId));
+            if(m_Waiting<0){// time is up, go to the new event.
                 currentEventId++;//sequence+1
                 if(currentEventId<events.Length){//make sure we have not reached to the end.
                     currentEvent = events[currentEventId];
@@ -124,6 +127,7 @@ public class Controller_Scenario : MonoBehaviour
                     {
                         case TextDisplayType.Hint:
                             Text_Hint.text = currentEvent.content;
+                            print("HINT_TEXT:"+currentEvent.content);
                             break;
                         case TextDisplayType.Audio:
                             Text_Audio.text = currentEvent.content;
@@ -142,6 +146,27 @@ public class Controller_Scenario : MonoBehaviour
                 }
                 
             }
+        }
+    }
+
+    void Initializer(){
+        XROS_Event currentEvent = events[currentEventId];
+        m_Waiting=events[currentEventId].secondsToWait;
+        switch (currentEvent.TargetText)
+        {
+            case TextDisplayType.Hint:
+                Text_Hint.text = currentEvent.content;
+                print("HINT_TEXT:"+currentEvent.content);
+                break;
+            case TextDisplayType.Audio:
+                Text_Audio.text = currentEvent.content;
+                break;
+            case TextDisplayType.System:
+                Text_System.text = currentEvent.content;
+                break;
+            default:
+                print("Cannot handle " + currentEvent.TargetText);
+                break;
         }
     }
 
