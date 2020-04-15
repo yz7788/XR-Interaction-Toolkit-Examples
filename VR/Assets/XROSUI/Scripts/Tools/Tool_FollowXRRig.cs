@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Note this places object near the player based on the offset. It does not take into account of player's forward
 public class Tool_FollowXRRig : MonoBehaviour
 {
     public GameObject GO_XRRigCamera;
@@ -30,6 +29,7 @@ public class Tool_FollowXRRig : MonoBehaviour
 
     void FollowCamera()
     {
-        this.transform.position = GO_XRRigCamera.transform.position + new Vector3(offset_x, offset_y, offset_z);        
+        //this.transform.position = GO_XRRigCamera.transform.position + new Vector3(offset_x, offset_y, offset_z);
+        this.transform.rotation = GO_XRRigCamera.transform.rotation;
     }
 }

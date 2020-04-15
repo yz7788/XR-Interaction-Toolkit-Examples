@@ -1,9 +1,11 @@
-﻿using System;
+﻿
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.UI;
+
 
 //Supported Audio Formats
 //https://docs.unity3d.com/Manual/AudioFiles.html
@@ -11,6 +13,7 @@ using UnityEngine.UI;
 public enum Audio_Type { master, voice, music, sfx }
 
 public delegate void EventHandler_NewMasterVolume(float newValue);
+
 
 //Design Note:
 //a_source is used for basic system UI sound effects (such as error)
@@ -34,6 +37,7 @@ public class Controller_Audio : MonoBehaviour
     [Tooltip("Drag a GO_AudioSource Prefab to be used for all audio effects, through ObjectPooling")]
     public GO_AudioSource PF_AudioSource;
 
+    //public float currentVolume;
     //Tracks the different clips we have loaded
     Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
 
@@ -93,18 +97,25 @@ public class Controller_Audio : MonoBehaviour
         }
     }
 
-    #region Play Audio
-    public void PlayPauseMusic()
+    /*
+    public void AdjustVolume_Master(float f)
     {
-        if (music_source.isPlaying)
-        {
-            music_source.Pause();
-        }
-        else
-        {
-            music_source.UnPause();
-        }
+        music_source.volume = f;
     }
+
+    public void AdjustVolume_Music(float f)
+    {
+        print(f);
+        music_source.volume = f;
+    }
+
+    public void AdjustVolume_SoundEffects(float f)
+    {
+        music_source.volume = f;
+    }
+    */
+
+    #region Play Audio
     public void PlayMusic(string acname)
     {
         this.PlayMusic(LoadAudioClip(acname));
@@ -309,7 +320,7 @@ public class Controller_Audio : MonoBehaviour
         {
             f = 0;
         }
-
+        
         switch (type)
         {
             //TODO
@@ -319,7 +330,7 @@ public class Controller_Audio : MonoBehaviour
                     EVENT_NewMasterVolume(f);
                 }
                 f = Mathf.Log10(f) * 20;
-                mixer.SetFloat("MasterVolume", f);
+                mixer.SetFloat("MasterVolume", f);                
                 break;
             case Audio_Type.music:
                 if (EVENT_NewMasterVolume != null)
