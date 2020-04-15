@@ -59,9 +59,10 @@ public class KeyboardPositionSetter : MonoBehaviour
         print(size.ToString());
         for (int i = 0; i < count; i++)
         {
-            print(controller.transform.GetChild(i).name);
             if (controller.transform.GetChild(i).name.Contains(" Model"))
             {
+                print("change size "+controller.transform.GetChild(i).name);
+
                 controller.transform.GetChild(i).transform.localScale = size;
                 break;
             }
