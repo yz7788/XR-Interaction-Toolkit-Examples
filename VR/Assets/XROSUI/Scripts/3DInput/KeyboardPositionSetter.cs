@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class KeyboardPositionSetter : MonoBehaviour
 {
     public SeparateKeyboardCharacterCreator kcc;
+    public GameObject hemisphere;
     XRGrabInteractable m_InteractableBase;
 
     const string k_AnimTriggerDown = "TriggerDown";
@@ -40,11 +41,6 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
             this.Transform(leftDirectConroller, true);
             this.Transform(rightDirectController, true);
-            leftDirectConroller.transform.localScale=new Vector3(1,1,1);
-            rightDirectController.transform.localScale=new Vector3(1,1,1);
-            leftRayController.transform.localScale=new Vector3(1,1,1);
-            rightRayController.transform.localScale=new Vector3(1,1,1);
-            
         }
         else
         {
@@ -52,11 +48,10 @@ public class KeyboardPositionSetter : MonoBehaviour
             kcc.gameObject.transform.rotation = Camera.main.gameObject.transform.rotation;
             kcc.active = true;
             print(leftDirectConroller.transform.GetChild(4).name);
-            this.Transform(leftDirectConroller, false);
-            this.Transform(rightDirectController, false);
+
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
-            //leftDirectConroller.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            leftDirectConroller.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             rightDirectController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             leftRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             rightRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
@@ -87,6 +82,8 @@ public class KeyboardPositionSetter : MonoBehaviour
     }
     void Update()
     {
+        //hemisphere.transform.RotateAround(gameObject.transform.position, transform.up, Time.deltaTime * 90f);
+        hemisphere.transform.Rotate(0, Time.deltaTime * 90f, 0, Space.Self);
     }
 
 }
