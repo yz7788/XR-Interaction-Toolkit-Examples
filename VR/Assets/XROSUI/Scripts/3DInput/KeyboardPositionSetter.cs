@@ -14,6 +14,7 @@ public class KeyboardPositionSetter : MonoBehaviour
     public GameObject leftRayController;
     public GameObject rightRayController;
     public GameObject controllerPF;
+    public float ScaleNumber;
     Transform llamaPositon;
     void Start()
     {
@@ -33,6 +34,10 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
             this.Transform(leftDirectConroller, true);
             this.Transform(rightDirectController, true);
+            leftDirectConroller.transform.localScale=new Vector3(1,1,1);
+            rightDirectController.transform.localScale=new Vector3(1,1,1);
+            leftRayController.transform.localScale=new Vector3(1,1,1);
+            rightRayController.transform.localScale=new Vector3(1,1,1);
             
         }
         else
@@ -45,6 +50,10 @@ public class KeyboardPositionSetter : MonoBehaviour
             this.Transform(rightDirectController, false);
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
+            leftDirectConroller.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            rightDirectController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            leftRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            rightRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
         }
 
     }

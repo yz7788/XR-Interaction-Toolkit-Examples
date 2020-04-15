@@ -66,15 +66,15 @@ public class Controller_Scenario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Alpha9))
-        // {
-        //     ProcessEvent();
-        // }
-        // if (Input.GetKeyDown(KeyCode.Alpha0))
-        // {
-        //     this.SetFlag("AuthenticateWithHeart", true);
-        // }
-        ProcessEvent();
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            ProcessEvent();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            this.SetFlag("AuthenticateWithHeart", true);
+        }
+        // ProcessEvent();
     }
     private void ProcessEvent()
     {
