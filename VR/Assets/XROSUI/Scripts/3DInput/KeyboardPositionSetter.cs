@@ -82,8 +82,8 @@ public class KeyboardPositionSetter : MonoBehaviour
     }
     void Update()
     {
-        //hemisphere.transform.RotateAround(gameObject.transform.position, transform.up, Time.deltaTime * 90f);
-        hemisphere.transform.Rotate(0, Time.deltaTime * 90f, 0, Space.Self);
+        //hemisphere.transform.RotateAround(hemisphere.GetComponent<MeshRenderer>().bounds.center, transform.up, Time.deltaTime * 90f);
+        //hemisphere.transform.Rotate(0, Time.deltaTime * 90f, 0, Space.Self);
     }
 
 }
