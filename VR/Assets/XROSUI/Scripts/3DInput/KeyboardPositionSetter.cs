@@ -41,13 +41,13 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
             this.Transform(leftDirectConroller, true);
             this.Transform(rightDirectController, true);
+            //hemisphere.transform.LookAt(Camera.main.transform);
         }
         else
         {
             kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
             kcc.gameObject.transform.rotation = Camera.main.gameObject.transform.rotation;
             kcc.active = true;
-            print(leftDirectConroller.transform.GetChild(4).name);
 
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
