@@ -23,10 +23,17 @@
         },
         {
             "TargetText": 0,
-            "content": "Thank you, you have completed the calibration process, now teleporting you to the 3D input.",
+            "content": "Please follow the instruction on the wall",
             "HasPrerequisite": true,
             "prerequisiteFlagId": "FinishedCalibrition",
             "secondsToWait": -1
+        },
+        {
+            "TargetText": 0,
+            "content": "Thank you, you have completed the calibration process, now teleporting you to the 3D input.",
+            "HasPrerequisite": false,
+            "prerequisiteFlagId": "",
+            "secondsToWait": 3
         },
         {
             "TargetText": 0,

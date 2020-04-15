@@ -117,7 +117,7 @@ public class Controller_Scenario : MonoBehaviour
         XROS_Event currentEvent = events[currentEventId];
         if (!currentEvent.HasPrerequisite || (currentEvent.HasPrerequisite && GetFlag(currentEvent.prerequisiteFlagId)))
         {
-            print(GetFlag(currentEvent.prerequisiteFlagId));
+            // print(m_Waiting);
             if(m_Waiting<0){// time is up, go to the new event.
                 currentEventId++;//sequence+1
                 if(currentEventId<events.Length){//make sure we have not reached to the end.
