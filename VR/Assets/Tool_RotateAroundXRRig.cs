@@ -6,6 +6,7 @@ public class Tool_RotateAroundXRRig : MonoBehaviour
 {
     public float degreeToShow = 45f;
     public float degreesToRotate = 25f;
+    public float DistanceAwayFromUser = 0.5f;
     public Vector3 Offset;
     Transform XRCameraTransform;
     // Start is called before the first frame update
@@ -30,9 +31,11 @@ public class Tool_RotateAroundXRRig : MonoBehaviour
         else
         {
             //print("need to change ");
-            this.transform.position = XRCameraTransform.position + XRCameraTransform.forward * 0.5f + Offset;
+            //Offset doesn't really work since it will rotate weird
+            this.transform.position = XRCameraTransform.position + XRCameraTransform.forward * DistanceAwayFromUser + Offset;
             
-            this.transform.RotateAround(XRCameraTransform.position, Vector3.up, degreesToRotate);
+            this.transform.RotateAround(XRCameraTransform.forward, Vector3.up, degreesToRotate);
+
             this.transform.LookAt(XRCameraTransform);
         }
     }
