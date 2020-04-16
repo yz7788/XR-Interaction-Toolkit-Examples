@@ -37,6 +37,7 @@ public class ContainerObject : MonoBehaviour
     {
         // m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
+        Core.Ins.ScenarioManager.SetFlag("FileGrabbed",true);
     }
 
     void OnReleased(XRBaseInteractor obj)

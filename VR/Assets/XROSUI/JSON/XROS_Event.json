@@ -68,7 +68,7 @@
             "content": "Company-wide announcement...",
             "HasPrerequisite": true,
             "prerequisiteFlagId": "FileGrabbed",
-            "secondsToWait": -1
+            "secondsToWait": 3
         },
         {
             "TargetText": 0,
