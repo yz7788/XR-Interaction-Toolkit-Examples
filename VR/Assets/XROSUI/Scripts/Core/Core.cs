@@ -36,7 +36,6 @@ public class Core : MonoBehaviour
     public Controller_UIEffects UIEffectsManager;
     public Controller_HumanScale HumanScaleManager;
     public Controller_Scenario ScenarioManager;
-    public Controller_XR XRManager;
     // Start is called before the first frame update
     void Start()
     {

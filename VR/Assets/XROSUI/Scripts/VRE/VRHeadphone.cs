@@ -8,6 +8,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VRHeadphone : VREquipment
 {
+    //public GameObject menuAudio;
+    //Controller_GameMenu gameMenu;
+
     public XRGrabInteractable XRGrabHeadphone;
 
     public float volumeIncreaseRate = 0.003f;
@@ -16,19 +19,20 @@ public class VRHeadphone : VREquipment
     public void Start()
     {
 
+//        fakeSocket = this.transform.parent.gameObject;
     }
-
-    public override void OnActivated(XRBaseInteractor obj)
+    /*
+    /void onEnable()
     {
-        print("Activated 2" + this.name);
-        Core.Ins.AudioManager.PlayPauseMusic();
+        XRGrabHeadphone.onSelectEnter.AddListener();
     }
-    public override void OnDeactivated(XRBaseInteractor obj)
-    {
-        print("Deactivated 2" + this.name);
-    }
+    */
 
-    public override void HandleGesture(ENUM_XROS_Gesture gesture)
+    /*public override void AlternateFunction()
+    {
+        //gameMenu.OpenMenu("Menu_Audio");
+    }*/
+public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {
         switch (gesture)
         {

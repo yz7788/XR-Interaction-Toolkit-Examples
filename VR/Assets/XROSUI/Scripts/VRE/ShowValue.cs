@@ -32,7 +32,6 @@ public class ShowValue : MonoBehaviour
         {
             m_Text = GetComponentInChildren<TMP_Text>();
         }
-        ShowOrHideValues();
     }
 
     public void HandleValueChange(float f)

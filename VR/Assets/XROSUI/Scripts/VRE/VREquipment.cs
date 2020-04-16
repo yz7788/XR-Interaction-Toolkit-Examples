@@ -43,11 +43,11 @@ public class VREquipment : MonoBehaviour
         m_GrabInteractable.onDeactivate.RemoveListener(OnDeactivated);
     }
 
-    public virtual void OnActivated(XRBaseInteractor obj)
+    private void OnActivated(XRBaseInteractor obj)
     {
         print("Activated " + this.name);
     }
-    public virtual void OnDeactivated(XRBaseInteractor obj)
+    private void OnDeactivated(XRBaseInteractor obj)
     {
         print("Deactivated " + this.name);
     }
@@ -62,7 +62,7 @@ public class VREquipment : MonoBehaviour
 
     void OnReleased(XRBaseInteractor obj)
     {
-        // print("Released");
+        print("Released");
         m_MeshRenderer.material.color = Color.white;
         m_Held = false;
         m_Rigidbody.ResetCenterOfMass();
@@ -127,7 +127,8 @@ public class VREquipment : MonoBehaviour
             m_Rigidbody.ResetCenterOfMass();
             m_Rigidbody.ResetInertiaTensor();
             m_Rigidbody.angularDrag = 0;
-            m_Rigidbody.angularVelocity = Vector3.zero;            
+            m_Rigidbody.angularVelocity = Vector3.zero;
+            
         }
     }
 }

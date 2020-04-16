@@ -3729,7 +3729,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 1311728668002662440, guid: 9150fe08e9ea0204286a9f1ca300d73e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -3755,8 +3754,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2098937926}
-=======
->>>>>>> 61b68018db270f18e2693bcea6633068e3de8bad
     - target: {fileID: 3455432069404428341, guid: 9150fe08e9ea0204286a9f1ca300d73e,
         type: 3}
       propertyPath: m_Name
@@ -3822,7 +3819,6 @@ PrefabInstance:
       propertyPath: XRRig
       value: 
       objectReference: {fileID: 2098937925}
-<<<<<<< HEAD
     - target: {fileID: 5708142066685832811, guid: 9150fe08e9ea0204286a9f1ca300d73e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -3867,36 +3863,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
-=======
-    - target: {fileID: 6888617960907133140, guid: 9150fe08e9ea0204286a9f1ca300d73e,
-        type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6888617960907133140, guid: 9150fe08e9ea0204286a9f1ca300d73e,
-        type: 3}
-      propertyPath: m_text
-      value: 'Lead: Powen Yao
-
-
-        Adjustable Pointer: Feiyu (Robert) Miao
-
-        Human
-        Scale: Hanyuan (Cornelius) Xiao
-
-        Virtual Equipment: Huijun (Sophie)
-        Jiang
-
-        3D Folder & Scene: Hong (Sherry) Liu
-
-        XR in VR: Hyuck
-        Ju (Tommy) Kim
-
-        3D Typing: Ruoxi (Jessie) Jia
-
-        Misc: Xinyi
-        (Shinyee) Lin'
->>>>>>> 61b68018db270f18e2693bcea6633068e3de8bad
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9150fe08e9ea0204286a9f1ca300d73e, type: 3}
@@ -8705,6 +8671,12 @@ PrefabInstance:
 --- !u!1 &2098937925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1717954561456925282, guid: 15de75ba802bdca4faf70a66e3551439,
+    type: 3}
+  m_PrefabInstance: {fileID: 2098937924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &2098937926 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1717954562053134905, guid: 15de75ba802bdca4faf70a66e3551439,
     type: 3}
   m_PrefabInstance: {fileID: 2098937924}
   m_PrefabAsset: {fileID: 0}
