@@ -36,7 +36,7 @@ public class Tool_RotateAroundXRRig : MonoBehaviour
             
             this.transform.RotateAround(XRCameraTransform.forward, Vector3.up, degreesToRotate);
 
-            this.transform.LookAt(XRCameraTransform);
         }
+            this.transform.LookAt(XRCameraTransform);
     }
 }
