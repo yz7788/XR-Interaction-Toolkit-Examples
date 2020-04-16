@@ -21,10 +21,10 @@ public class ChangeLocationOfCamera : MonoBehaviour
         {
             anim.SetBool("fadeOut", true);
         }
-        if (Core.Ins.ScenarioManager.GetFlag("Keyboard Flag?") && currentLocationId == 2)
-        {
-            anim.SetBool("fadeOut", true);
-        }
+        //if (Core.Ins.ScenarioManager.GetFlag("Keyboard Flag?") && currentLocationId == 2)
+        //{
+        //    anim.SetBool("fadeOut", true);
+        //}
     }
 
     //Track debug inputs here
