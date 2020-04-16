@@ -17,7 +17,7 @@ public class FadeOut : MonoBehaviour
         if (other.CompareTag("Heart"))
         {
             animationController.SetBool("fadeOut", true);
-            Debug.Log("fadeOut true");
+            // Debug.Log("fadeOut true");
         }
     }
 
