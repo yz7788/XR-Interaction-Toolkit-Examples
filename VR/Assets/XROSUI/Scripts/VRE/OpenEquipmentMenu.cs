@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class OpenEquipmentMenu : MonoBehaviour
 {
-    public Controller_GameMenu gameMenu;
+    Controller_GameMenu gameMenu;
     public void Start()
     {
         gameMenu = GameObject.Find("UIParent").GetComponent<Controller_GameMenu>();
@@ -16,11 +16,12 @@ public class OpenEquipmentMenu : MonoBehaviour
         //print(other.name);
         if (other.CompareTag("AlternateFunction"))
         {
-            if (other.name == " ")
+            /*if (other.name == " ")
             {
                 gameMenu.OpenMenu("Menu_General");
                 Debug.Log("Menu_General");
             }
+            */
             
             if (other.GetComponent<VREquipment>())
             {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Slider_Audio : MonoBehaviour
 {
     public AudioMixer mixer;
-    Text Text_volumeValue;
+    //Text Text_volumeValue;
     public Audio_Type type;
     Controller_Audio audioManager;
 

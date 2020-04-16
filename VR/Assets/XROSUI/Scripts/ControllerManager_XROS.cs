@@ -11,6 +11,13 @@ public class ControllerManager_XROS : MonoBehaviour
 
     InputDevice m_RightController;
     InputDevice m_LeftController;
+    Controller_GameMenu gameMenu;
+    //GameObject GO_VE;
+    //VREquipment VE;
+    public VRGoggle Goggle;
+    public VRHeadphone Headphone;
+    public float coolDown = 0.01f;
+    float lastAskTime = 0;
 
     [SerializeField]
     [Tooltip("The buttons on the controller that will trigger a transition to the Teleport Controller.")]
@@ -291,7 +298,23 @@ public class ControllerManager_XROS : MonoBehaviour
             }
         }
     }
-
+    
+    public void Start()
+    {
+        gameMenu = GameObject.Find("UIParent").GetComponent<Controller_GameMenu>();
+        //this.RegisterVREquipment(GO_VE.GetComponent<VREquipment>());
+    }
+    /*public void RegisterVREquipment(VREquipment vre)
+    {
+        this.VE = vre;
+        this.GO_VE = vre.gameObject;
+    }
+    public void UnregisterVREquipment()
+    {
+        this.VE = null;
+        this.GO_VE = null;
+    }
+    */
     void Update()
     {
         if (m_LeftController.isValid)
@@ -299,14 +322,43 @@ public class ControllerManager_XROS : MonoBehaviour
 
             m_LeftController.IsPressed(InputHelpers.Button.MenuButton, out bool bMenuButtonPressed1);
             m_RightController.IsPressed(InputHelpers.Button.MenuButton, out bool bMenuButtonPressed2);
+            m_LeftController.IsPressed(InputHelpers.Button.Trigger, out bool bTriggerButtonPressed1);
+            m_RightController.IsPressed(InputHelpers.Button.Trigger, out bool bTriggerButtonPressed2);
             if (bMenuButtonPressed1)
             {
-                print("Menu Button1 pressed");
+                Debug.Log("Menu Button1 pressed");
+                gameMenu.OpenMenu("Menu_General");//press the menu button on the left controller to open general menu.
             }
             if (bMenuButtonPressed2)
             {
                 print("Menu Button2 pressed");
             }
+
+            //Held the Goggle and press the trigger button to take a screenshot
+            if (Goggle.m_Held)
+            {
+                if(bTriggerButtonPressed1 || bTriggerButtonPressed2)
+                {
+                     Goggle.TriggerFunction();
+                }  
+            }
+
+            if(Headphone.m_Held)
+            {
+                if (bTriggerButtonPressed1 || bTriggerButtonPressed2)
+                {
+                    if (lastAskTime + coolDown < Time.time)
+                    {
+
+                        Headphone.TriggerFunction();
+                        lastAskTime = Time.time;
+                    }
+                    
+                }
+            }
+            
+            
+            
         }
         if (m_LeftController.isValid)
         {
@@ -348,7 +400,7 @@ public class ControllerManager_XROS : MonoBehaviour
             for (int i = 0; i < m_ActivationButtons.Count; i++)
             {
                 m_RightController.IsPressed(m_ActivationButtons[i], out bool value);
-                activated |= value;
+                activated |= value;//activated = activated | value;
             }
 
             bool deactivated = false;

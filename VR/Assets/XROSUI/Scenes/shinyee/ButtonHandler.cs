@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 public class ButtonHandler : MonoBehaviour
 {
 
@@ -10,13 +11,33 @@ public class ButtonHandler : MonoBehaviour
     //GameObject blink;
     //Text myButton;
     public TextMeshProUGUI myButton;
+    Controller_Audio audioManager;
+    //private static ButtonHandler ins = null;
+
     public void Start()
     {
         //myButton = GetComponentInChildren<TextMeshPro>();
         //myButton = FindObjectOfType<TextMeshProUGUI>();
     }
+
+    /*
+     * public static ButtonHandler Ins
+    {
+        get
+        {
+            return ins;
+        }
+    }
+    */
+    void Awake()
+    {
+        audioManager = Core.Ins.AudioManager;
+    }
+
     public void TakeAShot()
     {
+        
+        audioManager.PlaySfx("360329__inspectorj__camera-shutter-fast-a");
         //    StartCoroutine("CaptureIt");
         //myButton.text = Application.persistentDataPath;
         myButton.SetText(Application.persistentDataPath);

@@ -107,6 +107,12 @@ public class VREquipment : MonoBehaviour
         Debug.Log("AlterAddmenu");
     }
 
+    // need to be fixed
+    public virtual void TriggerFunction()
+    {
+        
+    }
+
     public virtual void HandleGesture(ENUM_XROS_Gesture gesture)
     {
 

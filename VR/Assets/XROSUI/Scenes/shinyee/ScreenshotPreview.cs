@@ -12,9 +12,10 @@ public class ScreenshotPreview : MonoBehaviour
     public float coolDown = 0.5f;
     float lastAskTime = 0;
 
-    public void OnTriggerExit(Collider other)
+    /*public void OnTriggerExit(Collider other)
     {
-    }
+    }*/
+
     // Use this for initialization
     void Start()
     {
@@ -22,6 +23,7 @@ public class ScreenshotPreview : MonoBehaviour
         //files = Directory.GetFiles(Application.streamingAssetsPath + "/", "*.png"); 
         if (files.Length > 0)
         {
+            //whichScreenShotIsShown = files.Length - 1;
             GetPictureAndShowIt();
         }
     }
@@ -34,6 +36,7 @@ public class ScreenshotPreview : MonoBehaviour
             //files = Directory.GetFiles(Application.streamingAssetsPath + "/", "*.png"); 
             if (files.Length > 0)
             {
+
                 GetPictureAndShowIt();
             }
 
@@ -79,8 +82,9 @@ public class ScreenshotPreview : MonoBehaviour
         if (files.Length > 0)
         {
             whichScreenShotIsShown -= 1;
-            if (whichScreenShotIsShown < 0)
-                whichScreenShotIsShown = files.Length - 1;
+            Debug.Log("this is the no. " + whichScreenShotIsShown + "Screenshot");
+            if (whichScreenShotIsShown < 0) 
+                whichScreenShotIsShown = files.Length - 1; 
             GetPictureAndShowIt();
         }
     }

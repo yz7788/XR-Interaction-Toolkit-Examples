@@ -9,7 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class VRHeadphone : VREquipment
 {
     public XRGrabInteractable XRGrabHeadphone;
-
+    new XROSMenuTypes menuTypes = XROSMenuTypes.Menu_Audio;
     public float volumeIncreaseRate = 0.003f;
     public float volumeDecreaseRate = -0.003f;
 
@@ -27,6 +27,13 @@ public class VRHeadphone : VREquipment
     {
         print("Deactivated 2" + this.name);
     }
+
+    public override void TriggerFunction()
+    {
+        Debug.Log("the Music is paused or played ");
+        Core.Ins.AudioManager.PlayPauseMusic();
+    }
+
 
     public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {
