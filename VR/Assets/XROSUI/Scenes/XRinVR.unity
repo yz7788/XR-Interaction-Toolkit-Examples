@@ -13723,5 +13723,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3734872670942422224, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_timeInSeconds
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 31cd771cb0f59b94aa0df0fc35d0ef2f,
+        type: 2}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4564775962441447278, guid: 31cd771cb0f59b94aa0df0fc35d0ef2f,
+        type: 2}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07b62722f25990048866bcee9a93b376, type: 3}
