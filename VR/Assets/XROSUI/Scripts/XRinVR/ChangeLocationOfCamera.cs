@@ -5,18 +5,26 @@ using UnityEngine;
 public class ChangeLocationOfCamera : MonoBehaviour
 {
     public List<GameObject> DestinationList = new List<GameObject>();
-
+    public Animator anim;
     public int currentLocationId = 0;
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         DebugInput();
+        if (Core.Ins.ScenarioManager.GetFlag("FinishedCalibration") && currentLocationId == 1)
+        {
+            anim.SetBool("fadeOut", true);
+        }
+        if (Core.Ins.ScenarioManager.GetFlag("Keyboard Flag?") && currentLocationId == 2)
+        {
+            anim.SetBool("fadeOut", true);
+        }
     }
 
     //Track debug inputs here
@@ -39,6 +47,10 @@ public class ChangeLocationOfCamera : MonoBehaviour
         {
             MoveToLocation(3);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            anim.SetBool("fadeOut", true);
+        }
     }
 
     public void ChangeLocation(int i)
@@ -57,5 +69,6 @@ public class ChangeLocationOfCamera : MonoBehaviour
         Core.Ins.XRManager.GetXRRig().transform.forward = DestinationList[locationID].transform.forward;
         //GameObject.Find("XRRig_XROS").transform.position = Destination1.transform.position;
         //GameObject.Find("XRRig_XROS").transform.forward = -Destination1.transform.forward;
+        anim.SetBool("fadeOut", false);
     }
 }
