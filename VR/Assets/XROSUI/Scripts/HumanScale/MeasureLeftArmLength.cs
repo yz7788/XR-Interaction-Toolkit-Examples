@@ -18,6 +18,7 @@ public class MeasureLeftArmLength : MonoBehaviour
     public RawImage workflowPose;
     public Texture workflowStep1;
     public Texture workflowStep2;
+    public GameObject stickSkeleton;
     GameObject thisUIPanel;
     // Generic (from systems)
     GameObject LeftController;
@@ -79,6 +80,8 @@ public class MeasureLeftArmLength : MonoBehaviour
             LeftArmLengthText.text = $"Arm length: {armLength}";
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Start";
             workflowPose.texture = null;
+            // Change scale of stickSkeleton accordingly
+            stickSkeleton.transform.localScale = new Vector3(armLength * 1.0f, armLength * 1.0f, armLength * 1.0f);
             // Update UI position
             UpdateUIPos(thisUIPanel);
             Core.Ins.ScenarioManager.SetFlag("FinishedCalibration",true);//tell the core your work is done
