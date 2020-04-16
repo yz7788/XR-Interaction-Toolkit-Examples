@@ -9,15 +9,14 @@ using UnityEngine;
 
 public class OpenLeftDoorAnimation : MonoBehaviour
 {
-
     public Animator animationController;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Heart"))
         {
             animationController.SetBool("openLeftDoor", true);
-            Debug.Log("openLeftDoor");
+            Core.Ins.ScenarioManager.SetFlag("OpenDoor",true);//tell the Core you are openning the door.
+            // Debug.Log("openLeftDoor");
         }
     }
 
@@ -27,17 +26,5 @@ public class OpenLeftDoorAnimation : MonoBehaviour
         {
             animationController.SetBool("openLeftDoor", false);
         }
-    }
-    // Start is called before the first frame update
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

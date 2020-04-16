@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tool_FollowXRRig : MonoBehaviour
+public class RotationAlongLocalAxis : MonoBehaviour
 {
     public GameObject GO_XRRigCamera;
     public bool bFollows;
@@ -29,7 +30,6 @@ public class Tool_FollowXRRig : MonoBehaviour
 
     void FollowCamera()
     {
-        this.transform.position = GO_XRRigCamera.transform.position + new Vector3(offset_x, offset_y, offset_z);
         //this.transform.rotation = GO_XRRigCamera.transform.rotation;
     }
 }

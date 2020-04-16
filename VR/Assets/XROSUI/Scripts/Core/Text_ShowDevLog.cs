@@ -25,6 +25,8 @@ public class Text_ShowDevLog : MonoBehaviour
 
     }
 
+    //Track Debug Inputs here
+    //https://docs.google.com/spreadsheets/d/1NMH43LMlbs5lggdhq4Pa4qQ569U1lr_O7HSHESEantU/edit#gid=0
     // Update is called once per frame
     void Update()
     {
