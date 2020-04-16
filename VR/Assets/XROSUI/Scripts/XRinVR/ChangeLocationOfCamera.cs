@@ -19,8 +19,17 @@ public class ChangeLocationOfCamera : MonoBehaviour
         DebugInput();
         if (Core.Ins.ScenarioManager.GetFlag("FinishedCalibration") && currentLocationId == 1)
         {
-           anim.SetBool("fadeOut", true);
+            if(Core.Ins.ScenarioManager.m_Waiting<0){
+            anim.SetBool("fadeOut", true);
+            }
         }
+        if (Core.Ins.ScenarioManager.GetFlag("TurnOffKeyboard") && currentLocationId == 2)
+        {
+            if(Core.Ins.ScenarioManager.m_Waiting<0){
+            anim.SetBool("fadeOut", true);
+            }
+        }
+        
     }
 
     //Track debug inputs here

@@ -33,7 +33,7 @@
             "content": "Thank you, you have completed the calibration process, now teleporting you to the 3D input.",
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",
-            "secondsToWait": 2
+            "secondsToWait": 1
         },
         {
             "TargetText": 0,
@@ -54,7 +54,21 @@
             "content": "Try typing the onscreen text",
             "HasPrerequisite": true,
             "prerequisiteFlagId": "TurnOffKeyboard",
+            "secondsToWait": 1
+        },
+        {
+            "TargetText": 0,
+            "content": "Days Later...",
+            "HasPrerequisite": false,
+            "prerequisiteFlagId": "",
             "secondsToWait": 4
+        },
+        {
+            "TargetText": 0,
+            "content": "Company-wide announcement...",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "FileGrabbed",
+            "secondsToWait": -1
         },
         {
             "TargetText": 0,

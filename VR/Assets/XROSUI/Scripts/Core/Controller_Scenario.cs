@@ -59,7 +59,7 @@ public class Controller_Scenario : MonoBehaviour
     
     XROS_Event[] events;
     Dictionary<string, bool> flagDictionary = new Dictionary<string, bool>();
-    float m_Waiting;
+    public float m_Waiting;
 
     int currentEventId = 0;
     // Start is called before the first frame update
