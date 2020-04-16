@@ -57,7 +57,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             LeftArmInstructionText.text = $"Step 1. Stand still with your left arm straight down and use right controller to click \"Next\".";
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Next";
             workflowPose.texture = workflowStep1;
-            Core.Ins.ScenarioManager.SetFlag("AgreedCalibrition",true);
+            Core.Ins.ScenarioManager.SetFlag("AgreedCalibration",true);
             stepCounter++;
         }
         else if (stepCounter == 1)
@@ -81,7 +81,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             workflowPose.texture = null;
             // Update UI position
             UpdateUIPos(thisUIPanel);
-            Core.Ins.ScenarioManager.SetFlag("FinishedCalibrition",true);//tell the core your work is done
+            Core.Ins.ScenarioManager.SetFlag("FinishedCalibration",true);//tell the core your work is done
             stepCounter = 0;
         }
 

@@ -18,14 +18,14 @@
             "TargetText": 0,
             "content": "Reach out to the \"I agree\" button with either controller and use the trigger button to confirm",
             "HasPrerequisite": true,
-            "prerequisiteFlagId": "AgreedCalibrition",
+            "prerequisiteFlagId": "AgreedCalibration",
             "secondsToWait": -1
         },
         {
             "TargetText": 0,
             "content": "Please follow the instruction on the wall",
             "HasPrerequisite": true,
-            "prerequisiteFlagId": "FinishedCalibrition",
+            "prerequisiteFlagId": "FinishedCalibration",
             "secondsToWait": -1
         },
         {
