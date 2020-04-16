@@ -89,7 +89,7 @@ public class MeasureLeftArmLength : MonoBehaviour
 
     void UpdateUIPos(GameObject UIObject)
     {
-        Vector3 newPosition = new Vector3(UIObject.transform.position.x + armLength * 0.6f, UIObject.transform.position.y, UIObject.transform.position.z);
+        Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
         UIObject.transform.position = newPosition;
     }
 
