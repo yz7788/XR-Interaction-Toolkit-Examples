@@ -57,7 +57,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             LeftArmInstructionText.text = $"Step 1. Stand still with your left arm straight down and use right controller to click \"Next\".";
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Next";
             workflowPose.texture = workflowStep1;
-
+            Core.Ins.ScenarioManager.SetFlag("AgreedCalibration",true);
             stepCounter++;
         }
         else if (stepCounter == 1)
@@ -79,10 +79,9 @@ public class MeasureLeftArmLength : MonoBehaviour
             LeftArmLengthText.text = $"Arm length: {armLength}";
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Start";
             workflowPose.texture = null;
-
             // Update UI position
             UpdateUIPos(thisUIPanel);
-
+            Core.Ins.ScenarioManager.SetFlag("FinishedCalibration",true);//tell the core your work is done
             stepCounter = 0;
         }
 
@@ -90,7 +89,7 @@ public class MeasureLeftArmLength : MonoBehaviour
 
     void UpdateUIPos(GameObject UIObject)
     {
-        Vector3 newPosition = new Vector3(UIObject.transform.position.x + armLength * 0.6f, UIObject.transform.position.y, UIObject.transform.position.z);
+        Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
         UIObject.transform.position = newPosition;
     }
 

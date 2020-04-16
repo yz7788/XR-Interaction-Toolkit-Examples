@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Controller_HumanScale : MonoBehaviour
 {
-    float leftArmLength = 0.0f;
-
+    float leftArmLength = 0.635f;
+    float eyeHeight = 1.6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,10 @@ public class Controller_HumanScale : MonoBehaviour
 
     }
 
+    public float GetEyeHeight()
+    {
+        return eyeHeight;
+    }
     public void setArmLength(float newLength)
     {
         leftArmLength = newLength;

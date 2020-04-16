@@ -17,8 +17,7 @@ public class FadeOut : MonoBehaviour
         if (other.CompareTag("Heart"))
         {
             animationController.SetBool("fadeOut", true);
-            Debug.Log("fadeOut true");
-
+            // Debug.Log("fadeOut true");
         }
     }
 
@@ -28,14 +27,14 @@ public class FadeOut : MonoBehaviour
         if (other.CompareTag("Heart"))
         {
             animationController.SetBool("fadeOut", false);
-            Debug.Log("fadeOut false");
+            // Debug.Log("fadeOut false");
         }
     }
 
     public void Teleportation(string name)
     {
         animationController.SetBool("fadeOut", true);
-        Debug.Log("fadeOut true");
+        // Debug.Log("fadeOut true");
         
     }
     // Start is called before the first frame update
@@ -47,6 +46,9 @@ public class FadeOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            this.Teleportation("");
+        }
     }
 }

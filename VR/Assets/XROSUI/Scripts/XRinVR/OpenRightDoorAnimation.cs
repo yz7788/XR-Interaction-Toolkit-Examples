@@ -17,7 +17,8 @@ public class OpenRightDoorAnimation : MonoBehaviour
         if (other.CompareTag("Heart"))
         {
             animationController.SetBool("openRightDoor", true);
-            Debug.Log("openRightDoor");
+            Core.Ins.ScenarioManager.SetFlag("OpenDoor",true);//tell the Core you are openning the door.
+            // Debug.Log("openRightDoor");
         }
     }
 
@@ -27,16 +28,5 @@ public class OpenRightDoorAnimation : MonoBehaviour
         {
             animationController.SetBool("openRightDoor", false);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
