@@ -83,6 +83,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3734872670050393706}
   - component: {fileID: 274883215}
+  - component: {fileID: 1136898814}
   m_Layer: 0
   m_Name: UI_Hint
   m_TagString: Untagged
@@ -112,17 +113,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3734872670050393704}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17196672912f64544b132ff6e4af914c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GO_XRRigCamera: {fileID: 0}
-  bFollows: 1
-  offset_x: 0.5
-  offset_y: 0
-  offset_z: 0
   UpdateFrequencyInSeconds: 0.5
+  DistanceToStopMoving: 0.1
+  distanceInFrontOfPlayer: 0.5
+  speed: 1
+--- !u!114 &1136898814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734872670050393704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5410708c8d5fcf4fa6f45b7d66b7eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreeToShow: 45
+  degreesToRotate: 25
+  Offset: {x: 0, y: -0.3, z: 0}
 --- !u!1 &3734872670471542699
 GameObject:
   m_ObjectHideFlags: 0

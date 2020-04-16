@@ -5356,6 +5356,7 @@ MonoBehaviour:
   - {fileID: 21436399}
   - {fileID: 589840831}
   - {fileID: 717373796}
+  anim: {fileID: 0}
   currentLocationId: 0
 --- !u!1001 &636966036
 PrefabInstance:
@@ -13654,6 +13655,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 274883215, guid: 07b62722f25990048866bcee9a93b376, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136898814, guid: 07b62722f25990048866bcee9a93b376, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3734872670050393704, guid: 07b62722f25990048866bcee9a93b376,
         type: 3}
       propertyPath: m_Name
