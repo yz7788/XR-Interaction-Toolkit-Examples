@@ -24,8 +24,11 @@ public class KeyboardPositionSetter : MonoBehaviour
         m_InteractableBase = GetComponent<XRGrabInteractable>();
         m_InteractableBase.onDeactivate.AddListener(TriggerReleased);
         m_InteractableBase.onSelectExit.AddListener(DropKeyboard);
+        m_InteractableBase.onSelectEnter.AddListener(notifyCore);
     }
-
+    void notifyCore(XRBaseInteractor obj){
+        Core.Ins.ScenarioManager.SetFlag("GrabingKeyboard",true);//tell the Core user start keyboard successfully.
+    }
     void DropKeyboard(XRBaseInteractor obj)
     {
 
@@ -35,6 +38,7 @@ public class KeyboardPositionSetter : MonoBehaviour
     {
         if (kcc.active)
         {
+            Core.Ins.ScenarioManager.SetFlag("TurnOffKeyboard",true);//tell the Core user start keyboard successfully.
             kcc.SaveKeyPositions();
             kcc.DestroyPoints();
             kcc.active = false;
@@ -50,6 +54,7 @@ public class KeyboardPositionSetter : MonoBehaviour
         }
         else
         {
+            Core.Ins.ScenarioManager.SetFlag("TurnOnKeyboard",true);//tell the Core user start keyboard successfully.
             kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
             //kcc.gameObject.transform.rotation = Camera.main.gameObject.transform.rotation;
             kcc.active = true;
@@ -78,7 +83,7 @@ public class KeyboardPositionSetter : MonoBehaviour
         {
             if (controller.transform.GetChild(i).name.Contains(" Model"))
             {
-                print("change size "+controller.transform.GetChild(i).name);
+                // print("change size "+controller.transform.GetChild(i).name);
 
                 controller.transform.GetChild(i).transform.localScale = size;
                 break;

@@ -35,7 +35,7 @@ public class Text_SelfRegister : MonoBehaviour
 
         if (!isActive && (m_textMeshPro.text != m_previousTextString))
         {
-            print("text updated");
+            // print("text updated");
             isActive = true;
             m_textMeshPro = GetComponent<TMP_Text>();
             m_textCharacter = new string[m_textMeshPro.text.Length];
@@ -49,7 +49,7 @@ public class Text_SelfRegister : MonoBehaviour
         }
         if (isActive)
         {
-            print("running teletype");
+            // print("running teletype");
             if (m_charCount < m_textCharacter.Length)
             {
                 m_timer += Time.deltaTime;

@@ -56,6 +56,7 @@ public class ChangeLocationOfCamera : MonoBehaviour
         {
             currentLocationId++;
             MoveToLocation(this.currentLocationId);
+            // Core.Ins.ScenarioManager.SetFlag("position"+currentLocationId,true);
         }
     }
 
