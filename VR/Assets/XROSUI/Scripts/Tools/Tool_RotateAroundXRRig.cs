@@ -22,21 +22,33 @@ public class Tool_RotateAroundXRRig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float currentDegree = Vector3.Angle(XRCameraTransform.forward, -this.transform.forward);
+        //float currentDegree = Vector3.Angle(XRCameraTransform.forward, -this.transform.forward);
         //print(currentDegree);
-        if (currentDegree < degreeToShow)
+        //if (currentDegree < degreeToShow)
         {
             //print("no need to change");
         }
-        else
+        //else
         {
             //print("need to change ");
             //Offset doesn't really work since it will rotate weird
-            this.transform.position = XRCameraTransform.position + XRCameraTransform.forward * DistanceAwayFromUser + Offset;
-            
-            this.transform.RotateAround(XRCameraTransform.forward, Vector3.up, degreesToRotate);
+            //this.transform.position = XRCameraTransform.position + XRCameraTransform.forward * DistanceAwayFromUser + Offset;
+
+            Vector3 cameraForward = XRCameraTransform.forward;
+            cameraForward.y = 0;
+            cameraForward.Normalize();
+            this.transform.position = XRCameraTransform.position + cameraForward * DistanceAwayFromUser + Offset;
+            //https://answers.unity.com/questions/804825/fake-vector3forward.html
+
+            //transform.rotation = new Quaternion(0.0f, XRCameraTransform.rotation.y, 0.0f, XRCameraTransform.rotation.w);
+
+            //this.transform.RotateAround(XRCameraTransform.forward, Vector3.up, degreesToRotate);
 
         }
-            this.transform.LookAt(XRCameraTransform);
+        //Vector3 targetPostition = new Vector3(XRCameraTransform.position.x,
+        //                                this.transform.position.y,
+        //                                XRCameraTransform.position.z);
+        //this.transform.LookAt(targetPostition);
+        this.transform.LookAt(XRCameraTransform);
     }
 }

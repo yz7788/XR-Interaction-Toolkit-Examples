@@ -24,7 +24,6 @@ public class ContainerObject : MonoBehaviour
         m_GrabInteractable.onSelectExit.AddListener(OnReleased);
     }
 
-
     private void OnDisable()
     {
         m_GrabInteractable.onFirstHoverEnter.RemoveListener(OnHoverEnter);

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 //Supported Audio Formats
 //https://docs.unity3d.com/Manual/AudioFiles.html
-
 public enum Audio_Type { master, voice, music, sfx }
 
 public delegate void EventHandler_NewMasterVolume(float newValue);

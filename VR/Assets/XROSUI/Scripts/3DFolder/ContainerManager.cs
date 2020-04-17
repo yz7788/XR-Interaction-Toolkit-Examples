@@ -82,21 +82,6 @@ public class ContainerManager : MonoBehaviour
     void Update()
     {
         CheckDistanceForEach();
-        //CheckDistanceForRight();
-        //GetDistanceToPoint();
-        //CheckValue();
-        //CheckAngle();
-        //CheckDistance();
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //}
-        //if (Input.GetKeyDown(KeyCode.M))
-        //{
-        //}
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    print("Containerforward" + this.transform.forward);
-        //}
     }
     public void AddContainerObject()
     {
@@ -167,6 +152,7 @@ public class ContainerManager : MonoBehaviour
         //slidervalue from 0 to 0.8
         //layervalue 0.2 0.4 0.6
     }
+
     //public float GetDistanceToPoint()
     //{
     //    Plane plane= new Plane(planeTarget.up, planeTarget.position);

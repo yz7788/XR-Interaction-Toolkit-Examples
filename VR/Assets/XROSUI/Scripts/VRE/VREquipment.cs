@@ -3,7 +3,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(XRGrabInteractable))]
 public class VREquipment : MonoBehaviour
-{   
+{
     protected XRGrabInteractable m_GrabInteractable;
     protected MeshRenderer m_MeshRenderer;
 
@@ -11,6 +11,7 @@ public class VREquipment : MonoBehaviour
     protected static Color m_UnityCyan = new Color(0.019f, 0.733f, 0.827f);
 
     public bool m_Held = false;
+    private bool bInSocket = false;
     float lastHeldTime;
 
     public float timeBeforeReturn = 0.5f;
@@ -31,7 +32,6 @@ public class VREquipment : MonoBehaviour
         m_GrabInteractable.onDeactivate.AddListener(OnDeactivated);
     }
 
-
     private void OnDisable()
     {
         m_GrabInteractable.onFirstHoverEnter.RemoveListener(onFirstHoverEnter);
@@ -45,11 +45,11 @@ public class VREquipment : MonoBehaviour
 
     public virtual void OnActivated(XRBaseInteractor obj)
     {
-        print("Activated " + this.name);
+        //print("Activated " + this.name);
     }
     public virtual void OnDeactivated(XRBaseInteractor obj)
     {
-        print("Deactivated " + this.name);
+        //print("Deactivated " + this.name);
     }
 
     private void OnGrabbed(XRBaseInteractor obj)
@@ -57,6 +57,7 @@ public class VREquipment : MonoBehaviour
         m_MeshRenderer.material.color = m_UnityCyan;
         //print("Grabbed: " + this.name);
         m_Held = true;
+        bInSocket = false;
         this.transform.SetParent(null);
     }
 
@@ -92,7 +93,7 @@ public class VREquipment : MonoBehaviour
     void OnHoverEnter(XRBaseInteractor obj)
     {
         if (!m_Held)
-        {            
+        {
             //Vibrate
             //foreach(XRBaseInteractor hi in this.m_GrabInteractable.hoveringInteractors)
             //{
@@ -108,16 +109,16 @@ public class VREquipment : MonoBehaviour
     }
 
     // need to be fixed
-    public virtual void TriggerFunction()
-    {
-        
-    }
+    //public virtual void TriggerFunction()
+    //{
+
+    //}
 
     public virtual void HandleGesture(ENUM_XROS_Gesture gesture)
     {
 
     }
-    
+
     void Update()
     {
         if (m_Held)
@@ -126,14 +127,22 @@ public class VREquipment : MonoBehaviour
         }
         else if (!m_Held && Time.time > lastHeldTime + timeBeforeReturn)
         {
-            this.transform.localRotation = Quaternion.identity; 
-            this.transform.position = socket.transform.position;
-            
-            this.transform.SetParent(socket.transform);
-            m_Rigidbody.ResetCenterOfMass();
-            m_Rigidbody.ResetInertiaTensor();
-            m_Rigidbody.angularDrag = 0;
-            m_Rigidbody.angularVelocity = Vector3.zero;            
+            if (!bInSocket)
+            {
+                this.transform.localRotation = Quaternion.identity;
+                this.transform.position = socket.transform.position;
+
+                this.transform.SetParent(socket.transform);
+                m_Rigidbody.ResetCenterOfMass();
+                m_Rigidbody.ResetInertiaTensor();
+                m_Rigidbody.angularDrag = 0;
+                m_Rigidbody.angularVelocity = Vector3.zero;
+                m_Rigidbody.velocity = Vector3.zero;
+                this.transform.localRotation = Quaternion.identity;
+                this.transform.position = socket.transform.position;
+
+                bInSocket = true;
+            }
         }
     }
 }

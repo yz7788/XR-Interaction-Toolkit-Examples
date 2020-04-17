@@ -8,8 +8,8 @@ public class Tool_FollowXRRigV2 : MonoBehaviour
 
     public float UpdateFrequencyInSeconds = 0.05f;
     public float DistanceToStopMoving = 0.3f;
-    public float distanceInFrontOfPlayer = 0.5f;
-
+    //public float distanceInFrontOfPlayer = 0.5f;
+    public Vector3 OffsetDistance;
     public float speed = 1.0f;
     private Vector3 startPositon;
     private Vector3 goalPosition;
@@ -21,15 +21,25 @@ public class Tool_FollowXRRigV2 : MonoBehaviour
     {
         //GO_XRRigCamera = Core.Ins.XRManager.GetCamera().gameObject;
         GO_XRRigCamera = Camera.main.gameObject;
-        goalPosition = this.transform.position;
+        this.transform.position = GetGoalPosition()+Vector3.up*0.01f;
+        this.transform.LookAt(GO_XRRigCamera.transform);
+
+        //goalPosition = this.transform.position;
         SetNewGoal();
     }
 
+    private Vector3 GetGoalPosition()
+    {
+        return GO_XRRigCamera.transform.position
+            + GO_XRRigCamera.transform.forward * OffsetDistance.z + GO_XRRigCamera.transform.right * OffsetDistance.x
+            + GO_XRRigCamera.transform.up * OffsetDistance.y;
+    }
     // Update is called once per frame
     void LateUpdate()
     {
+        //this.transform.LookAt(GO_XRRigCamera.transform);
+        Vector3 newGoalPosition = GetGoalPosition();
 
-        Vector3 newGoalPosition = GO_XRRigCamera.transform.position + GO_XRRigCamera.transform.forward * distanceInFrontOfPlayer;
         //print(Vector3.Distance(newGoalPosition, this.transform.position));
         if (Vector3.Distance(newGoalPosition, this.transform.position) > DistanceToStopMoving)
         {
@@ -37,8 +47,8 @@ public class Tool_FollowXRRigV2 : MonoBehaviour
             {
                 SetNewGoal();
             }
+            FollowCamera();
         }
-        FollowCamera();
     }
 
     void SetNewGoal()
@@ -46,7 +56,7 @@ public class Tool_FollowXRRigV2 : MonoBehaviour
         //print("Set new goal");
         //GoalPosition = GO_XRRigCamera.transform.position;
         startPositon = this.transform.position;
-        goalPosition = GO_XRRigCamera.transform.position + GO_XRRigCamera.transform.forward * distanceInFrontOfPlayer;
+        goalPosition = GetGoalPosition();
         journeyLength = Vector3.Distance(startPositon, goalPosition);
         startTime = Time.time;
     }
@@ -56,6 +66,7 @@ public class Tool_FollowXRRigV2 : MonoBehaviour
         float distCovered = (Time.time - startTime) * speed;
         float fractionOfJourney = distCovered / journeyLength;
         //print("fraction: " + fractionOfJourney);
+
         this.transform.position = Vector3.Lerp(startPositon, goalPosition, fractionOfJourney);
         //this.transform.position = GO_XRRigCamera.transform.position + GO_XRRigCamera.transform.forward * distanceInFrontOfPlayer;
         this.transform.LookAt(GO_XRRigCamera.transform);

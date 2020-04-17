@@ -15,10 +15,15 @@ public class Text_SelfRegister : MonoBehaviour
     public float m_timeInSeconds;
     float m_timer;
     int m_charCount;
+
+    private void Awake()
+    {
+        Core.Ins.ScenarioManager.Register(text, type);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Core.Ins.ScenarioManager.Register(text, type);
         TMP_Text currentText = GetComponent<TMP_Text>();
         print(currentText.text);
         m_previousTextString = currentText.text;

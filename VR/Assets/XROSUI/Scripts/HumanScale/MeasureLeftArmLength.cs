@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class MeasureLeftArmLength : MonoBehaviour
 {
     int stepCounter = 0;

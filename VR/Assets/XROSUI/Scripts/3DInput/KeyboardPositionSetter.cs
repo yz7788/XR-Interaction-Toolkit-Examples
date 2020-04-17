@@ -67,7 +67,6 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             hemisphere.transform.RotateAround(obj.transform.position, transform.up, Camera.main.gameObject.transform.rotation.eulerAngles.y);
         }
-
     }
 
     void Transform(GameObject controller, bool large)
@@ -89,12 +88,5 @@ public class KeyboardPositionSetter : MonoBehaviour
                 break;
             }
         }
-
     }
-    void Update()
-    {
-            
-
-    }
-
 }

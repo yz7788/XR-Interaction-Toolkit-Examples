@@ -20,7 +20,6 @@ public class FadeOut : MonoBehaviour
             // Debug.Log("fadeOut true");
         }
     }
-
     
     private void OnTriggerExit(Collider other)
     {

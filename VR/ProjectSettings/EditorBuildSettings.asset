@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/XROSUI/Scenes/XRinVR.unity
+    guid: c5d8acb4dd131e94e8a7808efad38f5d
+  - enabled: 1
     path: Assets/XROSUI/Scenes/ControllerAudio.unity
     guid: c367f5a685ab49842b53037a4dcf2e79
   - enabled: 1

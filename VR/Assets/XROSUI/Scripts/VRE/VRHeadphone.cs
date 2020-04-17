@@ -5,11 +5,8 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(XRGrabInteractable))]
-
 public class VRHeadphone : VREquipment
 {
-    public XRGrabInteractable XRGrabHeadphone;
-    new XROSMenuTypes menuTypes = XROSMenuTypes.Menu_Audio;
     public float volumeIncreaseRate = 0.003f;
     public float volumeDecreaseRate = -0.003f;
 
@@ -20,20 +17,12 @@ public class VRHeadphone : VREquipment
 
     public override void OnActivated(XRBaseInteractor obj)
     {
-        print("Activated 2" + this.name);
         Core.Ins.AudioManager.PlayPauseMusic();
     }
-    public override void OnDeactivated(XRBaseInteractor obj)
-    {
-        print("Deactivated 2" + this.name);
-    }
+    //public override void OnDeactivated(XRBaseInteractor obj)
+    //{
 
-    public override void TriggerFunction()
-    {
-        Debug.Log("the Music is paused or played ");
-        Core.Ins.AudioManager.PlayPauseMusic();
-    }
-
+    //}
 
     public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {

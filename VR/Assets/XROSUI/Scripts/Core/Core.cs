@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Note: In Project Setting, Script Execution Order, Core should be very early
+/// Otherwise Public variables may not be assigned in inspectors when others try to interact with it in Awake
+/// </summary>
 public class Core : MonoBehaviour
 {
     public GameObject PF_Core;

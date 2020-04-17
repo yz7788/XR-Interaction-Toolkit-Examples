@@ -5,8 +5,6 @@ public enum XROSMenuTypes { Menu_None, Menu_General, Menu_Screenshot, Menu_Setti
 
 public class Controller_GameMenu : MonoBehaviour
 {
-    public GameObject XRRig;
-
     //public GameObject UICanvas;
     public GameObject Menu_None;
     public GameObject Menu_General;

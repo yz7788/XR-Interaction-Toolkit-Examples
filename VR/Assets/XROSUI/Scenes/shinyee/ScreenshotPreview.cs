@@ -6,51 +6,49 @@ using System.IO;
 
 public class ScreenshotPreview : MonoBehaviour
 {
-    public GameObject canvas;
+    //public GameObject canvas;
+    public Image myImage;
     string[] files = null;
-    int whichScreenShotIsShown = 0;
+    int currentImageId = 0;
     public float coolDown = 0.5f;
-    float lastAskTime = 0;
+    private float lastAskTime = 0;
 
-    /*public void OnTriggerExit(Collider other)
-    {
-    }*/
-
+    bool bNewPictureToProcess = false;
     // Use this for initialization
     void Start()
     {
-        files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png"); //to get the local files(screenshots)
-        //files = Directory.GetFiles(Application.streamingAssetsPath + "/", "*.png"); 
-        if (files.Length > 0)
-        {
-            //whichScreenShotIsShown = files.Length - 1;
-            GetPictureAndShowIt();
-        }
+        //Application.OpenURL(Application.persistentDataPath);
+
+        GetPictureAndShowIt();
+    }
+    private void OnEnable()
+    {
+
     }
 
     void Update()
     {
         if (lastAskTime + coolDown < Time.time)
+        //if(bNewPictureToProcess)
         {
-            files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png"); //to get the local files(screenshots)
-            //files = Directory.GetFiles(Application.streamingAssetsPath + "/", "*.png"); 
-            if (files.Length > 0)
-            {
-
-                GetPictureAndShowIt();
-            }
-
+            GetPictureAndShowIt();
             lastAskTime = Time.time;
+            //bNewPictureToProcess = false;
         }
     }
 
     void GetPictureAndShowIt()
     {
-        string pathToFile = files[whichScreenShotIsShown];
-        Texture2D texture = GetScreenshotImage(pathToFile);
-        Sprite sp = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
-            new Vector2(0.5f, 0.5f));
-        canvas.GetComponent<Image>().sprite = sp;
+        files = Directory.GetFiles(Application.persistentDataPath + "/", "*.png"); //to get the local files(screenshots)
+        if (files.Length > 0)
+        {
+            string pathToFile = files[currentImageId];
+            Texture2D texture = GetScreenshotImage(pathToFile);
+            Sprite sp = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+                new Vector2(0.5f, 0.5f));
+            myImage.sprite = sp;
+            bNewPictureToProcess = true;
+        }
     }
 
     Texture2D GetScreenshotImage(string filePath)
@@ -70,9 +68,11 @@ public class ScreenshotPreview : MonoBehaviour
     {
         if (files.Length > 0)
         {
-            whichScreenShotIsShown += 1;
-            if (whichScreenShotIsShown > files.Length - 1)
-                whichScreenShotIsShown = 0;
+            currentImageId += 1;
+            if (currentImageId > files.Length - 1)
+            {
+                currentImageId = 0;
+            }
             GetPictureAndShowIt();
         }
     }
@@ -81,10 +81,12 @@ public class ScreenshotPreview : MonoBehaviour
     {
         if (files.Length > 0)
         {
-            whichScreenShotIsShown -= 1;
-            Debug.Log("this is the no. " + whichScreenShotIsShown + "Screenshot");
-            if (whichScreenShotIsShown < 0) 
-                whichScreenShotIsShown = files.Length - 1; 
+            currentImageId -= 1;
+            //Debug.Log("this is the no. " + whichScreenShotIsShown + "Screenshot");
+            if (currentImageId < 0)
+            {
+                currentImageId = files.Length - 1;
+            }
             GetPictureAndShowIt();
         }
     }
