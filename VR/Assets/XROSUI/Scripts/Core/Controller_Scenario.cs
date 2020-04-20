@@ -11,6 +11,7 @@ public enum FlagsInControllerScenario { AuthenticateWithHeart, Flag1, Flag2 }
 
 public class Controller_Scenario : MonoBehaviour
 {
+    public bool bHasEvent = false;
     TextMeshProUGUI Text_Hint;
     TextMeshProUGUI Text_Audio;
     TextMeshProUGUI Text_System;
@@ -36,6 +37,10 @@ public class Controller_Scenario : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!bHasEvent)
+        {
+            return;
+        }
         m_Waiting = -1f;//default value -1
         // events = new XROS_Event[3];
         // events[0] = XROS_Event.CreateEvent(this, TextDisplayType.Hint, "Move your controller to the front of your eyes until you feel a vibration.Then push the grip button to enable Augmented Vision",true,"AV");
@@ -81,6 +86,10 @@ public class Controller_Scenario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!bHasEvent)
+        {
+            return;
+        }
         // if (Input.GetKeyDown(KeyCode.Alpha9))
         // {
         //     ProcessEvent();

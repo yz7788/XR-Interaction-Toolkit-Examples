@@ -27,14 +27,14 @@ public class Controller_Visual : MonoBehaviour
     void Update()
     {
         ////For Debugging
-        //if (Input.GetKeyDown(KeyCode.Alpha9))
-        //{
-        //    AdjustBrightness(0.1f);
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha8))
-        //{
-        //    AdjustBrightness(-0.1f);
-        //}
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            AdjustBrightness(0.1f);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            AdjustBrightness(-0.1f);
+        }
     }
 
     public void AdjustBrightness(float f)
@@ -68,6 +68,6 @@ public class Controller_Visual : MonoBehaviour
 
         m_LightIntensity = f;
         RenderSettings.ambientLight = new Color(f, f, f, 1);
-        //Debug.Log("Current brightness " + f);
+//        Debug.Log("Current brightness " + f);
     }
 }
