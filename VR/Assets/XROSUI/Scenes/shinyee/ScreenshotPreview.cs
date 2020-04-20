@@ -13,7 +13,6 @@ public class ScreenshotPreview : MonoBehaviour
     public float coolDown = 0.5f;
     private float lastAskTime = 0;
 
-    bool bNewPictureToProcess = false;
     // Use this for initialization
     void Start()
     {
@@ -29,11 +28,9 @@ public class ScreenshotPreview : MonoBehaviour
     void Update()
     {
         if (lastAskTime + coolDown < Time.time)
-        //if(bNewPictureToProcess)
         {
             GetPictureAndShowIt();
             lastAskTime = Time.time;
-            //bNewPictureToProcess = false;
         }
     }
 
@@ -47,7 +44,6 @@ public class ScreenshotPreview : MonoBehaviour
             Sprite sp = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
                 new Vector2(0.5f, 0.5f));
             myImage.sprite = sp;
-            bNewPictureToProcess = true;
         }
     }
 

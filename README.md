@@ -19,8 +19,8 @@ Hanyuan (Cornelius) Xiao, Hong (Sherry) Liu, Ruoxi (Jessie) Jia, Feiyu (Robert) 
 * **03/12/2020 - Midterm Presentation**
 * [03/08/2020 - 04/04/2020](blog/log_04_04_20.html)
 * [04/05/2020 - 04/11/2020](blog/log_04_11_20.html)
-* (**In progress**)[04/12/2020 - 04/18/2020]
-* [04/19/2020 - 04/25/2020]
+* [04/12/2020 - 04/18/2020](blog/log_04_18_20.html)
+* (**In progress**)[04/19/2020 - 04/25/2020](blog/log_04_25_20.html)
 * **04/30/2020 - Final Presentation**
 * [04/26/2020 - 05/02/2020]
 
