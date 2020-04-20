@@ -75,7 +75,8 @@ public class Controller_Scenario : MonoBehaviour
         else
         {
             //alert people that they had typos.
-            throw new Exception("flagID not exists");
+            // throw new Exception("flagID not exists");
+            print("flagID not exists");
         }
     }
     public bool GetFlag(string flagID)
