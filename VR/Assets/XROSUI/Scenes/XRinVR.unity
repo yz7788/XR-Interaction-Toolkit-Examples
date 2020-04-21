@@ -4532,6 +4532,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1729844888767475251, guid: 75aa8e378477108468a407f7e11a30f9,
+        type: 3}
+      propertyPath: m_InteractionLayerMask.m_Bits
+      value: 396288
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729844888767475251, guid: 75aa8e378477108468a407f7e11a30f9,
+        type: 3}
+      propertyPath: m_RetainTransformParent
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1729844888767475252, guid: 75aa8e378477108468a407f7e11a30f9,
         type: 3}
       propertyPath: kcc

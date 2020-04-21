@@ -50,13 +50,11 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightDirectController.transform.localScale = new Vector3(1, 1, 1);
             leftRayController.transform.localScale = new Vector3(1, 1, 1);
             rightRayController.transform.localScale = new Vector3(1, 1, 1);
-            //hemisphere.transform.LookAt(Camera.main.transform);
         }
         else
         {
             Core.Ins.ScenarioManager.SetFlag("TurnOnKeyboard",true);//tell the Core user start keyboard successfully.
             kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
-            //kcc.gameObject.transform.rotation = Camera.main.gameObject.transform.rotation;
             kcc.active = true;
 
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
@@ -65,7 +63,7 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightDirectController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             leftRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             rightRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
-            hemisphere.transform.RotateAround(obj.transform.position, transform.up, Camera.main.gameObject.transform.rotation.eulerAngles.y);
+            LookAtCamera(obj);
         }
     }
 
@@ -88,5 +86,21 @@ public class KeyboardPositionSetter : MonoBehaviour
                 break;
             }
         }
+    }
+    private void LookAtCamera(XRBaseInteractor obj)
+    {
+        hemisphere.transform.RotateAround(obj.transform.position, transform.up, Camera.main.gameObject.transform.rotation.eulerAngles.y);
+
+        GameObject charactorCreator = hemisphere.transform.GetChild(0).gameObject;
+        int childCount = charactorCreator.transform.childCount;
+
+        for (int i=0; i< childCount; i++)
+        {
+            GameObject key = charactorCreator.transform.GetChild(i).gameObject;
+            var rotationVector = key.transform.rotation.eulerAngles;
+            rotationVector.x = Camera.main.gameObject.transform.rotation.eulerAngles.x;
+            key.transform.rotation = Quaternion.Euler(rotationVector);
+        }
+
     }
 }
