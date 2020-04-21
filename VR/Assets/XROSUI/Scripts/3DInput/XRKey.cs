@@ -24,6 +24,7 @@ public class XRKey : MonoBehaviour
     private float oldX = 0;
     private float oldY = 0;
     private float oldZ = 0;
+    private Vector3 difference = new Vector3(0,0,0);
     public void Setup(string s, KeyboardController kc, KeyWrapper kw)
     {
         this.keyboardController = kc;
@@ -44,6 +45,8 @@ public class XRKey : MonoBehaviour
     public void AssignMirroredKey(GameObject mirroredKey)
     {
         this.mirroredKey = mirroredKey;
+        difference = mirroredKey.transform.position - transform.position;
+        Destroy(this.mirroredKey.GetComponent<XRGrabInteractable>());
     }
 
     void OnEnable()
@@ -82,6 +85,7 @@ public class XRKey : MonoBehaviour
         this.kw.x += gameObject.transform.position.x-oldX;
         this.kw.y += gameObject.transform.position.y-oldY;
         this.kw.z += gameObject.transform.position.z-oldZ;
+        this.mirroredKey.transform.position = gameObject.transform.position + difference;
     }
     private void Update()
     {
