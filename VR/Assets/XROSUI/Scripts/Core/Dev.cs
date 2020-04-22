@@ -35,12 +35,12 @@ public static class Dev
 
     public static void Log(object message)
     {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
 //        if (Mgr_PlayerPrefs.instance.GetDevSetting(Mgr_PlayerPrefs.DevSetting.bEnableDebugLog))
         {
             Dev.Log(message, LogCategory.Other);
         }
-#endif
+//#endif
     }
     /*
     public static void Log(object message, Object context)

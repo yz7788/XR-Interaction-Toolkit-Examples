@@ -34,9 +34,11 @@ public class Controller_Scenario : MonoBehaviour
     public float m_Waiting;
 
     int currentEventId = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        Dev.Log("Start: " + Application.dataPath + "/XROSUI/JSON/XROS_Event.json");
         if (!bHasEvent)
         {
             return;
@@ -52,6 +54,7 @@ public class Controller_Scenario : MonoBehaviour
         //code above is used to create json file, but you don't need to use it. 
 
         string jsonString = File.ReadAllText(Application.dataPath + "/XROSUI/JSON/XROS_Event.json");//read the file
+        Dev.Log("Start JSON Length: " + jsonString.Length);
         events = JsonHelper.FromJson<XROS_Event>(jsonString);//deserialize it
         CheckFlag();//make sure every flag in the list is unique.
         Initializer();
