@@ -15,6 +15,7 @@ public class Controller_Scenario : MonoBehaviour
     TextMeshProUGUI Text_Hint;
     TextMeshProUGUI Text_Audio;
     TextMeshProUGUI Text_System;
+    TextAsset json;
 
     public bool AddFlag(string flagID)
     {//add this function so when a new XROS_Event is created, a flagID will be automatically created too.
@@ -52,8 +53,12 @@ public class Controller_Scenario : MonoBehaviour
         // string eventToJson = JsonHelper.ToJson(events, true);
         // File.WriteAllText(Application.dataPath+"/XROSUI/JSON/XROS_Event.json",eventToJson);
         //code above is used to create json file, but you don't need to use it. 
+        json = Resources.Load("JSON/XROS_Event") as TextAsset;
+        string jsonString = json.text;
+        Dev.Log(jsonString);
 
-        string jsonString = File.ReadAllText(Application.dataPath + "/XROSUI/JSON/XROS_Event.json");//read the file
+
+        // string jsonString = File.ReadAllText(Application.dataPath + "/XROSUI/JSON/XROS_Event.json");//read the file
         Dev.Log("Start JSON Length: " + jsonString.Length);
         events = JsonHelper.FromJson<XROS_Event>(jsonString);//deserialize it
         CheckFlag();//make sure every flag in the list is unique.
