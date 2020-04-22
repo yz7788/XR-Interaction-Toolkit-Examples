@@ -2240,6 +2240,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4025123351478637592, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4844884126628060644, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_Enabled
@@ -2291,6 +2296,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4216859302048453862, guid: e3881b2fb79daf942aa3338ec96dadf3,
         type: 3}
+    - target: {fileID: 6324544034948519693, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6517693803293028524, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_AnchorMax.x
