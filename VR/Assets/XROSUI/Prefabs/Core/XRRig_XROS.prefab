@@ -9835,12 +9835,12 @@ PrefabInstance:
         type: 3}
       propertyPath: GO_VE
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1672830078756889567}
     - target: {fileID: 8887440323203605158, guid: f7efde6a6eb3ded47878a077ab21ff14,
         type: 3}
       propertyPath: VE
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8264494788810065526}
     - target: {fileID: 8887440323232691718, guid: f7efde6a6eb3ded47878a077ab21ff14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9905,12 +9905,12 @@ PrefabInstance:
         type: 3}
       propertyPath: GO_VE
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1672830078756889567}
     - target: {fileID: 8887440323672710908, guid: f7efde6a6eb3ded47878a077ab21ff14,
         type: 3}
       propertyPath: VE
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8264494788810065526}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7efde6a6eb3ded47878a077ab21ff14, type: 3}
 --- !u!4 &4025123351408099527 stripped
