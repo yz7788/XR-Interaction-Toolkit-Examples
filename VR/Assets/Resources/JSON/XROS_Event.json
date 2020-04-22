@@ -61,7 +61,7 @@
             "content": "Days Later...",
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",
-            "secondsToWait": 4
+            "secondsToWait": 2
         },
         {
             "TargetText": 0,

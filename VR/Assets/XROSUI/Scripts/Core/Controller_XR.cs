@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.XR;
 public class Controller_XR : MonoBehaviour
 {
     GameObject XRRig;
@@ -20,7 +20,7 @@ public class Controller_XR : MonoBehaviour
         {
             //Dev.LogError("No XRRIG registered, attempting to substitute with XRRIG_XROS");
             XRRig = GameObject.Find("XRRig_XROS");
-            if(!XRRig)
+            if (!XRRig)
             {
                 Dev.LogError("Cannot find XRRIG_XROS");
             }
@@ -30,7 +30,19 @@ public class Controller_XR : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            print(UnityEngine.XR.XRSettings.loadedDeviceName);
+            List<InputDevice> list = new List<InputDevice>();
+            InputDevices.GetDevices(list);
 
+            print(list.Count);
+            foreach (InputDevice i in list)
+            {
+                print(i.name);
+            }
+            //print(list.ToString());
+        }
     }
 
     public Camera GetCamera()
