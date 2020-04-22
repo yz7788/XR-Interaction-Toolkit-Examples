@@ -9,10 +9,4 @@ public class VRUserCredential : VREquipment
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

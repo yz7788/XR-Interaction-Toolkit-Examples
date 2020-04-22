@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GestureArea : MonoBehaviour
 {
-    //public Audio_Type type;
-    //new Controller_Audio audio;
     public GameObject GestureCore;
     public GameObject Area;
     public GameObject GO_VE;
@@ -23,9 +21,6 @@ public class GestureArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Text.SetActive(false);
-        
-        //GameObject go = GameObject.Find("Headphone2");
         this.RegisterVREquipment(GO_VE.GetComponent<VREquipment>());
     }
 
@@ -45,7 +40,6 @@ public class GestureArea : MonoBehaviour
     {
         if (VE.m_Held)
         {
-
             gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
             if (gestureDistance <= 0.5f * Area.transform.localScale.y && gestureDistance > 0)
             {
@@ -58,18 +52,13 @@ public class GestureArea : MonoBehaviour
 
                 if (lastAskTime + coolDown < Time.time)
                 {
-
                     MeasureDirect();
                     lastAskTime = Time.time;
                 }
             }
-            else
-            {
-                //Text.SetActive(false);
-            }
         }
 
-        
+
 
         /*
         if (Input.GetKey(KeyCode.Alpha7))
@@ -116,7 +105,7 @@ public class GestureArea : MonoBehaviour
             //back
             m_Direction = false;
             //Debug.Log("back");
-            }
+        }
         else
         {
             //forward
@@ -124,10 +113,10 @@ public class GestureArea : MonoBehaviour
             //Debug.Log("forward");
         }
         //up/down
-        DistanceY = GO_VE.transform.position.y - GestureCore.transform.position.y ;
+        DistanceY = GO_VE.transform.position.y - GestureCore.transform.position.y;
         //forward/backward
-        DistanceZ = GO_VE.transform.position.z - GestureCore.transform.position.z ;
-        
+        DistanceZ = GO_VE.transform.position.z - GestureCore.transform.position.z;
+
         if (Mathf.Abs(DistanceY) >= Mathf.Abs(DistanceZ))
         {
             if (DistanceY > 0)

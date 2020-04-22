@@ -13,7 +13,7 @@ public class Text_ShowDevLog : MonoBehaviour
     {
         if (!text)
         {
-            text = this.GetComponent<TMP_Text>();
+            text = this.GetComponentInChildren<TMP_Text>();
         }
         Dev.EVENT_NewLog += CompileMessage;
     }
