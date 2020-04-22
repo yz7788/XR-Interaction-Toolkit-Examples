@@ -2631,6 +2631,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeasureLeftArm
       objectReference: {fileID: 0}
+    - target: {fileID: 6072940479168545428, guid: 76df4d43c2a360f4db99a18566a1f195,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: a991d3d3c1c665043853678f34b59aa2,
+        type: 3}
+    - target: {fileID: 6072940479832529775, guid: 76df4d43c2a360f4db99a18566a1f195,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: a991d3d3c1c665043853678f34b59aa2,
+        type: 3}
+    - target: {fileID: 6072940480366745463, guid: 76df4d43c2a360f4db99a18566a1f195,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: a991d3d3c1c665043853678f34b59aa2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76df4d43c2a360f4db99a18566a1f195, type: 3}
 --- !u!1001 &267595547
@@ -5773,6 +5791,23 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2129842345, guid: 8449155b2edd0134bbb6ba499c70a6e4, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: a991d3d3c1c665043853678f34b59aa2,
+        type: 3}
+    - target: {fileID: 4903472919796767138, guid: 8449155b2edd0134bbb6ba499c70a6e4,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a533922f7b5f884984927774e0b1256,
+        type: 2}
+    - target: {fileID: 4903472919796767138, guid: 8449155b2edd0134bbb6ba499c70a6e4,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8689952017257272693, guid: 5a533922f7b5f884984927774e0b1256,
+        type: 2}
     - target: {fileID: 7040873453296314001, guid: 8449155b2edd0134bbb6ba499c70a6e4,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -14617,6 +14652,43 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a533922f7b5f884984927774e0b1256,
+        type: 2}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8689952017257272693, guid: 5a533922f7b5f884984927774e0b1256,
+        type: 2}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_text
+      value: '"Grab your credentials located in your chest and place it on the lock"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07b62722f25990048866bcee9a93b376, type: 3}
