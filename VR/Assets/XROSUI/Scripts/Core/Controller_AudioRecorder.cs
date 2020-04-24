@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller_Recording : MonoBehaviour
+public class Controller_AudioRecorder : MonoBehaviour
 {
     private AudioSource debugAudioSource;
     string[] RecordingDevices;

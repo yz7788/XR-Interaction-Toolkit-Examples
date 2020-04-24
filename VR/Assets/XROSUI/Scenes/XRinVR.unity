@@ -2032,6 +2032,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 845508602, guid: 15de75ba802bdca4faf70a66e3551439, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 782cb28b421ec814e93f2856a6024a8e, type: 2}
     - target: {fileID: 189256214961945641, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2218,6 +2222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180748079428533204, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3495704828319070317, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
@@ -3220,6 +3229,108 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e13fba92474513b49b7284c4a042b305, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d70a27546822c004b81f0b6ce1dda5aa, type: 3}
+--- !u!1 &332260476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4801443053287854189, guid: 90b64e8342fc675429cdd02125b168b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1489287102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &332260479
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332260476}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &337197954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10490,6 +10601,10 @@ PrefabInstance:
       propertyPath: OffsetDistance.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 2128345200, guid: 9150fe08e9ea0204286a9f1ca300d73e, type: 3}
+      propertyPath: OffsetDistance.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 822365762266759949, guid: 9150fe08e9ea0204286a9f1ca300d73e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11277,10 +11392,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 366517735, guid: 90b64e8342fc675429cdd02125b168b7, type: 3}
-      propertyPath: bHasEvent
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2501370857823875829, guid: 90b64e8342fc675429cdd02125b168b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14885,43 +14996,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 5a533922f7b5f884984927774e0b1256,
-        type: 2}
-    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 8689952017257272693, guid: 5a533922f7b5f884984927774e0b1256,
-        type: 2}
-    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
-        type: 3}
-      propertyPath: m_text
-      value: '"Grab your credentials located in your chest and place it on the lock"'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3734872670942422227, guid: 07b62722f25990048866bcee9a93b376,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07b62722f25990048866bcee9a93b376, type: 3}

@@ -7,11 +7,11 @@ public class VRMicrophone : VREquipment
 {
     public override void OnActivated(XRBaseInteractor obj)
     {
-        Core.Ins.RecordManager.StartRecording();
+        Core.Ins.AudioRecorderManager.StartRecording();
     }
     public override void OnDeactivated(XRBaseInteractor obj)
     {
-        Core.Ins.RecordManager.StopRecording();
+        Core.Ins.AudioRecorderManager.StopRecording();
     }
 
     // Start is called before the first frame update

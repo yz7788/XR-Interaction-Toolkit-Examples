@@ -5,6 +5,8 @@ using UnityEngine;
 public class Tool_LookAtXRRig : MonoBehaviour
 {
     Transform XRCameraTransform;
+    //Only use additional rotation if you can't easily set the right orientation 
+    public Vector3 additionalRotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,8 +14,9 @@ public class Tool_LookAtXRRig : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         this.transform.LookAt(XRCameraTransform);
+        this.transform.Rotate(this.additionalRotation, Space.Self);
     }
 }
