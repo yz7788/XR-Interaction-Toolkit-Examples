@@ -35,7 +35,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     
     private void Start()
     {
-
+        
     }
     private void Update()
     {

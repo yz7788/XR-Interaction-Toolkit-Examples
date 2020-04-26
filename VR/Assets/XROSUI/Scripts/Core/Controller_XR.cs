@@ -6,6 +6,8 @@ public class Controller_XR : MonoBehaviour
 {
     GameObject XRRig;
     Camera XrCamera;
+    GameObject leftController;
+    GameObject rightController;
     GameObject leftRayController;
     GameObject leftDirectController;
     GameObject leftTeleportController;
