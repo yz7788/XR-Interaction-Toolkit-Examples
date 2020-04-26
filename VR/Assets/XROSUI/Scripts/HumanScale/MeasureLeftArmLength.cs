@@ -10,11 +10,14 @@ public class MeasureLeftArmLength : MonoBehaviour
     public float armLength = 0.0f;
     float straightDownY = 0.0f;
     float horizontalY = 0.0f;
-    float offset_x = 0.0f;     // This is for TEST UI ONLY
-    float offset_y = 0.0f;     // This is for TEST UI ONLY
-    float offset_z = -0.1f;     // This is for TEST UI ONLY
+    int readingFile = 1;
+    bool firstSetSkeletonPos = false;
+    // float offset_x = 0.0f;     // This is for TEST UI ONLY
+    // float offset_y = 0.0f;     // This is for TEST UI ONLY
+    // float offset_z = -0.1f;     // This is for TEST UI ONLY
     // UI components
     public Button LeftArmMeasureButton;
+    public Button UpdateFromFileButton;
     public Text LeftArmLengthText;
     public Text LeftArmInstructionText;
     public RawImage workflowPose;
@@ -34,12 +37,31 @@ public class MeasureLeftArmLength : MonoBehaviour
     Vector3 LeftControllerRot;
     Vector3 RightControllerRot;
     Vector3 HMDRot;
+    // Bone GO of Stick Skeleton
+    GameObject Neck;
+    GameObject Spine;
+    GameObject RightHip;
+    GameObject LeftHip;
+    GameObject LeftUpperLeg;
+    GameObject RightUpperLeg;
+    GameObject LeftLowerLeg;
+    GameObject RightLowerLeg;
+    GameObject LeftFoot;
+    GameObject RightFoot;
+    GameObject LeftShoulder;
+    GameObject RightShoulder;
+    GameObject LeftLowerArm;
+    GameObject LeftUpperArm;
+    GameObject RightLowerArm;
+    GameObject RightUpperArm;
 
     void Start()
     {
         // UI initialization
         Button measureBtn = LeftArmMeasureButton.GetComponent<Button>();
         measureBtn.onClick.AddListener(MeasureLeftArm);
+        Button updateFromFileBtn = UpdateFromFileButton.GetComponent<Button>();
+        updateFromFileBtn.onClick.AddListener(updateFromFile);
         LeftArmLengthText = GameObject.Find("LeftArmLengthText").GetComponent<Text>();
         LeftArmInstructionText = GameObject.Find("LeftArmInstructionText").GetComponent<Text>();
         Image workflowPoseImg = workflowPose.GetComponent<Image>();
@@ -47,6 +69,23 @@ public class MeasureLeftArmLength : MonoBehaviour
         thisUIPanel = GameObject.Find("UIForUpdate");
         InReachFarthestPlane = GameObject.Find("InReachFarthestPlane");
         InReachProperPlane = GameObject.Find("InReachProperPlane");
+
+        Neck = GameObject.Find("Neck");
+        Spine = GameObject.Find("Spine");
+        RightHip = GameObject.Find("RightHip");
+        LeftHip = GameObject.Find("LeftHip");
+        LeftUpperLeg = GameObject.Find("LeftUpperLeg");
+        RightUpperLeg = GameObject.Find("RightUpperLeg");
+        LeftLowerLeg = GameObject.Find("LeftLowerLeg");
+        RightLowerLeg = GameObject.Find("RightLowerLeg");
+        LeftFoot = GameObject.Find("LeftFoot");
+        RightFoot = GameObject.Find("RightFoot");
+        LeftShoulder = GameObject.Find("LeftShoulder");
+        RightShoulder = GameObject.Find("RightShoulder");
+        LeftLowerArm = GameObject.Find("LeftLowerArm");
+        LeftUpperArm = GameObject.Find("LeftUpperArm");
+        RightLowerArm = GameObject.Find("RightLowerArm");
+        RightUpperArm = GameObject.Find("RightUpperArm");
 
         // Function initialization
         LeftController = GameObject.Find("LeftController");
@@ -69,7 +108,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             LeftArmInstructionText.text = $"Step 1. Stand still with your left arm straight down and use right controller to click \"Next\".";
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Next";
             workflowPose.texture = workflowStep1;
-            Core.Ins.ScenarioManager.SetFlag("AgreedCalibration",true);
+            Core.Ins.ScenarioManager.SetFlag("AgreedCalibration", true);
             stepCounter++;
         }
         else if (stepCounter == 1)
@@ -132,6 +171,47 @@ public class MeasureLeftArmLength : MonoBehaviour
         Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightUpperArm, singleRatio * 1.5f);
     }
 
+    void updateFromFile()
+    {
+        // Read in skeleton
+        if (readingFile == 1)
+        {
+            updateSkeletonFromFile("testSkeleton1");
+            UpdateFromFileButton.GetComponentInChildren<Text>().text = "Update from File 2";
+            readingFile = 2;
+        }
+        else
+        {
+            updateSkeletonFromFile("testSkeleton2");
+            UpdateFromFileButton.GetComponentInChildren<Text>().text = "Update from File 1";
+            readingFile = 1;
+        }
+
+        if (firstSetSkeletonPos == false)
+        {
+            stickSkeleton.transform.position = new Vector3(HMDPos.x + 0.8f, HMDPos.y - 0.70f, HMDPos.z);
+            firstSetSkeletonPos = true;
+        }
+        
+        // Set bone length in Game Object
+        Neck.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.Neck) * 10.0f, 5.0f);
+        Spine.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.Spine) * 10.0f, 5.0f);
+        RightHip.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightHip) * 10.0f, 5.0f);
+        LeftHip.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftHip) * 10.0f, 5.0f);
+        LeftUpperLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftUpperLeg) * 10.0f, 5.0f);
+        RightUpperLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightUpperLeg) * 10.0f, 5.0f);
+        LeftLowerLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftLowerLeg) * 10.0f, 5.0f);
+        RightLowerLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightLowerLeg) * 10.0f, 5.0f);
+        LeftFoot.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftFoot) * 10.0f, 5.0f);
+        RightFoot.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightFoot) * 10.0f, 5.0f);
+        LeftShoulder.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftShoulder) * 10.0f, 5.0f);
+        RightShoulder.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightShoulder) * 10.0f, 5.0f);
+        LeftLowerArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftLowerArm) * 10.0f, 5.0f);
+        LeftUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftUpperArm) * 10.0f, 5.0f);
+        RightLowerArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightLowerArm) * 10.0f, 5.0f);
+        RightUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightUpperArm) * 10.0f, 5.0f);
+    }
+
     void UpdateUIPos(GameObject UIObject)
     {
         // Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
@@ -168,5 +248,19 @@ public class MeasureLeftArmLength : MonoBehaviour
     {
         float magnitude = vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
         return new Vector3(vec.x / magnitude, vec.y / magnitude, vec.z / magnitude);
+    }
+
+    void updateSkeletonFromFile(string fileName)
+    {
+        StreamReader fi = new StreamReader(Application.dataPath + "/Data/" + fileName + ".txt");
+        string[] axis = fi.ReadToEnd().Split(']');
+        float[] x = axis[0].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
+        float[] y = axis[2].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
+        float[] z = axis[1].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
+        for (int i = 0; i < 17; i++)
+        {
+            Core.Ins.HumanScaleManager.setJointPosition(i, new Vector3(x[i], y[i], z[i]));
+        }
+        Core.Ins.HumanScaleManager.updateBoneLength();
     }
 }
