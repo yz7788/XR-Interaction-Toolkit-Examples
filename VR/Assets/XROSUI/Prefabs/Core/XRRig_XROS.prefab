@@ -4359,11 +4359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigBaseGameObject: {fileID: 1717954561456925282}
-  m_LeftRayController: {fileID: 0}
-  leftRayController: {fileID: 0}
-  m_rightRayController: {fileID: 0}
-  m_leftDirectController: {fileID: 0}
-  m_rightDirectController: {fileID: 0}
   m_CameraFloorOffsetObject: {fileID: 1717954561314460871}
   m_CameraGameObject: {fileID: 1717954562053134886}
   m_TrackingOriginMode: 1
@@ -4430,10 +4425,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActivationButtons: 0b00000006000000
   m_DeactivationButtons: 03000000
+  m_LeftDirectController: {fileID: 7610560069621649448}
   m_LeftBaseController: {fileID: 1717954560873690078}
   m_LeftTeleportController: {fileID: 1717954561233508939}
   m_RightBaseController: {fileID: 1717954560309945980}
   m_RightTeleportController: {fileID: 1717954560958943209}
+  m_RightRayController: {fileID: 4746348274404650062}
 --- !u!1 &1717954561962503725
 GameObject:
   m_ObjectHideFlags: 0
