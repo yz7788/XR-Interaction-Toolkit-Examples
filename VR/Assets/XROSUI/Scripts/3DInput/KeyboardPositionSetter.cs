@@ -10,21 +10,26 @@ public class KeyboardPositionSetter : MonoBehaviour
 
     const string k_AnimTriggerDown = "TriggerDown";
     const string k_AnimTriggerUp = "TriggerUp";
-    public GameObject leftDirectConroller;
-    public GameObject rightDirectController;
-    public GameObject leftRayController;
-    public GameObject rightRayController;
+    GameObject leftDirectController;
+    GameObject rightDirectController;
+    GameObject leftRayController;
+    GameObject rightRayController;
     public GameObject controllerPF;
     public float ScaleNumber;
-    Transform llamaPositon;
+    Transform keyboardPosition;
     XRBaseInteractor controller;
     void Start()
     {
-        llamaPositon = gameObject.GetComponent<Transform>();
+        keyboardPosition = gameObject.GetComponent<Transform>();
         m_InteractableBase = GetComponent<XRGrabInteractable>();
         m_InteractableBase.onDeactivate.AddListener(TriggerReleased);
         m_InteractableBase.onSelectExit.AddListener(DropKeyboard);
         m_InteractableBase.onSelectEnter.AddListener(notifyCore);
+
+        rightDirectController = Core.Ins.XRManager.GetRightDirectController();
+        rightRayController = Core.Ins.XRManager.GetRightRayController();
+        leftDirectController = Core.Ins.XRManager.GetLeftDirectController();
+        leftRayController = Core.Ins.XRManager.GetLeftRayController();
     }
     void notifyCore(XRBaseInteractor obj){
         Core.Ins.ScenarioManager.SetFlag("GrabingKeyboard",true);//tell the Core user start keyboard successfully.
@@ -44,23 +49,24 @@ public class KeyboardPositionSetter : MonoBehaviour
             kcc.active = false;
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
-            this.Transform(leftDirectConroller, true);
+            this.Transform(leftDirectController, true);
             this.Transform(rightDirectController, true);
-            leftDirectConroller.transform.localScale = new Vector3(1, 1, 1);
-            rightDirectController.transform.localScale = new Vector3(1, 1, 1);
+            
+            leftDirectController.transform.localScale = new Vector3(1, 1, 1);
+            Core.Ins.XRManager.GetRightDirectController().transform.localScale = new Vector3(1, 1, 1);
             leftRayController.transform.localScale = new Vector3(1, 1, 1);
             rightRayController.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
             Core.Ins.ScenarioManager.SetFlag("TurnOnKeyboard",true);//tell the Core user start keyboard successfully.
-            kcc.CreateMirrorKeyboard(llamaPositon.position.x, llamaPositon.position.y, llamaPositon.position.z);
+            kcc.CreateMirrorKeyboard(keyboardPosition.position.x, keyboardPosition.position.y, keyboardPosition.position.z);
             kcc.active = true;
 
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
-            leftDirectConroller.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
-            rightDirectController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            leftDirectController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            Core.Ins.XRManager.GetRightDirectController().transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             leftRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             rightRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
             LookAtCamera(obj);
@@ -80,8 +86,6 @@ public class KeyboardPositionSetter : MonoBehaviour
         {
             if (controller.transform.GetChild(i).name.Contains(" Model"))
             {
-                // print("change size "+controller.transform.GetChild(i).name);
-
                 controller.transform.GetChild(i).transform.localScale = size;
                 break;
             }

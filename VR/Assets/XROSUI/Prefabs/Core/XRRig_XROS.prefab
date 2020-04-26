@@ -4359,6 +4359,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigBaseGameObject: {fileID: 1717954561456925282}
+  m_LeftRayController: {fileID: 0}
+  leftRayController: {fileID: 0}
+  m_rightRayController: {fileID: 0}
+  m_leftDirectController: {fileID: 0}
+  m_rightDirectController: {fileID: 0}
   m_CameraFloorOffsetObject: {fileID: 1717954561314460871}
   m_CameraGameObject: {fileID: 1717954562053134886}
   m_TrackingOriginMode: 1

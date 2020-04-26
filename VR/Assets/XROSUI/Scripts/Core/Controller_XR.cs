@@ -6,6 +6,12 @@ public class Controller_XR : MonoBehaviour
 {
     GameObject XRRig;
     Camera XrCamera;
+    GameObject leftRayController;
+    GameObject leftDirectController;
+    GameObject leftTeleportController;
+    GameObject rightRayController;
+    GameObject rightDirectController;
+    GameObject rightTeleportController;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +30,30 @@ public class Controller_XR : MonoBehaviour
             {
                 Dev.LogError("Cannot find XRRIG_XROS");
             }
+            else
+            {
+                ControllerManager_XROS controllerManager_XROS = XRRig.GetComponent<ControllerManager_XROS>();
+                leftRayController = controllerManager_XROS.leftBaseController;
+                leftDirectController = controllerManager_XROS.leftDirectController;
+                leftTeleportController = controllerManager_XROS.leftTeleportController;
+                rightRayController = controllerManager_XROS.rightRayController;
+                rightDirectController = controllerManager_XROS.rightBaseController;
+                rightTeleportController = controllerManager_XROS.rightTeleportController;
+            }
         }
+
+        if (!leftRayController)
+            leftRayController = GameObject.Find("LeftRayController");
+        if (!leftDirectController)
+            leftDirectController = GameObject.Find("LeftDirectConroller");
+        if (!leftTeleportController)
+            leftTeleportController = GameObject.Find("LeftTeleportController");
+        if (!rightRayController)
+            rightRayController = GameObject.Find("RightRayController");
+        if (!rightDirectController)
+            rightDirectController = GameObject.Find("RightDirectController");
+        if (!rightTeleportController)
+            rightTeleportController = GameObject.Find("RightTeleportController");
     }
 
     // Update is called once per frame
@@ -54,6 +83,37 @@ public class Controller_XR : MonoBehaviour
     {
         return XRRig;
     }
+
+    public GameObject GetLeftRayController()
+    {
+        return leftRayController;
+    }
+
+    public GameObject GetLeftDirectController()
+    {
+        return leftDirectController;
+    }
+
+    public GameObject GetLeftTeleportController()
+    {
+        return leftTeleportController;
+    }
+
+    public GameObject GetRightRayController()
+    {
+        return rightRayController;
+    }
+
+    public GameObject GetRightDirectController()
+    {
+        return rightDirectController;
+    }
+
+    public GameObject GetRightTeleportController()
+    {
+        return rightTeleportController;
+    }
+
 
     public void RegisterCamera(Camera camera)
     {

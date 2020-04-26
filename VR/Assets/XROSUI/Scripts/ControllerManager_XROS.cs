@@ -36,6 +36,14 @@ public class ControllerManager_XROS : MonoBehaviour
     public List<InputHelpers.Button> deactivationButtons { get { return m_DeactivationButtons; } set { m_DeactivationButtons = value; } }
 
     [SerializeField]
+    [Tooltip("The Game Object which represents the left hand for direct interaction purposes.")]
+    GameObject m_LeftDirectController;
+    /// <summary>
+    /// The Game Object which represents the left hand for normal interaction purposes.
+    /// </summary>
+    public GameObject leftDirectController { get { return m_LeftDirectController; } set { m_LeftDirectController = value; } }
+
+    [SerializeField]
     [Tooltip("The Game Object which represents the left hand for normal interaction purposes.")]
     GameObject m_LeftBaseController;
     /// <summary>
@@ -66,6 +74,15 @@ public class ControllerManager_XROS : MonoBehaviour
     /// The Game Object which represents the right hand when teleporting.
     /// </summary>
     public GameObject rightTeleportController { get { return m_RightTeleportController; } set { m_RightTeleportController = value; } }
+
+
+    [SerializeField]
+    [Tooltip("The Game Object which represents the right hand ray.")]
+    GameObject m_RightRayController;
+    /// <summary>
+    /// The Game Object which represents the right hand ray.
+    /// </summary>
+    public GameObject rightRayController { get { return m_RightRayController; } set { m_RightRayController = value; } }
 
     bool m_LeftTeleportDeactivated = false;
     bool m_RightTeleportDeactivated = false;
