@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
-    m_Bits: 132096
+    m_Bits: 396288
   m_OnFirstHoverEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
-  m_RetainTransformParent: 1
+  m_RetainTransformParent: 0
 --- !u!114 &1729844888767475252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,10 +1167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kcc: {fileID: 0}
   hemisphere: {fileID: 0}
-  leftDirectConroller: {fileID: 0}
-  rightDirectController: {fileID: 0}
-  leftRayController: {fileID: 0}
-  rightRayController: {fileID: 0}
   controllerPF: {fileID: 2628209756082337060, guid: 9483faebe4bcf0749a873b652bb2b50b,
     type: 3}
   ScaleNumber: 0.5

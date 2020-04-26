@@ -608,12 +608,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 50228545}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &50721147 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1717954560873690078, guid: 15de75ba802bdca4faf70a66e3551439,
-    type: 3}
-  m_PrefabInstance: {fileID: 241451054}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &64573061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4516215191552552, guid: d70a27546822c004b81f0b6ce1dda5aa,
@@ -2330,6 +2324,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7874243713957026239, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_LeftDirectController
+      value: 
+      objectReference: {fileID: 1154979232}
+    - target: {fileID: 7874243713957026239, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_RightRayController
+      value: 
+      objectReference: {fileID: 19423520}
     - target: {fileID: 8070031960460767119, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4732,16 +4736,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1729844888767475251, guid: 75aa8e378477108468a407f7e11a30f9,
-        type: 3}
-      propertyPath: m_InteractionLayerMask.m_Bits
-      value: 396288
-      objectReference: {fileID: 0}
-    - target: {fileID: 1729844888767475251, guid: 75aa8e378477108468a407f7e11a30f9,
-        type: 3}
-      propertyPath: m_RetainTransformParent
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1729844888767475252, guid: 75aa8e378477108468a407f7e11a30f9,
         type: 3}
       propertyPath: kcc
@@ -4752,26 +4746,6 @@ PrefabInstance:
       propertyPath: hemisphere
       value: 
       objectReference: {fileID: 922187689}
-    - target: {fileID: 1729844888767475252, guid: 75aa8e378477108468a407f7e11a30f9,
-        type: 3}
-      propertyPath: leftDirectConroller
-      value: 
-      objectReference: {fileID: 1154979232}
-    - target: {fileID: 1729844888767475252, guid: 75aa8e378477108468a407f7e11a30f9,
-        type: 3}
-      propertyPath: rightDirectController
-      value: 
-      objectReference: {fileID: 761334671}
-    - target: {fileID: 1729844888767475252, guid: 75aa8e378477108468a407f7e11a30f9,
-        type: 3}
-      propertyPath: leftRayController
-      value: 
-      objectReference: {fileID: 50721147}
-    - target: {fileID: 1729844888767475252, guid: 75aa8e378477108468a407f7e11a30f9,
-        type: 3}
-      propertyPath: rightRayController
-      value: 
-      objectReference: {fileID: 19423520}
     - target: {fileID: 1729844888767475254, guid: 75aa8e378477108468a407f7e11a30f9,
         type: 3}
       propertyPath: m_Name
