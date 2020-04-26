@@ -27,6 +27,8 @@ public class MeasureLeftArmLength : MonoBehaviour
     GameObject thisUIPanel;
     GameObject InReachFarthestPlane;
     GameObject InReachProperPlane;
+    GameObject InReachFarthestPlaneCaption;
+    GameObject InReachProperPlaneCaption;
     // Generic (from systems)
     GameObject LeftController;
     GameObject RightController;
@@ -69,6 +71,8 @@ public class MeasureLeftArmLength : MonoBehaviour
         thisUIPanel = GameObject.Find("UIForUpdate");
         InReachFarthestPlane = GameObject.Find("InReachFarthestPlane");
         InReachProperPlane = GameObject.Find("InReachProperPlane");
+        InReachFarthestPlaneCaption = GameObject.Find("InReachFarthestPlaneCaption");
+        InReachProperPlaneCaption = GameObject.Find("InReachProperPlaneCaption");
 
         Neck = GameObject.Find("Neck");
         Spine = GameObject.Find("Spine");
@@ -139,10 +143,16 @@ public class MeasureLeftArmLength : MonoBehaviour
             // Change position and scale of in-reach planes accordingly
             InReachFarthestPlane.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.3f, HMDPos.z);
             InReachProperPlane.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.3f, HMDPos.z);
-            InReachFarthestPlane.transform.localScale = new Vector3(armLength * 700.0f, 1.0f, armLength * 700.0f);
-            InReachProperPlane.transform.localScale = new Vector3(armLength * 420.0f, 1.5f, armLength * 420.0f);
+            InReachFarthestPlane.transform.localScale = new Vector3(armLength * 700f, 1.5f, armLength * 700f);
+            InReachProperPlane.transform.localScale = new Vector3(armLength * 0.6f * 700f, 2.5f, armLength * 0.6f * 700f);
+
+            InReachFarthestPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z - armLength * 0.7f);
+            InReachProperPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z - armLength * 0.7f * 0.6f);
+            //InReachFarthestPlaneCaption.transform.localScale = new Vector3(18f, 1.5f, 18f);
+            //InReachProperPlaneCaption.transform.localScale = new Vector3(18f, 2.5f, 18f);
             // Update UI position
             UpdateUIPos(thisUIPanel);
+
             LeftArmInstructionText.text = $"Measure the length of arm. Press \"Start\" to measure.";
             Core.Ins.ScenarioManager.SetFlag("FinishedCalibration",true);//tell the core your work is done
             stepCounter = 0;
@@ -216,7 +226,7 @@ public class MeasureLeftArmLength : MonoBehaviour
     {
         // Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
         float distance = armLength * 0.6f;
-        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y, HMDPos.z + distance);
+        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y, HMDPos.z - 0.6f * distance);
     }
 
     float ComputeGeneric()
