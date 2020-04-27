@@ -153,11 +153,27 @@ public class MeasureLeftArmLength : MonoBehaviour
             // Update UI position
             UpdateUIPos(thisUIPanel);
 
+            // Set appear for a short time to visualize
+            /*
+            setAppear(InReachFarthestPlane, 5.0f);
+            setAppear(InReachProperPlane, 5.0f);
+            setAppear(InReachFarthestPlaneCaption, 5.0f);
+            setAppear(InReachProperPlaneCaption, 5.0f);
+            setAppear(thisUIPanel, 5.0f);
+            */
+
             LeftArmInstructionText.text = $"Measure the length of arm. Press \"Start\" to measure.";
             Core.Ins.ScenarioManager.SetFlag("FinishedCalibration",true);//tell the core your work is done
             stepCounter = 0;
         }
 
+    }
+
+    IEnumerator setAppear(GameObject GO, float period)
+    {
+        GO.SetActive(true);
+        yield return new WaitForSeconds(period);
+        GO.SetActive(false);
     }
 
     void SetBodyLength()
