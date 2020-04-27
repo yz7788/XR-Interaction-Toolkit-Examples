@@ -39,6 +39,24 @@ public class KeyboardPositionSetter : MonoBehaviour
 
     }
 
+    public void SetDefaultKeyboard()
+    {
+        if (kcc.active)
+        {
+            Core.Ins.ScenarioManager.SetFlag("TurnOffKeyboard", true);//tell the Core user start keyboard successfully.
+            kcc.DestroyPoints();
+            kcc.active = false;
+            leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
+            rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
+            this.Transform(leftDirectController, true);
+            this.Transform(rightDirectController, true);
+
+            leftDirectController.transform.localScale = new Vector3(1, 1, 1);
+            rightDirectController.transform.localScale = new Vector3(1, 1, 1);
+            leftRayController.transform.localScale = new Vector3(1, 1, 1);
+            rightRayController.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
     void TriggerReleased(XRBaseInteractor obj)
     {
         if (kcc.active)
@@ -53,7 +71,7 @@ public class KeyboardPositionSetter : MonoBehaviour
             this.Transform(rightDirectController, true);
             
             leftDirectController.transform.localScale = new Vector3(1, 1, 1);
-            Core.Ins.XRManager.GetRightDirectController().transform.localScale = new Vector3(1, 1, 1);
+            rightDirectController.transform.localScale = new Vector3(1, 1, 1);
             leftRayController.transform.localScale = new Vector3(1, 1, 1);
             rightRayController.transform.localScale = new Vector3(1, 1, 1);
         }
