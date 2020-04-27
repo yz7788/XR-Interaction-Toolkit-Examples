@@ -121,25 +121,22 @@ public class Controller_Audio : MonoBehaviour
     }
     public void PlaySfx(string acname)
     {
+        this.PlaySfx(LoadAudioClip(acname));
+    }
+
+    public void PlaySfx(AudioClip ac)
+    {
         //Make sure we have a valid clip
-        if (acname == null) return;
+        if (ac == null) return;
 
 
         AudioSource source = this.menuSfx_source;
-        source.clip = LoadAudioClip(acname);
+        source.clip = ac;
         source.Play();
     }
 
-    public void Playsfx()
-    {
-        AudioClip newsfxClip;
-        
-        newsfxClip = LoadAudioClip("360329__inspectorj__camera-shutter-fast-a");
 
-    }
-    
-
-private void Play3DAudio(AudioClip ac, GameObject go, float pitch = 1f)
+    private void Play3DAudio(AudioClip ac, GameObject go, float pitch = 1f)
     {
         //Make sure we have a valid clip
         if (ac == null) return;

@@ -15,8 +15,8 @@ public class ButtonHandler : MonoBehaviour
     public void TakeAShot()
     {
         Core.Ins.AudioManager.PlaySfx("360329__inspectorj__camera-shutter-fast-a");
-        myButton.SetText(Application.persistentDataPath);
-        Debug.Log(Application.persistentDataPath);// "Application.persistentDataPath" is the file path to save the screenshots, you can change it according to your need
+        myButton.SetText("Screenshot Got!");
+        Debug.Log("The Screenshot is saved as " + Application.persistentDataPath);// "Application.persistentDataPath" is the file path to save the screenshots, you can change it according to your need
         string timeStamp = System.DateTime.Now.ToString("MM-dd-yyyy-HH-mm-ss");
         string fileName = "ScreenshotX" + timeStamp + ".png";//the screenshot image is name in this format, you can change it according to your need
         string pathToSave = fileName;
