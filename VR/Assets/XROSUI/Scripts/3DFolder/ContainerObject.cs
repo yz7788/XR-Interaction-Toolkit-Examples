@@ -34,9 +34,22 @@ public class ContainerObject : MonoBehaviour
 
     private void OnGrabbed(XRBaseInteractor obj)
     {
+        //print(obj.name);
         // m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
-        Core.Ins.ScenarioManager.SetFlag("FileGrabbed",true);
+        
+        if (obj.GetComponent<XRDirectInteractor>())
+        {
+            Core.Ins.ScenarioManager.SetFlag("FileGrabbed",true);
+        }
+        else if (obj.GetComponent<XRRayInteractor>())
+        {
+            Core.Ins.ScenarioManager.SetFlag("FileGrabbed", true);
+        }
+        else if (obj.GetComponent<XRSocketInteractor>())
+        {
+
+        }
     }
 
     void OnReleased(XRBaseInteractor obj)

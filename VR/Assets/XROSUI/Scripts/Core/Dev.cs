@@ -213,5 +213,14 @@ public static class Dev
         }
         Debug.LogError(s);
     }
+
+    public static void LogWarning(string s)
+    {
+        if (EVENT_NewLog != null)
+        {
+            EVENT_NewLog(s);
+        }
+        Debug.LogWarning(s);
+    }
     #endregion Dev Log
 }

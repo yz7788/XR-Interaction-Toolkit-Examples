@@ -84,7 +84,8 @@ public class Controller_Scenario : MonoBehaviour
         {
             //alert people that they had typos.
             // throw new Exception("flagID not exists");
-            print("flagID not exists");
+            //Dev.LogError("flagID: " + flagID + " not exists");
+            Dev.LogWarning("Flag ID: " + flagID + " not exists");
         }
     }
     public bool GetFlag(string flagID)
