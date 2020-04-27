@@ -68,7 +68,6 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         SetUpMirrorControllers(startingX, startingY, startingZ);
     }
 
-
     public void CreateDefaultPoints(float startingX, float startingY, float startingZ)
     {
         keyboardModelPosition = new Vector3(startingX, startingY, startingZ);
@@ -160,6 +159,25 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         }
     }
 
+    public void EmptyPositions()
+    {
+        print("triggered");
+        string filename = "positions.JSON";
+        StreamWriter writer = new StreamWriter(filename, false);
+
+        try
+        {
+            writer.Write("");
+        }
+        catch (Exception exp)
+        {
+            print(exp.Message);
+        }
+        finally
+        {
+            writer.Close();
+        }
+    }
     public void SaveKeyPositions()
     {
 
