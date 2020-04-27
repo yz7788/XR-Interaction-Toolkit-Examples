@@ -81,7 +81,6 @@ public class KeyboardPositionSetter : MonoBehaviour
             size = new Vector3(1f, 1f, 1f);
         else
             size = new Vector3(0.5f, 0.5f, 0.5f);
-        print(size.ToString());
         for (int i = 0; i < count; i++)
         {
             if (controller.transform.GetChild(i).name.Contains(" Model"))
