@@ -20,19 +20,19 @@
     <body>
         <main>
             <!-- Navigation Bar -->
-            <nav class="nav-extended green darken-1" role="navigation">
+            <nav class="nav-extended lime accent-2" role="navigation">
                 <div class="nav-wrapper container">
                     <div class="row">
-                        <div class="col s12 m6 l6"><h5 class="left-align">Weekly Log 6</h5></div>
-                        <div class="col s12 m6 l6"><h5 class="right-align">04/12/2020 - 04/18/2020</h5></div>
+                        <div class="col s12 m6 l6"><h5 class="left-align black-text">Weekly Log 6</h5></div>
+                        <div class="col s12 m6 l6"><h5 class="right-align black-text">04/12/2020 - 04/18/2020</h5></div>
                     </div>
                 </div>
                 
                 <div class="nav-content container">
                     <ul class="tabs tabs-transparent">
-                        <li class="tab"><a class="active" href="#Overview">Overview</a></li>
-                        <li class="tab"><a href="#Done">Done</a></li>
-                        <li class="tab"><a href="#TODO">TODO</a></li>
+                        <li class="tab"><a class="active black-text" href="#Overview">Overview</a></li>
+                        <li class="tab"><a class="black-text" href="#Done">Done</a></li>
+                        <li class="tab"><a class="black-text" href="#TODO">TODO</a></li>
                     </ul>
                 </div>
             </nav>
@@ -45,10 +45,7 @@
                         <div class="divider"></div>
                         <ul class="browser-default">
                             <!-- ############# HEADLINES START HERE !!! ############# -->
-                        
-<!--                            <li>-->
-<!--                                <h5>***********</h5>-->
-<!--                            </li>-->
+                            <li><h5>A calibrated skeleton for better visualization is added into the scene.</h5></li>
                         </ul>
                     </div>
                 </div>
@@ -72,7 +69,12 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
-                                                    
+                                                    <li>A calibrated skeleton for better visualization is added into the scene.
+                                                        <p><img src="misc/log6/noncalibratedSkeleton.PNG" height="100%"></p>
+                                                    </li>
+                                                    <li>After calibration of arm length is done. The skeleton is updated side-by-side to the user's left, so the user is able to compare it with his/her body size.
+                                                        <p><img src="misc/log6/calibratedSkeleton.PNG" width="100%"></p>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -94,8 +96,9 @@
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL ACCOMPLISHMENTS START HERE !!! ############# -->
                                                     <li>Created text appear effect for hints and status text fields.
-                                                        Fixed fade out effect for teleportation to different stations; now activates teleportation with given flag.</li>
-												    <p><img src="misc/log6/text_reveal.gif" width="100%"></p>
+                                                        Fixed fade out effect for teleportation to different stations; now activates teleportation with given flag.
+												        <p><img src="misc/log6/text_reveal.gif" width="100%"></p>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -259,8 +262,8 @@
                                             <div class="col s10 m10 l10">
                                                 <ul class="browser-default">
                                                     <!-- ############# INDIVIDUAL TODO LIST STARTS HERE !!! ############# -->
-                                                    
-                                                    
+                                                    <li>Add more visualization such as appropriate place to put/update a UI.</li>
+                                                    <li>Enable reading skeleton from file. This will enable module like <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a> to import and sync user's motion in real time without hardware assistance.</li>
                                                 </ul>
                                             </div>
                                         </div>
