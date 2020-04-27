@@ -216,31 +216,39 @@ public class MeasureLeftArmLength : MonoBehaviour
         if (readingJoints == false)
         {
             // Show data of bones now
-            // Update image
-            showSkeletonIdx.texture = bonesImage;
-            // Update data
-            var bonesData = getBonesData();
-            LeftPrintPanel.text = bonesData.Item1;
-            RightPrintPanel.text = bonesData.Item2;
-            // Update button
-            NextPageButton.GetComponentInChildren<Text>().text = "Show Bones";
-
+            showBonePage();
             readingJoints = true;
         }
         else
         {
             // Show data of joints now
-            // Update image
-            showSkeletonIdx.texture = jointsImage;
-            // Update data
-            var jointsData = getJointsData();
-            LeftPrintPanel.text = jointsData.Item1;
-            RightPrintPanel.text = jointsData.Item2;
-            // Update button
-            NextPageButton.GetComponentInChildren<Text>().text = "Show Joints";
-
+            showJointPage();
             readingJoints = false;
         }
+    }
+
+    void showJointPage()
+    {
+        // Update image
+        showSkeletonIdx.texture = jointsImage;
+        // Update data
+        var jointsData = getJointsData();
+        LeftPrintPanel.text = jointsData.Item1;
+        RightPrintPanel.text = jointsData.Item2;
+        // Update button
+        NextPageButton.GetComponentInChildren<Text>().text = "Show Joints";
+    }
+
+    void showBonePage()
+    {
+        // Update image
+        showSkeletonIdx.texture = bonesImage;
+        // Update data
+        var bonesData = getBonesData();
+        LeftPrintPanel.text = bonesData.Item1;
+        RightPrintPanel.text = bonesData.Item2;
+        // Update button
+        NextPageButton.GetComponentInChildren<Text>().text = "Show Bones";
     }
 
     (string, string) getBonesData()
@@ -250,14 +258,14 @@ public class MeasureLeftArmLength : MonoBehaviour
         {
             outputLeft += (BoneIdx)i;
             outputLeft += ": ";
-            outputLeft += Core.Ins.HumanScaleManager.getBoneLength(i).ToString("0.00");
+            outputLeft += Core.Ins.HumanScaleManager.getBoneLength(i).ToString("0.000");
             outputLeft += System.Environment.NewLine;
         }
         for (int i = 8; i < 16; i++)
         {
             outputRight += (BoneIdx)i;
             outputRight += ": ";
-            outputRight += Core.Ins.HumanScaleManager.getBoneLength(i).ToString("0.00");
+            outputRight += Core.Ins.HumanScaleManager.getBoneLength(i).ToString("0.000");
             outputRight += System.Environment.NewLine;
         }
 
@@ -291,14 +299,12 @@ public class MeasureLeftArmLength : MonoBehaviour
         if (readingFile == 1)
         {
             updateSkeletonFromFile("testSkeleton1");
-            showNextPage();
             UpdateFromFileButton.GetComponentInChildren<Text>().text = "Update from File 2";
             readingFile = 2;
         }
         else
         {
             updateSkeletonFromFile("testSkeleton2");
-            showNextPage();
             UpdateFromFileButton.GetComponentInChildren<Text>().text = "Update from File 1";
             readingFile = 1;
         }
@@ -326,6 +332,16 @@ public class MeasureLeftArmLength : MonoBehaviour
         LeftUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftUpperArm) * 10.0f, 5.0f);
         RightLowerArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightLowerArm) * 10.0f, 5.0f);
         RightUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightUpperArm) * 10.0f, 5.0f);
+
+        // Update visualization
+        if (readingJoints == false)
+        {
+            showJointPage();
+        }
+        else
+        {
+            showBonePage();
+        }
     }
 
     void UpdateUIPos(GameObject UIObject)
