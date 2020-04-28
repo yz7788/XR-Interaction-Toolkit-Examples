@@ -110,7 +110,7 @@ public class Controller_Scenario : MonoBehaviour
         // }
         if (m_Waiting >= 0)
         {
-            m_Waiting -= Time.deltaTime;// this is the timer for event disappear when time's up.
+            m_Waiting -= Time.deltaTime;// this is the timer for event, event disappears when time's up.
         }
         ProcessEvent();//check if the text panel need to go to the next event.
     }
