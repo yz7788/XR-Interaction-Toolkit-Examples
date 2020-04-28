@@ -15,13 +15,17 @@ public class Controller_Screenshot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            TakeAShot();
+            print("take a shot");
+        }
     }
 
     public void TakeAShot()
@@ -33,7 +37,7 @@ public class Controller_Screenshot : MonoBehaviour
         string pathToSave = fileName;
 
         ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + pathToSave);
-        texture  = ScreenCapture.CaptureScreenshotAsTexture();
+        texture = ScreenCapture.CaptureScreenshotAsTexture();
         if (EVENT_NewScreenshot != null)
         {
             EVENT_NewScreenshot();
