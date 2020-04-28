@@ -17,56 +17,175 @@
   </head>
 
   <body style="background-color:#0B0C10;">
-    <!-- Navigation Bar -->
-    <nav class="nav-extended black" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" class="brand-logo"><a class="flow-text teal-text text-accent-2" href="index.html">XROS</a></a>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a class="white-text" href="index.html">Overview</a></li>
-          <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
-          <li><a class="white-text" href="api.html">API</a></li>
-          <li class="active"><a class="white-text" href="blogs.html"><b>Blogs</b></a></li>
-        </ul>
-      </div>
-    </nav>
+    <main>
+      <!-- Navigation Bar -->
+      <nav class="nav-extended black" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" class="flow-text brand-logo teal-text text-accent-2" href="index.html">XROS</a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="white-text" href="index.html">Overview</a></li>
+            <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
+            <li><a class="white-text" href="api.html">API</a></li>
+            <li class="active"><a class="white-text" href="blogs.html"><b>Blogs</b></a></li>
+          </ul>
+        </div>
 
-    <ul id="nav-mobile" class="sidenav">
-      <li><a class="white-text" href="index.html">Overview</a></li>
-      <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
-      <li><a class="white-text" href="api.html">API</a></li>
-      <li><a class="white-text" href="blogs.html"><b>Blogs</b></a></li>
-    </ul>
+        <div class="nav-content container">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#2020-spring">2020 Spring Weekly Blogs</a></li>
+          </ul>
+        </div>
+      </nav>
 
-    <!-- 2020 Spring -->
-    <div>
-      <div class="container">
-        <div class="section">
-          <div class="row">
-            <div class="icon-block">
-              <h2 class="center teal-text text-accent-2">2020 Spring Weekly Blogs</h2>
-            </div>
-            <div class="col s12 m12 l12">
-              <div class="card black">
-                <div class="card-content">
-                  <ul class="browser-default white-text">
-                    <li><h5><a href="log_02_22_20.html">01/13/2020 - 02/22/2020</a></h5></li>
-                    <li><h5><a href="log_02_29_20.html">02/23/2020 - 02/29/2020</a></h5></li>
-                    <li><h5><a href="log_03_07_20.html">03/01/2020 - 03/07/2020</a></h5></li>
-                    <li><h5><a href="log_04_04_20.html">03/08/2020 - 04/04/2020</a></h5></li>
-                    <li><h5><a href="log_04_11_20.html">04/05/2020 - 04/11/2020</a></h5></li>
-                    <li><h5><a href="log_04_18_20.html">04/12/2020 - 04/18/2020</a></h5></li>
-                    <li><h5><a href="log_04_25_20.html">04/19/2020 - 04/25/2020</a></h5></li>
-                    <li><h5><a href="log_05_02_20.html">04/26/2020 - 05/02/2020</a></h5></li>
-                  </ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a class="black-text" href="index.html">Overview</a></li>
+        <li><a class="black-text" href="designdoc.html">Design Doc</a></li>
+        <li><a class="black-text" href="api.html">API</a></li>
+        <li><a class="black-text" href="blogs.html"><b>Blogs</b></a></li>
+      </ul>
+
+      <!-- 2020 Spring -->
+      <div id="2020-spring">
+        <div class="container">
+          <div class="section">
+            <div class="row">
+
+              <div class="col s12 m6 l3">
+                <div class="card large grey">
+                  <div class="card-content">
+                    <span class="card-title"><h5><a class="white-text" href="log_02_22_20.html">Log 1</a></h5></span>
+                    <ul class="browser-default">
+                      <li class="white-text"><b>[Subsystem 1]</b> The function to track motion and gestures of body (can be extended to head and fingers) is realized by OpenPose.</li>
+                      <li class="white-text"><b>[Subsystem 2]</b> The prefab which enables controller's laser module adjustable to different directions. Direction can be changed by interacting(grab) with right hand controller or pointing and grabbing a specific object in the scene, in the case, the laser will lock on the object which user moves their controller.</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light social-icon btn web" href="log_02_22_20.html"><i class="material-icons">web</i></a>
+                  </div>
                 </div>
               </div>
-            </div>
 
+              <div class="col s12 m6 l3">
+                <div class="card extra-large orange">
+                  <div class="card-content">
+                    <span class="card-title"><h5><a class="white-text" href="log_02_29_20.html">Log 2</a></h5></span>
+                    <ul class="browser-default">
+                      <li class="white-text"><b>[Subsystem 1]</b> 
+                        <ul class="browser-default">
+                          <li>Measured camera parameters (intrinsic and extrinsic) to use for triangulation</li>
+                          <li>Wrote code to convert 2D body keypoints to 3D keypoints</li>
+                        </ul>
+                      </li>
+                      <li class="white-text"><b>[Subsystem 2]</b> 
+                        <ul class="browser-default">
+                          <li>The prefab which enables controller's laser module adjustable to different directions. Direction can be changed by interacting(grab) with right hand controller or pointing and grabbing a specific object in the scene, in the case, the laser will lock on the object which user moves their controller. The demo video will be updated when gif is uploaded.</li>
+                          <li>The way of adjusting the direction of laser has been changed from angle detect to relative position detect, with a more intuitive user experience. </li>
+                          <li>Laser will be hided when user are grabbing item, in addition, laser direction will not change the direction or position of the item grabbed.</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light social-icon btn web" href="log_02_29_20.html"><i class="material-icons">web</i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6 l3">
+                <div class="card small cyan darken-1">
+                  <div class="card-content">
+                    <span class="card-title"><h5><a class="white-text" href="log_03_07_20.html">Log 3</a></h5></span>
+                    <ul class="browser-default">
+                      <li class="white-text"><b>[Subsystem 1]</b> Published <a class="white-text" href="camera_calibration_instruction.html">an instruction for multi-view camera calibration.</a></li>
+                      <li class="white-text"><b>[Subsystem 2]</b> Published <a class="white-text" href="layer_instruction.html">an instruction for usage of layers in the project.</a></li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light social-icon btn web" href="log_03_07_20.html"><i class="material-icons">web</i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6 l3">
+                <div class="card small red lighten-1">
+                  <div class="card-content">
+                    <span class="card-title"><h5><a class="white-text" href="log_04_04_20.html">Log 4</a></h5></span>
+                    <ul class="browser-default">
+                      <li class="white-text">Primitive function of adjustment of world scale according to pose is uploaded.</li>
+                      <li class="white-text">Opening door interaction for final project introduction is done.</li>
+                      <li class="white-text">Refine function of controller by adding reset button and switch(on and off)</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light social-icon btn web" href="log_04_04_20.html"><i class="material-icons">web</i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6 l3">
+                <div class="card small green darken-1">
+                  <div class="card-content">
+                    <span class="card-title"><h5><a class="white-text" href="log_04_11_20.html">Log 5</a></h5></span>
+                    <ul class="browser-default">
+                      <li class="white-text">The function to measure arm length is uploaded.</li>
+                      <li class="white-text">The XRinVR scene has been added to the project. The basic fade out and in, and teleportation function has been migrated into the new scene. The assets in the new scene are utilized.</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light social-icon btn web" href="log_04_11_20.html"><i class="material-icons">web</i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6 l3">
+                <div class="card extra-small lime accent-2">
+                  <div class="card-content">
+                    <span class="card-title"><h5><a class="black-text" href="log_04_18_20.html">Log 6</a></h5></span>
+                    <ul class="browser-default">
+                      <li class="black-text">A calibrated skeleton for better visualization is added into the scene.</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light social-icon btn web" href="log_04_18_20.html"><i class="material-icons">web</i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6 l3">
+                <div class="card extra-small light-blue accent-3">
+                  <div class="card-content">
+                    <span class="card-title"><h5><a class="white-text" href="log_04_25_20.html">Log 7</a></h5></span>
+                    <ul class="browser-default">
+                      <li class="white-text">New visualization of calibrated skeleton module is added!</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light social-icon btn web" href="log_04_25_20.html"><i class="material-icons">web</i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6 l3">
+                <div class="card extra-small deep-purple lighten-3">
+                  <div class="card-content">
+                    <span class="card-title"><h5><a class="white-text" href="log_05_02_20.html">Log 8</a></h5></span>
+                    <ul class="browser-default">
+                      <li class="white-text">Our <a class="white-text" href="index.html">homepage</a> is published!</li>
+                      <li class="white-text">Function to read skeleton from outside module is added. Now results from <a class="white-text" href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a> can be used to calibrate skeleton!</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light social-icon btn web" href="log_05_02_20.html"><i class="material-icons">web</i></a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <footer class="page-footer black">
       <div class="container">
