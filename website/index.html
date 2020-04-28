@@ -17,330 +17,333 @@
   </head>
 
   <body style="background-color:#0B0C10;">
-    <!-- Navigation Bar -->
-    <nav class="nav-extended black" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" class="brand-logo"><a class="flow-text teal-text text-accent-2" href="index.html">XROS</a></a>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li class="active"><a class="white-text" href="index.html"><b>Overview</b></a></li>
-          <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
-          <li><a class="white-text" href="api.html">API</a></li>
-          <li><a class="white-text" href="blogs.html">Blogs</a></li>
+    <main>
+      <!-- Navigation Bar -->
+      <nav class="nav-extended black" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" class="brand-logo"><a class="flow-text teal-text text-accent-2" href="index.html">XROS</a></a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li class="active"><a class="white-text" href="index.html"><b>Overview</b></a></li>
+            <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
+            <li><a class="white-text" href="api.html">API</a></li>
+            <li><a class="white-text" href="blogs.html">Blogs</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a class="white-text" href="index.html">Overview</a></li>
+        <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
+        <li><a class="white-text" href="api.html">API</a></li>
+        <li><a class="white-text" href="blogs.html">Blogs</a></li>
+      </ul>
+
+      <!-- Title image -->
+      <div id="index-banner" class="parallax-container">
+        <div class="parallax"><img width='1920' src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURExUYHiggGBolGxUXITEtJSsrLjouFx8zODM4NygtLisBCgoKDQ0NDg0NDjcZHxk3KysrKysrKysrKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAAAAQIDBAUH/8QAKxABAQEAAQMDAgYBBQAAAAAAAAECEQMSITFBUQRhE3GBkaHwIhQyscHR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APnOWuIjMbYjSNMRtmIxG2YByCxXBVBnQdIFZa4jLLbANcRtmM8RrlFaZi4iUXSo05K7ZXbPXUBtrbO7Ya6ib1AdHeqbcneubUdc2qbcs2rvB0XbPWmd2jWwVrTHWi1tlrQDVZap60y1RBqs9U7UWgnVZ6XaztFTpnpdZ0E1J1IO/Eb4iMZb4yC8RpIWYtAk1VZ6oC0uU2jkGmW2GGa1zUV0ZrSVhnSu4G10nW2V2z1sGmuoy11GWts9bVGt2nvY9w7gbza5pzyrlUdE2rvc80fcI2u0XbK6RditNbZ60i6RdAu6RdJuk2oHam0rU2gLU2i1NAqiqqKCak6QPXxG+IjEbZBUgpp1QTqs9VWqy1QK0uU2lyDbOmmdOaaVNIrqm1d7mmx3g21tnraLpFoK1pFoHCoDkOZXMgmLipg+0Elaq5RqAV0zuj0z1QF0m6Tam0FWlyjkcgrkrU8lyB2laXJWgLUU7U2gVSdSD3sNJXPnS5sG3cnWmd2m6A9VlqndM7QFqeRUWgvuHcztLkG82O5jycqK27jiMtMwDkaZwrGOW2OnfgGecNc9NtjpX4v7Ns9K/CDmnTP8N2To/Y70b8Xz6ePUHn6wx3l6O+lfi/s5uphRwbjHbq6uXN1IqMdVFqtMrQPkuU2lyC+S5TyOQVym0uS5A7U2i1NoC0hSB602fe5u8+8HR3ldMe4+4GnJWplMBU1RWAzpLsLgExeSkXmIq8R09PLLp5dXSyitejOLz9rP3nDr6fteObLbyy6eXVjIKx7Xj0vPr4+7bP5fPx7zhOY0ygrn7evPPn3o/T45/ScHDBh1PTjj+83/ANcXVw9DccvWyDzOtlxdWPS68cHWjSOLbLTbqMNKibS5K0uQVyXJcgD5LkgA5IEBAEDq7jmmfJwGsqpWUXAaSrjONIgqQ+BFyCo7S7W3aO0GParOV9pyAvpx3fSdLvsnMz+fnn7Rx4dn0nUmdZ1fSX2RXX9P0uc91tk548Z7rfn+/d09Lo8yXn1mrPHMnHzfZz/TdeTMlup27752+/ieL5+zox9Tnj3n+7uxJOzfNt8/xP0QX+H49f8AKZm7OPHH5/PFV0en3TV5nic+v98ev7Mb9Rni3z3XExxxO30k55/KMs9az0tnv4vHkHX0/OuOZPPr7NJmf5c3iZvbzJzbfPt+ji6fU4svxZW862b3S8ya13SyS2evt+orbfS4l7rfGrPGe70k8+v3c2ulzJ5/y1LczjxZOfW/pW0+ond3c7n+XMzPSz4t5/6Y66+fFvPdmakkk7bzzx+Xr/AjzOu8/ru/rVwdZUcXVc+nR1XNpoRSFIQwQAAgAIEAAIG8VBIciBxUKRUBcXlnF5BtlrmMc1tmoq5DsEotBNiVarO0Gua2xpyTS87B352udRxY3z4/NpzeePfnj9QdP4g/Ec/n+eJOffkefj05/ici11Z6jTPUcfmfzz59GuOfH349/lB097Pe0W2TljvYJ62nD1q36u3J1dKjn6lc+m3UrDTSJpHSAgAAIyoAgAIAA7OD4XwOEVBmBBFSoOUG+a1zXNnTSaFdE0Lpj3FdoNNaZ3SNbZ62o17zm3N3DvB2Y6tnmXz5aZ69nv6c8X38/dwzapsHd/qL8+eeebJzz/YJ1r/z/M4rim1TYO6fUX7e/Pieeflpnr3x9vtHBNqm0HdeveOOfHx/fzZa6jn/ABEa6gNOptzdTQ1tlrSid1lVWpqoRGQAjAFSp0qBUCgCAAPU4TYuprLSKmqqLVQWlyVpciNJVTTHk+QbdxXTPkrQVdIuitRaod0O5Fpcg07lTTHkcg3mlTbn7lTSDom1d7mmj7gdHem7Zdxdyi7pFpWlyAtIAAAKBCgAVKnSoFSOlQBGQPVtTanuTay0drO07U2qhWlyVJUVyfKQgrkiAFU1VTVE0jpAQ5BArk+UGC+T5QcBfI5TDAwRgAAAIyAEZACBACMgKgAHZ3Fyz7hyir5TaXJcgYIKhgADIACpU6mgVI6QERkAEBgIqFDgHDEVAIzAEDICIyAgABUqZUCoFAERkDUAAYAAHAABgABQAKpoAFSAAiAAGABxUABUOAAcMAAQAFSIACAAioAFQABEAD//2Q=="></div>
+        <div class="section no-pad-bot">
+          <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-accent-2">You can put optional title here.</h1>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Intuition -->
+      <div class="section no-pad-bot" id="index-banner">
+        <br>
+        <div class="container">
+          <div class="row center">
+            <div class="col s12 m3 l3"><h2 class="teal-text text-accent-2">Intuition</h2></div>
+            <div class="col s12 m2 l2"></div>
+            <div class="col s12 m7 l7 left-align">
+              <h5 class="left-align white-text">WHY DO WE BUILD THIS PROJECT? WHY IS IT USEFUL?</h5>
+              <br>
+              <div class="center-align">
+                <a class="waves-effect waves-light social-icon btn-large github" href="https://powenyao.github.io/XR-Interaction-Toolkit-Examples/"><i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <!-- Function overview slider -->
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURExUYHiggGBolGxUXITEtJSsrLjouFx8zODM4NygtLisBCgoKDQ0NDg0NDjcZHxk3KysrKysrKysrKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAAAAQIDBAUH/8QAKxABAQEAAQMDAgYBBQAAAAAAAAECEQMSITFBUQRhE3GBkaHwIhQyscHR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APnOWuIjMbYjSNMRtmIxG2YByCxXBVBnQdIFZa4jLLbANcRtmM8RrlFaZi4iUXSo05K7ZXbPXUBtrbO7Ya6ib1AdHeqbcneubUdc2qbcs2rvB0XbPWmd2jWwVrTHWi1tlrQDVZap60y1RBqs9U7UWgnVZ6XaztFTpnpdZ0E1J1IO/Eb4iMZb4yC8RpIWYtAk1VZ6oC0uU2jkGmW2GGa1zUV0ZrSVhnSu4G10nW2V2z1sGmuoy11GWts9bVGt2nvY9w7gbza5pzyrlUdE2rvc80fcI2u0XbK6RditNbZ60i6RdAu6RdJuk2oHam0rU2gLU2i1NAqiqqKCak6QPXxG+IjEbZBUgpp1QTqs9VWqy1QK0uU2lyDbOmmdOaaVNIrqm1d7mmx3g21tnraLpFoK1pFoHCoDkOZXMgmLipg+0Elaq5RqAV0zuj0z1QF0m6Tam0FWlyjkcgrkrU8lyB2laXJWgLUU7U2gVSdSD3sNJXPnS5sG3cnWmd2m6A9VlqndM7QFqeRUWgvuHcztLkG82O5jycqK27jiMtMwDkaZwrGOW2OnfgGecNc9NtjpX4v7Ns9K/CDmnTP8N2To/Y70b8Xz6ePUHn6wx3l6O+lfi/s5uphRwbjHbq6uXN1IqMdVFqtMrQPkuU2lyC+S5TyOQVym0uS5A7U2i1NoC0hSB602fe5u8+8HR3ldMe4+4GnJWplMBU1RWAzpLsLgExeSkXmIq8R09PLLp5dXSyitejOLz9rP3nDr6fteObLbyy6eXVjIKx7Xj0vPr4+7bP5fPx7zhOY0ygrn7evPPn3o/T45/ScHDBh1PTjj+83/ANcXVw9DccvWyDzOtlxdWPS68cHWjSOLbLTbqMNKibS5K0uQVyXJcgD5LkgA5IEBAEDq7jmmfJwGsqpWUXAaSrjONIgqQ+BFyCo7S7W3aO0GParOV9pyAvpx3fSdLvsnMz+fnn7Rx4dn0nUmdZ1fSX2RXX9P0uc91tk548Z7rfn+/d09Lo8yXn1mrPHMnHzfZz/TdeTMlup27752+/ieL5+zox9Tnj3n+7uxJOzfNt8/xP0QX+H49f8AKZm7OPHH5/PFV0en3TV5nic+v98ev7Mb9Rni3z3XExxxO30k55/KMs9az0tnv4vHkHX0/OuOZPPr7NJmf5c3iZvbzJzbfPt+ji6fU4svxZW862b3S8ya13SyS2evt+orbfS4l7rfGrPGe70k8+v3c2ulzJ5/y1LczjxZOfW/pW0+ond3c7n+XMzPSz4t5/6Y66+fFvPdmakkk7bzzx+Xr/AjzOu8/ru/rVwdZUcXVc+nR1XNpoRSFIQwQAAgAIEAAIG8VBIciBxUKRUBcXlnF5BtlrmMc1tmoq5DsEotBNiVarO0Gua2xpyTS87B352udRxY3z4/NpzeePfnj9QdP4g/Ec/n+eJOffkefj05/ici11Z6jTPUcfmfzz59GuOfH349/lB097Pe0W2TljvYJ62nD1q36u3J1dKjn6lc+m3UrDTSJpHSAgAAIyoAgAIAA7OD4XwOEVBmBBFSoOUG+a1zXNnTSaFdE0Lpj3FdoNNaZ3SNbZ62o17zm3N3DvB2Y6tnmXz5aZ69nv6c8X38/dwzapsHd/qL8+eeebJzz/YJ1r/z/M4rim1TYO6fUX7e/Pieeflpnr3x9vtHBNqm0HdeveOOfHx/fzZa6jn/ABEa6gNOptzdTQ1tlrSid1lVWpqoRGQAjAFSp0qBUCgCAAPU4TYuprLSKmqqLVQWlyVpciNJVTTHk+QbdxXTPkrQVdIuitRaod0O5Fpcg07lTTHkcg3mlTbn7lTSDom1d7mmj7gdHem7Zdxdyi7pFpWlyAtIAAAKBCgAVKnSoFSOlQBGQPVtTanuTay0drO07U2qhWlyVJUVyfKQgrkiAFU1VTVE0jpAQ5BArk+UGC+T5QcBfI5TDAwRgAAAIyAEZACBACMgKgAHZ3Fyz7hyir5TaXJcgYIKhgADIACpU6mgVI6QERkAEBgIqFDgHDEVAIzAEDICIyAgABUqZUCoFAERkDUAAYAAHAABgABQAKpoAFSAAiAAGABxUABUOAAcMAAQAFSIACAAioAFQABEAD//2Q==">
+            <div class="caption center-align">
+              <h3 class="teal-text text-accent-2">Function 1 - Skeleton calibration</h3>
+              <h5 class="light grey-text text-lighten-3">Calibrate skeleton with buttons. ETC.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="data:image/jpeg;base64,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">
+            <div class="caption left-align">
+              <h3 class="teal-text text-accent-2">Function 2</h3>
+              <h5 class="light grey-text text-lighten-3">...</h5>
+            </div>
+          </li>
+          <li>
+            <img src="data:image/jpeg;base64,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">
+            <div class="caption right-align">
+              <h3 class="teal-text text-accent-2">Function 3</h3>
+              <h5 class="light grey-text text-lighten-3">...</h5>
+            </div>
+          </li>
+          <li>
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURExUYHiggGBolGxUXITEtJSsrLjouFx8zODM4NygtLisBCgoKDQ0NDg0NDjcZHxk3KysrKysrKysrKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAAAAQIDBAUH/8QAKxABAQEAAQMDAgYBBQAAAAAAAAECEQMSITFBUQRhE3GBkaHwIhQyscHR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APnOWuIjMbYjSNMRtmIxG2YByCxXBVBnQdIFZa4jLLbANcRtmM8RrlFaZi4iUXSo05K7ZXbPXUBtrbO7Ya6ib1AdHeqbcneubUdc2qbcs2rvB0XbPWmd2jWwVrTHWi1tlrQDVZap60y1RBqs9U7UWgnVZ6XaztFTpnpdZ0E1J1IO/Eb4iMZb4yC8RpIWYtAk1VZ6oC0uU2jkGmW2GGa1zUV0ZrSVhnSu4G10nW2V2z1sGmuoy11GWts9bVGt2nvY9w7gbza5pzyrlUdE2rvc80fcI2u0XbK6RditNbZ60i6RdAu6RdJuk2oHam0rU2gLU2i1NAqiqqKCak6QPXxG+IjEbZBUgpp1QTqs9VWqy1QK0uU2lyDbOmmdOaaVNIrqm1d7mmx3g21tnraLpFoK1pFoHCoDkOZXMgmLipg+0Elaq5RqAV0zuj0z1QF0m6Tam0FWlyjkcgrkrU8lyB2laXJWgLUU7U2gVSdSD3sNJXPnS5sG3cnWmd2m6A9VlqndM7QFqeRUWgvuHcztLkG82O5jycqK27jiMtMwDkaZwrGOW2OnfgGecNc9NtjpX4v7Ns9K/CDmnTP8N2To/Y70b8Xz6ePUHn6wx3l6O+lfi/s5uphRwbjHbq6uXN1IqMdVFqtMrQPkuU2lyC+S5TyOQVym0uS5A7U2i1NoC0hSB602fe5u8+8HR3ldMe4+4GnJWplMBU1RWAzpLsLgExeSkXmIq8R09PLLp5dXSyitejOLz9rP3nDr6fteObLbyy6eXVjIKx7Xj0vPr4+7bP5fPx7zhOY0ygrn7evPPn3o/T45/ScHDBh1PTjj+83/ANcXVw9DccvWyDzOtlxdWPS68cHWjSOLbLTbqMNKibS5K0uQVyXJcgD5LkgA5IEBAEDq7jmmfJwGsqpWUXAaSrjONIgqQ+BFyCo7S7W3aO0GParOV9pyAvpx3fSdLvsnMz+fnn7Rx4dn0nUmdZ1fSX2RXX9P0uc91tk548Z7rfn+/d09Lo8yXn1mrPHMnHzfZz/TdeTMlup27752+/ieL5+zox9Tnj3n+7uxJOzfNt8/xP0QX+H49f8AKZm7OPHH5/PFV0en3TV5nic+v98ev7Mb9Rni3z3XExxxO30k55/KMs9az0tnv4vHkHX0/OuOZPPr7NJmf5c3iZvbzJzbfPt+ji6fU4svxZW862b3S8ya13SyS2evt+orbfS4l7rfGrPGe70k8+v3c2ulzJ5/y1LczjxZOfW/pW0+ond3c7n+XMzPSz4t5/6Y66+fFvPdmakkk7bzzx+Xr/AjzOu8/ru/rVwdZUcXVc+nR1XNpoRSFIQwQAAgAIEAAIG8VBIciBxUKRUBcXlnF5BtlrmMc1tmoq5DsEotBNiVarO0Gua2xpyTS87B352udRxY3z4/NpzeePfnj9QdP4g/Ec/n+eJOffkefj05/ici11Z6jTPUcfmfzz59GuOfH349/lB097Pe0W2TljvYJ62nD1q36u3J1dKjn6lc+m3UrDTSJpHSAgAAIyoAgAIAA7OD4XwOEVBmBBFSoOUG+a1zXNnTSaFdE0Lpj3FdoNNaZ3SNbZ62o17zm3N3DvB2Y6tnmXz5aZ69nv6c8X38/dwzapsHd/qL8+eeebJzz/YJ1r/z/M4rim1TYO6fUX7e/Pieeflpnr3x9vtHBNqm0HdeveOOfHx/fzZa6jn/ABEa6gNOptzdTQ1tlrSid1lVWpqoRGQAjAFSp0qBUCgCAAPU4TYuprLSKmqqLVQWlyVpciNJVTTHk+QbdxXTPkrQVdIuitRaod0O5Fpcg07lTTHkcg3mlTbn7lTSDom1d7mmj7gdHem7Zdxdyi7pFpWlyAtIAAAKBCgAVKnSoFSOlQBGQPVtTanuTay0drO07U2qhWlyVJUVyfKQgrkiAFU1VTVE0jpAQ5BArk+UGC+T5QcBfI5TDAwRgAAAIyAEZACBACMgKgAHZ3Fyz7hyir5TaXJcgYIKhgADIACpU6mgVI6QERkAEBgIqFDgHDEVAIzAEDICIyAgABUqZUCoFAERkDUAAYAAHAABgABQAKpoAFSAAiAAGABxUABUOAAcMAAQAFSIACAAioAFQABEAD//2Q==">
+            <div class="caption center-align">
+              <h3 class="teal-text text-accent-2">Function 4</h3>
+              <h5 class="light grey-text text-lighten-3">...</h5>
+            </div>
+          </li>
         </ul>
       </div>
-    </nav>
 
-    <ul id="nav-mobile" class="sidenav">
-      <li><a class="white-text" href="index.html">Overview</a></li>
-      <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
-      <li><a class="white-text" href="api.html">API</a></li>
-      <li><a class="white-text" href="blogs.html">Blogs</a></li>
-    </ul>
-
-    <!-- Title image -->
-    <div id="index-banner" class="parallax-container">
-      <div class="parallax"><img width='1920' src="data:image/jpeg;base64,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"></div>
-      <div class="section no-pad-bot">
+      <!-- Trailer video -->
+      <div>
         <div class="container">
-          <br><br>
-          <h1 class="header center teal-text text-accent-2">You can put optional title here.</h1>
-        </div>
-      </div>
-      
-    </div>
-
-    <!-- Intuition -->
-    <div class="section no-pad-bot" id="index-banner">
-      <br>
-      <div class="container">
-        <div class="row center">
-          <div class="col s12 m3 l3"><h2 class="teal-text text-accent-2">Intuition</h2></div>
-          <div class="col s12 m2 l2"></div>
-          <div class="col s12 m7 l7 left-align">
-            <h5 class="left-align white-text">WHY DO WE BUILD THIS PROJECT? WHY IS IT USEFUL?</h5>
-            <br>
-            <div class="center-align">
-              <a class="waves-effect waves-light social-icon btn-large github" href="https://powenyao.github.io/XR-Interaction-Toolkit-Examples/"><i class="fa fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-    </div>
-
-    <!-- Function overview slider -->
-    <div class="slider">
-      <ul class="slides">
-        <li>
-          <img src="data:image/jpeg;base64,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">
-          <div class="caption center-align">
-            <h3 class="teal-text text-accent-2">Function 1 - Skeleton calibration</h3>
-            <h5 class="light grey-text text-lighten-3">Calibrate skeleton with buttons. ETC.</h5>
-          </div>
-        </li>
-        <li>
-          <img src="data:image/jpeg;base64,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">
-          <div class="caption left-align">
-            <h3 class="teal-text text-accent-2">Function 2</h3>
-            <h5 class="light grey-text text-lighten-3">...</h5>
-          </div>
-        </li>
-        <li>
-          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURExUYHiggGBolGxUXITEtJSsrLjouFx8zODM4NygtLisBCgoKDQ0NDg0NDjcZHxk3KysrKysrKysrKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIALEBHAMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAAAAQIDBAUH/8QAKxABAQEAAQMDAgYBBQAAAAAAAAECEQMSITFBUQRhE3GBkaHwIhQyscHR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APnOWuIjMbYjSNMRtmIxG2YByCxXBVBnQdIFZa4jLLbANcRtmM8RrlFaZi4iUXSo05K7ZXbPXUBtrbO7Ya6ib1AdHeqbcneubUdc2qbcs2rvB0XbPWmd2jWwVrTHWi1tlrQDVZap60y1RBqs9U7UWgnVZ6XaztFTpnpdZ0E1J1IO/Eb4iMZb4yC8RpIWYtAk1VZ6oC0uU2jkGmW2GGa1zUV0ZrSVhnSu4G10nW2V2z1sGmuoy11GWts9bVGt2nvY9w7gbza5pzyrlUdE2rvc80fcI2u0XbK6RditNbZ60i6RdAu6RdJuk2oHam0rU2gLU2i1NAqiqqKCak6QPXxG+IjEbZBUgpp1QTqs9VWqy1QK0uU2lyDbOmmdOaaVNIrqm1d7mmx3g21tnraLpFoK1pFoHCoDkOZXMgmLipg+0Elaq5RqAV0zuj0z1QF0m6Tam0FWlyjkcgrkrU8lyB2laXJWgLUU7U2gVSdSD3sNJXPnS5sG3cnWmd2m6A9VlqndM7QFqeRUWgvuHcztLkG82O5jycqK27jiMtMwDkaZwrGOW2OnfgGecNc9NtjpX4v7Ns9K/CDmnTP8N2To/Y70b8Xz6ePUHn6wx3l6O+lfi/s5uphRwbjHbq6uXN1IqMdVFqtMrQPkuU2lyC+S5TyOQVym0uS5A7U2i1NoC0hSB602fe5u8+8HR3ldMe4+4GnJWplMBU1RWAzpLsLgExeSkXmIq8R09PLLp5dXSyitejOLz9rP3nDr6fteObLbyy6eXVjIKx7Xj0vPr4+7bP5fPx7zhOY0ygrn7evPPn3o/T45/ScHDBh1PTjj+83/ANcXVw9DccvWyDzOtlxdWPS68cHWjSOLbLTbqMNKibS5K0uQVyXJcgD5LkgA5IEBAEDq7jmmfJwGsqpWUXAaSrjONIgqQ+BFyCo7S7W3aO0GParOV9pyAvpx3fSdLvsnMz+fnn7Rx4dn0nUmdZ1fSX2RXX9P0uc91tk548Z7rfn+/d09Lo8yXn1mrPHMnHzfZz/TdeTMlup27752+/ieL5+zox9Tnj3n+7uxJOzfNt8/xP0QX+H49f8AKZm7OPHH5/PFV0en3TV5nic+v98ev7Mb9Rni3z3XExxxO30k55/KMs9az0tnv4vHkHX0/OuOZPPr7NJmf5c3iZvbzJzbfPt+ji6fU4svxZW862b3S8ya13SyS2evt+orbfS4l7rfGrPGe70k8+v3c2ulzJ5/y1LczjxZOfW/pW0+ond3c7n+XMzPSz4t5/6Y66+fFvPdmakkk7bzzx+Xr/AjzOu8/ru/rVwdZUcXVc+nR1XNpoRSFIQwQAAgAIEAAIG8VBIciBxUKRUBcXlnF5BtlrmMc1tmoq5DsEotBNiVarO0Gua2xpyTS87B352udRxY3z4/NpzeePfnj9QdP4g/Ec/n+eJOffkefj05/ici11Z6jTPUcfmfzz59GuOfH349/lB097Pe0W2TljvYJ62nD1q36u3J1dKjn6lc+m3UrDTSJpHSAgAAIyoAgAIAA7OD4XwOEVBmBBFSoOUG+a1zXNnTSaFdE0Lpj3FdoNNaZ3SNbZ62o17zm3N3DvB2Y6tnmXz5aZ69nv6c8X38/dwzapsHd/qL8+eeebJzz/YJ1r/z/M4rim1TYO6fUX7e/Pieeflpnr3x9vtHBNqm0HdeveOOfHx/fzZa6jn/ABEa6gNOptzdTQ1tlrSid1lVWpqoRGQAjAFSp0qBUCgCAAPU4TYuprLSKmqqLVQWlyVpciNJVTTHk+QbdxXTPkrQVdIuitRaod0O5Fpcg07lTTHkcg3mlTbn7lTSDom1d7mmj7gdHem7Zdxdyi7pFpWlyAtIAAAKBCgAVKnSoFSOlQBGQPVtTanuTay0drO07U2qhWlyVJUVyfKQgrkiAFU1VTVE0jpAQ5BArk+UGC+T5QcBfI5TDAwRgAAAIyAEZACBACMgKgAHZ3Fyz7hyir5TaXJcgYIKhgADIACpU6mgVI6QERkAEBgIqFDgHDEVAIzAEDICIyAgABUqZUCoFAERkDUAAYAAHAABgABQAKpoAFSAAiAAGABxUABUOAAcMAAQAFSIACAAioAFQABEAD//2Q==">
-          <div class="caption right-align">
-            <h3 class="teal-text text-accent-2">Function 3</h3>
-            <h5 class="light grey-text text-lighten-3">...</h5>
-          </div>
-        </li>
-        <li>
-          <img src="data:image/jpeg;base64,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">
-          <div class="caption center-align">
-            <h3 class="teal-text text-accent-2">Function 4</h3>
-            <h5 class="light grey-text text-lighten-3">...</h5>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Trailer video -->
-    <div>
-      <div class="container">
-        <div class="section">
-          <div class="row">
-            <div class="icon-block">
-              <h2 class="center teal-text text-accent-2">Trailer</h2>
-            </div>
-            <div class="video-container">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/zCLOJ9j1k2Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Walkthrough video -->
-    <div>
-      <div class="container">
-        <div class="section">
-          <div class="row">
-            <div class="icon-block">
-              <h2 class="center teal-text text-accent-2">Walkthrough</h2>
-            </div>
-            <div class="video-container">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/zCLOJ9j1k2Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Download build -->
-    <div>
-      <div class="container">
-        <div class="section">
-          <div class="row">
-            <div class="icon-block">
-              <h2 class="center teal-text text-accent-2">Build</h2>
-            </div>
-            <div class="col s12 m2 l3"></div>
-            <div class="col s12 m8 l6">
-              <div class="card teal">
-                <div class="card-content">
-                  <span class="card-title center-align white-text">2020 Spring</span>
-                  <br>
-                  <div class="divider"></div>
-                  <h5 class="center-align white-text" href="#">Link</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col s12 m2 l3"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Team -->
-    <div>
-      <div class="container">
-        <div class="section">
-          <div class="row">
-            <div class="icon-block">
-              <h2 class="center teal-text text-accent-2">Team</h2>
-            </div>
-
+          <div class="section">
             <div class="row">
-              <div class="col s12 m6 l3">
-                <div class="card large">
-                  <div class="card-image">
-                    <img src="data:image/jpeg;base64,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">
-                    <span class="card-title">Powen Yao</span>
-                  </div>
-                  <div class="card-content">
-                    <p><b>Team leader</b></p>
-                    <p>PhD at University of Southern California</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
-                    <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
+              <div class="icon-block">
+                <h2 class="center teal-text text-accent-2">Trailer</h2>
               </div>
-
-              <div class="col s12 m6 l3">
-                <div class="card large">
-                  <div class="card-image">
-                    <img src="misc/avatar_huijun_jiang.jpg">
-                    <span class="card-title">Huijun Jiang</span>
-                  </div>
-                  <div class="card-content">
-                    <p><b>Project manager</b></p>
-                    <p>MS</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
-                    <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
+              <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/zCLOJ9j1k2Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
-
-              <div class="col s12 m6 l3">
-                <div class="card large">
-                  <div class="card-image">
-                    <img src="misc/avatar_hanyuan_xiao.jfif">
-                    <span class="card-title">Hanyuan Xiao</span>
-                  </div>
-                  <div class="card-content">
-                    <p>PhD at University of Southern California</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light social-icon btn github" href="https://corneliushsiao.github.io/"><i class="fa fa-github"></i></a>
-                    <a class="waves-effect waves-light social-icon btn linkedin" href="https://www.linkedin.com/in/hanyuanxiao/"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col s12 m6 l3">
-                <div class="card large">
-                  <div class="card-image">
-                    <img src="misc/avatar_hong_liu.jpg">
-                    <span class="card-title">Hong Liu</span>
-                  </div>
-                  <div class="card-content">
-                    <p><b>Iron Man</b></p>
-                    <p>MS</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
-                    <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col s12 m6 l3">
-                <div class="card large">
-                  <div class="card-image">
-                    <img src="misc/avatar_feiyu_miao.jpg">
-                    <span class="card-title">Feiyu Miao</span>
-                  </div>
-                  <div class="card-content">
-                    <p>MS</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
-                    <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col s12 m6 l3">
-                <div class="card large">
-                  <div class="card-image">
-                    <img src="misc/avatar_jessi_jia.jpg">
-                    <span class="card-title">Ruoxi Jia</span>
-                  </div>
-                  <div class="card-content">
-                    <p>MS</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
-                    <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col s12 m6 l3">
-                <div class="card large">
-                  <div class="card-image">
-                    <img src="misc/avatar_shinyee.jpg">
-                    <span class="card-title">Shinyee Lin</span>
-                  </div>
-                  <div class="card-content">
-                    <p>MS</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
-                    <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col s12 m6 l3">
-                <div class="card large">
-                  <div class="card-image">
-                    <img src="misc/avatar_tommy.jfif">
-                    <span class="card-title">Hyuck Ju Kim</span>
-                  </div>
-                  <div class="card-content">
-                    <p>MS</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
-                    <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Acknowledgement -->
-    <div>
-      <div class="container">
-        <div class="section">
-          <div class="row">
-            <div class="icon-block">
-              <h2 class="center teal-text text-accent-2">Acknowledgement</h2>
-            </div>
-
-            <div class="slider">
-              <ul class="slides">
-                <li>
-                  <img src="misc/USC-Games-logo.png">
-                  <div class="caption left-align">
-                    <h1 class="white-text">USC Games</h1>
-                  </div>
-                </li>
-                <li>
-                  <img src="misc/Unity-logo.png">
-                  <div class="caption left-align">
-                    <h1 class="white-text">Unity</h1>
-                  </div>
-                </li>
-                <li>
-                  <img src="misc/HTC-Vive-logo.png">
-                  <div class="caption left-align">
-                    <h1 class="white-text">HTC Vive</h1>
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <!-- Walkthrough video -->
+      <div>
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <div class="icon-block">
+                <h2 class="center teal-text text-accent-2">Walkthrough</h2>
+              </div>
+              <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/zCLOJ9j1k2Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download build -->
+      <div>
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <div class="icon-block">
+                <h2 class="center teal-text text-accent-2">Build</h2>
+              </div>
+              <div class="col s12 m2 l3"></div>
+              <div class="col s12 m8 l6">
+                <div class="card teal">
+                  <div class="card-content">
+                    <span class="card-title center-align white-text">2020 Spring</span>
+                    <br>
+                    <div class="divider"></div>
+                    <h5 class="center-align white-text" href="#">Link</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m2 l3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team -->
+      <div>
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <div class="icon-block">
+                <h2 class="center teal-text text-accent-2">Team</h2>
+              </div>
+
+              <div class="row">
+                <div class="col s12 m6 l3">
+                  <div class="card large">
+                    <div class="card-image">
+                      <img src="data:image/jpeg;base64,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">
+                      <span class="card-title">Powen Yao</span>
+                    </div>
+                    <div class="card-content">
+                      <p><b>Team leader</b></p>
+                      <p>PhD at University of Southern California</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
+                      <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                  <div class="card large">
+                    <div class="card-image">
+                      <img src="misc/avatar_huijun_jiang.jpg">
+                      <span class="card-title">Huijun Jiang</span>
+                    </div>
+                    <div class="card-content">
+                      <p><b>Project manager</b></p>
+                      <p>MS</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
+                      <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                  <div class="card large">
+                    <div class="card-image">
+                      <img src="misc/avatar_hanyuan_xiao.jfif">
+                      <span class="card-title">Hanyuan Xiao</span>
+                    </div>
+                    <div class="card-content">
+                      <p>PhD at University of Southern California</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light social-icon btn github" href="https://corneliushsiao.github.io/"><i class="fa fa-github"></i></a>
+                      <a class="waves-effect waves-light social-icon btn linkedin" href="https://www.linkedin.com/in/hanyuanxiao/"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                  <div class="card large">
+                    <div class="card-image">
+                      <img src="misc/avatar_hong_liu.jpg">
+                      <span class="card-title">Hong Liu</span>
+                    </div>
+                    <div class="card-content">
+                      <p><b>Iron Man</b></p>
+                      <p>MS</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
+                      <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                  <div class="card large">
+                    <div class="card-image">
+                      <img src="misc/avatar_feiyu_miao.jpg">
+                      <span class="card-title">Feiyu Miao</span>
+                    </div>
+                    <div class="card-content">
+                      <p>MS</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
+                      <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                  <div class="card large">
+                    <div class="card-image">
+                      <img src="misc/avatar_jessi_jia.jpg">
+                      <span class="card-title">Ruoxi Jia</span>
+                    </div>
+                    <div class="card-content">
+                      <p>MS</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
+                      <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                  <div class="card large">
+                    <div class="card-image">
+                      <img src="misc/avatar_shinyee.jpg">
+                      <span class="card-title">Shinyee Lin</span>
+                    </div>
+                    <div class="card-content">
+                      <p>MS</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
+                      <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l3">
+                  <div class="card large">
+                    <div class="card-image">
+                      <img src="misc/avatar_tommy.jfif">
+                      <span class="card-title">Hyuck Ju Kim</span>
+                    </div>
+                    <div class="card-content">
+                      <p>MS</p>
+                    </div>
+                    <div class="card-action">
+                      <a class="waves-effect waves-light social-icon btn github" href="#"><i class="fa fa-github"></i></a>
+                      <a class="waves-effect waves-light social-icon btn linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acknowledgement -->
+      <div>
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <div class="icon-block">
+                <h2 class="center teal-text text-accent-2">Acknowledgement</h2>
+              </div>
+
+              <div class="slider">
+                <ul class="slides">
+                  <li>
+                    <a href="https://games.usc.edu/"><img src="misc/USC-Games-logo.png" href="https://games.usc.edu/"></a>
+                    <div class="caption left-align">
+                      <h1><a class="white-text" href="https://games.usc.edu/">USC Games</a></h1>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="https://unity.com/"><img src="misc/Unity-logo.png"></a>
+                    <div class="caption left-align">
+                      <h1><a class="white-text" href="https://unity.com/">Unity</a></h1>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="https://www.vive.com/"><img src="misc/HTC-Vive-logo.png"></a>
+                    <div class="caption left-align">
+                      <h1><a class="white-text" href="https://www.vive.com/">HTC Vive</a></h1>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <footer class="page-footer black">
       <div class="container">
