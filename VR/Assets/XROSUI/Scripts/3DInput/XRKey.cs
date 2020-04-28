@@ -107,6 +107,8 @@ public class XRKey : MonoBehaviour
 
     void OnHoverExit(XRBaseInteractor obj)
     {
+        if (this.gameObject == null)
+            return;
         if (!m_Held)
         {
             m_MeshRenderer.material.color = transparent;
@@ -115,11 +117,17 @@ public class XRKey : MonoBehaviour
             hover_start = false;
             hover_timer = 0;
         }
+        keyboardController.isHovering = false;
+
 
     }
 
     void OnHoverEnter(XRBaseInteractor obj)
     {
+        keyboardController.isHovering = true;
+        if (this.gameObject == null)
+            return;
+
         if (myText.text == "start" && hover_start == false)
         {
             hover_start = true;

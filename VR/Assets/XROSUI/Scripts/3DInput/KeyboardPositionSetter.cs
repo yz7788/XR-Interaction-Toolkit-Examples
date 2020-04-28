@@ -59,6 +59,10 @@ public class KeyboardPositionSetter : MonoBehaviour
     }
     void TriggerReleased(XRBaseInteractor obj)
     {
+        if (kcc.isHovering)
+        {
+            return;
+        }
         if (kcc.active)
         {
             Core.Ins.ScenarioManager.SetFlag("TurnOffKeyboard",true);//tell the Core user start keyboard successfully.
