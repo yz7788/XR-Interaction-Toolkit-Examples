@@ -152,16 +152,16 @@ public class MeasureLeftArmLength : MonoBehaviour
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Start";
             workflowPose.texture = null;
             // Change scale of stickSkeleton accordingly
-            stickSkeleton.transform.localScale = new Vector3(armLength * 4.1f, armLength * 4.1f, armLength * 4.1f);
-            stickSkeleton.transform.position = new Vector3(HMDPos.x + 0.8f, HMDPos.y - 0.70f, HMDPos.z);
+            stickSkeleton.transform.localScale = new Vector3(armLength * 0.009f, armLength * 0.009f, armLength * 0.009f);
+            stickSkeleton.transform.position = new Vector3(HMDPos.x - 0.8f, HMDPos.y - 0.80f, HMDPos.z);
             // Change position and scale of in-reach planes accordingly
             InReachFarthestPlane.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.3f, HMDPos.z);
             InReachProperPlane.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.3f, HMDPos.z);
-            InReachFarthestPlane.transform.localScale = new Vector3(armLength * 700f, 1.5f, armLength * 700f);
-            InReachProperPlane.transform.localScale = new Vector3(armLength * 0.6f * 700f, 2.5f, armLength * 0.6f * 700f);
+            InReachFarthestPlane.transform.localScale = new Vector3(armLength * 780f, 1.5f, armLength * 780f);
+            InReachProperPlane.transform.localScale = new Vector3(armLength * 0.6f * 780f, 2.5f, armLength * 0.6f * 780f);
 
-            InReachFarthestPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z - armLength * 0.7f);
-            InReachProperPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z - armLength * 0.7f * 0.6f);
+            InReachFarthestPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z + armLength * 0.7f);
+            InReachProperPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z + armLength * 0.7f * 0.6f);
             //InReachFarthestPlaneCaption.transform.localScale = new Vector3(18f, 1.5f, 18f);
             //InReachProperPlaneCaption.transform.localScale = new Vector3(18f, 2.5f, 18f);
             // Update UI position
@@ -348,7 +348,7 @@ public class MeasureLeftArmLength : MonoBehaviour
     {
         // Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
         float distance = armLength * 0.6f;
-        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y, HMDPos.z - 0.6f * distance);
+        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y, HMDPos.z + 0.6f * distance);
     }
 
     float ComputeGeneric()
