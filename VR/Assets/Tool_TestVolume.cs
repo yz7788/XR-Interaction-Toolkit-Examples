@@ -26,16 +26,19 @@ public class Tool_TestVolume : MonoBehaviour
         switch (m_audioType)
         {
             case Audio_Type.master:
-                Core.Ins.AudioManager.PlayMusic(AudioClipName);
+                Core.Ins.AudioManager.PlayMaster(AudioClipName);
                 break;
             case Audio_Type.music:
-                Core.Ins.AudioManager.PlayMusic(AudioClipName);
+
+                Core.Ins.AudioManager.PlayTestMusic("Beep_SFX");
+                System.Threading.Thread.Sleep(500);
+                Core.Ins.AudioManager.PlayMusic();
                 break;
             case Audio_Type.sfx:
                 Core.Ins.AudioManager.Play2DAudio(AudioClipName);
                 break;
             case Audio_Type.voice:
-                Core.Ins.AudioManager.PlayMusic(AudioClipName);
+                Core.Ins.AudioManager.PlayVoice(AudioClipName);
                 break;
         }
     }

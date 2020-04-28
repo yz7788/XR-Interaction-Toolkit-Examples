@@ -17,8 +17,8 @@ public class ScreenshotPreview : MonoBehaviour
     void Start()
     {
         //Application.OpenURL(Application.persistentDataPath);
-
-        GetPictureAndShowIt();
+        Controller_Screenshot.EVENT_NewScreenshot += GetPictureAndShowIt;
+        //GetPictureAndShowIt();
     }
     private void OnEnable()
     {
@@ -33,6 +33,7 @@ public class ScreenshotPreview : MonoBehaviour
             lastAskTime = Time.time;
         }
     }
+    
 
     void GetPictureAndShowIt()
     {
@@ -47,6 +48,8 @@ public class ScreenshotPreview : MonoBehaviour
         }
     }
 
+
+    
     Texture2D GetScreenshotImage(string filePath)
     {
         Texture2D texture = null;

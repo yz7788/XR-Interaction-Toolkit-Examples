@@ -24,10 +24,13 @@ public class Controller_Audio : MonoBehaviour
     //public Text text;
     Text Text_volumeValue;
     //Public so we can drag child objects
+    public AudioSource master_source;
     [Tooltip("Drag child object with an audiosource to be used as the default menu sfx audio source")]
     public AudioSource menuSfx_source;
     [Tooltip("Drag child object with an audiosource to be used as the default music source")]
     public AudioSource music_source;
+    //[Tooltip("Drag child object with an audiosource to be used as the default music source")]
+    public AudioSource musicVoice_source;
     [Tooltip("Drag an audio file to be the default error sound")]
     public AudioClip errorClip;
     [Tooltip("Drag a GO_AudioSource Prefab to be used for all audio effects, through ObjectPooling")]
@@ -104,18 +107,48 @@ public class Controller_Audio : MonoBehaviour
             music_source.UnPause();
         }
     }
-    public void PlayMusic(string acname)
+    public void PlayMaster(string acname)
     {
-        this.PlayMusic(LoadAudioClip(acname));
+        this.PlayMaster(LoadAudioClip(acname));
+    }
+
+    public void PlayMaster(AudioClip ac)
+    {
+        //Make sure we have a valid clip
+        if (ac == null) return;
+
+
+        AudioSource source = this.master_source;
+        source.clip = ac;
+        source.Play();
+    }
+
+    public void PlayTestMusic(string acname)
+    {
+        this.PlayTestMusic(LoadAudioClip(acname));
+    }
+
+    public void PlayTestMusic(AudioClip ac)
+    {
+        //Make sure we have a valid clip
+        if (ac == null) return;
+        AudioSource source = this.music_source;
+        music_source.loop = false;
+        source.clip = ac;
+        source.PlayOneShot(ac);
+        Debug.Log("TestMusic");
+    }
+    public void PlayMusic()
+    {
+        this.PlayMusic(LoadAudioClip("Dreamland (Loop)"));
     }
 
     public void PlayMusic(AudioClip ac)
     {
         //Make sure we have a valid clip
         if (ac == null) return;
-
-
         AudioSource source = this.music_source;
+        music_source.loop = true;
         source.clip = ac;
         source.Play();
     }
@@ -134,7 +167,21 @@ public class Controller_Audio : MonoBehaviour
         source.clip = ac;
         source.Play();
     }
+    public void PlayVoice(string acname)
+    {
+        this.PlayVoice(LoadAudioClip(acname));
+    }
 
+    public void PlayVoice(AudioClip ac)
+    {
+        //Make sure we have a valid clip
+        if (ac == null) return;
+
+
+        AudioSource source = this.musicVoice_source;
+        source.clip = ac;
+        source.Play();
+    }
 
     private void Play3DAudio(AudioClip ac, GameObject go, float pitch = 1f)
     {

@@ -943,7 +943,6 @@ MonoBehaviour:
   menuTypes: 5
   lightIncreaseRate: 0.1
   lightDecreaseRate: -0.1
-  showAndHidePanel: {fileID: 0}
 --- !u!135 &2098937932
 SphereCollider:
   m_ObjectHideFlags: 0

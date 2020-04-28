@@ -10,15 +10,15 @@ public class VRGoggle : VREquipment
 {
     public float lightIncreaseRate = 0.01f;
     public float lightDecreaseRate = -0.01f;
-    public Image showAndHidePanel;
+    //public Image showAndHidePanel;
     string m_pathToSave;
 
     public override void OnActivated(XRBaseInteractor obj)
     {
-        TakeScreenshot();
+        Core.Ins.ScreenshotManager.TakeAShot();
     }
 
-    void TakeScreenshot()
+    /*void TakeScreenshot()
     {
         
         Core.Ins.AudioManager.PlaySfx("360329__inspectorj__camera-shutter-fast-a");
@@ -31,36 +31,8 @@ public class VRGoggle : VREquipment
 
         StartCoroutine(ShowAndHide(showAndHidePanel, 1.0f));
     }
+    */
     
-    IEnumerator ShowAndHide(Image go, float delay)
-    {
-        GetPictureAndShowIt();
-        go.enabled = true;
-        yield return new WaitForSeconds(delay);
-        go.enabled = false;
-    }
-    void GetPictureAndShowIt()
-    {
-        //files = Directory.GetFiles(Application.persistentDataPath + "/" + m_pathToSave); //to get the local files(screenshots)
-        Texture2D texture = GetScreenshotImage(Application.persistentDataPath + "/" + m_pathToSave);
-        Sprite sp = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), 
-            new Vector2(0.5f, 0.5f));//?
-        showAndHidePanel.sprite = sp;
-        //}
-    }
-
-    Texture2D GetScreenshotImage(string filePath)
-    {
-        Texture2D texture = null;
-        byte[] fileBytes;
-        if (File.Exists(filePath))
-        {
-            fileBytes = File.ReadAllBytes(filePath);
-            texture = new Texture2D(2, 2, TextureFormat.RGB24, false);
-            texture.LoadImage(fileBytes);
-        }
-        return texture;
-    }
 
     public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {

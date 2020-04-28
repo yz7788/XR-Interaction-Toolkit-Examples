@@ -4,15 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
+
+
 public class ButtonHandler : MonoBehaviour
 {
-    public TextMeshProUGUI myButton;
+    
+    //public TextMeshProUGUI myButton;
     
     public void Start()
     {
+        
     }
-
     public void TakeAShot()
+    {
+        Core.Ins.ScreenshotManager.TakeAShot();
+    }
+    /*public void TakeAShot()
     {
         Core.Ins.AudioManager.PlaySfx("360329__inspectorj__camera-shutter-fast-a");
         myButton.SetText("Screenshot Got!");
@@ -23,10 +30,11 @@ public class ButtonHandler : MonoBehaviour
 
         ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + pathToSave);       
     }
-
+    
     IEnumerator CaptureIt()
     {
         yield return new WaitForEndOfFrame();
         //Instantiate(blink, new Vector2(0f, 0f), Quaternion.identity);
     }
+    */
 }

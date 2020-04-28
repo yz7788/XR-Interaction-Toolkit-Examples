@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1867812121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2281,7 +2281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68df3f95f793d4eac4c5b79b136496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClipName: Land of Knights (Long Loop)
+  AudioClipName: Beep_SFX
   m_audioType: 2
 --- !u!1 &1796463267698135835
 GameObject:
@@ -4445,7 +4445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 20, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8616289217892070970
@@ -5228,7 +5228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68df3f95f793d4eac4c5b79b136496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClipName: COMPUTER_Beep_Small_mono
+  AudioClipName: Beep_SFX
   m_audioType: 3
 --- !u!1 &4920833307901495995
 GameObject:
@@ -5528,7 +5528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68df3f95f793d4eac4c5b79b136496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClipName: COMPUTER_Beep_Small_mono
+  AudioClipName: Beep_SFX
   m_audioType: 0
 --- !u!1 &5259924192238696545
 GameObject:
@@ -8304,7 +8304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 10}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 20, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4510417563931264716
@@ -9832,7 +9832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68df3f95f793d4eac4c5b79b136496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClipName: COMPUTER_Beep_Small_mono
+  AudioClipName: Beep_SFX
   m_audioType: 1
 --- !u!1 &8785589301670089570
 GameObject:
@@ -10063,6 +10063,34 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1820059409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9009533473817664368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14d774954d20c944890440fd6e80943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myButton: {fileID: 0}
+  myPanel: {fileID: 0}
+--- !u!114 &831012670574698618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9009533473817664368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14d774954d20c944890440fd6e80943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myButton: {fileID: 0}
+  myPanel: {fileID: 0}
 --- !u!1 &9110487856726216024
 GameObject:
   m_ObjectHideFlags: 0
@@ -10316,6 +10344,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 402760536581277722, guid: 17390d5e98d3746bdb97313d75899989,
+        type: 3}
+      propertyPath: myImage
+      value: 
+      objectReference: {fileID: 170419788454926824}
     - target: {fileID: 1457596721599007152, guid: 17390d5e98d3746bdb97313d75899989,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10502,6 +10535,24 @@ GameObject:
 --- !u!224 &3429968457241150007 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1457596721599007152, guid: 17390d5e98d3746bdb97313d75899989,
+    type: 3}
+  m_PrefabInstance: {fileID: 4297522962535910279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &170419788454926824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4178968512003576431, guid: 17390d5e98d3746bdb97313d75899989,
+    type: 3}
+  m_PrefabInstance: {fileID: 4297522962535910279}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &9009533473817664368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092327256285319415, guid: 17390d5e98d3746bdb97313d75899989,
     type: 3}
   m_PrefabInstance: {fileID: 4297522962535910279}
   m_PrefabAsset: {fileID: 0}
