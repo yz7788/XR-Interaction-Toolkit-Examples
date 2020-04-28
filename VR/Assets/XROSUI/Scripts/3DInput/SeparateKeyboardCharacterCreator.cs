@@ -31,8 +31,8 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     List<GameObject> points = new List<GameObject>();  // including real/lower keys and mirror/upper keys
     private KeyboardWrapper kw = new KeyboardWrapper();
     private Vector3 keyboardModelPosition;   // only include real/lower keys but not mirror/upper keys
-    // Update is called once per frame
-    
+                                             // Update is called once per frame
+
     private void Start()
     {
         
@@ -67,7 +67,6 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         // create mirrored controllers
         SetUpMirrorControllers(startingX, startingY, startingZ);
     }
-
 
     public void CreateDefaultPoints(float startingX, float startingY, float startingZ)
     {
@@ -141,8 +140,10 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     // remove the whole keyboard
     public void DestroyPoints()
     {
-        foreach (GameObject point in points) {
-            Destroy(point);
+        foreach (GameObject point in points)
+        {
+            if (point != null)
+                Destroy(point);
         }
         points.Clear();
         kw.keys.Clear();
@@ -160,6 +161,25 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         }
     }
 
+    public void EmptyPositions()
+    {
+        print("triggered");
+        string filename = "positions.JSON";
+        StreamWriter writer = new StreamWriter(filename, false);
+
+        try
+        {
+            writer.Write("");
+        }
+        catch (Exception exp)
+        {
+            print(exp.Message);
+        }
+        finally
+        {
+            writer.Close();
+        }
+    }
     public void SaveKeyPositions()
     {
 
@@ -213,8 +233,10 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
 
     private void DestroyMirrorControllers()
     {
-        Destroy(mirrorControllerLeft);
-        Destroy(mirrorControllerRight);
+        if (mirrorControllerLeft != null)
+            Destroy(mirrorControllerLeft);
+        if (mirrorControllerRight != null)
+            Destroy(mirrorControllerRight);
     }
 }
 

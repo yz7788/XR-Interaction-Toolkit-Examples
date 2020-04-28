@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 public class MeasureLeftArmLength : MonoBehaviour
 {
     int stepCounter = 0;
@@ -12,18 +14,25 @@ public class MeasureLeftArmLength : MonoBehaviour
     float horizontalY = 0.0f;
     int readingFile = 1;
     bool firstSetSkeletonPos = false;
+    bool readingJoints = false;
     // float offset_x = 0.0f;     // This is for TEST UI ONLY
     // float offset_y = 0.0f;     // This is for TEST UI ONLY
     // float offset_z = -0.1f;     // This is for TEST UI ONLY
     // UI components
     public Button LeftArmMeasureButton;
     public Button UpdateFromFileButton;
+    public Button NextPageButton;
     public Text LeftArmLengthText;
     public Text LeftArmInstructionText;
     public RawImage workflowPose;
     public Texture workflowStep1;
     public Texture workflowStep2;
+    public RawImage showSkeletonIdx;
+    public Texture jointsImage;
+    public Texture bonesImage;
     public GameObject stickSkeleton;
+    TMP_Text LeftPrintPanel;
+    TMP_Text RightPrintPanel;
     GameObject thisUIPanel;
     GameObject InReachFarthestPlane;
     GameObject InReachProperPlane;
@@ -64,15 +73,20 @@ public class MeasureLeftArmLength : MonoBehaviour
         measureBtn.onClick.AddListener(MeasureLeftArm);
         Button updateFromFileBtn = UpdateFromFileButton.GetComponent<Button>();
         updateFromFileBtn.onClick.AddListener(updateFromFile);
+        Button NextPageBtn = NextPageButton.GetComponent<Button>();
+        NextPageBtn.onClick.AddListener(showNextPage);
         LeftArmLengthText = GameObject.Find("LeftArmLengthText").GetComponent<Text>();
         LeftArmInstructionText = GameObject.Find("LeftArmInstructionText").GetComponent<Text>();
         Image workflowPoseImg = workflowPose.GetComponent<Image>();
+        Image showSkeletonIdxImg = showSkeletonIdx.GetComponent<Image>();
 
         thisUIPanel = GameObject.Find("UIForUpdate");
         InReachFarthestPlane = GameObject.Find("InReachFarthestPlane");
         InReachProperPlane = GameObject.Find("InReachProperPlane");
         InReachFarthestPlaneCaption = GameObject.Find("InReachFarthestPlaneCaption");
         InReachProperPlaneCaption = GameObject.Find("InReachProperPlaneCaption");
+        LeftPrintPanel = GameObject.Find("LeftPrintPanel").GetComponentInChildren<TMP_Text>();
+        RightPrintPanel = GameObject.Find("RightPrintPanel").GetComponentInChildren<TMP_Text>();
 
         Neck = GameObject.Find("Neck");
         Spine = GameObject.Find("Spine");
@@ -138,16 +152,16 @@ public class MeasureLeftArmLength : MonoBehaviour
             LeftArmMeasureButton.GetComponentInChildren<Text>().text = "Start";
             workflowPose.texture = null;
             // Change scale of stickSkeleton accordingly
-            stickSkeleton.transform.localScale = new Vector3(armLength * 4.1f, armLength * 4.1f, armLength * 4.1f);
-            stickSkeleton.transform.position = new Vector3(HMDPos.x + 0.8f, HMDPos.y - 0.70f, HMDPos.z);
+            stickSkeleton.transform.localScale = new Vector3(armLength * 0.009f, armLength * 0.009f, armLength * 0.009f);
+            stickSkeleton.transform.position = new Vector3(HMDPos.x - 0.8f, HMDPos.y - 0.80f, HMDPos.z);
             // Change position and scale of in-reach planes accordingly
             InReachFarthestPlane.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.3f, HMDPos.z);
             InReachProperPlane.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.3f, HMDPos.z);
-            InReachFarthestPlane.transform.localScale = new Vector3(armLength * 700f, 1.5f, armLength * 700f);
-            InReachProperPlane.transform.localScale = new Vector3(armLength * 0.6f * 700f, 2.5f, armLength * 0.6f * 700f);
+            InReachFarthestPlane.transform.localScale = new Vector3(armLength * 780f, 1.5f, armLength * 780f);
+            InReachProperPlane.transform.localScale = new Vector3(armLength * 0.6f * 780f, 2.5f, armLength * 0.6f * 780f);
 
-            InReachFarthestPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z - armLength * 0.7f);
-            InReachProperPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z - armLength * 0.7f * 0.6f);
+            InReachFarthestPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z + armLength * 0.7f);
+            InReachProperPlaneCaption.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.28f, HMDPos.z + armLength * 0.7f * 0.6f);
             //InReachFarthestPlaneCaption.transform.localScale = new Vector3(18f, 1.5f, 18f);
             //InReachProperPlaneCaption.transform.localScale = new Vector3(18f, 2.5f, 18f);
             // Update UI position
@@ -197,6 +211,88 @@ public class MeasureLeftArmLength : MonoBehaviour
         Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightUpperArm, singleRatio * 1.5f);
     }
 
+    void showNextPage()
+    {
+        if (readingJoints == false)
+        {
+            // Show data of bones now
+            showBonePage();
+            readingJoints = true;
+        }
+        else
+        {
+            // Show data of joints now
+            showJointPage();
+            readingJoints = false;
+        }
+    }
+
+    void showJointPage()
+    {
+        // Update image
+        showSkeletonIdx.texture = jointsImage;
+        // Update data
+        var jointsData = getJointsData();
+        LeftPrintPanel.text = jointsData.Item1;
+        RightPrintPanel.text = jointsData.Item2;
+        // Update button
+        NextPageButton.GetComponentInChildren<Text>().text = "Show Joints";
+    }
+
+    void showBonePage()
+    {
+        // Update image
+        showSkeletonIdx.texture = bonesImage;
+        // Update data
+        var bonesData = getBonesData();
+        LeftPrintPanel.text = bonesData.Item1;
+        RightPrintPanel.text = bonesData.Item2;
+        // Update button
+        NextPageButton.GetComponentInChildren<Text>().text = "Show Bones";
+    }
+
+    (string, string) getBonesData()
+    {
+        string outputLeft = "", outputRight = "";
+        for (int i = 0; i < 8; i++)
+        {
+            outputLeft += (BoneIdx)i;
+            outputLeft += ": ";
+            outputLeft += Core.Ins.HumanScaleManager.getBoneLength(i).ToString("0.000");
+            outputLeft += System.Environment.NewLine;
+        }
+        for (int i = 8; i < 16; i++)
+        {
+            outputRight += (BoneIdx)i;
+            outputRight += ": ";
+            outputRight += Core.Ins.HumanScaleManager.getBoneLength(i).ToString("0.000");
+            outputRight += System.Environment.NewLine;
+        }
+
+        return (outputLeft, outputRight);
+    }
+
+    (string, string) getJointsData()
+    {
+        string outputLeft = "", outputRight = "";
+        for (int i = 0; i < 9; i++)
+        {
+            outputLeft += i.ToString("0");
+            outputLeft += ": ";
+            outputLeft += Core.Ins.HumanScaleManager.getJointPosition(i).ToString("0.00");
+            outputLeft += System.Environment.NewLine;
+        }
+        for (int i = 9; i < 17; i++)
+        {
+            outputRight += i.ToString("0");
+            outputRight += ": ";
+            outputRight += Core.Ins.HumanScaleManager.getJointPosition(i).ToString("0.00");
+            outputRight += System.Environment.NewLine;
+        }
+
+        return (outputLeft, outputRight);
+    }
+
     void updateFromFile()
     {
         // Read in skeleton
@@ -236,13 +332,23 @@ public class MeasureLeftArmLength : MonoBehaviour
         LeftUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftUpperArm) * 10.0f, 5.0f);
         RightLowerArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightLowerArm) * 10.0f, 5.0f);
         RightUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightUpperArm) * 10.0f, 5.0f);
+
+        // Update visualization
+        if (readingJoints == false)
+        {
+            showJointPage();
+        }
+        else
+        {
+            showBonePage();
+        }
     }
 
     void UpdateUIPos(GameObject UIObject)
     {
         // Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
         float distance = armLength * 0.6f;
-        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y, HMDPos.z - 0.6f * distance);
+        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y, HMDPos.z + 0.6f * distance);
     }
 
     float ComputeGeneric()

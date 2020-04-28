@@ -16,35 +16,124 @@
     <link href="css/materialize-social.css" type="text/css" rel="stylesheet"/>
   </head>
 
-  <body style="background-color:#0B0C10;">
-    <!-- Navigation Bar -->
-    <nav class="nav-extended black" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" class="brand-logo"><a class="flow-text teal-text text-accent-2" href="index.html">XROS</a></a>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a class="white-text" href="index.html">Overview</a></li>
-          <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
-          <li class="active"><a class="white-text" href="api.html"><b>API</b></a></li>
-          <li><a class="white-text" href="blogs.html">Blogs</a></li>
-        </ul>
+  <body>
+    <main>
+      <!-- Navigation Bar -->
+      <nav class="nav-extended grey darken-4" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" class="flow-text brand-logo white-text" href="index.html">XROS</a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="white-text" href="index.html">Overview</a></li>
+            <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
+            <li class="active"><a class="white-text" href="api.html"><b>API</b></a></li>
+            <li><a class="white-text" href="blogs.html">Blogs</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a class="black-text" href="index.html">Overview</a></li>
+        <li><a class="black-text" href="designdoc.html">Design Doc</a></li>
+        <li><a class="black-text" href="api.html"><b>API</b></a></li>
+        <li><a class="black-text" href="blogs.html">Blogs</a></li>
+      </ul>
+    </main>
+
+    <!-- Module Controller_HumanScale -->
+    <div>
+      <div class="container">
+        <div class="section">
+          <div class="row">
+            <div class="icon-block">
+              <h4 class="black-text">Module Controller_HumanScale</h4>
+            </div>
+            <div class="card white">
+              <div class="card-content">
+                <table class="highlight responsive-table">
+                  <tr>
+                    <th class="tg-1wig"><span style="font-style:normal;text-decoration:none">Function Name</span><br></th>
+                    <th class="tg-2kyj">Module Name</th>
+                    <th class="tg-2kyj">Input Args</th>
+                    <th class="tg-2kyj">Output Args</th>
+                    <th class="tg-2kyj">Explanation</th>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">void setBoneLength(int boneIdx, float newValue)</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">(int) boneIdx(float) newValue</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">Update length of specific bone in dictionary boneLengthDict</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">float getBoneLength(int boneIdx)</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">(int) boneIdx</td>
+                    <td class="tg-lu0m">float</td>
+                    <td class="tg-lu0m">Return length of specific bone from dictionary boneLengthDict</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">void setJointPosition(int jointIdx, Vector3 newValue)</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">(int) jointIdx(Vector3) newValue</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">Update position of specific joint in dictionary jointPositionDict</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">Vector3 getJointPosition(int jointIdx)</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">(int) jointIdx</td>
+                    <td class="tg-lu0m">Vector3</td>
+                    <td class="tg-lu0m">Return position of specific joint from dictionary jointPositionDict</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">void updateBoneLength()</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">Update length of all bones according to positions of joints stored in dictionary jointPositionDict</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">void DrawSkeleton()</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">Draw skeleton in Unity Game view for visualization only</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">float GetEyeHeight()</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">float</td>
+                    <td class="tg-lu0m">Return height of eye according to arm length</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">void setArmLength(float newLength)</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">(float) newLength</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">Update arm length</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-lu0m">float getArmLength()</td>
+                    <td class="tg-lu0m">Core/Controller_HumanScale</td>
+                    <td class="tg-lu0m">--</td>
+                    <td class="tg-lu0m">float</td>
+                    <td class="tg-lu0m">Return arm length</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </nav>
+    </div>
 
-    <ul id="nav-mobile" class="sidenav">
-      <li><a class="white-text" href="index.html">Overview</a></li>
-      <li><a class="white-text" href="designdoc.html">Design Doc</a></li>
-      <li><a class="white-text" href="api.html"><b>API</b></a></li>
-      <li><a class="white-text" href="blogs.html">Blogs</a></li>
-    </ul>
-
-    
-
-    <footer class="page-footer black">
+    <footer class="page-footer grey darken-4">
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="teal-text text-accent-2">XROS Team</h5>
+            <h5 class="white-text">XROS Team</h5>
             <div class="divider"></div>
             <ul>
               <li><a class ="white-text" href="">Powen Yao</a></li>
@@ -58,7 +147,7 @@
             </ul>
           </div>
           <div class="col l4 offset-l2 s12">
-            <h5 class="teal-text text-accent-2">Home</h5>
+            <h5 class="white-text">Home</h5>
             <div class="divider"></div>
             <ul>
               <li><a class ="white-text" href="index.html">Overview</a></li>
@@ -70,7 +159,7 @@
         </div>
       </div>
       <div class="footer-copyright">
-        <div class="container teal-text text-accent-2">
+        <div class="container white-text">
         Contents © 2020 XROS Team
         </div>
       </div>

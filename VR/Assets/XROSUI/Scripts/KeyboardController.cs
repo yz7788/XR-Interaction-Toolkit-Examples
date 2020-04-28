@@ -5,6 +5,7 @@ using UnityEngine;using UnityEngine.UI; //create public inputfield
 public class KeyboardController : MonoBehaviour
 {
     public InputField inputField;
+    public bool isHovering = false;
     bool isWaiting;
     // Start is called before the first frame update
     void Start()
