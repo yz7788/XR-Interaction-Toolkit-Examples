@@ -24,15 +24,15 @@ public class Controller_Audio : MonoBehaviour
     //public Text text;
     Text Text_volumeValue;
     //Public so we can drag child objects
-    public AudioSource master_source;
+    public AudioSource AudioSource_Master;
     [Tooltip("Drag child object with an audiosource to be used as the default menu sfx audio source")]
-    public AudioSource menuSfx_source;
+    public AudioSource AudioSource_SFX;
     [Tooltip("Drag child object with an audiosource to be used as the default music source")]
-    public AudioSource music_source;
+    public AudioSource AudioSource_Music;
     //[Tooltip("Drag child object with an audiosource to be used as the default music source")]
-    public AudioSource musicVoice_source;
+    public AudioSource AudioSource_Voice;
     [Tooltip("Drag an audio file to be the default error sound")]
-    public AudioClip errorClip;
+    public AudioClip AudioClip_Error;
     [Tooltip("Drag a GO_AudioSource Prefab to be used for all audio effects, through ObjectPooling")]
     public GO_AudioSource PF_AudioSource;
 
@@ -60,6 +60,7 @@ public class Controller_Audio : MonoBehaviour
         obj.PlaySound(clip);
     }
 
+    #region OnSceneLoaded
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -89,22 +90,23 @@ public class Controller_Audio : MonoBehaviour
 
         if (newLevelMusicClip)
         {
-            music_source.clip = newLevelMusicClip;
-            music_source.loop = true;
-            music_source.Play();
+            AudioSource_Music.clip = newLevelMusicClip;
+            AudioSource_Music.loop = true;
+            AudioSource_Music.Play();
         }
     }
+    #endregion OnSceneLoaded
 
     #region Play Audio
     public void PlayPauseMusic()
     {
-        if (music_source.isPlaying)
+        if (AudioSource_Music.isPlaying)
         {
-            music_source.Pause();
+            AudioSource_Music.Pause();
         }
         else
         {
-            music_source.UnPause();
+            AudioSource_Music.UnPause();
         }
     }
     public void PlayMaster(string acname)
@@ -117,38 +119,22 @@ public class Controller_Audio : MonoBehaviour
         //Make sure we have a valid clip
         if (ac == null) return;
 
-
-        AudioSource source = this.master_source;
+        AudioSource source = this.AudioSource_Master;
         source.clip = ac;
         source.Play();
     }
 
-    public void PlayTestMusic(string acname)
+    public void PlayMusic(string acname)
     {
-        this.PlayTestMusic(LoadAudioClip(acname));
-    }
-
-    public void PlayTestMusic(AudioClip ac)
-    {
-        //Make sure we have a valid clip
-        if (ac == null) return;
-        AudioSource source = this.music_source;
-        music_source.loop = false;
-        source.clip = ac;
-        source.PlayOneShot(ac);
-        Debug.Log("TestMusic");
-    }
-    public void PlayMusic()
-    {
-        this.PlayMusic(LoadAudioClip("Dreamland (Loop)"));
+        this.PlayMusic(LoadAudioClip(acname));
     }
 
     public void PlayMusic(AudioClip ac)
     {
         //Make sure we have a valid clip
         if (ac == null) return;
-        AudioSource source = this.music_source;
-        music_source.loop = true;
+        AudioSource source = this.AudioSource_Music;
+        AudioSource_Music.loop = true;
         source.clip = ac;
         source.Play();
     }
@@ -163,7 +149,7 @@ public class Controller_Audio : MonoBehaviour
         if (ac == null) return;
 
 
-        AudioSource source = this.menuSfx_source;
+        AudioSource source = this.AudioSource_SFX;
         source.clip = ac;
         source.Play();
     }
@@ -178,7 +164,7 @@ public class Controller_Audio : MonoBehaviour
         if (ac == null) return;
 
 
-        AudioSource source = this.musicVoice_source;
+        AudioSource source = this.AudioSource_Voice;
         source.clip = ac;
         source.Play();
     }
@@ -197,7 +183,7 @@ public class Controller_Audio : MonoBehaviour
         //TODO ObjectPooling
         //GameObject audioObj = PoolManager.Spawn(instance.oneShotPrefab, position, Quaternion.identity);
         //AudioSource source = audioObj.GetComponent<AudioSource>();
-        AudioSource source = this.menuSfx_source;
+        AudioSource source = this.AudioSource_SFX;
 
         source.clip = ac;
         source.pitch = pitch;
@@ -254,8 +240,8 @@ public class Controller_Audio : MonoBehaviour
             {
                 Dev.Log(name + " not in dictionary and " + resourcename + " not in Resources folder. Default to error clip", Dev.LogCategory.Audio);
                 //Note: To Address this issue, make sure the audio with the name you want to use is loaded into the audioDictionary.
-                audioDictionary.Add(name, errorClip);
-                ac = errorClip;
+                audioDictionary.Add(name, AudioClip_Error);
+                ac = AudioClip_Error;
             }
         }
 

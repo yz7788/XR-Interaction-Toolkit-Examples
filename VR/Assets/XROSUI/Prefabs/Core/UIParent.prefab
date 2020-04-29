@@ -3646,7 +3646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6811670689936931082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3739,7 +3739,7 @@ MonoBehaviour:
   GO_XRRigCamera: {fileID: 0}
   UpdateFrequencyInSeconds: 0.05
   DistanceToStopMoving: 0
-  OffsetDistance: {x: 0, y: 0, z: 0.5}
+  OffsetDistance: {x: 0, y: 0, z: 0.7}
   speed: 1
 --- !u!1 &3510672698301779634
 GameObject:

@@ -2075,26 +2075,6 @@ PrefabInstance:
       propertyPath: m_OnSelectEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1777199410}
-    - target: {fileID: 1511776250649073883, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511776250649073883, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511776250649073883, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511776250649073883, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1717954561456925282, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_Name
@@ -2173,26 +2153,6 @@ PrefabInstance:
     - target: {fileID: 3764525377186740012, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5502752749669735321, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5502752749669735321, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269158769539968320, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269158769539968320, guid: 15de75ba802bdca4faf70a66e3551439,
-        type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10542,14 +10502,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2128345200, guid: 9150fe08e9ea0204286a9f1ca300d73e, type: 3}
-      propertyPath: OffsetDistance.z
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2128345200, guid: 9150fe08e9ea0204286a9f1ca300d73e, type: 3}
-      propertyPath: OffsetDistance.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 632607172157394499, guid: 9150fe08e9ea0204286a9f1ca300d73e,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -11417,10 +11369,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 366517735, guid: 90b64e8342fc675429cdd02125b168b7, type: 3}
-      propertyPath: bHasEvent
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2501370857823875829, guid: 90b64e8342fc675429cdd02125b168b7,
         type: 3}
       propertyPath: m_LocalPosition.x

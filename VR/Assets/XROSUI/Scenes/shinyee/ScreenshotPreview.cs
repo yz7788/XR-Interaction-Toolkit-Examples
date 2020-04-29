@@ -4,36 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
+//Screenshot Menu Manager
 public class ScreenshotPreview : MonoBehaviour
 {
-    //public GameObject canvas;
     public Image myImage;
     string[] files = null;
     int currentImageId = 0;
-    public float coolDown = 0.5f;
-    private float lastAskTime = 0;
 
     // Use this for initialization
     void Start()
     {
-        //Application.OpenURL(Application.persistentDataPath);
         Controller_Screenshot.EVENT_NewScreenshot += GetPictureAndShowIt;
-        //GetPictureAndShowIt();
-    }
-    private void OnEnable()
-    {
-
     }
 
     void Update()
     {
-        if (lastAskTime + coolDown < Time.time)
-        {
-            GetPictureAndShowIt();
-            lastAskTime = Time.time;
-        }
-    }
-    
+        //if (lastAskTime + coolDown < Time.time)
+        //{
+        //    GetPictureAndShowIt();
+        //    lastAskTime = Time.time;
+        //}
+    }    
 
     void GetPictureAndShowIt()
     {
@@ -47,8 +38,6 @@ public class ScreenshotPreview : MonoBehaviour
             myImage.sprite = sp;
         }
     }
-
-
     
     Texture2D GetScreenshotImage(string filePath)
     {

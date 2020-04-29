@@ -36,7 +36,7 @@ public class Controller_AudioRecorder : MonoBehaviour
         debugAudioSource = GetComponent<AudioSource>();
         this.LoadDevices();
 
-      //  Core.Ins.AudioManager.PlayPauseMusic();
+        //Core.Ins.AudioManager.PlayPauseMusic();
         //audioSource.clip = Microphone.Start(list[0], true, 10, 44100);
         debugAudioSource.clip = Microphone.Start("", true, 5, 44100);
         debugAudioSource.Play();
@@ -55,7 +55,7 @@ public class Controller_AudioRecorder : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            //            debugAudioSource.clip = Microphone.Start(RecordingDevices[this.currentDeviceId], true, 3, 44100);
+            //debugAudioSource.clip = Microphone.Start(RecordingDevices[this.currentDeviceId], true, 3, 44100);
             debugAudioSource.clip = Microphone.Start(RecordingDevices[this.currentDeviceId], false, 3, 44100);
         }
         if (Input.GetKeyDown(KeyCode.P))

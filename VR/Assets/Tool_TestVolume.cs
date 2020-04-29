@@ -5,10 +5,9 @@ using UnityEngine.Audio;
 
 public class Tool_TestVolume : MonoBehaviour
 {
-    //public AudioMixer Mixer;
-    //public AudioClip clip;
     public string AudioClipName = "";
     public Audio_Type m_audioType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +28,8 @@ public class Tool_TestVolume : MonoBehaviour
                 Core.Ins.AudioManager.PlayMaster(AudioClipName);
                 break;
             case Audio_Type.music:
-
-                Core.Ins.AudioManager.PlayTestMusic("Beep_SFX");
-                System.Threading.Thread.Sleep(500);
-                Core.Ins.AudioManager.PlayMusic();
+                Core.Ins.AudioManager.PlayMusic("Beep_SFX");
+                //Core.Ins.AudioManager.Play
                 break;
             case Audio_Type.sfx:
                 Core.Ins.AudioManager.Play2DAudio(AudioClipName);

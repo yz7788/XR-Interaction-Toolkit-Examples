@@ -9,9 +9,11 @@ public delegate void EventHandler_NewScreenshot();
 public class Controller_Screenshot : MonoBehaviour
 {
     public static event EventHandler_NewScreenshot EVENT_NewScreenshot;
+    public float DurationToShow = 2.0f;
     public TextMeshProUGUI myButton;
     public GameObject myPanel;
-    Texture2D texture;
+    Texture2D m_Texture;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,37 +23,42 @@ public class Controller_Screenshot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        //Broken in Unity?
+        //if (Input.GetKey(KeyCode.Print))
+        if (Input.GetKeyDown(KeyCode.Pause))
         {
             TakeAShot();
-            print("take a shot");
         }
     }
 
+    private string fileName;
+    private string pathToSave;
     public void TakeAShot()
     {
         Core.Ins.AudioManager.PlaySfx("360329__inspectorj__camera-shutter-fast-a");
-        //Debug.Log("The Screenshot is saved in " + Application.persistentDataPath);// "Application.persistentDataPath" is the file path to save the screenshots, you can change it according to your need
-        string timeStamp = System.DateTime.Now.ToString("MM-dd-yyyy-HH-mm-ss");
-        string fileName = "ScreenshotX" + timeStamp + ".png";//the screenshot image is name in this format, you can change it according to your need
-        string pathToSave = fileName;
+        //Debug.Log("The Screenshot is saved in " + Application.persistentDataPath);
+        // "Application.persistentDataPath" is the file path to save the screenshots, you can change it according to your need
 
-        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/" + pathToSave);
-        texture = ScreenCapture.CaptureScreenshotAsTexture();
+        string fileName = "ScreenshotX" + System.DateTime.Now.ToString("MM-dd-yyyy-HH-mm-ss") + ".png";//the screenshot image is name in this format, you can change it according to your need
+        pathToSave = Application.persistentDataPath + "/" + fileName;
+
+        ScreenCapture.CaptureScreenshot(pathToSave);
+        m_Texture = ScreenCapture.CaptureScreenshotAsTexture();
+
         if (EVENT_NewScreenshot != null)
         {
             EVENT_NewScreenshot();
         }
-        StartCoroutine(ShowAndHide(myPanel, 1.0f));
+        StartCoroutine(ShowAndHide(myPanel, DurationToShow));
     }
 
 
     IEnumerator ShowAndHide(GameObject go, float delay)
     {
         myButton.enabled = true;
-        myButton.SetText("Screenshot Got!");
+        myButton.SetText("Screenshot Taken!");
         go.SetActive(true);
-        Sprite sp = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+        Sprite sp = Sprite.Create(m_Texture, new Rect(0, 0, m_Texture.width, m_Texture.height),
                 new Vector2(0.5f, 0.5f));
         Image image = go.GetComponent<Image>();
         image.sprite = sp;

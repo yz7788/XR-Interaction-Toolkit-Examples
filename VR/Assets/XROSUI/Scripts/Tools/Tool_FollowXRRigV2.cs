@@ -28,11 +28,22 @@ public class Tool_FollowXRRigV2 : MonoBehaviour
         SetNewGoal();
     }
 
+    private void OnEnable()
+    {
+        //GO_XRRigCamera = Camera.main.gameObject;
+        Start();
+    }
     private Vector3 GetGoalPosition()
     {
+        if(GO_XRRigCamera)
+        {
+
         return GO_XRRigCamera.transform.position
             + GO_XRRigCamera.transform.forward * OffsetDistance.z + GO_XRRigCamera.transform.right * OffsetDistance.x
             + GO_XRRigCamera.transform.up * OffsetDistance.y;
+        }
+
+        return this.transform.position;
     }
     // Update is called once per frame
     void LateUpdate()

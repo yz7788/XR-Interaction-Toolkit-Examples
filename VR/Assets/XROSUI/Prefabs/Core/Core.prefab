@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 151089411}
   - component: {fileID: 151089410}
   m_Layer: 0
-  m_Name: MasterSource
+  m_Name: AudioSource_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7645684244925638243}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &151089411
 MonoBehaviour:
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c88821f8bfdfe41b8869e1693d5b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bHasEvent: 0
+  bHasEvent: 1
   m_Waiting: 0
 --- !u!1 &448072966
 GameObject:
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 1830776079}
   - component: {fileID: 1830776078}
   m_Layer: 0
-  m_Name: VoiceSource
+  m_Name: AudioSource_Voice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -871,6 +871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 907544622}
   myPanel: {fileID: 74877395}
+  DurationToShow: 2
 --- !u!1 &2422340281929535362
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,9 +901,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7294955539218501830}
-  - {fileID: 1778158377974830422}
-  - {fileID: 502535597017380500}
   - {fileID: 151089409}
+  - {fileID: 502535597017380500}
+  - {fileID: 1778158377974830422}
   - {fileID: 1830776077}
   m_Father: {fileID: 2501370857823875829}
   m_RootOrder: 0
@@ -920,11 +921,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: eec3dc314fe59c84fb1bccad214f7e77, type: 2}
-  master_source: {fileID: 151089410}
-  menuSfx_source: {fileID: 6024458695807158799}
-  music_source: {fileID: 7983793296232342114}
-  musicVoice_source: {fileID: 1830776078}
-  errorClip: {fileID: 8300000, guid: d56ff287db9218543b9018e94c16948e, type: 3}
+  AudioSource_Master: {fileID: 151089410}
+  AudioSource_SFX: {fileID: 6024458695807158799}
+  AudioSource_Music: {fileID: 7983793296232342114}
+  AudioSource_Voice: {fileID: 1830776078}
+  AudioClip_Error: {fileID: 0}
   PF_AudioSource: {fileID: 4028947876297636204}
   Setting:
     soundOn: 0
@@ -983,7 +984,7 @@ GameObject:
   - component: {fileID: 1778158377974830422}
   - component: {fileID: 6024458695807158799}
   m_Layer: 0
-  m_Name: MenuSfxSource
+  m_Name: AudioSource_SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,7 +1002,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7645684244925638243}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6024458695807158799
 AudioSource:
@@ -1111,7 +1112,7 @@ GameObject:
   - component: {fileID: 502535597017380500}
   - component: {fileID: 7983793296232342114}
   m_Layer: 0
-  m_Name: MusicSource
+  m_Name: AudioSource_Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

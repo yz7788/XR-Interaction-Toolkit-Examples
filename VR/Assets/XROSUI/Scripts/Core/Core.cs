@@ -9,9 +9,9 @@ using UnityEngine;
 public class Core : MonoBehaviour
 {
     public GameObject PF_Core;
-    private static Core ins = null;
 
-    // Game Instance Singleton
+    #region Singleton Setup
+    private static Core ins = null;
     public static Core Ins
     {
         get
@@ -33,6 +33,7 @@ public class Core : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
+    #endregion Singleton Setup
 
     public Controller_Audio AudioManager;
     public Controller_Visual VisualManager;
@@ -43,6 +44,7 @@ public class Core : MonoBehaviour
     public Controller_XR XRManager;
     public Controller_AudioRecorder AudioRecorderManager;
     public Controller_Screenshot ScreenshotManager;
+    //public Manager_SystemMenu Manager_SystemMenu;
     // Start is called before the first frame update
     void Start()
     {
