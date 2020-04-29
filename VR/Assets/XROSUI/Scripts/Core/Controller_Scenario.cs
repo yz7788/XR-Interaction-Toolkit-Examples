@@ -31,6 +31,7 @@ public class Controller_Scenario : MonoBehaviour
     }
 
     XROS_Event[] events;
+    public XROS_EventTrigger[] eventTriggers;
     Dictionary<string, bool> flagDictionary = new Dictionary<string, bool>();
     public float m_Waiting;
 
@@ -109,6 +110,7 @@ public class Controller_Scenario : MonoBehaviour
         //     this.SetFlag("AuthenticateWithHeart", true);
         // }
         ProcessEvent();//check if the text panel need to go to the next event.
+        EventTrigger();
     }
 
     private void ProcessEvent()
@@ -151,6 +153,15 @@ public class Controller_Scenario : MonoBehaviour
             else
             {
                 m_Waiting -= Time.deltaTime;// this is the timer for event, event disappears when time's up.
+            }
+        }
+    }
+
+    void EventTrigger(){
+        foreach (XROS_EventTrigger trigger in eventTriggers)
+        {
+            if(currentEventId==trigger.EventID){
+                trigger.ToDo.Invoke();
             }
         }
     }

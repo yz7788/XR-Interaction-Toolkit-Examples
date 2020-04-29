@@ -58,6 +58,13 @@
         },
         {
             "TargetText": 0,
+            "content": "Try typing the onscreen text",
+            "HasPrerequisite": false,
+            "prerequisiteFlagId": "",
+            "secondsToWait": 2
+        },
+        {
+            "TargetText": 0,
             "content": "Days Later...",
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",
