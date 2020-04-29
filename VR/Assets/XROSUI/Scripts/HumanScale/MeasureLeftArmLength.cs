@@ -311,7 +311,9 @@ public class MeasureLeftArmLength : MonoBehaviour
 
         if (firstSetSkeletonPos == false)
         {
-            stickSkeleton.transform.position = new Vector3(HMDPos.x + 0.8f, HMDPos.y - 0.70f, HMDPos.z);
+            // 0.717f is the default arm length used without calibration from user
+            stickSkeleton.transform.localScale = new Vector3(0.717f * 0.009f, 0.717f * 0.009f, 0.717f * 0.009f);
+            stickSkeleton.transform.position = new Vector3(HMDPos.x - 0.8f, HMDPos.y - 0.80f, HMDPos.z);
             firstSetSkeletonPos = true;
         }
         
