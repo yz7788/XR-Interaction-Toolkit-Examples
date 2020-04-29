@@ -6499,23 +6499,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2129842345, guid: 8449155b2edd0134bbb6ba499c70a6e4, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: a991d3d3c1c665043853678f34b59aa2,
-        type: 3}
-    - target: {fileID: 4903472919796767138, guid: 8449155b2edd0134bbb6ba499c70a6e4,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 5a533922f7b5f884984927774e0b1256,
-        type: 2}
-    - target: {fileID: 4903472919796767138, guid: 8449155b2edd0134bbb6ba499c70a6e4,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 8689952017257272693, guid: 5a533922f7b5f884984927774e0b1256,
-        type: 2}
     - target: {fileID: 7040873453296314001, guid: 8449155b2edd0134bbb6ba499c70a6e4,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -6584,16 +6567,6 @@ PrefabInstance:
     - target: {fileID: 8069240883083782862, guid: 8449155b2edd0134bbb6ba499c70a6e4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8069240883083782863, guid: 8449155b2edd0134bbb6ba499c70a6e4,
-        type: 3}
-      propertyPath: bFollows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8069240883083782863, guid: 8449155b2edd0134bbb6ba499c70a6e4,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9315,29 +9288,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 999780473}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1013682917 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8069240883083782848, guid: 8449155b2edd0134bbb6ba499c70a6e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 629851840}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1013682920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013682917}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94db4e299fc8fa468bba042f947e743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GO_XRRigCamera: {fileID: 0}
-  bFollows: 0
-  offset_x: 1
-  offset_y: 0.1
-  offset_z: 0.1
 --- !u!4 &1022707483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7325449625692436137, guid: 540c33adeb67b9943b94aa75d2576bf7,

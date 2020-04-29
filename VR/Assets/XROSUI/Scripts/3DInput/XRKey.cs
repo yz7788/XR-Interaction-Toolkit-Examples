@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 using KeyboardPosition;
+using TMPro;
 [System.Serializable]
 public class XRKey : MonoBehaviour
 {
     private KeyboardController keyboardController;
-    public Text myText;
+    //public Text myText;
+    public TMP_Text myText;
     private Color transparent = new Color(1.0f, 1.0f, 1.0f, 0.5f);
     private XRGrabInteractable m_GrabInteractable;
     private MeshRenderer m_MeshRenderer;
@@ -20,6 +22,7 @@ public class XRKey : MonoBehaviour
     private Button Button_Timer;
     public  KeyWrapper kw; // to record this XRKey's position
     GameObject mirroredKey;
+    MeshRenderer mirroredKeyRenderer;
 
     private float oldX = 0;
     private float oldY = 0;
@@ -45,6 +48,7 @@ public class XRKey : MonoBehaviour
     public void AssignMirroredKey(GameObject mirroredKey)
     {
         this.mirroredKey = mirroredKey;
+        this.mirroredKeyRenderer = this.mirroredKey.GetComponent<MeshRenderer>();
         difference = mirroredKey.transform.position - transform.position;
         Destroy(this.mirroredKey.GetComponent<XRGrabInteractable>());
     }
@@ -113,13 +117,14 @@ public class XRKey : MonoBehaviour
         {
             m_MeshRenderer.material.color = transparent;
             if (this.mirroredKey)
-                this.mirroredKey.GetComponent<MeshRenderer>().material.color = transparent;
+            {
+                //this.mirroredKey.GetComponent<MeshRenderer>().material.color = transparent;
+                mirroredKeyRenderer.material.color = transparent;
+            }
             hover_start = false;
             hover_timer = 0;
         }
         keyboardController.isHovering = false;
-
-
     }
 
     void OnHoverEnter(XRBaseInteractor obj)
@@ -145,9 +150,12 @@ public class XRKey : MonoBehaviour
             keyboardController.SetWaiting();
             keyboardController.RegisterInput(myText.text);
             XROSInput.AddInput(myText.text);
-            m_MeshRenderer.material.color = m_UnityMagenta;
+            m_MeshRenderer.material.color = m_UnityCyan;
             if (this.mirroredKey)
-                this.mirroredKey.GetComponent<MeshRenderer>().material.color = m_UnityMagenta;
+            {
+                //this.mirroredKey.GetComponent<MeshRenderer>().material.color = m_UnityCyan;
+                mirroredKeyRenderer.material.color = m_UnityCyan;
+            }
         }
     }
 

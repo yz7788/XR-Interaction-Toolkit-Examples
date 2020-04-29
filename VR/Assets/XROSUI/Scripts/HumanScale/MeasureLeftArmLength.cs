@@ -359,7 +359,7 @@ public class MeasureLeftArmLength : MonoBehaviour
     {
         // Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
         float distance = armLength * 0.6f;
-        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y, HMDPos.z + 0.6f * distance);
+        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y-0.2f, HMDPos.z + 0.6f * distance);
     }
 
     float ComputeGeneric()
