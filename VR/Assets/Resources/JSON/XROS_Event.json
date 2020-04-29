@@ -12,7 +12,7 @@
             "content": "You have successfully authenticated!",
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",
-            "secondsToWait": 3
+            "secondsToWait": 1
         },
         {
             "TargetText": 0,
@@ -47,21 +47,21 @@
             "content": "Place it at a location that's comfortable for you and push the trigger button to bring up the 3d Keyboard",
             "HasPrerequisite": true,
             "prerequisiteFlagId": "TurnOnKeyboard",
-            "secondsToWait": 2
+            "secondsToWait": 1
         },
         {
             "TargetText": 0,
             "content": "Try typing the onscreen text",
             "HasPrerequisite": true,
             "prerequisiteFlagId": "TurnOffKeyboard",
-            "secondsToWait": 1
+            "secondsToWait": 5
         },
         {
             "TargetText": 0,
             "content": "Days Later...",
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",
-            "secondsToWait": 20
+            "secondsToWait": 10
         },
         {
             "TargetText": 0,

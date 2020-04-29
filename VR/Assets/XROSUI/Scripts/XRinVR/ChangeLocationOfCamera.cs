@@ -19,21 +19,21 @@ public class ChangeLocationOfCamera : MonoBehaviour
         DebugInput();
         if (Core.Ins.ScenarioManager.GetFlag("FinishedCalibration") && currentLocationId == 1)
         {
-            // if(Core.Ins.ScenarioManager.m_Waiting<0){//doesn't work, cuz the timer for next event prohibits the teleportation.
+            if(Core.Ins.ScenarioManager.m_Waiting<0.2f){//doesn't work, cuz the timer for next event prohibits the teleportation.
             anim.SetBool("fadeOut", true);
-            // }
+            }
         }
         if (Core.Ins.ScenarioManager.GetFlag("TurnOffKeyboard") && currentLocationId == 2)
         {
-            // if(Core.Ins.ScenarioManager.m_Waiting<0){
+            if(Core.Ins.ScenarioManager.m_Waiting<=0.2f){
             anim.SetBool("fadeOut", true);
-            // }
+            }
         }
         if (Core.Ins.ScenarioManager.GetFlag("FileGrabbed") && currentLocationId == 3)
         {
-            // if(Core.Ins.ScenarioManager.m_Waiting<0){
+            if(Core.Ins.ScenarioManager.m_Waiting<0.2f){
             anim.SetBool("fadeOut", true);
-            // }
+            }
         }
     }
 
