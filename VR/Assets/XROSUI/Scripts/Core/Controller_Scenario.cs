@@ -29,6 +29,10 @@ public class Controller_Scenario : MonoBehaviour
             return true;
         }
     }
+    public int GetCurrentEventID()
+    {
+        return this.currentEventId;
+    }
 
     XROS_Event[] events;
     public XROS_EventTrigger[] eventTriggers;

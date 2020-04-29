@@ -17,7 +17,7 @@ public class ChangeLocationOfCamera : MonoBehaviour
     void Update()
     {
         DebugInput();
-        if (Core.Ins.ScenarioManager.GetFlag("FinishedCalibration") && currentLocationId == 1)
+        if (Core.Ins.ScenarioManager.GetFlag("FinishedCalibration") && currentLocationId == 1 && Core.Ins.ScenarioManager.GetCurrentEventID()==4)
         {
             if(Core.Ins.ScenarioManager.m_Waiting<0.2f){//doesn't work, cuz the timer for next event prohibits the teleportation.
             anim.SetBool("fadeOut", true);

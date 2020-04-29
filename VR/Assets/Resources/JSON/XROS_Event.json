@@ -26,14 +26,14 @@
             "content": "Please follow the instruction on the wall",
             "HasPrerequisite": true,
             "prerequisiteFlagId": "FinishedCalibration",
-            "secondsToWait": 1
+            "secondsToWait": 0
         },
         {
             "TargetText": 0,
             "content": "Thank you, you have completed the calibration process, now teleporting you to the 3D input.",
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",
-            "secondsToWait": 1
+            "secondsToWait": 2
         },
         {
             "TargetText": 0,
@@ -68,18 +68,46 @@
             "content": "Days Later...",
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",
+            "secondsToWait": 7
+        },
+        {
+            "TargetText": 0,
+            "content": "Grab your file and it's time to go home!",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "FileGrabbed",
+            "secondsToWait": 2
+        },
+        {
+            "TargetText": 0,
+            "content": "Flip your left controllers, there are several button hidden there.",
+            "HasPrerequisite": false,
+            "prerequisiteFlagId": "",
             "secondsToWait": 10
         },
         {
             "TargetText": 0,
-            "content": "Company-wide announcement...",
+            "content": "You can use your controller to grab the emitter in front of the other controller to change the direction of laser, have a try?",
             "HasPrerequisite": true,
-            "prerequisiteFlagId": "FileGrabbed",
-            "secondsToWait": 3
+            "prerequisiteFlagId": "EmitterGrabbed",
+            "secondsToWait": 1
         },
         {
             "TargetText": 0,
-            "content": "Finished",
+            "content": "You can also point and grab to one of your controller with the other one to change the length of laser",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "LaserLengthChanged",
+            "secondsToWait": 1
+        },
+        {
+            "TargetText": 0,
+            "content": "You are almost done. Use the laser of your controller to turn off/on the light by grabbing them, in addition, point to and grab the switch on the wall the turn off/on light all together. ",
+            "HasPrerequisite": true,
+            "prerequisiteFlagId": "SwitchGrabbed",
+            "secondsToWait": 1
+        },
+        {
+            "TargetText": 0,
+            "content": "Thank you!",
             "HasPrerequisite": true,
             "prerequisiteFlagId": "LastStep",
             "secondsToWait": 1
