@@ -185,7 +185,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     public void EmptyPositions()
     {
         print("triggered");
-        string filename = "positions.JSON";
+        string filename = "JSON/positions.JSON";
         StreamWriter writer = new StreamWriter(filename, false);
 
         try
@@ -204,7 +204,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     public void SaveKeyPositions()
     {
 
-        string filename = "positions.JSON";
+        string filename = "JSON/positions.JSON";
         string json;
         kw.keyboardName = "lower";
         json = JsonUtility.ToJson(kw);
@@ -225,11 +225,13 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     }
     public bool ReadKeyPositions()
     {
-        String json;
+        TextAsset json;
         try
         {
-            json = File.ReadAllText("positions.JSON");
-            kw = JsonUtility.FromJson<KeyboardWrapper>(json);
+            json = Resources.Load("JSON/positions") as TextAsset;
+            string jsonString = json.text;
+            // json = File.ReadAllText("positions.JSON");
+            kw = JsonUtility.FromJson<KeyboardWrapper>(jsonString);
         }
         catch (Exception exp)
         {
