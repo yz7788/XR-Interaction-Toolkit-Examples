@@ -45,7 +45,7 @@ public class FadeOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha5))
+        if(Input.GetKeyDown(KeyCode.Alpha6))
         {
             this.Teleportation("");
         }

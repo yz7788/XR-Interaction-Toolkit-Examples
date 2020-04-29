@@ -57,6 +57,10 @@ public class ChangeLocationOfCamera : MonoBehaviour
         {
             MoveToLocation(3);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            MoveToLocation(4);
+        }
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             anim.SetBool("fadeOut", true);
