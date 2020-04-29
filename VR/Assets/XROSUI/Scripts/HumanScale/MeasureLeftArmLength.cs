@@ -110,12 +110,21 @@ public class MeasureLeftArmLength : MonoBehaviour
         RightController = GameObject.Find("RightController");
         HMD = GameObject.Find("HMD");
 
-        stickSkeleton.transform.position = new Vector3(HMDPos.x + 1.0f, HMDPos.y - 0.5f, HMDPos.z);
+        updateFromFile();
+        //stickSkeleton.transform.position = new Vector3(HMDPos.x + 1.0f, HMDPos.y - 0.5f, HMDPos.z);
     }
 
     void Update()
     {
         UpdateGenericPos();
+        if(Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            MeasureLeftArm();
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            updateFromFile();
+        }
     }
 
     public void MeasureLeftArm()
@@ -145,7 +154,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             horizontalY = LeftControllerPos.y;
             armLength = Mathf.Abs(straightDownY - horizontalY);
             // Set length of bones
-            Core.Ins.HumanScaleManager.setArmLength(armLength);
+            Core.Ins.HumanScaleManager.SetArmLength(armLength);
             // IN TEST
             SetBodyLength();
             LeftArmLengthText.text = $"Arm length: {armLength}";
@@ -193,22 +202,22 @@ public class MeasureLeftArmLength : MonoBehaviour
     void SetBodyLength()
     {
         float singleRatio = armLength / 3.5f;
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.Neck, singleRatio * 0.5f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.Spine, singleRatio * 2.5f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightHip, singleRatio * 0.5f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.LeftHip, singleRatio * 0.5f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.LeftUpperLeg, singleRatio * 2.5f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightUpperLeg, singleRatio * 2.5f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.LeftLowerLeg, singleRatio * 2.0f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightLowerLeg, singleRatio * 2.0f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.LeftFoot, singleRatio * 1.0f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightFoot, singleRatio * 1.0f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.LeftShoulder, singleRatio * 1.2f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightShoulder, singleRatio * 1.2f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.LeftLowerArm, singleRatio * 2.0f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.LeftUpperArm, singleRatio * 1.5f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightLowerArm, singleRatio * 2.0f);
-        Core.Ins.HumanScaleManager.setBoneLength((int)BoneIdx.RightUpperArm, singleRatio * 1.5f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.Neck, singleRatio * 0.5f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.Spine, singleRatio * 2.5f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.RightHip, singleRatio * 0.5f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.LeftHip, singleRatio * 0.5f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.LeftUpperLeg, singleRatio * 2.5f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.RightUpperLeg, singleRatio * 2.5f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.LeftLowerLeg, singleRatio * 2.0f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.RightLowerLeg, singleRatio * 2.0f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.LeftFoot, singleRatio * 1.0f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.RightFoot, singleRatio * 1.0f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.LeftShoulder, singleRatio * 1.2f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.RightShoulder, singleRatio * 1.2f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.LeftLowerArm, singleRatio * 2.0f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.LeftUpperArm, singleRatio * 1.5f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.RightLowerArm, singleRatio * 2.0f);
+        Core.Ins.HumanScaleManager.SetBoneLength((int)BoneIdx.RightUpperArm, singleRatio * 1.5f);
     }
 
     void showNextPage()
@@ -258,14 +267,14 @@ public class MeasureLeftArmLength : MonoBehaviour
         {
             outputLeft += (BoneIdx)i;
             outputLeft += ": ";
-            outputLeft += Core.Ins.HumanScaleManager.getBoneLength(i).ToString("0.000");
+            outputLeft += Core.Ins.HumanScaleManager.GetBoneLength(i).ToString("0.000");
             outputLeft += System.Environment.NewLine;
         }
         for (int i = 8; i < 16; i++)
         {
             outputRight += (BoneIdx)i;
             outputRight += ": ";
-            outputRight += Core.Ins.HumanScaleManager.getBoneLength(i).ToString("0.000");
+            outputRight += Core.Ins.HumanScaleManager.GetBoneLength(i).ToString("0.000");
             outputRight += System.Environment.NewLine;
         }
 
@@ -279,14 +288,14 @@ public class MeasureLeftArmLength : MonoBehaviour
         {
             outputLeft += i.ToString("0");
             outputLeft += ": ";
-            outputLeft += Core.Ins.HumanScaleManager.getJointPosition(i).ToString("0.00");
+            outputLeft += Core.Ins.HumanScaleManager.GetJointPosition(i).ToString("0.00");
             outputLeft += System.Environment.NewLine;
         }
         for (int i = 9; i < 17; i++)
         {
             outputRight += i.ToString("0");
             outputRight += ": ";
-            outputRight += Core.Ins.HumanScaleManager.getJointPosition(i).ToString("0.00");
+            outputRight += Core.Ins.HumanScaleManager.GetJointPosition(i).ToString("0.00");
             outputRight += System.Environment.NewLine;
         }
 
@@ -313,27 +322,27 @@ public class MeasureLeftArmLength : MonoBehaviour
         {
             // 0.717f is the default arm length used without calibration from user
             stickSkeleton.transform.localScale = new Vector3(0.717f * 0.009f, 0.717f * 0.009f, 0.717f * 0.009f);
-            stickSkeleton.transform.position = new Vector3(HMDPos.x - 0.8f, HMDPos.y - 0.80f, HMDPos.z);
+            //stickSkeleton.transform.position = new Vector3(HMDPos.x - 0.8f, HMDPos.y - 0.80f, HMDPos.z);
             firstSetSkeletonPos = true;
         }
         
         // Set bone length in Game Object
-        Neck.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.Neck) * 10.0f, 5.0f);
-        Spine.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.Spine) * 10.0f, 5.0f);
-        RightHip.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightHip) * 10.0f, 5.0f);
-        LeftHip.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftHip) * 10.0f, 5.0f);
-        LeftUpperLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftUpperLeg) * 10.0f, 5.0f);
-        RightUpperLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightUpperLeg) * 10.0f, 5.0f);
-        LeftLowerLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftLowerLeg) * 10.0f, 5.0f);
-        RightLowerLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightLowerLeg) * 10.0f, 5.0f);
-        LeftFoot.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftFoot) * 10.0f, 5.0f);
-        RightFoot.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightFoot) * 10.0f, 5.0f);
-        LeftShoulder.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftShoulder) * 10.0f, 5.0f);
-        RightShoulder.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightShoulder) * 10.0f, 5.0f);
-        LeftLowerArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftLowerArm) * 10.0f, 5.0f);
-        LeftUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.LeftUpperArm) * 10.0f, 5.0f);
-        RightLowerArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightLowerArm) * 10.0f, 5.0f);
-        RightUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.getBoneLength((int)BoneIdx.RightUpperArm) * 10.0f, 5.0f);
+        Neck.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.Neck) * 10.0f, 5.0f);
+        Spine.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.Spine) * 10.0f, 5.0f);
+        RightHip.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.RightHip) * 10.0f, 5.0f);
+        LeftHip.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.LeftHip) * 10.0f, 5.0f);
+        LeftUpperLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.LeftUpperLeg) * 10.0f, 5.0f);
+        RightUpperLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.RightUpperLeg) * 10.0f, 5.0f);
+        LeftLowerLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.LeftLowerLeg) * 10.0f, 5.0f);
+        RightLowerLeg.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.RightLowerLeg) * 10.0f, 5.0f);
+        LeftFoot.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.LeftFoot) * 10.0f, 5.0f);
+        RightFoot.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.RightFoot) * 10.0f, 5.0f);
+        LeftShoulder.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.LeftShoulder) * 10.0f, 5.0f);
+        RightShoulder.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.RightShoulder) * 10.0f, 5.0f);
+        LeftLowerArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.LeftLowerArm) * 10.0f, 5.0f);
+        LeftUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.LeftUpperArm) * 10.0f, 5.0f);
+        RightLowerArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.RightLowerArm) * 10.0f, 5.0f);
+        RightUpperArm.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.RightUpperArm) * 10.0f, 5.0f);
 
         // Update visualization
         if (readingJoints == false)
@@ -356,9 +365,11 @@ public class MeasureLeftArmLength : MonoBehaviour
     float ComputeGeneric()
     {
         // Compute generic distance between HMD and left controller
-        return ComputeDistance(LeftControllerPos, HMDPos);
+        return Vector3.Distance(LeftControllerPos, HMDPos);
+        //return ComputeDistance(LeftControllerPos, HMDPos);
     }
 
+    /*
     float ComputeDistance(Vector3 pos1, Vector3 pos2)
     {
 
@@ -367,6 +378,7 @@ public class MeasureLeftArmLength : MonoBehaviour
         float deltaZ = pos1[2] - pos2[2];
         return (float)Mathf.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
     }
+    */
 
     void UpdateGenericPos()
     {
@@ -378,11 +390,11 @@ public class MeasureLeftArmLength : MonoBehaviour
         HMDRot = HMD.transform.rotation.eulerAngles;
     }
 
-    Vector3 normalize(Vector3 vec)
-    {
-        float magnitude = vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
-        return new Vector3(vec.x / magnitude, vec.y / magnitude, vec.z / magnitude);
-    }
+    //Vector3 normalize(Vector3 vec)
+    //{        
+    //    float magnitude = vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
+    //    return new Vector3(vec.x / magnitude, vec.y / magnitude, vec.z / magnitude);
+    //}
 
     void updateSkeletonFromFile(string fileName)
     {
@@ -393,8 +405,8 @@ public class MeasureLeftArmLength : MonoBehaviour
         float[] z = axis[1].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
         for (int i = 0; i < 17; i++)
         {
-            Core.Ins.HumanScaleManager.setJointPosition(i, new Vector3(x[i], y[i], z[i]));
+            Core.Ins.HumanScaleManager.SetJointPosition(i, new Vector3(x[i], y[i], z[i]));
         }
-        Core.Ins.HumanScaleManager.updateBoneLength();
+        Core.Ins.HumanScaleManager.UpdateBoneLength();
     }
 }

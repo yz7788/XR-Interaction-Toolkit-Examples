@@ -47,31 +47,36 @@ public class Controller_HumanScale : MonoBehaviour
         //updateBoneLength();
     }
 
-    public void setBoneLength(int boneIdx, float newValue)
+    public void SetBoneLength(int boneIdx, float newValue)
     {
         boneLengthDict[boneIdx] = newValue;
     }
 
-    public float getBoneLength(int boneIdx)
+    public float GetBoneLength(int boneIdx)
     {
         return boneLengthDict[boneIdx];
     }
 
-    public void setJointPosition(int jointIdx, Vector3 newValue)
+    public float GetBoneLength(BoneIdx idx)
+    {
+        return GetBoneLength((int)idx);
+    }
+
+    public void SetJointPosition(int jointIdx, Vector3 newValue)
     {
         jointPositionDict[jointIdx] = newValue;
     }
 
-    public Vector3 getJointPosition(int jointIdx)
+    public Vector3 GetJointPosition(int jointIdx)
     {
         return jointPositionDict[jointIdx];
     }
 
-    public void updateBoneLength()
+    public void UpdateBoneLength()
     {
         for (int i = 0; i < System.Enum.GetValues(typeof(BoneIdx)).Length; i++)
         {
-            setBoneLength(i, computeBoneLength(jointPositionDict[boneJointPairDict[i][0]], jointPositionDict[boneJointPairDict[i][1]]));
+            SetBoneLength(i, computeBoneLength(jointPositionDict[boneJointPairDict[i][0]], jointPositionDict[boneJointPairDict[i][1]]));
         }
     }
 
@@ -96,18 +101,18 @@ public class Controller_HumanScale : MonoBehaviour
         return eyeHeight;
     }
 
-    public void setArmLength(float newLength)
+    public void SetArmLength(float newLength)
     {
         leftArmLength = newLength;
     }
 
-    public float getArmLength()
+    public float GetArmLength()
     {
         return leftArmLength;
     }
 }
 
-enum BoneIdx
+public enum BoneIdx
 {
     Neck,
     Spine,
