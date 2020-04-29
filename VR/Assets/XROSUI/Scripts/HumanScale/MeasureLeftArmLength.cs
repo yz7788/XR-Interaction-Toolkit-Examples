@@ -162,7 +162,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             workflowPose.texture = null;
             // Change scale of stickSkeleton accordingly
             stickSkeleton.transform.localScale = new Vector3(armLength * 0.009f, armLength * 0.009f, armLength * 0.009f);
-            stickSkeleton.transform.position = new Vector3(HMDPos.x - 0.8f, HMDPos.y - 0.80f, HMDPos.z);
+            //stickSkeleton.transform.position = new Vector3(HMDPos.x - 0.8f, HMDPos.y - 0.80f, HMDPos.z);
             // Change position and scale of in-reach planes accordingly
             InReachFarthestPlane.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.3f, HMDPos.z);
             InReachProperPlane.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.3f, HMDPos.z);
