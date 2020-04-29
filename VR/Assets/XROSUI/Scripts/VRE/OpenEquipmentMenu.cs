@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class OpenEquipmentMenu : MonoBehaviour
 {
-    Controller_GameMenu gameMenu;
+    //Controller_GameMenu gameMenu;
     public void Start()
     {
-        gameMenu = GameObject.Find("UIParent").GetComponent<Controller_GameMenu>();
+     //   gameMenu = GameObject.Find("UIParent").GetComponent<Controller_GameMenu>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         //print(other.name);
-        if (other.CompareTag("AlternateFunction"))
+        //if (other.CompareTag("AlternateFunction"))
         {
             /*if (other.name == " ")
             {
@@ -22,12 +22,12 @@ public class OpenEquipmentMenu : MonoBehaviour
                 Debug.Log("Menu_General");
             }
             */
-            
-            if (other.GetComponent<VREquipment>())
+            VREquipment vre = other.GetComponent<VREquipment>();
+            if (vre)
             {
-                VREquipment vre = other.GetComponent<VREquipment>();
-                gameMenu.OpenMenu(vre.menuTypes);
-            }                        
+                Core.Ins.SystemMenu.Manager.OpenMenu(vre.menuTypes);
+      //          gameMenu.OpenMenu(vre.menuTypes);
+            }
         }
     }
 }

@@ -44,7 +44,9 @@ public class Core : MonoBehaviour
     public Controller_XR XRManager;
     public Controller_AudioRecorder AudioRecorderManager;
     public Controller_Screenshot ScreenshotManager;
-    //public Manager_SystemMenu Manager_SystemMenu;
+    public Manager_Account Account;
+    public Manager_SystemMenu SystemMenu;
+
     // Start is called before the first frame update
     void Start()
     {

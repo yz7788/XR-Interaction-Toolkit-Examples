@@ -11,22 +11,32 @@ using UnityEngine;
 public class FadeOut : MonoBehaviour
 {
     public Animator animationController;
-    Camera m_MainCamera;
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Heart"))
+        //if (other.CompareTag("Heart"))
+        VRUserCredential vre = other.GetComponent<VRUserCredential>();
+        if (vre)
         {
-            animationController.SetBool("fadeOut", true);
-            // Debug.Log("fadeOut true");
+            if (Core.Ins.Account.CheckAuthentication(vre.Credential))
+            {
+                animationController.SetBool("fadeOut", true);
+                // Debug.Log("fadeOut true");
+            }
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Heart"))
+        //if (other.CompareTag("Heart"))
+        VRUserCredential vre = other.GetComponent<VRUserCredential>();
+        if (vre)
         {
-            animationController.SetBool("fadeOut", false);
-            // Debug.Log("fadeOut false");
+            if (Core.Ins.Account.CheckAuthentication(vre.Credential))
+            {
+                animationController.SetBool("fadeOut", false);
+                // Debug.Log("fadeOut false");
+            }
         }
     }
 
@@ -34,18 +44,18 @@ public class FadeOut : MonoBehaviour
     {
         animationController.SetBool("fadeOut", true);
         // Debug.Log("fadeOut true");
-        
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             this.Teleportation("");
         }

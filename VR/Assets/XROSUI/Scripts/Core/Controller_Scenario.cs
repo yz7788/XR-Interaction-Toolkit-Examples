@@ -60,7 +60,7 @@ public class Controller_Scenario : MonoBehaviour
         //code above is used to create json file, but you don't need to use it. 
         json = Resources.Load("JSON/XROS_Event") as TextAsset;
         string jsonString = json.text;
-        Dev.Log(jsonString);
+        //Dev.Log(jsonString);
 
 
         // string jsonString = File.ReadAllText(Application.dataPath + "/XROSUI/JSON/XROS_Event.json");//read the file
