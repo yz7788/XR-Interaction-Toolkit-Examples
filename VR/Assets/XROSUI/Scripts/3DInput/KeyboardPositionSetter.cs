@@ -31,8 +31,9 @@ public class KeyboardPositionSetter : MonoBehaviour
         leftDirectController = Core.Ins.XRManager.GetLeftDirectController();
         leftRayController = Core.Ins.XRManager.GetLeftRayController();
     }
-    void notifyCore(XRBaseInteractor obj){
-        Core.Ins.ScenarioManager.SetFlag("GrabingKeyboard",true);//tell the Core user start keyboard successfully.
+    void notifyCore(XRBaseInteractor obj)
+    {
+        Core.Ins.ScenarioManager.SetFlag("GrabingKeyboard", true);//tell the Core user start keyboard successfully.
     }
     void DropKeyboard(XRBaseInteractor obj)
     {
@@ -65,7 +66,7 @@ public class KeyboardPositionSetter : MonoBehaviour
         }
         if (kcc.active)
         {
-            Core.Ins.ScenarioManager.SetFlag("TurnOffKeyboard",true);//tell the Core user start keyboard successfully.
+            Core.Ins.ScenarioManager.SetFlag("TurnOffKeyboard", true);//tell the Core user start keyboard successfully.
             kcc.SaveKeyPositions();
             kcc.DestroyPoints();
             kcc.active = false;
@@ -73,7 +74,7 @@ public class KeyboardPositionSetter : MonoBehaviour
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
             this.Transform(leftDirectController, true);
             this.Transform(rightDirectController, true);
-            
+
             leftDirectController.transform.localScale = new Vector3(1, 1, 1);
             rightDirectController.transform.localScale = new Vector3(1, 1, 1);
             leftRayController.transform.localScale = new Vector3(1, 1, 1);
@@ -81,16 +82,16 @@ public class KeyboardPositionSetter : MonoBehaviour
         }
         else
         {
-            Core.Ins.ScenarioManager.SetFlag("TurnOnKeyboard",true);//tell the Core user start keyboard successfully.
+            Core.Ins.ScenarioManager.SetFlag("TurnOnKeyboard", true);//tell the Core user start keyboard successfully.
             kcc.CreateMirrorKeyboard(keyboardPosition.position.x, keyboardPosition.position.y, keyboardPosition.position.z);
             kcc.active = true;
 
             leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
             rightRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 0;
-            leftDirectController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
-            Core.Ins.XRManager.GetRightDirectController().transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
-            leftRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
-            rightRayController.transform.localScale=new Vector3(ScaleNumber,ScaleNumber,ScaleNumber);
+            leftDirectController.transform.localScale = new Vector3(ScaleNumber, ScaleNumber, ScaleNumber);
+            Core.Ins.XRManager.GetRightDirectController().transform.localScale = new Vector3(ScaleNumber, ScaleNumber, ScaleNumber);
+            leftRayController.transform.localScale = new Vector3(ScaleNumber, ScaleNumber, ScaleNumber);
+            rightRayController.transform.localScale = new Vector3(ScaleNumber, ScaleNumber, ScaleNumber);
             LookAtCamera(obj);
         }
     }
@@ -119,7 +120,7 @@ public class KeyboardPositionSetter : MonoBehaviour
         GameObject charactorCreator = hemisphere.transform.GetChild(0).gameObject;
         int childCount = charactorCreator.transform.childCount;
 
-        for (int i=0; i< childCount; i++)
+        for (int i = 0; i < childCount; i++)
         {
             GameObject key = charactorCreator.transform.GetChild(i).gameObject;
             var rotationVector = key.transform.rotation.eulerAngles;
