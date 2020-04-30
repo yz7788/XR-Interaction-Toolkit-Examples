@@ -10,10 +10,10 @@ public class KeyboardPositionSetter : MonoBehaviour
 
     const string k_AnimTriggerDown = "TriggerDown";
     const string k_AnimTriggerUp = "TriggerUp";
-    GameObject leftDirectController;
-    GameObject rightDirectController;
-    GameObject leftRayController;
-    GameObject rightRayController;
+    public GameObject leftDirectController;
+    public GameObject rightDirectController;
+    public GameObject leftRayController;
+    public GameObject rightRayController;
     public GameObject controllerPF;
     public float ScaleNumber;
     Transform keyboardPosition;
@@ -25,11 +25,11 @@ public class KeyboardPositionSetter : MonoBehaviour
         m_InteractableBase.onDeactivate.AddListener(TriggerReleased);
         m_InteractableBase.onSelectExit.AddListener(DropKeyboard);
         m_InteractableBase.onSelectEnter.AddListener(notifyCore);
-
+/*
         rightDirectController = Core.Ins.XRManager.GetRightDirectController();
         rightRayController = Core.Ins.XRManager.GetRightRayController();
         leftDirectController = Core.Ins.XRManager.GetLeftDirectController();
-        leftRayController = Core.Ins.XRManager.GetLeftRayController();
+        leftRayController = Core.Ins.XRManager.GetLeftRayController();*/
     }
     void notifyCore(XRBaseInteractor obj)
     {
@@ -61,7 +61,7 @@ public class KeyboardPositionSetter : MonoBehaviour
     private void TurnOffKeyboard(XRBaseInteractor obj)
     {
         Core.Ins.ScenarioManager.SetFlag("TurnOffKeyboard", true);//tell the Core user start keyboard successfully.
-        //kcc.SaveKeyPositions();
+        kcc.SaveKeyPositions();
         kcc.DestroyPoints();
         kcc.active = false;
         leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;

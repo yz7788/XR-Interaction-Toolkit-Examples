@@ -39,10 +39,10 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     }
     private void Update()
     {
-/*        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             EmptyPositions();
-        }*/
+        }
         if (mirrorControllerLeft)
         {
             mirrorControllerLeft.transform.position = leftController.transform.position + new Vector3(0f, mirrorRealDifference, 0);
@@ -57,8 +57,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     }
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
-        //bool empty = ReadKeyPositions();
-        bool empty = true;
+        bool empty = ReadKeyPositions();
         if (empty)
         {
             CreateDefaultPoints(startingX, startingY, startingZ);
