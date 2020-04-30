@@ -17,7 +17,7 @@ public class ContainerManagerCircle : MonoBehaviour
     public float lefthandvalue;
     public float righthandvalue;
     //GameObject Container_Cube;
-    private float depthValue = 0;
+    private float depthValue = 0.1f;
     //Debug only
     GameObject CO;
     GameObject CS;
