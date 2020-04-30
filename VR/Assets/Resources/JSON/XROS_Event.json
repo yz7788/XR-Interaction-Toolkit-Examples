@@ -79,6 +79,13 @@
         },
         {
             "TargetText": 0,
+            "content": "Grab your file and it's time to go home!",
+            "HasPrerequisite": false,
+            "prerequisiteFlagId": "",
+            "secondsToWait": 2
+        },
+        {
+            "TargetText": 0,
             "content": "Flip your left controllers, there are several button hidden there.",
             "HasPrerequisite": false,
             "prerequisiteFlagId": "",

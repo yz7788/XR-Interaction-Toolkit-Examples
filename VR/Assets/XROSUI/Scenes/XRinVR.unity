@@ -12481,6 +12481,18 @@ PrefabInstance:
       propertyPath: eventTriggers.Array.data[2].ToDo.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 830940925}
+    - target: {fileID: 366517735, guid: 90b64e8342fc675429cdd02125b168b7, type: 3}
+      propertyPath: eventTriggers.Array.data[0].EventID
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 366517735, guid: 90b64e8342fc675429cdd02125b168b7, type: 3}
+      propertyPath: eventTriggers.Array.data[1].EventID
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 366517735, guid: 90b64e8342fc675429cdd02125b168b7, type: 3}
+      propertyPath: eventTriggers.Array.data[2].EventID
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2501370857823875829, guid: 90b64e8342fc675429cdd02125b168b7,
         type: 3}
       propertyPath: m_LocalPosition.x

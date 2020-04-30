@@ -398,8 +398,12 @@ public class MeasureLeftArmLength : MonoBehaviour
 
     void updateSkeletonFromFile(string fileName)
     {
-        StreamReader fi = new StreamReader(Application.dataPath + "/Data/" + fileName + ".txt");
-        string[] axis = fi.ReadToEnd().Split(']');
+        TextAsset text = Resources.Load("JSON/"+fileName) as TextAsset;
+        string textString = text.text;
+        // StreamReader fi = new StreamReader(Application.dataPath + "/Data/" + fileName + ".txt");
+        // string[] axis = fi.ReadToEnd().Split(']');
+        string[] axis = textString.Split(']');
+
         float[] x = axis[0].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
         float[] y = axis[2].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
         float[] z = axis[1].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
