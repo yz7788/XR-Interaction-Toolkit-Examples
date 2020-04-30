@@ -61,7 +61,7 @@ public class KeyboardPositionSetter : MonoBehaviour
     private void TurnOffKeyboard(XRBaseInteractor obj)
     {
         Core.Ins.ScenarioManager.SetFlag("TurnOffKeyboard", true);//tell the Core user start keyboard successfully.
-        kcc.SaveKeyPositions();
+        //kcc.SaveKeyPositions();
         kcc.DestroyPoints();
         kcc.active = false;
         leftRayController.GetComponent<XRRayInteractor>().maxRaycastDistance = 10;
