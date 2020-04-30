@@ -39,6 +39,10 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            EmptyPositions();
+        }
         if (mirrorControllerLeft)
         {
             mirrorControllerLeft.transform.position = leftController.transform.position + new Vector3(0f, mirrorRealDifference, 0);
@@ -53,10 +57,11 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     }
     public void CreateMirrorKeyboard(float startingX, float startingY, float startingZ)
     {
-
         bool empty = ReadKeyPositions();
         if (empty)
+        {
             CreateDefaultPoints(startingX, startingY, startingZ);
+        }
         else
         {
             CreateCustomPoints(startingX, startingY, startingZ);
@@ -68,6 +73,13 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         SetUpMirrorControllers(startingX, startingY, startingZ);
     }
 
+    //float topRowOffsetX = -0.15f;
+    //float middleRowOffsetX = -0.15f;
+    //float bottomRowOffsetX = -0.15f;
+    float topRowOffsetY = 0.06f;
+    float middleRowOffsetY = 0f;
+    float bottomRowOffsetY = -0.06f;
+    float spaceKeyY = -0.12f;//-0.18
     public void CreateDefaultPoints(float startingX, float startingY, float startingZ)
     {
         keyboardModelPosition = new Vector3(startingX, startingY, startingZ);
@@ -76,24 +88,33 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         Vector3 scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
+
         go = CreateKey(0.15f + startingX, 0.14f + startingY, 0.05f + startingZ, "DEL");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        CreateLine(-0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "qwert");
-        CreateLine(0.15f + startingX, 0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "yuiop");
-        CreateLine(-0.15f + startingX, 0f + startingY, startingZ, -10f, xradius, yradius, "asdfg");
-        CreateLine(0.15f + startingX, 0f + startingY, startingZ, +10f, xradius, yradius, "hjkl;");
-        CreateLine(-0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "zxcv");
-        CreateLine(0.15f + startingX, -0.06f + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
-        //GameObject del = CreateKey(0.15f, startingY, 0.1f + startingZ, "DEL");
-
+        
+        CreateLine(-0.15f + startingX, topRowOffsetY + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "qwert");
+        CreateLine(0.15f + startingX, topRowOffsetY + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "yuiop");
+        CreateLine(-0.15f + startingX, middleRowOffsetY + startingY, startingZ, -10f, xradius, yradius, "asdfg");
+        CreateLine(0.15f + startingX, middleRowOffsetY + startingY, startingZ, +10f, xradius, yradius, "hjkl;");
+        CreateLine(-0.15f + startingX, bottomRowOffsetY + startingY, -0.05f + startingZ, -10f, smallerXradius, smallerYradius, "zxcv");
+        CreateLine(0.15f + startingX, bottomRowOffsetY + startingY, -0.05f + startingZ, 10f, smallerXradius, smallerYradius, "bnm,");
+        
         // space
-        go = CreateKey(-0.15f + startingX, -0.18f + startingY, 0.05f + startingZ, "start");
+        go = CreateKey(-0.15f + startingX, spaceKeyY + startingY, 0.05f + startingZ, " ");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
-        go = CreateKey(0.15f + startingX, -0.18f + startingY, 0.05f + startingZ, " ");
+        
+        //go = CreateKey(0.15f + startingX, spaceKeyY + startingY, 0.05f + startingZ, " ");
+        //scale = go.transform.localScale;
+        //scale.x = 2 * scale.x;
+        //go.transform.localScale = scale;
+
+        //start
+        //x is left
+        go = CreateKey(startingX, -0.18f + startingY, 0.05f + startingZ, "start");
         scale = go.transform.localScale;
         scale.x = 2 * scale.x;
         go.transform.localScale = scale;
@@ -164,7 +185,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     public void EmptyPositions()
     {
         print("triggered");
-        string filename = "positions.JSON";
+        string filename = "JSON/positions.JSON";
         StreamWriter writer = new StreamWriter(filename, false);
 
         try
@@ -183,7 +204,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     public void SaveKeyPositions()
     {
 
-        string filename = "positions.JSON";
+        string filename = "JSON/positions.JSON";
         string json;
         kw.keyboardName = "lower";
         json = JsonUtility.ToJson(kw);
@@ -204,11 +225,13 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
     }
     public bool ReadKeyPositions()
     {
-        String json;
+        TextAsset json;
         try
         {
-            json = File.ReadAllText("positions.JSON");
-            kw = JsonUtility.FromJson<KeyboardWrapper>(json);
+            json = Resources.Load("JSON/positions") as TextAsset;
+            string jsonString = json.text;
+            // json = File.ReadAllText("positions.JSON");
+            kw = JsonUtility.FromJson<KeyboardWrapper>(jsonString);
         }
         catch (Exception exp)
         {
@@ -218,7 +241,7 @@ public class SeparateKeyboardCharacterCreator : KeyboardController
         if (kw == null || kw.keys == null || kw.keys.Count == 0)
         {
             kw = new KeyboardWrapper();
-            return true; // positions.JSOn is empty or malformed
+            return true; // positions.JSON is empty or malformed
         }
         return false; // positions.JSON is not empty
     }

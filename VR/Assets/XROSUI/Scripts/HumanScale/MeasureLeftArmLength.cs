@@ -359,7 +359,7 @@ public class MeasureLeftArmLength : MonoBehaviour
     {
         // Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
         float distance = armLength * 0.6f;
-        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y, HMDPos.z + 0.6f * distance);
+        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y-0.2f, HMDPos.z + 0.6f * distance);
     }
 
     float ComputeGeneric()
@@ -398,8 +398,12 @@ public class MeasureLeftArmLength : MonoBehaviour
 
     void updateSkeletonFromFile(string fileName)
     {
-        StreamReader fi = new StreamReader(Application.dataPath + "/Data/" + fileName + ".txt");
-        string[] axis = fi.ReadToEnd().Split(']');
+        TextAsset text = Resources.Load("JSON/"+fileName) as TextAsset;
+        string textString = text.text;
+        // StreamReader fi = new StreamReader(Application.dataPath + "/Data/" + fileName + ".txt");
+        // string[] axis = fi.ReadToEnd().Split(']');
+        string[] axis = textString.Split(']');
+
         float[] x = axis[0].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
         float[] y = axis[2].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();
         float[] z = axis[1].Replace("[", "").Replace("\r\n", "").Replace("\n", "").Split(' ').Where(s => s != "").Select(f => float.Parse(f)).ToArray();

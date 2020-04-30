@@ -11,7 +11,7 @@ public class ControllerManager_XROS : MonoBehaviour
 
     InputDevice m_RightController;
     InputDevice m_LeftController;
-    Controller_GameMenu gameMenu;
+//    Controller_GameMenu gameMenu;
     
     //public VRGoggle Goggle;
     //public VRHeadphone Headphone;
@@ -317,7 +317,7 @@ public class ControllerManager_XROS : MonoBehaviour
 
     public void Start()
     {
-        gameMenu = GameObject.Find("UIParent").GetComponent<Controller_GameMenu>();
+        //gameMenu = GameObject.Find("UIParent").GetComponent<Controller_GameMenu>();
         //this.RegisterVREquipment(GO_VE.GetComponent<VREquipment>());
     }
 
@@ -333,7 +333,8 @@ public class ControllerManager_XROS : MonoBehaviour
             if (bMenuButtonPressed1)
             {
                 Debug.Log("Menu Button1 pressed");
-                gameMenu.OpenMenu("Menu_General");//press the menu button on the left controller to open general menu.
+                Core.Ins.SystemMenu.Manager.OpenMenu(XROSMenuTypes.Menu_General);
+                //gameMenu.OpenMenu("Menu_General");//press the menu button on the left controller to open general menu.
             }
             if (bMenuButtonPressed2)
             {

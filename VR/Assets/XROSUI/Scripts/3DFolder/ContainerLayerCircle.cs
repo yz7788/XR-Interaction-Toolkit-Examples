@@ -37,115 +37,115 @@ public class ContainerLayerCircle : MonoBehaviour
         float Ri;
         float Ci;
         ////print("set position:");
-        if (containerobjectlist.Count ==1)
-            {
-                Ci = 0;
-                Ri = 0;
-                float x = this.transform.position.x + (Ci);
-                float y = this.transform.position.y + (Ri);
-                float z = this.transform.position.z;
-                co.transform.position = new Vector3(x, y, z);
-                co.transform.SetParent(this.transform);
-    }
-            //2
-            if (containerobjectlist.Count == 2)
-            {
-                Ci = 0;
-                Ri = r;
-                Clast = Ci;
-                Rlast = Ri;
-                float x = this.transform.position.x + (Ci);
-                float y = this.transform.position.y + (Ri);
-                float z = this.transform.position.z;
-                co.transform.position = new Vector3(x, y, z);
-                co.transform.SetParent(this.transform);
-    }
-            //3
-            if (containerobjectlist.Count == 3)
-            {
-                Ci = (float) (-r / 1.414);
-                Ri = (float) (r / 1.414);
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
-                float x = this.transform.position.x + (Ci);
-    float y = this.transform.position.y + (Ri);
-    float z = this.transform.position.z;
-    co.transform.position = new Vector3(x, y, z);
-    co.transform.SetParent(this.transform);
-    }
-            if (containerobjectlist.Count == 4)
-            {
-                Ci = -r;
-                Ri = 0;
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
-                float x = this.transform.position.x + (Ci);
-    float y = this.transform.position.y + (Ri);
-    float z = this.transform.position.z;
-    co.transform.position = new Vector3(x, y, z);
-    co.transform.SetParent(this.transform);
-    }
-            if (containerobjectlist.Count == 5)
-            {
-                Ci = (float) (-r / 1.414);
-                Ri = (float) (-r / 1.414);
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
+        if (containerobjectlist.Count == 1)
+        {
+            Ci = 0;
+            Ri = 0;
             float x = this.transform.position.x + (Ci);
-    float y = this.transform.position.y + (Ri);
-    float z = this.transform.position.z;
-    co.transform.position = new Vector3(x, y, z);
-    co.transform.SetParent(this.transform);
-    }
-            if (containerobjectlist.Count == 6)
-            {
-                Ci = 0;
-                Ri = -r;
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
+        //2
+        if (containerobjectlist.Count == 2)
+        {
+            Ci = 0;
+            Ri = r;
+            Clast = Ci;
+            Rlast = Ri;
             float x = this.transform.position.x + (Ci);
-    float y = this.transform.position.y + (Ri);
-    float z = this.transform.position.z;
-    co.transform.position = new Vector3(x, y, z);
-    co.transform.SetParent(this.transform);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
+        //3
+        if (containerobjectlist.Count == 3)
+        {
+            Ci = (float)(-r / 1.414);
+            Ri = (float)(r / 1.414);
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
+        if (containerobjectlist.Count == 4)
+        {
+            Ci = -r;
+            Ri = 0;
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
+        if (containerobjectlist.Count == 5)
+        {
+            Ci = (float)(-r / 1.414);
+            Ri = (float)(-r / 1.414);
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
+        if (containerobjectlist.Count == 6)
+        {
+            Ci = 0;
+            Ri = -r;
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
+        if (containerobjectlist.Count == 7)
+        {
+            Ci = (float)(r / 1.414);
+            Ri = (float)(-r / 1.414);
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
+        if (containerobjectlist.Count == 8)
+        {
+            Ci = r;
+            Ri = 0;
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
+        if (containerobjectlist.Count == 9)
+        {
+            Ci = (float)(r / 1.414);
+            Ri = (float)(r / 1.414);
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            co.transform.position = new Vector3(x, y, z);
+            co.transform.SetParent(this.transform);
+        }
     }
-            if (containerobjectlist.Count == 7)
-            {
-                Ci = (float) (r / 1.414);
-                Ri = (float) (-r / 1.414);
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
-                float x = this.transform.position.x + (Ci);
-                float y = this.transform.position.y + (Ri);
-                float z = this.transform.position.z;
-                co.transform.position = new Vector3(x, y, z);
-                co.transform.SetParent(this.transform);
-    }
-            if (containerobjectlist.Count == 8)
-            {
-                Ci = r;
-                Ri = 0;
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
-                float x = this.transform.position.x + (Ci);
-                float y = this.transform.position.y + (Ri);
-                float z = this.transform.position.z;
-                co.transform.position = new Vector3(x, y, z);
-                co.transform.SetParent(this.transform);
-    }
-            if (containerobjectlist.Count == 9)
-            {
-                Ci = (float) (r / 1.414);
-                Ri = (float) (r / 1.414);
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
-                float x = this.transform.position.x + (Ci);
-                float y = this.transform.position.y + (Ri);
-                float z = this.transform.position.z;
-                co.transform.position = new Vector3(x, y, z);
-                co.transform.SetParent(this.transform);
-    }
-   }
     public void AddObjectSocket(GameObject go)
     {
         ContainerSocket cs = go.GetComponent<ContainerSocket>();
@@ -167,7 +167,7 @@ public class ContainerLayerCircle : MonoBehaviour
             Ci = 0;
             Ri = 0;
             ClastforSocket = Ci;
-                RlastforSocket = Ri;
+            RlastforSocket = Ri;
             float x = this.transform.position.x + (Ci);
             float y = this.transform.position.y + (Ri);
             float z = this.transform.position.z;
@@ -176,96 +176,96 @@ public class ContainerLayerCircle : MonoBehaviour
         }
         //2
         if (containersocketlist.Count == 2)
-            {
-                Ci = 0;
-                Ri = r;
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
-                float x = this.transform.position.x + (Ci);
-                float y = this.transform.position.y + (Ri);
-                float z = this.transform.position.z;
-                cs.transform.position = new Vector3(x, y, z);
-                cs.transform.SetParent(this.transform);
-            }
-            //3
-            if (containersocketlist.Count == 3)
-            {
-                Ci = (float)(-r / 1.414);
-                Ri = (float)(r / 1.414);
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
-                float x = this.transform.position.x + (Ci);
-                float y = this.transform.position.y + (Ri);
-                float z = this.transform.position.z;
-                cs.transform.position = new Vector3(x, y, z);
-                cs.transform.SetParent(this.transform);
-            }
-            if (containersocketlist.Count ==4)
-            {
-                Ci = -r;
-                Ri = 0;
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
-                float x = this.transform.position.x + (Ci);
-                float y = this.transform.position.y + (Ri);
-                float z = this.transform.position.z;
-                cs.transform.position = new Vector3(x, y, z);
-                cs.transform.SetParent(this.transform);
-            }
-            if (containersocketlist.Count == 5)
-            {
-                Ci = (float)(-r / 1.414);
-                Ri = (float)(-r / 1.414);
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
+        {
+            Ci = 0;
+            Ri = r;
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
             float x = this.transform.position.x + (Ci);
             float y = this.transform.position.y + (Ri);
             float z = this.transform.position.z;
             cs.transform.position = new Vector3(x, y, z);
             cs.transform.SetParent(this.transform);
         }
-            if (containersocketlist.Count == 6)
-            {
-                Ci = 0;
-                Ri = -r;
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
+        //3
+        if (containersocketlist.Count == 3)
+        {
+            Ci = (float)(-r / 1.414);
+            Ri = (float)(r / 1.414);
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
             float x = this.transform.position.x + (Ci);
             float y = this.transform.position.y + (Ri);
             float z = this.transform.position.z;
             cs.transform.position = new Vector3(x, y, z);
             cs.transform.SetParent(this.transform);
         }
-            if (containersocketlist.Count == 7)
-            {
-                Ci = (float)(r / 1.414);
-                Ri = (float)(-r / 1.414);
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
+        if (containersocketlist.Count == 4)
+        {
+            Ci = -r;
+            Ri = 0;
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
             float x = this.transform.position.x + (Ci);
             float y = this.transform.position.y + (Ri);
             float z = this.transform.position.z;
             cs.transform.position = new Vector3(x, y, z);
             cs.transform.SetParent(this.transform);
         }
-            if (containersocketlist.Count == 8)
-            {
-                Ci = r;
-                Ri = 0;
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
+        if (containersocketlist.Count == 5)
+        {
+            Ci = (float)(-r / 1.414);
+            Ri = (float)(-r / 1.414);
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
             float x = this.transform.position.x + (Ci);
             float y = this.transform.position.y + (Ri);
             float z = this.transform.position.z;
             cs.transform.position = new Vector3(x, y, z);
             cs.transform.SetParent(this.transform);
         }
-            if (containersocketlist.Count == 9)
-            {
-                Ci = (float)(r / 1.414);
-                Ri = (float)(r / 1.414);
-                ClastforSocket = Ci;
-                RlastforSocket = Ri;
+        if (containersocketlist.Count == 6)
+        {
+            Ci = 0;
+            Ri = -r;
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            cs.transform.position = new Vector3(x, y, z);
+            cs.transform.SetParent(this.transform);
+        }
+        if (containersocketlist.Count == 7)
+        {
+            Ci = (float)(r / 1.414);
+            Ri = (float)(-r / 1.414);
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            cs.transform.position = new Vector3(x, y, z);
+            cs.transform.SetParent(this.transform);
+        }
+        if (containersocketlist.Count == 8)
+        {
+            Ci = r;
+            Ri = 0;
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
+            float x = this.transform.position.x + (Ci);
+            float y = this.transform.position.y + (Ri);
+            float z = this.transform.position.z;
+            cs.transform.position = new Vector3(x, y, z);
+            cs.transform.SetParent(this.transform);
+        }
+        if (containersocketlist.Count == 9)
+        {
+            Ci = (float)(r / 1.414);
+            Ri = (float)(r / 1.414);
+            ClastforSocket = Ci;
+            RlastforSocket = Ri;
             float x = this.transform.position.x + (Ci);
             float y = this.transform.position.y + (Ri);
             float z = this.transform.position.z;
@@ -310,13 +310,13 @@ public class ContainerLayerCircle : MonoBehaviour
         //z = this.GetComponent<Collider>().bounds.size.z; //PF_layerObject.collider.bounds.size.z;
         //y = this.GetComponent<Collider>().bounds.size.y;// PF_layerObject.collider.bounds.size.y;
         float a = this.transform.localScale.x;
-      //  print("a=" + a);
+        //  print("a=" + a);
         float b = this.transform.localScale.y;
-       // print("b=" + b);// depth
+        // print("b=" + b);// depth
         float c = this.transform.localScale.z;
-       // print("c=" + c);
+        // print("c=" + c);
         float Radius = a / 4;
-       // print("R=" + Radius);
+        // print("R=" + Radius);
         Cmax = (int)(c / (buffery + (containerObjectRadius * 2)));
         // print("Cmax is "+ Cmax);
         Rmax = (int)(a / (bufferz + (containerObjectRadius * 2)));

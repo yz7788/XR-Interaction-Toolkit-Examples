@@ -38,6 +38,7 @@ public class LaserLengthChange : MonoBehaviour
         priorDistance = Vector3.Distance(LaserFrom.transform.position, LaserReceiving.transform.position);
         this.angle = Vector3.Angle(this.transform.forward, this.LaserReceiving.transform.forward);
         this.normalVector = Vector3.Cross(this.LaserReceiving.transform.forward, this.transform.forward);
+        Core.Ins.ScenarioManager.SetFlag("LaserLengthChanged",true);
         // this.LocalRotation=this.LaserFromEmitter.transform.localRotation;
         // print(this.LocalRotation);
     }

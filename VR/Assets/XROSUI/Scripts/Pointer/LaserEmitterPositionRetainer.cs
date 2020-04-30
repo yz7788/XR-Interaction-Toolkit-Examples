@@ -51,6 +51,7 @@ public class LaserEmitterPositionRetainer : MonoBehaviour
     {
         m_MeshRenderer.material.color = m_UnityCyan;
         m_Held = true;
+        Core.Ins.ScenarioManager.SetFlag("EmitterGrabbed",true);
         // this.priorDirection=this.secondController.transform.forward;
         this.priorDirection=(this.secondController.transform.position-this.transform.position).normalized;
         // InvokeRepeating("positionRetainer",0,0.005f);//Works

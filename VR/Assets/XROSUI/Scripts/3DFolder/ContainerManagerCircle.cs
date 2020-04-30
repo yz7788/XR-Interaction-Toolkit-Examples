@@ -17,7 +17,7 @@ public class ContainerManagerCircle : MonoBehaviour
     public float lefthandvalue;
     public float righthandvalue;
     //GameObject Container_Cube;
-    private float depthValue = 0;
+    private float depthValue = 0.1f;
     //Debug only
     GameObject CO;
     GameObject CS;
@@ -51,28 +51,37 @@ public class ContainerManagerCircle : MonoBehaviour
         {
             //print(true);
             AddContainerObject();
-            CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+            Color c = Color.red;
+            c.a = 0.3f;
+            CO.GetComponent<MeshRenderer>().material.SetColor("_Color", c);
+            //CO.GetComponent<MeshRenderer>().material.color.a = 0.3f;
 
         }
         for (int i = 0; i < 6; i++)
         {
             //print(true);
             AddContainerObject();
-            CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.blue);
+            Color c = Color.blue;
+            c.a = 0.3f;
+            CO.GetComponent<MeshRenderer>().material.SetColor("_Color", c);
 
         }
         for (int i = 0; i < 6; i++)
         {
             //print(true);
             AddContainerObject();
-            CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.yellow);
+            Color c = Color.green;
+            c.a = 0.3f;
+            CO.GetComponent<MeshRenderer>().material.SetColor("_Color", c);
 
         }
         for (int i = 0; i < 6; i++)
         {
             //print(true);
             AddContainerObject();
-            CO.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+            Color c = Color.yellow;
+            c.a = 0.3f;
+            CO.GetComponent<MeshRenderer>().material.SetColor("_Color", c);
 
         }
 

@@ -6,7 +6,8 @@ using TMPro;
 
 public class TimerClass : MonoBehaviour
 {
-    public static string targetText = "barbara had been waiting at the table for twenty minutes";
+    //public static string targetText = "barbara had been waiting at the table for twenty minutes";
+    public static string targetText = "barbara had been waiting";
     float startTime;
     float currentTime;
     public Text Text_Timer;
@@ -69,6 +70,7 @@ public class TimerClass : MonoBehaviour
                 return;
             }
             old_length = myInputContent.text.Length;
+
             if (string.Compare(myInputContent.text, targetText.Substring(0, myInputContent.text.Length)) == 0)
             {
 
@@ -118,6 +120,10 @@ public class TimerClass : MonoBehaviour
         float wordsPerMinute = 0;
         int numWords = myInputContent.text.Trim().Split(' ').Length;
         wordsPerMinute = numWords / (time / 60);
-        content.text = "Your input speed is " + wordsPerMinute + " words per minute";
+        int numCharacters = myInputContent.text.ToCharArray().Length;
+        content.text = "You finished in " + time + " seconds" +
+            "\nYour input speed is " + wordsPerMinute + " words per minute" + "\n" + numCharacters + " characters per minute";
+
+        Core.Ins.ScenarioManager.SetFlag("CalculateSpeed", true);
     }
 }
