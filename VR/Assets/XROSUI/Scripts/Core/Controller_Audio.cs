@@ -297,6 +297,7 @@ public class Controller_Audio : MonoBehaviour
                 mixer.GetFloat("MasterVolume", out newVolume);
                 //Debug.Log("MasterVolume:" + newVolume);
                 f += Mathf.Pow(10f, newVolume / 20f);
+                Debug.Log("MasterVolume:" + newVolume + " vs " + f);
                 break;
             case Audio_Type.music:
                 mixer.GetFloat("MusicVolume", out newVolume);

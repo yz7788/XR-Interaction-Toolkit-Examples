@@ -19,11 +19,22 @@ public class VRHeadphone : VREquipment
     {
         Core.Ins.AudioManager.PlayPauseMusic();
     }
+
     //public override void OnDeactivated(XRBaseInteractor obj)
     //{
-
     //}
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Core.Ins.AudioManager.AdjustVolume(volumeIncreaseRate, Audio_Type.master);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Core.Ins.AudioManager.AdjustVolume(volumeDecreaseRate, Audio_Type.master);
+        }
+    }
     public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {
         switch (gesture)
