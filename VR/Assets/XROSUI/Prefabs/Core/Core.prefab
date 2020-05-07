@@ -407,7 +407,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - EventID: 10
+  - EventID: 12
     ToDo:
       m_PersistentCalls:
         m_Calls:
@@ -422,7 +422,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - EventID: 8
+  - EventID: 9
     ToDo:
       m_PersistentCalls:
         m_Calls:
@@ -1642,6 +1642,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0369ffde9856148b5b664bdf094404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PF_SystemMenu: {fileID: 3455432069404428341, guid: 9150fe08e9ea0204286a9f1ca300d73e,
+    type: 3}
+  GO_SystemMenu: {fileID: 0}
+  Manager: {fileID: 0}
 --- !u!1 &7466219156857332133
 GameObject:
   m_ObjectHideFlags: 0

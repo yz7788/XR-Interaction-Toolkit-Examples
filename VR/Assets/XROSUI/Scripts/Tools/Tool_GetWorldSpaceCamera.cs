@@ -22,10 +22,4 @@ public class Tool_GetWorldSpaceCamera : MonoBehaviour
         }
         Canvas.worldCamera = Camera.main;        
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
 }

@@ -333,7 +333,7 @@ public class ControllerManager_XROS : MonoBehaviour
             if (bMenuButtonPressed1)
             {
                 Debug.Log("Menu Button1 pressed");
-                Core.Ins.SystemMenu.Manager.OpenMenu(XROSMenuTypes.Menu_General);
+                Core.Ins.SystemMenu.Module.OpenMenu(XROSMenuTypes.Menu_General);
                 //gameMenu.OpenMenu("Menu_General");//press the menu button on the left controller to open general menu.
             }
             if (bMenuButtonPressed2)
