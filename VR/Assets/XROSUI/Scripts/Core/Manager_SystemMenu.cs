@@ -51,7 +51,6 @@ public class Manager_SystemMenu : MonoBehaviour
         }
     }
 
-
     // Update is called once per frame
     void Update()
     {

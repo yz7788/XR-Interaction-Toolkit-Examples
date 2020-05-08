@@ -317,8 +317,7 @@ public class ControllerManager_XROS : MonoBehaviour
 
     public void Start()
     {
-        //gameMenu = GameObject.Find("UIParent").GetComponent<Controller_GameMenu>();
-        //this.RegisterVREquipment(GO_VE.GetComponent<VREquipment>());
+        //print("left: "+m_LeftController.characteristics.ToString());
     }
 
     void Update()
@@ -330,8 +329,13 @@ public class ControllerManager_XROS : MonoBehaviour
             m_RightController.IsPressed(InputHelpers.Button.MenuButton, out bool bMenuButtonPressed2);
             m_LeftController.IsPressed(InputHelpers.Button.Trigger, out bool bTriggerButtonPressed1);
             m_RightController.IsPressed(InputHelpers.Button.Trigger, out bool bTriggerButtonPressed2);
+            //print("left: " + m_LeftController.manufacturer);
+            //print("left: " + m_LeftController.name);
+            //print("left: " + m_LeftController.subsystem.ToString());
+            //print("right: " + m_RightController.manufacturer);
             if (bMenuButtonPressed1)
             {
+                
                 Debug.Log("Menu Button1 pressed");
                 Core.Ins.SystemMenu.Module.OpenMenu(XROSMenuTypes.Menu_General);
                 //gameMenu.OpenMenu("Menu_General");//press the menu button on the left controller to open general menu.

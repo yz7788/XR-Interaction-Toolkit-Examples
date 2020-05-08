@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//Maintained by Powen & Sophie
 //https://youtu.be/MDvPNNgIu7k
 
 public delegate void EventHandler_NewBrightness(float newValue);
-
+/// <summary>
+/// The goal of the Visual Manager is to keep track of commonly used visual related settings
+/// 
+/// Current Use:
+/// Brightness for Virtual Equipment - Virtual Goggle
+/// 
+/// </summary>
 public class Controller_Visual : MonoBehaviour
 {
     public static event EventHandler_NewBrightness EVENT_NewBrightness;
@@ -26,14 +31,20 @@ public class Controller_Visual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DebugUpdate();
+    }
+
+    private void DebugUpdate()
+    {
         ////For Debugging
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            AdjustBrightness(0.1f);
-        }
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             AdjustBrightness(-0.1f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            AdjustBrightness(0.1f);
         }
     }
 
@@ -68,6 +79,6 @@ public class Controller_Visual : MonoBehaviour
 
         m_LightIntensity = f;
         RenderSettings.ambientLight = new Color(f, f, f, 1);
-//        Debug.Log("Current brightness " + f);
+        //Debug.Log("Current brightness " + f);
     }
 }
