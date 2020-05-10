@@ -64,7 +64,6 @@ public class MinimizeSwitch : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            bMinimize = !bMinimize;
             Minimize();
         }
     }
@@ -86,26 +85,12 @@ public class MinimizeSwitch : MonoBehaviour
     }
     void OnActivated(XRBaseInteractor obj)
     {
-        print("activated");
-
-        bMinimize = !bMinimize;
         Minimize();
-        //if (!bMinimize)
-        //{
-        //    Dev.Log("Show");
-        //    bMinimize = !bMinimize;
-
-        //}
-        //else
-        //{
-        //    Dev.Log("Hide");
-
-        //    bMinimize = !bMinimize;
-        //}
     }
 
     private void Minimize()
     {
+        bMinimize = !bMinimize;
         foreach (GameObject go in this.MinimizeList)
         {
             go.SetActive(bMinimize);

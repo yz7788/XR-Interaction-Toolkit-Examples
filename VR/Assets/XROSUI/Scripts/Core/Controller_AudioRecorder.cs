@@ -12,10 +12,10 @@ public class Controller_AudioRecorder : MonoBehaviour
     public void LoadDevices()
     {
         RecordingDevices = Microphone.devices;
-        foreach (string s in RecordingDevices)
-        {
-            print(s);
-        }
+        //foreach (string s in RecordingDevices)
+        //{
+        //    print(s);
+        //}
     }
     public void SetDevice(int i)
     {

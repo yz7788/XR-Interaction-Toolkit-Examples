@@ -2,24 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[ExecuteInEditMode]
 [RequireComponent(typeof(Canvas))]
 public class Tool_GetWorldSpaceCamera : MonoBehaviour
 {
-    private Canvas Canvas;
+    public Canvas Canvas;
 
     // Start is called before the first frame update
     void Start()
     {
+        SetCamera();
+    }
+
+    private void SetCamera()
+    {
         //Canvas.worldCamera = GameObject.Find("XRRig_XROS").GetComponent<UnityEngine.XR.Interaction.Toolkit.XRRig>().cameraGameObject.GetComponent<Camera>();
-        if(Canvas)
+        if (!Canvas)
         {
-            
-        }
-        else
-        {
-            //print("No World Camera assigned to Canvas at " + this.gameObject.name + ". Attempt to auto assignin camera");
             Canvas = this.GetComponent<Canvas>();
         }
-        Canvas.worldCamera = Camera.main;        
+
+        if (!Canvas.worldCamera)
+        {
+            Canvas.worldCamera = Camera.main;
+        }
+    }
+    private void Update()
+    {
+
     }
 }

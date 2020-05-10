@@ -29,7 +29,6 @@ public class FunctionToggler : MonoBehaviour
         if (state)
         {
             TurnedOn.Invoke();
-            print("LightTurnOn");
         }
         else
         {
