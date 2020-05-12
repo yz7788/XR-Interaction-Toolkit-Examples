@@ -25,7 +25,7 @@ public class OpenEquipmentMenu : MonoBehaviour
             VREquipment vre = other.GetComponent<VREquipment>();
             if (vre)
             {
-                Core.Ins.SystemMenu.Module.OpenMenu(vre.menuTypes);
+                Core.Ins.SystemMenu.OpenMenu(vre.menuTypes);
       //          gameMenu.OpenMenu(vre.menuTypes);
             }
         }

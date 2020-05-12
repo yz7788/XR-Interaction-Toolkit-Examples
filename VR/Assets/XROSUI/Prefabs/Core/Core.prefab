@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -347,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a77d721cc54224db3f039fa1fd38a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 0}
 --- !u!1 &366517733
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c88821f8bfdfe41b8869e1693d5b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bHasEvent: 1
+  bHasEvent: 0
   eventTriggers:
   - EventID: 9
     ToDo:
@@ -590,6 +592,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1645,7 +1648,7 @@ MonoBehaviour:
   PF_SystemMenu: {fileID: 3455432069404428341, guid: 9150fe08e9ea0204286a9f1ca300d73e,
     type: 3}
   GO_SystemMenu: {fileID: 0}
-  Manager: {fileID: 0}
+  Module: {fileID: 0}
 --- !u!1 &7466219156857332133
 GameObject:
   m_ObjectHideFlags: 0

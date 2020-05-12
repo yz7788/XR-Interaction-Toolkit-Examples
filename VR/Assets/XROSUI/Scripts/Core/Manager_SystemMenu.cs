@@ -8,24 +8,38 @@ public class Manager_SystemMenu : MonoBehaviour
 {
     public GameObject PF_SystemMenu;
     public GameObject GO_SystemMenu;
-    public Controller_SystemMenu Module; 
+    public Controller_SystemMenu Module;
     // Start is called before the first frame update
     void Start()
     {
-        Module = GameObject.Find("PF_SystemMenu").GetComponent<Controller_SystemMenu>();
+    }
+
+    private void LoadModule()
+    {        
+        if (!Module)
+        {
+            GO_SystemMenu = GameObject.Find("PF_SystemMenu");
+            if(!GO_SystemMenu)
+            { 
+                GO_SystemMenu = GameObject.Instantiate(PF_SystemMenu);
+            }
+            Module = GO_SystemMenu.GetComponent<Controller_SystemMenu>();
+            //Dev.LogError("System Menu Controller doesn't exist");
+        }
     }
 
     public void OpenMenu(XROSMenuTypes menu)
     {
-        if(Module)
+        if (Module)
         {
             Module.OpenMenu(menu);
         }
         else
         {
-            GO_SystemMenu = GameObject.Instantiate(PF_SystemMenu);
-            Module = GO_SystemMenu.GetComponent<Controller_SystemMenu>();
-            Dev.LogError("System Menu Controller doesn't exist");
+            LoadModule();
+            //GO_SystemMenu = GameObject.Instantiate(PF_SystemMenu);
+            //Module = GO_SystemMenu.GetComponent<Controller_SystemMenu>();
+            //Dev.LogError("System Menu Controller doesn't exist");
         }
     }
 

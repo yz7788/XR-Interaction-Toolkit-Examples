@@ -39,9 +39,12 @@ public class MeasureLeftArmLength : MonoBehaviour
     GameObject InReachFarthestPlaneCaption;
     GameObject InReachProperPlaneCaption;
     // Generic (from systems)
-    GameObject LeftController;
-    GameObject RightController;
-    GameObject HMD;
+    //GameObject LeftController;
+    //GameObject RightController;
+    //GameObject HMD;
+    public Transform LeftControllerTransform;
+    public Transform RightControllerTransform;
+    public Transform HMDTransform;
     Vector3 LeftControllerPos;
     Vector3 RightControllerPos;
     Vector3 HMDPos;
@@ -106,9 +109,12 @@ public class MeasureLeftArmLength : MonoBehaviour
         RightUpperArm = GameObject.Find("RightUpperArm");
 
         // Function initialization
-        LeftController = GameObject.Find("LeftController");
-        RightController = GameObject.Find("RightController");
-        HMD = GameObject.Find("HMD");
+        //LeftController = GameObject.Find("LeftController");
+        LeftControllerTransform = Core.Ins.XRManager.GetLeftDirectController().transform;
+        //RightController = GameObject.Find("RightController");
+        RightControllerTransform = Core.Ins.XRManager.GetRightDirectController().transform;
+        //HMD = GameObject.Find("HMD");
+        HMDTransform = Core.Ins.XRManager.GetCamera().transform;
 
         updateFromFile();
         //stickSkeleton.transform.position = new Vector3(HMDPos.x + 1.0f, HMDPos.y - 0.5f, HMDPos.z);
@@ -117,11 +123,11 @@ public class MeasureLeftArmLength : MonoBehaviour
     void Update()
     {
         UpdateGenericPos();
-        if(Input.GetKeyDown(KeyCode.Alpha8))
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             MeasureLeftArm();
         }
-        if(Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             updateFromFile();
         }
@@ -186,7 +192,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             */
 
             LeftArmInstructionText.text = $"Measure the length of arm. Press \"Start\" to measure.";
-            Core.Ins.ScenarioManager.SetFlag("FinishedCalibration",true);//tell the core your work is done
+            Core.Ins.ScenarioManager.SetFlag("FinishedCalibration", true);//tell the core your work is done
             stepCounter = 0;
         }
 
@@ -325,7 +331,7 @@ public class MeasureLeftArmLength : MonoBehaviour
             //stickSkeleton.transform.position = new Vector3(HMDPos.x - 0.8f, HMDPos.y - 0.80f, HMDPos.z);
             firstSetSkeletonPos = true;
         }
-        
+
         // Set bone length in Game Object
         Neck.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.Neck) * 10.0f, 5.0f);
         Spine.transform.localScale = new Vector3(5.0f, Core.Ins.HumanScaleManager.GetBoneLength(BoneIdx.Spine) * 10.0f, 5.0f);
@@ -359,7 +365,7 @@ public class MeasureLeftArmLength : MonoBehaviour
     {
         // Vector3 newPosition = new Vector3(UIObject.transform.position.x, UIObject.transform.position.y, UIObject.transform.position.z - armLength * 0.6f);
         float distance = armLength * 0.6f;
-        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y-0.2f, HMDPos.z + 0.6f * distance);
+        UIObject.transform.position = new Vector3(HMDPos.x, HMDPos.y - 0.2f, HMDPos.z + 0.6f * distance);
     }
 
     float ComputeGeneric()
@@ -382,12 +388,12 @@ public class MeasureLeftArmLength : MonoBehaviour
 
     void UpdateGenericPos()
     {
-        LeftControllerPos = LeftController.transform.position;
-        RightControllerPos = RightController.transform.position;
-        HMDPos = HMD.transform.position;
-        LeftControllerRot = LeftController.transform.rotation.eulerAngles;
-        RightControllerRot = RightController.transform.rotation.eulerAngles;
-        HMDRot = HMD.transform.rotation.eulerAngles;
+        LeftControllerPos = LeftControllerTransform.position;
+        RightControllerPos = RightControllerTransform.position;
+        HMDPos = HMDTransform.position;
+        LeftControllerRot = LeftControllerTransform.rotation.eulerAngles;
+        RightControllerRot = RightControllerTransform.rotation.eulerAngles;
+        HMDRot = HMDTransform.rotation.eulerAngles;
     }
 
     //Vector3 normalize(Vector3 vec)
@@ -398,7 +404,7 @@ public class MeasureLeftArmLength : MonoBehaviour
 
     void updateSkeletonFromFile(string fileName)
     {
-        TextAsset text = Resources.Load("JSON/"+fileName) as TextAsset;
+        TextAsset text = Resources.Load("JSON/" + fileName) as TextAsset;
         string textString = text.text;
         // StreamReader fi = new StreamReader(Application.dataPath + "/Data/" + fileName + ".txt");
         // string[] axis = fi.ReadToEnd().Split(']');

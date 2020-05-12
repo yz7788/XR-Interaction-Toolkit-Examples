@@ -11,12 +11,14 @@ public class CalibrateSkeleton : MonoBehaviour
     //public ScrollRect myScrollRect;
     //public RectTransform scrollableContent;
     // Generic (from systems)
-    GameObject LeftController;
-    GameObject RightController;
-    GameObject HMD;
-    Vector3 LeftControllerPos;
-    Vector3 RightControllerPos;
-    Vector3 HMDPos;
+    //GameObject LeftController;
+    //GameObject RightController;
+    //GameObject HMD;
+    Transform cachedLeftControllerTransform;
+    Transform cachedHMDTransform;
+    //Vector3 LeftControllerPos;
+    //Vector3 RightControllerPos;
+    //Vector3 HMDPos;
     float LHDistanceGeneric = 1.0f;
     // Skeleton
     public Vector3[] skeletonPos = new Vector3[17];
@@ -43,10 +45,6 @@ public class CalibrateSkeleton : MonoBehaviour
 
     void Start()
     {
-        //myScrollRect.content = scrollableContent;
-        LeftController = GameObject.Find("LeftController");
-        RightController = GameObject.Find("RightController");
-        HMD = GameObject.Find("HMD");
         // Step 1: Load and draw default skeleton
         // TODO
         // GetBones();
@@ -87,11 +85,21 @@ public class CalibrateSkeleton : MonoBehaviour
     float ComputeGeneric()
     {
         // Load location of headset and left controller (default for right-handers)
-        LeftControllerPos = LeftController.transform.position;
+        //LeftControllerPos = LeftController.transform.position;
+        if(!cachedLeftControllerTransform)
+        {
+            cachedLeftControllerTransform = Core.Ins.XRManager.GetLeftDirectController().transform;
+        }
+        if(!cachedHMDTransform)
+        {
+            cachedHMDTransform = Core.Ins.XRManager.GetCamera().transform;
+        }
+        //LeftControllerPos = LeftControllerTransform.position;
         // RightControllerPos = RightController.transform.position;
-        HMDPos = HMD.transform.position;
+        //HMDPos = HMD.transform.position;
         // Compute generic distance between HMD and left controller
-        return ComputeDistance(LeftControllerPos, HMDPos);
+        //return ComputeDistance(LeftControllerTransform.position, HMDTransform.position);
+        return Vector3.Distance(cachedLeftControllerTransform.position, cachedHMDTransform.position);
     }
 
     float ComputeSkeleton()
@@ -100,16 +108,16 @@ public class CalibrateSkeleton : MonoBehaviour
         LeftHandPos = BoneNormalized[(int)JointsIdx.LeftHand];
         HeadPos = BoneNormalized[(int)JointsIdx.Head];
         // Compute skeleton distance between HMD and left controller
-        return ComputeDistance(LeftHandPos, HeadPos);
+        return Vector3.Distance(LeftHandPos, HeadPos);
     }
 
-    float ComputeDistance(Vector3 pos1, Vector3 pos2)
-    {
-        float deltaX = pos1[0] - pos2[0];
-        float deltaY = pos1[1] - pos2[1];
-        float deltaZ = pos1[2] - pos2[2];
-        return (float)Mathf.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
-    }
+    //float ComputeDistance(Vector3 pos1, Vector3 pos2)
+    //{
+    //    float deltaX = pos1[0] - pos2[0];
+    //    float deltaY = pos1[1] - pos2[1];
+    //    float deltaZ = pos1[2] - pos2[2];
+    //    return (float)Mathf.Sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+    //}
     /*
     void GetBones()
     {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class Controller_XR : MonoBehaviour
 {
     GameObject XRRig;
@@ -14,6 +16,12 @@ public class Controller_XR : MonoBehaviour
     GameObject rightRayController;
     GameObject rightDirectController;
     GameObject rightTeleportController;
+    //XRRayInteractor leftRayController;
+    //XRDirectInteractor leftDirectController;
+    //XRRayInteractor leftTeleportController;
+    //XRRayInteractor rightRayController;
+    //XRDirectInteractor rightDirectController;
+    //XRRayInteractor rightTeleportController;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +42,7 @@ public class Controller_XR : MonoBehaviour
             }
             else
             {
-                ControllerManager_XROS controllerManager_XROS = XRRig.GetComponent<ControllerManager_XROS>();
+                ControllerManager_XROS controllerManager_XROS = XRRig.GetComponent<ControllerManager_XROS>();                
                 leftRayController = controllerManager_XROS.leftBaseController;
                 leftDirectController = controllerManager_XROS.leftDirectController;
                 leftTeleportController = controllerManager_XROS.leftTeleportController;

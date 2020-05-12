@@ -2865,6 +2865,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1717954562053134906, guid: 15de75ba802bdca4faf70a66e3551439,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1804938248860654781, guid: 15de75ba802bdca4faf70a66e3551439,
         type: 3}
       propertyPath: m_Layer
@@ -10565,12 +10570,12 @@ PrefabInstance:
         type: 3}
       propertyPath: leftController
       value: 
-      objectReference: {fileID: 1483941751}
+      objectReference: {fileID: 0}
     - target: {fileID: 5074014946026510818, guid: 1b4544d75e966e84d9b684067b019518,
         type: 3}
       propertyPath: rightController
       value: 
-      objectReference: {fileID: 1129675546}
+      objectReference: {fileID: 0}
     - target: {fileID: 5074014946026510818, guid: 1b4544d75e966e84d9b684067b019518,
         type: 3}
       propertyPath: Button_Timer
@@ -12520,12 +12525,6 @@ Transform:
   m_Father: {fileID: 746627735}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1129675546 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 608359905443313342, guid: 15de75ba802bdca4faf70a66e3551439,
-    type: 3}
-  m_PrefabInstance: {fileID: 241451054}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1154635449
 GameObject:
   m_ObjectHideFlags: 0
@@ -16452,12 +16451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2494656f0dd693144be1306d5551e544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1483941751 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4002808013868743957, guid: 15de75ba802bdca4faf70a66e3551439,
-    type: 3}
-  m_PrefabInstance: {fileID: 241451054}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1487465519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16548,6 +16541,10 @@ PrefabInstance:
       propertyPath: eventTriggers.Array.data[2].ToDo.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 830940925}
+    - target: {fileID: 366517735, guid: 90b64e8342fc675429cdd02125b168b7, type: 3}
+      propertyPath: bHasEvent
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2501370857823875829, guid: 90b64e8342fc675429cdd02125b168b7,
         type: 3}
       propertyPath: m_LocalPosition.x
