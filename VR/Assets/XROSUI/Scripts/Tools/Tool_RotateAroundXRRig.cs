@@ -33,7 +33,10 @@ public class Tool_RotateAroundXRRig : MonoBehaviour
             //print("need to change ");
             //Offset doesn't really work since it will rotate weird
             //this.transform.position = XRCameraTransform.position + XRCameraTransform.forward * DistanceAwayFromUser + Offset;
-
+            if(!XRCameraTransform)
+            {
+                XRCameraTransform = Core.Ins.XRManager.GetCamera().transform;
+            }
             Vector3 cameraForward = XRCameraTransform.forward;
             cameraForward.y = 0;
             cameraForward.Normalize();

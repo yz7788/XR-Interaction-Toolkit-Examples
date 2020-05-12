@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-
+using UnityEngine.SceneManagement;
 public class Controller_XR : MonoBehaviour
 {
     GameObject XRRig;
@@ -26,6 +26,16 @@ public class Controller_XR : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Setup();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {        
+        Setup();
+    }
+    void Setup()
+    {       
         //These are fail safes in case no one registered and no one dragged
         if (!XrCamera)
         {
@@ -42,7 +52,7 @@ public class Controller_XR : MonoBehaviour
             }
             else
             {
-                ControllerManager_XROS controllerManager_XROS = XRRig.GetComponent<ControllerManager_XROS>();                
+                ControllerManager_XROS controllerManager_XROS = XRRig.GetComponent<ControllerManager_XROS>();
                 leftRayController = controllerManager_XROS.leftBaseController;
                 leftDirectController = controllerManager_XROS.leftDirectController;
                 leftTeleportController = controllerManager_XROS.leftTeleportController;
@@ -86,6 +96,11 @@ public class Controller_XR : MonoBehaviour
 
     public Camera GetCamera()
     {
+        if (!XrCamera)
+        {
+            //Dev.LogError("No XR Camera registered, attempting to substitute with main camera");
+            XrCamera = Camera.main;
+        }
         return XrCamera;
     }
 
