@@ -62,18 +62,18 @@ public class Controller_XR : MonoBehaviour
             }
         }
 
-        if (!leftRayController)
-            leftRayController = GameObject.Find("LeftRayController");
-        if (!leftDirectController)
-            leftDirectController = GameObject.Find("LeftDirectConroller");
-        if (!leftTeleportController)
-            leftTeleportController = GameObject.Find("LeftTeleportController");
-        if (!rightRayController)
-            rightRayController = GameObject.Find("RightRayController");
-        if (!rightDirectController)
-            rightDirectController = GameObject.Find("RightDirectController");
-        if (!rightTeleportController)
-            rightTeleportController = GameObject.Find("RightTeleportController");
+        //if (!leftRayController)
+        //    leftRayController = GameObject.Find("LeftRayController");
+        //if (!leftDirectController)
+        //    leftDirectController = GameObject.Find("LeftDirectConroller");
+        //if (!leftTeleportController)
+        //    leftTeleportController = GameObject.Find("LeftTeleportController");
+        //if (!rightRayController)
+        //    rightRayController = GameObject.Find("RightRayController");
+        //if (!rightDirectController)
+        //    rightDirectController = GameObject.Find("RightDirectController");
+        //if (!rightTeleportController)
+        //    rightTeleportController = GameObject.Find("RightTeleportController");
     }
 
     // Update is called once per frame
@@ -138,7 +138,6 @@ public class Controller_XR : MonoBehaviour
     {
         return rightTeleportController;
     }
-
 
     public void RegisterCamera(Camera camera)
     {
