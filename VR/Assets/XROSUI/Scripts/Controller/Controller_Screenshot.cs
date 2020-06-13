@@ -15,12 +15,12 @@ public class Controller_Screenshot : MonoBehaviour
     Texture2D m_Texture;
 
     // Start is called before the first frame update
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Broken in Unity?
@@ -30,6 +30,8 @@ public class Controller_Screenshot : MonoBehaviour
             TakeAShot();
         }
     }
+
+    // Update is called once per frame
 
     private string fileName;
     private string pathToSave;
