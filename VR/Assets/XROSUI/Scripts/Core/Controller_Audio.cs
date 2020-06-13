@@ -334,7 +334,7 @@ public class Controller_Audio : MonoBehaviour
     public void AdjustVolume(int d, Audio_Type type)
     {
         //float newVolume = 0f;
-        //float f = d * levelGap;
+        Debug.Log("AdjustVolume");
         int newLevel = currentLevel + d;
 
         if (newLevel > 10) newLevel = 10;

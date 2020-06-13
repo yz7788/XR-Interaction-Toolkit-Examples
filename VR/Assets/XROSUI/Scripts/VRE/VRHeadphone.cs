@@ -45,13 +45,17 @@ public class VRHeadphone : VREquipment
     }
     public override void HandleGesture(ENUM_XROS_Gesture gesture)
     {
+        Debug.Log("HandleGesture");
+        Debug.Log("lastAskTime" + lastAskTime + "currentTime" + Time.time);
         if (lastAskTime + coolDown < Time.time)
         {
+            lastAskTime = Time.time;
+            Debug.Log("Finish Cool down");
             switch (gesture)
-            {
+            { 
                 case ENUM_XROS_Gesture.up:
                     Core.Ins.AudioManager.AdjustVolume(1, Audio_Type.master);
-                    //Debug.Log("upincrease");
+                    Debug.Log("Gesture up");
                     break;
                 case ENUM_XROS_Gesture.down:
                     Core.Ins.AudioManager.AdjustVolume(-1, Audio_Type.master);
@@ -68,7 +72,6 @@ public class VRHeadphone : VREquipment
                 default:
                     break;
             }
-            lastAskTime = Time.time;
         }
     }
 

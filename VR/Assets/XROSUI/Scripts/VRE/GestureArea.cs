@@ -41,8 +41,8 @@ public class GestureArea : MonoBehaviour
         if (VE.m_Held)
         {
             gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
-            if (gestureDistance <= 0.5f * Area.transform.localScale.y && gestureDistance > 0)
-            {
+            //if (gestureDistance <= 0.5f * Area.transform.localScale.y && gestureDistance > 0)
+            //{
                 //if(!Text.activeSelf)
                 {
                     //ShowValue
@@ -55,7 +55,7 @@ public class GestureArea : MonoBehaviour
                     MeasureDirect();
                     lastAskTime = Time.time;
                 }
-            }
+            //}
         }
 
 
@@ -97,6 +97,7 @@ public class GestureArea : MonoBehaviour
 
     public void MeasureDirect()
     {
+        Debug.Log("MeasureDirect");
         bool m_Direction;
         //detect the direction of user by the main camera.
         //if (Vector3.Dot(Camera.main.transform.forward, GO_VE.transform.forward) < 0.9)//not work
