@@ -11,6 +11,9 @@ public class VRHeadphone : VREquipment
     public GameObject GestureCore;
     private float coolDown = 0.2f;
     private float lastAskTime = 0;
+
+    private OVRHapticsClip clip;
+
     //public float volumeIncreaseRate = 0.003f;
     //public float volumeDecreaseRate = -0.003f;
 
@@ -43,23 +46,19 @@ public class VRHeadphone : VREquipment
             ResetPosition();
         }
     }
-    public override void HandleGesture(ENUM_XROS_Gesture gesture)
+    public override void HandleGesture(ENUM_XROS_Gesture gesture, float distance)
     {
-        Debug.Log("HandleGesture");
-        Debug.Log("lastAskTime" + lastAskTime + "currentTime" + Time.time);
+        int scale = 10;
         if (lastAskTime + coolDown < Time.time)
         {
             lastAskTime = Time.time;
-            Debug.Log("Finish Cool down");
             switch (gesture)
-            { 
+            {
                 case ENUM_XROS_Gesture.up:
-                    Core.Ins.AudioManager.AdjustVolume(1, Audio_Type.master);
-                    Debug.Log("Gesture up");
-                    break;
                 case ENUM_XROS_Gesture.down:
-                    Core.Ins.AudioManager.AdjustVolume(-1, Audio_Type.master);
-                    //Debug.Log("downdecrease");
+                    //OVRInput.Update();
+                    //OVRInput.SetControllerVibration(1, 1, OVRInput.Controller.RTouch);
+                    Core.Ins.AudioManager.AdjustVolume((int)(distance * scale), Audio_Type.master);
                     break;
                 case ENUM_XROS_Gesture.forward:
                     break;

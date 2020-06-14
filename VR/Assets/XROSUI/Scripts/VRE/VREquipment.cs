@@ -114,7 +114,7 @@ public class VREquipment : MonoBehaviour
 
     //}
 
-    public virtual void HandleGesture(ENUM_XROS_Gesture gesture)
+    public virtual void HandleGesture(ENUM_XROS_Gesture gesturem, float distance)
     {
 
     }

@@ -19,8 +19,8 @@ public class Controller_Audio : MonoBehaviour
 {
     //private float volumeIncreaseRate = 0.003f;
     //private float volumeDecreaseRate = -0.003f;
-    private float levelGap = 0.1f;
-    public static int currentLevel = 5;
+    public int maxLevel = 20;
+    public int currentLevel = 10;
     float sliderValue;
 
     public static event EventHandler_NewMasterVolume EVENT_NewMasterVolume;
@@ -333,44 +333,18 @@ public class Controller_Audio : MonoBehaviour
 
     public void AdjustVolume(int d, Audio_Type type)
     {
-        //float newVolume = 0f;
-        Debug.Log("AdjustVolume");
         int newLevel = currentLevel + d;
 
-        if (newLevel > 10) newLevel = 10;
-        if (newLevel < 0) newLevel = 0;
-
-        switch (type)
+        if (newLevel > maxLevel)
         {
-            //TODO fix different type
-            case Audio_Type.master:
-                //mixer.GetFloat("MasterVolume", out newVolume);
-                Debug.Log("MasterVolume:" + newLevel);
-                //f += Mathf.Pow(10f, newVolume / 20f);
-                //Debug.Log("MasterVolume:" + newVolume + " vs " + f);
-                break;
-            case Audio_Type.music:
-                //mixer.GetFloat("MusicVolume", out newVolume);
-                Debug.Log("MusicVolume:" + newLevel);
-                //f += Mathf.Pow(10f, newVolume / 20f);
-                break;
-            case Audio_Type.voice:
-                //mixer.GetFloat("VoiceVolume", out newVolume);
-                Debug.Log("VoiceVolume:" + newLevel);
-                //f += Mathf.Pow(10f, newVolume / 20f);
-                break;
-            case Audio_Type.sfx:
-                //mixer.GetFloat("SFXVolume", out newVolume);
-                Debug.Log("SFXVolume:" + newLevel);
-                //f += Mathf.Pow(10f, newVolume / 20f);
-                break;
-            default:
-                break;
-        };
-        
+            newLevel = maxLevel;
+        }
 
-        //Dev.Log("New Volume: " + f);
-        //print("New Volume: " + f);
+        if (newLevel < 0)
+        {
+            newLevel = 0;
+        }
+   
         SetVolume(newLevel, type);
 
     }
@@ -406,34 +380,7 @@ public class Controller_Audio : MonoBehaviour
 
     public int GetVolume(Audio_Type type)
     {
-        float newVolume = 0f;
-        int newLevel = 0;
-        switch (type)
-        {
-            case Audio_Type.master:
-                mixer.GetFloat("MasterVolume", out newVolume);
-                newLevel = (int)Math.Round(newLevel * levelGap);
-                Debug.Log("MasterVolume:" + newVolume);
-                break;
-            case Audio_Type.music:
-                mixer.GetFloat("MusicVolume", out newVolume);
-                newLevel = (int)Math.Round(newLevel * levelGap);
-                Debug.Log("MusicVolume:" + newVolume);
-                break;
-            case Audio_Type.voice:
-                mixer.GetFloat("VoiceVolume", out newVolume);
-                newLevel = (int)Math.Round(newLevel * levelGap);
-                Debug.Log("VoiceVolume:" + newVolume);
-                break;
-            case Audio_Type.sfx:
-                mixer.GetFloat("SFXVolume", out newVolume);
-                newLevel = (int)Math.Round(newLevel * levelGap);
-                Debug.Log("SFXVolume:" + newVolume);
-                break;
-            default:
-                break;
-        };
-        return newLevel;
+        return currentLevel;
     }
 
     /*
@@ -492,9 +439,9 @@ public class Controller_Audio : MonoBehaviour
 
     public void SetVolume(int level, Audio_Type type)
     {
-        if (level > 10)
+        if (level > maxLevel)
         {
-            level = 10;
+            level = maxLevel;
         }
         else if (level < 0)
         {
@@ -502,10 +449,8 @@ public class Controller_Audio : MonoBehaviour
         }
         currentLevel = level;
 
-        sliderValue = Math.Max(0.0001f, (float)level/10f);
+        sliderValue = Math.Max(0.0001f, (float)level / (float) maxLevel);
         float f = (float)Mathf.Log10(sliderValue) * 20f;
-
-        Debug.Log("currentLevel " + currentLevel + " sliderValue " + sliderValue + " f " + f);
 
         switch (type)
         {
@@ -515,7 +460,6 @@ public class Controller_Audio : MonoBehaviour
                 {
                     EVENT_NewMasterVolume(sliderValue);
                 }
-                //f = Mathf.Log10(f) * 20;
                 mixer.SetFloat("MasterVolume", f);
                 break;
             case Audio_Type.music:
@@ -523,7 +467,6 @@ public class Controller_Audio : MonoBehaviour
                 {
                     EVENT_NewMasterVolume(sliderValue);
                 }
-                //f = Mathf.Log10(f) * 20;
                 mixer.SetFloat("MusicVolume", f);
                 break;
             case Audio_Type.voice:
@@ -531,7 +474,6 @@ public class Controller_Audio : MonoBehaviour
                 {
                     EVENT_NewMasterVolume(sliderValue);
                 }
-                //f = Mathf.Log10(f) * 20;
                 mixer.SetFloat("VoiceVolume", f);
                 break;
             case Audio_Type.sfx:
@@ -539,7 +481,6 @@ public class Controller_Audio : MonoBehaviour
                 {
                     EVENT_NewMasterVolume(sliderValue);
                 }
-                //f = Mathf.Log10(f) * 20;
                 mixer.SetFloat("SFXVolume", f);
                 break;
             default:
