@@ -1864,7 +1864,6 @@ MonoBehaviour:
   timeBeforeReturn: 0.5
   socket: {fileID: 1773291435}
   menuTypes: 4
-  VH: {fileID: 0}
   GestureCore: {fileID: 0}
 --- !u!135 &2098937945
 SphereCollider:

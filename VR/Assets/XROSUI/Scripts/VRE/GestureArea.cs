@@ -8,7 +8,6 @@ public class GestureArea : MonoBehaviour
     public GameObject Area;
     public GameObject GO_VE;
     public VREquipment VE;
-    //public GameObject Text;
     public float gestureDistance;
     public float DistanceY;
     public float DistanceZ;
@@ -41,8 +40,8 @@ public class GestureArea : MonoBehaviour
         if (VE.m_Held)
         {
             gestureDistance = Vector3.Distance(GestureCore.transform.position, GO_VE.transform.position);
-            //if (gestureDistance <= 0.5f * Area.transform.localScale.y && gestureDistance > 0)
-            //{
+            if (gestureDistance <= 0.5f * Area.transform.localScale.y && gestureDistance > 0)
+            {
                 //if(!Text.activeSelf)
                 //{
                     //ShowValue
@@ -53,9 +52,9 @@ public class GestureArea : MonoBehaviour
                 if (lastAskTime + coolDown < Time.time)
                 {
                     MeasureDirect();
-                    //lastAskTime = Time.time;
+                    lastAskTime = Time.time;
                 }
-            //}
+            }
         }
 
 
