@@ -8,7 +8,6 @@ public class GestureArea : MonoBehaviour
     public GameObject Area;
     public GameObject GO_VE;
     public VREquipment VE;
-    //public GameObject Text;
     public float gestureDistance;
     public float DistanceY;
     public float DistanceZ;
@@ -44,11 +43,11 @@ public class GestureArea : MonoBehaviour
             if (gestureDistance <= 0.5f * Area.transform.localScale.y && gestureDistance > 0)
             {
                 //if(!Text.activeSelf)
-                {
+                //{
                     //ShowValue
                     //last activated = Time.time;
                     //Text.SetActive(true);
-                }
+                //}
 
                 if (lastAskTime + coolDown < Time.time)
                 {
@@ -122,13 +121,13 @@ public class GestureArea : MonoBehaviour
             if (DistanceY > 0)
             {
                 //Y = true;
-                this.VE.HandleGesture(ENUM_XROS_Gesture.up);
+                this.VE.HandleGesture(ENUM_XROS_Gesture.up, DistanceY);
                 //Dev.Log("up");
             }
             else if (DistanceY < 0)
             {
                 //Y = false;
-                this.VE.HandleGesture(ENUM_XROS_Gesture.down);
+                this.VE.HandleGesture(ENUM_XROS_Gesture.down, DistanceY);
                 //Dev.Log("down");
             }
             //else Dev.Log("no change");
@@ -139,14 +138,14 @@ public class GestureArea : MonoBehaviour
             //if (DistanceZ > 0)
             {
                 //Z = true;
-                this.VE.HandleGesture(ENUM_XROS_Gesture.left);
+                this.VE.HandleGesture(ENUM_XROS_Gesture.left,DistanceZ);
                 //Dev.Log("left");
             }
             else if ((DistanceZ < 0 && m_Direction) || (DistanceZ > 0 && !m_Direction))
             //else if (DistanceZ < 0)
             {
                 //Z = false;
-                this.VE.HandleGesture(ENUM_XROS_Gesture.right);
+                this.VE.HandleGesture(ENUM_XROS_Gesture.right, DistanceZ);
                 //Dev.Log("right");
             }
             //else Dev.Log("no change");

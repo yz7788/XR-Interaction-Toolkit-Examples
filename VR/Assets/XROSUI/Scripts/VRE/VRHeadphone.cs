@@ -7,8 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class VRHeadphone : VREquipment
 {
-    public float volumeIncreaseRate = 0.003f;
-    public float volumeDecreaseRate = -0.003f;
+    public GameObject GestureCore;
 
     public void Start()
     {
@@ -24,28 +23,27 @@ public class VRHeadphone : VREquipment
     //{
     //}
 
-    public void Update()
+    //public void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.I))
+    //    {
+    //        Core.Ins.AudioManager.AdjustVolume(1, Audio_Type.master);
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.K))
+    //    {
+    //        Core.Ins.AudioManager.AdjustVolume(-1, Audio_Type.master);
+    //    }
+    //}
+    public override void HandleGesture(ENUM_XROS_Gesture gesture, float distance)
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Core.Ins.AudioManager.AdjustVolume(volumeIncreaseRate, Audio_Type.master);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Core.Ins.AudioManager.AdjustVolume(volumeDecreaseRate, Audio_Type.master);
-        }
-    }
-    public override void HandleGesture(ENUM_XROS_Gesture gesture)
-    {
+
         switch (gesture)
         {
             case ENUM_XROS_Gesture.up:
-                Core.Ins.AudioManager.AdjustVolume(volumeIncreaseRate, Audio_Type.master);
-                //Debug.Log("upincrease");
+                Core.Ins.AudioManager.AdjustVolume(1, Audio_Type.master);
                 break;
             case ENUM_XROS_Gesture.down:
-                Core.Ins.AudioManager.AdjustVolume(volumeDecreaseRate, Audio_Type.master);
-                //Debug.Log("downdecrease");
+                Core.Ins.AudioManager.AdjustVolume(-1, Audio_Type.master);
                 break;
             case ENUM_XROS_Gesture.forward:
                 break;

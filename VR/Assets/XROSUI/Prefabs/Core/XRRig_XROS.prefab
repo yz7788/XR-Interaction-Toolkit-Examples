@@ -1864,8 +1864,7 @@ MonoBehaviour:
   timeBeforeReturn: 0.5
   socket: {fileID: 1773291435}
   menuTypes: 4
-  volumeIncreaseRate: 0.05
-  volumeDecreaseRate: -0.05
+  GestureCore: {fileID: 0}
 --- !u!135 &2098937945
 SphereCollider:
   m_ObjectHideFlags: 0

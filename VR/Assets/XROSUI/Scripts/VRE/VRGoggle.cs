@@ -17,7 +17,7 @@ public class VRGoggle : VREquipment
         Core.Ins.ScreenshotManager.TakeAShot();
     }
 
-    public override void HandleGesture(ENUM_XROS_Gesture gesture)
+    public override void HandleGesture(ENUM_XROS_Gesture gesture, float distance)
     {
         switch (gesture)
         {
