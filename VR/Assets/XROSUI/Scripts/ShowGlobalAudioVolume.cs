@@ -8,7 +8,7 @@ public class ShowGlobalAudioVolume : ShowValue
     // Start is called before the first frame update
     void Start()
     {        
-        Controller_Audio.EVENT_NewMasterVolume += HandleValueChange;
+        Controller_Audio.EVENT_NewVolumeMaster += HandleValueChange;
     }
 
     protected override string FormatValue(float f)

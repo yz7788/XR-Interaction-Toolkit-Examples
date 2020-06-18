@@ -9,7 +9,10 @@ using UnityEngine.UI;
 //https://docs.unity3d.com/Manual/AudioFiles.html
 public enum Audio_Type { master, voice, music, sfx }
 
-public delegate void EventHandler_NewMasterVolume(float newValue);
+public delegate void Delegate_NewVolumeMaster(float newValue);
+public delegate void Delegate_NewVolumeMusic(float newValue);
+public delegate void Delegate_NewVolumeVoice(float newValue);
+public delegate void Delegate_NewVolumeSFX(float newValue);
 
 //Design Note:
 //a_source is used for basic system UI sound effects (such as error)
@@ -24,12 +27,13 @@ public class Controller_Audio : MonoBehaviour
     private int VoiceLevel = 10;
     private int SFXLevel = 10;
 
-    public static event EventHandler_NewMasterVolume EVENT_NewMasterVolume;
+    public static event Delegate_NewVolumeMaster EVENT_NewVolumeMaster;
+    public static event Delegate_NewVolumeMusic EVENT_NewVolumeMusic;
+    public static event Delegate_NewVolumeVoice EVENT_NewVolumeVoice;
+    public static event Delegate_NewVolumeSFX EVENT_NewVolumeSFX;
 
     public AudioMixer mixer;
-    float musicVol;
-    //public Text text;
-    Text Text_volumeValue;
+
     //Public so we can drag child objects
     public AudioSource AudioSource_Master;
     [Tooltip("Drag child object with an audiosource to be used as the default menu sfx audio source")]
@@ -256,6 +260,7 @@ public class Controller_Audio : MonoBehaviour
         return ac;
     }
     #endregion Load Audio
+    
     #region Setting Save Data
     [Serializable]
     public struct SettingSaveData
@@ -283,12 +288,13 @@ public class Controller_Audio : MonoBehaviour
     {
         Setting = saveData.audioSetting;
     }
-
+    #endregion Setting Save Data
+    
+    #region GET & SET
     public int GetVolumeLevel(Audio_Type type)
     {
         switch (type)
         {
-            //TODO fix different type
             case Audio_Type.master:
                 return MasterLevel;
             case Audio_Type.music:
@@ -299,7 +305,7 @@ public class Controller_Audio : MonoBehaviour
                 return SFXLevel;
             default:
                 break;
-        };
+        }
         return 0;
     }
 
@@ -311,8 +317,7 @@ public class Controller_Audio : MonoBehaviour
         {
             newLevel = maxLevel;
         }
-
-        if (newLevel < 0)
+        else if (newLevel < 0)
         {
             newLevel = 0;
         }
@@ -336,36 +341,23 @@ public class Controller_Audio : MonoBehaviour
 
         switch (type)
         {
-            //TODO
             case Audio_Type.master:
-                if (EVENT_NewMasterVolume != null)
-                {
-                    EVENT_NewMasterVolume(showVol);
-                }
+                EVENT_NewVolumeMaster?.Invoke(showVol);
                 mixer.SetFloat("MasterVolume", f);
                 MasterLevel = level;
                 break;
-            case Audio_Type.music:
-                if (EVENT_NewMasterVolume != null)
-                {
-                    EVENT_NewMasterVolume(showVol);
-                }
+            case Audio_Type.music:                
+                EVENT_NewVolumeMusic?.Invoke(showVol);
                 mixer.SetFloat("MusicVolume", f);
                 MusicLevel = level;
                 break;
             case Audio_Type.voice:
-                if (EVENT_NewMasterVolume != null)
-                {
-                    EVENT_NewMasterVolume(showVol);
-                }
+                EVENT_NewVolumeVoice?.Invoke(showVol);
                 mixer.SetFloat("VoiceVolume", f);
                 VoiceLevel = level;
                 break;
             case Audio_Type.sfx:
-                if (EVENT_NewMasterVolume != null)
-                {
-                    EVENT_NewMasterVolume(showVol);
-                }
+                EVENT_NewVolumeSFX?.Invoke(showVol);
                 mixer.SetFloat("SFXVolume", f);
                 SFXLevel = level;
                 break;
@@ -374,5 +366,5 @@ public class Controller_Audio : MonoBehaviour
 
         }
     }
-    #endregion
+    #endregion GET & SET
 }
