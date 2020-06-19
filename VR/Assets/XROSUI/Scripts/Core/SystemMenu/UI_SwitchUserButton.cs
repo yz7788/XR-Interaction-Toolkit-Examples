@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//Simple function used in XRinVR to showcase 'switching user' via heart Virtual Equipment 
 public class UI_SwitchUserButton : MonoBehaviour
 {
     private string m_HardCodeName1 = "johnsmith";
@@ -12,24 +13,12 @@ public class UI_SwitchUserButton : MonoBehaviour
     {
         if(!bFirstName)
         {
-            Core.Ins.Account.ChangeUserName(m_HardCodeName1);
-            
+            Core.Ins.Account.ChangeUserName(m_HardCodeName1);            
         }
         else
         {
             Core.Ins.Account.ChangeUserName(m_HardCodeName2);
         }
         bFirstName = !bFirstName;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

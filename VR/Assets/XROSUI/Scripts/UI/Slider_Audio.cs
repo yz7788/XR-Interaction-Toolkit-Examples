@@ -9,12 +9,6 @@ public class Slider_Audio : MonoBehaviour
     public AudioMixer mixer;
     public Audio_Type type;
 
-    /*
-    public void SetVolume(float f)
-    {
-        Core.Ins.AudioManager.SetVolume(f, type);
-    }
-    */
     public void SetVolume(int level)
     {
         Core.Ins.AudioManager.SetVolume(level, type);

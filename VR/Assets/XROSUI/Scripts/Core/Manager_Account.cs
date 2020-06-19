@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void EventHandler_NewUser(string name);
+public delegate void Delegate_NewUser(string name);
 
 public class Manager_Account : MonoBehaviour
 {
-    public static event EventHandler_NewUser EVENT_NewUser;
+    public static event Delegate_NewUser EVENT_NewUser;
     private string m_UserName = "powenyao";
 
     public string UserName()
@@ -30,10 +30,11 @@ public class Manager_Account : MonoBehaviour
     }
     public void ChangeUserName(string s)
     {
-        if (EVENT_NewUser != null)
-        {
-            EVENT_NewUser(s);
-        }
+        //if (EVENT_NewUser != null)
+        //{
+        //    EVENT_NewUser(s);
+        //}
+        EVENT_NewUser?.Invoke(s);
         m_UserName = s;
         Dev.Log("User changed to " + s);
     }

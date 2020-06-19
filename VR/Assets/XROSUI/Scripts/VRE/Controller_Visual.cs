@@ -72,10 +72,11 @@ public class Controller_Visual : MonoBehaviour
             f = minValue;
         }
 
-        if (EVENT_NewBrightness != null)
-        {
-            EVENT_NewBrightness(f);
-        }
+        //if (EVENT_NewBrightness != null)
+        //{
+        //    EVENT_NewBrightness(f);
+        //}
+        EVENT_NewBrightness?.Invoke(f);
 
         m_LightIntensity = f;
         RenderSettings.ambientLight = new Color(f, f, f, 1);

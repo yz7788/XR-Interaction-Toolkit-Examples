@@ -192,10 +192,11 @@ public static class Dev
     */
     private static void LogActual(string s, Object context)
     {
-        if (EVENT_NewLog != null)
-        {
-            EVENT_NewLog(s);
-        }
+        EVENT_NewLog?.Invoke(s);
+        //if (EVENT_NewLog != null)
+        //{
+        //    EVENT_NewLog(s);
+        //}
         /*
         if (CommunicationLogic.instance)
         {
@@ -207,19 +208,21 @@ public static class Dev
 
     public static void LogError(string s)
     {
-        if (EVENT_NewLog != null)
-        {
-            EVENT_NewLog(s);
-        }
+        EVENT_NewLog?.Invoke(s);
+        //if (EVENT_NewLog != null)
+        //{
+        //    EVENT_NewLog(s);
+        //}
         Debug.LogError(s);
     }
 
     public static void LogWarning(string s)
     {
-        if (EVENT_NewLog != null)
-        {
-            EVENT_NewLog(s);
-        }
+        EVENT_NewLog?.Invoke(s);
+        //if (EVENT_NewLog != null)
+        //{
+        //    EVENT_NewLog(s);
+        //}
         Debug.LogWarning(s);
     }
     #endregion Dev Log

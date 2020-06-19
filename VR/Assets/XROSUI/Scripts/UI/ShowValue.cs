@@ -31,6 +31,9 @@ public class ShowValue : MonoBehaviour
         if (!m_Text)
         {
             m_Text = GetComponentInChildren<TMP_Text>();
+            //This cannot fetch the value if object is set to be inactive.
+            //If we want to fetch it by code we have to do some other way or leave it shown/active.
+            //Since we don't want it to be active at start, we might want to consider
         }
         ShowOrHideValues();
     }
@@ -45,7 +48,7 @@ public class ShowValue : MonoBehaviour
     }
     protected virtual string FormatValue(float f)
     {
-        return "Brightness:" + ((int)(f * 100f)).ToString() + "%";
+        return "Value:" + ((int)(f * 100f)).ToString() + "%";
     }
 
     public virtual void ShowOrHideValues()
@@ -61,7 +64,6 @@ public class ShowValue : MonoBehaviour
     {
         //if a certain amount of time has passed,, hide myText
         HideAfterDelay();
-        //this.m_Text.enabled()
     }
 
     void HideAfterDelay()

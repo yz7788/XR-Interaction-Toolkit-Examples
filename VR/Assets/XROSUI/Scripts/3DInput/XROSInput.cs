@@ -16,27 +16,30 @@ public static class XROSInput
     public static event XROSInputHandler_NewBackspace EVENT_NewBackspace;
     public static void AddInput(string s)
     {
-        if (EVENT_NewInput != null)
-        {
-            EVENT_NewInput(s);
-            //Debug.Log(s);
-        }
+        //if (EVENT_NewInput != null)
+        //{
+        //    EVENT_NewInput(s);
+        //    //Debug.Log(s);
+        //}
+        EVENT_NewInput?.Invoke(s);
     }
 
     public static void RemoveInput()
     {
-        if (EVENT_NewRemoveInput != null)
-        {
-            EVENT_NewRemoveInput();
-            //Debug.Log(s);
-        }
+        EVENT_NewRemoveInput?.Invoke();
+        //if (EVENT_NewRemoveInput != null)
+        //{
+        //    EVENT_NewRemoveInput();
+        //    //Debug.Log(s);
+        //}
     }
 
     public static void Backspace()
     {
-        if (EVENT_NewBackspace != null)
-        {
-            EVENT_NewBackspace();
-        }
+        EVENT_NewBackspace?.Invoke();
+        //if (EVENT_NewBackspace != null)
+        //{
+        //    EVENT_NewBackspace();
+        //}
     }
 }

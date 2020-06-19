@@ -47,10 +47,11 @@ public class Controller_Screenshot : MonoBehaviour
         ScreenCapture.CaptureScreenshot(pathToSave);
         m_Texture = ScreenCapture.CaptureScreenshotAsTexture();
 
-        if (EVENT_NewScreenshot != null)
-        {
-            EVENT_NewScreenshot();
-        }
+        //if (EVENT_NewScreenshot != null)
+        //{
+        //    EVENT_NewScreenshot();
+        //}
+        EVENT_NewScreenshot?.Invoke();
         StartCoroutine(ShowAndHide(myPanel, DurationToShow));
     }
 

@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// UI
+/// Used in UI to change scene ID
+/// </summary>
+
 public class UI_SceneManager : MonoBehaviour
 {
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
-
     public void LoadSceneById(int id)
     {
         Core.Ins.SceneManager.LoadSceneById(id);
