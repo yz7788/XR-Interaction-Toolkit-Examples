@@ -51,7 +51,17 @@ public class VRHeadphone_2 : VREquipment
             {
                 case ENUM_XROS_Gesture.up:
                 case ENUM_XROS_Gesture.down:
-                    Core.Ins.AudioManager.AdjustVolume((int)(distance * scale), Audio_Type.master);
+                    int increaseRate = (int)(distance * scale);
+                    Core.Ins.AudioManager.AdjustVolume(increaseRate, Audio_Type.master);
+                    Debug.Log("Increase Rate: " + increaseRate);
+                    ENUM_XROS_VibrationLevel level;
+                    if (Math.Abs(increaseRate) <= 1)
+                        level = ENUM_XROS_VibrationLevel.light;
+                    else if (Math.Abs(increaseRate) == 2)
+                        level = ENUM_XROS_VibrationLevel.middle;
+                    else
+                        level = ENUM_XROS_VibrationLevel.heavy;
+                    Core.Ins.XRManager.SendHapticImpulse(level, 0.2f);
                     break;
                 case ENUM_XROS_Gesture.forward:
                     break;

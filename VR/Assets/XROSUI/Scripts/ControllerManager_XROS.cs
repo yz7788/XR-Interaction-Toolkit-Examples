@@ -261,6 +261,7 @@ public class ControllerManager_XROS : MonoBehaviour
 
     void OnEnable()
     {
+        Core.Ins.XRManager.RegisterControllerManager(this);
         m_LeftTeleportDeactivated = false;
         m_RightTeleportDeactivated = false;
 
@@ -409,6 +410,22 @@ public class ControllerManager_XROS : MonoBehaviour
                 if (!activated)
                     m_RightTeleportDeactivated = false;
             }
+        }
+    }
+
+    public void SendHapticImpulse(ENUM_XROS_VibrationLevel level, float d)
+    {
+        switch (level)
+        {
+            case ENUM_XROS_VibrationLevel.light:
+                m_RightController.SendHapticImpulse(0, 0.1f, d);
+                break;
+            case ENUM_XROS_VibrationLevel.middle:
+                m_RightController.SendHapticImpulse(0, 0.4f, d);
+                break;
+            case ENUM_XROS_VibrationLevel.heavy:
+                m_RightController.SendHapticImpulse(0, 0.7f, d);
+                break;
         }
     }
 }

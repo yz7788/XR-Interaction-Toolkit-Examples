@@ -23,6 +23,21 @@ public class Controller_XR : MonoBehaviour
     //XRDirectInteractor rightDirectController;
     //XRRayInteractor rightTeleportController;
 
+    private ControllerManager_XROS controllerManager;
+
+    public void RegisterControllerManager(ControllerManager_XROS cm)
+    {
+        controllerManager = cm;
+    }
+
+    public void SendHapticImpulse(ENUM_XROS_VibrationLevel level, float d)
+    {
+        if (controllerManager != null)
+        {
+            controllerManager.SendHapticImpulse(level, d);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
