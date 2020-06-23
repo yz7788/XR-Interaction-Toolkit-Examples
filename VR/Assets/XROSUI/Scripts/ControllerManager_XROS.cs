@@ -428,4 +428,15 @@ public class ControllerManager_XROS : MonoBehaviour
                 break;
         }
     }
+
+    public void SendHapticBuffer(int freq)
+    {
+        Debug.Log("freq: " + freq);
+        int cnt = 100;
+        byte[] buffer = new byte[cnt];
+        for (int i = 0; i < cnt; i++) {
+            buffer[i] = (byte)freq;
+        }
+        m_RightController.SendHapticBuffer(0, buffer);
+    }
 }

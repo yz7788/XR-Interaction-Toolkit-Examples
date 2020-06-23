@@ -38,6 +38,14 @@ public class Controller_XR : MonoBehaviour
         }
     }
 
+    public void SendHapticBuffer(int freq)
+    {
+        if (controllerManager != null)
+        {
+            controllerManager.SendHapticBuffer(freq);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
