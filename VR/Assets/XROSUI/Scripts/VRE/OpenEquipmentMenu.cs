@@ -3,31 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script is used on Alt Node so that any VRE in contact with Alt Node can open the menu associated with that VRE
+/// </summary>
 public class OpenEquipmentMenu : MonoBehaviour
 {
-    //Controller_GameMenu gameMenu;
-    public void Start()
-    {
-     //   gameMenu = GameObject.Find("UIParent").GetComponent<Controller_GameMenu>();
-    }
-
+    //VREquipment vre;
     void OnTriggerEnter(Collider other)
     {
-        //print(other.name);
-        //if (other.CompareTag("AlternateFunction"))
+        VREquipment vre = other.GetComponent<VREquipment>();
+        if (vre)
         {
-            /*if (other.name == " ")
-            {
-                gameMenu.OpenMenu("Menu_General");
-                Debug.Log("Menu_General");
-            }
-            */
-            VREquipment vre = other.GetComponent<VREquipment>();
-            if (vre)
-            {
-                Core.Ins.SystemMenu.OpenMenu(vre.menuTypes);
-      //          gameMenu.OpenMenu(vre.menuTypes);
-            }
+            Core.Ins.SystemMenu.OpenMenu(vre.menuTypes);
         }
     }
 }

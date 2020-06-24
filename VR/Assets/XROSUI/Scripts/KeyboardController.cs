@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;using UnityEngine.UI; //create public inputfield 
+using UnityEngine;
+using UnityEngine.UI; //create public inputfield 
 
 public class KeyboardController : MonoBehaviour
 {
