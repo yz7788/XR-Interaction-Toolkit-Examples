@@ -2,7 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 //https://youtu.be/MDvPNNgIu7k
+//https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@7.1/manual/Post-Processing-Lift-Gamma-Gain.html
+/*Post-processing in URP for VR
+In VR apps and games, certain post-processing effects can cause nausea and disorientation. 
+To reduce motion sickness in fast-paced or high-speed apps, use the Vignette effect for VR, 
+and avoid the effects Lens Distortion, Chromatic Aberration, and Motion Blur for VR.
+ */
 
 public delegate void EventHandler_NewBrightness(float newValue);
 /// <summary>
@@ -16,16 +24,29 @@ public class Controller_Visual : MonoBehaviour
 {
     public static event EventHandler_NewBrightness EVENT_NewBrightness;
 
-    float m_LightIntensity;
+    //public PostProcessVolume volume;
+    public Volume volume;
+    VolumeProfile vp;
+    LiftGammaGain lgg;
+    //PostProcessEffectSettings.
+    float m_LightIntensity = 1;
 
     float minValue = 0;
-    float maxValue = 1;
+    float maxValue = 2;
     //public float lightIntensityAdjuster = 100;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        if(volume)
+        {
+            vp = volume.profile;
+            LiftGammaGain tmp;
+            if (volume.profile.TryGet<LiftGammaGain>(out tmp))
+            {
+                lgg = tmp;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -74,6 +95,9 @@ public class Controller_Visual : MonoBehaviour
         EVENT_NewBrightness?.Invoke(f);
 
         m_LightIntensity = f;
-        RenderSettings.ambientLight = new Color(f, f, f, 1);
+        if(lgg)
+        {
+            lgg.gamma.SetValue(new Vector4Parameter(new Vector4(1, 1, 1, f - 1), true));
+        }        
     }
 }
