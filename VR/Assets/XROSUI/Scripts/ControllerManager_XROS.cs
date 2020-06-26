@@ -11,12 +11,6 @@ public class ControllerManager_XROS : MonoBehaviour
 
     InputDevice m_RightController;
     InputDevice m_LeftController;
-//    Controller_GameMenu gameMenu;
-    
-    //public VRGoggle Goggle;
-    //public VRHeadphone Headphone;
-    //public float coolDown = 0.01f;
-    //float lastAskTime = 0;
 
     [SerializeField]
     [Tooltip("The buttons on the controller that will trigger a transition to the Teleport Controller.")]
@@ -25,7 +19,6 @@ public class ControllerManager_XROS : MonoBehaviour
     /// The buttons on the controller that will trigger a transition to the Teleport Controller.
     /// </summary>
     public List<InputHelpers.Button> activationButtons { get { return m_ActivationButtons; } set { m_ActivationButtons = value; } }
-
 
     [SerializeField]
     [Tooltip("The buttons on the controller that will force a deactivation of the teleport option.")]
@@ -74,7 +67,6 @@ public class ControllerManager_XROS : MonoBehaviour
     /// The Game Object which represents the right hand when teleporting.
     /// </summary>
     public GameObject rightTeleportController { get { return m_RightTeleportController; } set { m_RightTeleportController = value; } }
-
 
     [SerializeField]
     [Tooltip("The Game Object which represents the right hand ray.")]
@@ -335,8 +327,7 @@ public class ControllerManager_XROS : MonoBehaviour
             //print("left: " + m_LeftController.subsystem.ToString());
             //print("right: " + m_RightController.manufacturer);
             if (bMenuButtonPressed1)
-            {
-                
+            {              
                 Debug.Log("Menu Button1 pressed");
                 Core.Ins.SystemMenu.Module.OpenMenu(XROSMenuTypes.Menu_General);
                 //gameMenu.OpenMenu("Menu_General");//press the menu button on the left controller to open general menu.

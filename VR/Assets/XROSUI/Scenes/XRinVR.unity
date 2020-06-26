@@ -6175,7 +6175,7 @@ Transform:
   - {fileID: 1545969213}
   - {fileID: 1052714310}
   m_Father: {fileID: 746627735}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516966498 stripped
 GameObject:
@@ -8455,9 +8455,9 @@ Transform:
   - {fileID: 2649519}
   - {fileID: 1840510355}
   - {fileID: 96542215}
+  - {fileID: 507915804}
   - {fileID: 243052367}
   - {fileID: 544719462}
-  - {fileID: 507915804}
   - {fileID: 176621434}
   - {fileID: 1184354599}
   m_Father: {fileID: 0}
@@ -20988,7 +20988,7 @@ GameObject:
   - component: {fileID: 1300972593186370803}
   - component: {fileID: 5336586341774634032}
   - component: {fileID: 3885176866232720953}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21139,7 +21139,7 @@ GameObject:
   - component: {fileID: 1200387929802506683}
   - component: {fileID: 2399493406402758594}
   - component: {fileID: 181236422280557183}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: chestOfDraws_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21286,7 +21286,7 @@ GameObject:
   - component: {fileID: 1259695195917505814}
   - component: {fileID: 3852221619852659240}
   - component: {fileID: 7102052741639946024}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21412,7 +21412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7166259455507637318}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: grpDraw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21913,7 +21913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3105771540914864769}
   - component: {fileID: 7767689405953319751}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PFB_DoorSingle_Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23035,7 +23035,7 @@ GameObject:
   - component: {fileID: 6563888375673501593}
   - component: {fileID: 6248586663656898641}
   - component: {fileID: 2518816838460714100}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23189,7 +23189,7 @@ GameObject:
   - component: {fileID: 169332349468577541}
   - component: {fileID: 5042240083575449293}
   - component: {fileID: 4975250269304153756}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: doorR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24201,7 +24201,7 @@ GameObject:
   - component: {fileID: 4405828425432392468}
   - component: {fileID: 5951246404563068789}
   - component: {fileID: 7257323145040026863}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: doorL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24608,7 +24608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6120918453321410850}
   - component: {fileID: 4243854863596532518}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PFB_DoorSingle_Open (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25457,7 +25457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5209508568219802378}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: grp_doorL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25482,7 +25482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7064822216366313125}
   - component: {fileID: 4635415835853960840}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PFB_Closet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25501,7 +25501,7 @@ GameObject:
   - component: {fileID: 9191546321153744343}
   - component: {fileID: 4398069669089473546}
   - component: {fileID: 9035921055498926096}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25844,7 +25844,7 @@ GameObject:
   - component: {fileID: 1474896973358043510}
   - component: {fileID: 3411486322261429854}
   - component: {fileID: 566983881306291367}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DoorSingle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25878,7 +25878,7 @@ GameObject:
   - component: {fileID: 4994963336169693342}
   - component: {fileID: 1236561550293008307}
   - component: {fileID: 8217087633876704632}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26091,7 +26091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8557954109027577893}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: grp_doorR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26255,7 +26255,7 @@ GameObject:
   - component: {fileID: 989894628209326614}
   - component: {fileID: 3027389898215698436}
   - component: {fileID: 7674962275151708631}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26528,7 +26528,7 @@ GameObject:
   - component: {fileID: 6423429343342984265}
   - component: {fileID: 859018705090822183}
   - component: {fileID: 8051889008553299635}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26626,7 +26626,7 @@ GameObject:
   - component: {fileID: 5125185443207750578}
   - component: {fileID: 3973351793151005280}
   - component: {fileID: 2696155289045625474}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26910,7 +26910,7 @@ GameObject:
   - component: {fileID: 5770912940452821698}
   - component: {fileID: 4337310246497027982}
   - component: {fileID: 2176567667629178544}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26983,7 +26983,7 @@ GameObject:
   - component: {fileID: 2116689320298457661}
   - component: {fileID: 5734224345988161994}
   - component: {fileID: 2431912916490889468}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: draw02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27015,7 +27015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5993928916753076309}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: grpDraw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
