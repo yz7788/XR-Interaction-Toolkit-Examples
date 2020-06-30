@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ObjectPoolerImplement : MonoBehaviour
 {
@@ -57,13 +58,10 @@ public class ObjectPoolerImplement : MonoBehaviour
             int objectID = 0;
             if (!objectPool.IsEmpty()) {
                 pooledObject = objectPool.GetPooledObject(ref objectID);
+                //pooledObject.GetComponent<XRGrabInteractable>();
                 Debug.Log("Get " + objectID + "th pooled object");
                 lastAskTime = Time.time;
             }
-            else
-            {
-                Debug.Log("No more pool object");
-            }      
         }
 
         objectPool.MoveForward(0.02f, 0.02f, 0.02f);

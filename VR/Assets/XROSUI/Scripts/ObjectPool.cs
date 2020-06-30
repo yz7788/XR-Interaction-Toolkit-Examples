@@ -8,8 +8,7 @@ public class ObjectPool : MonoBehaviour
     private int amountToPool;
     public int activeNum = 0;
 
-    Vector3 initPosition = new Vector3(0, 2, 0);
-
+    Vector3 initPosition = new Vector3(-3, 2, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +39,9 @@ public class ObjectPool : MonoBehaviour
             GameObject obj = (GameObject)Instantiate(objectToPool);
             obj.SetActive(false);
             obj.transform.position = initPosition;
+            AssignAudio(obj, i);
+            //obj.GetComponent<AudioSource>().Play();
             pooledObjects.Add(obj);
-            
         }
     }
 
@@ -61,6 +61,12 @@ public class ObjectPool : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void AssignAudio(GameObject obj, int id)
+    {
+        AudioSource audioSource = obj.AddComponent<AudioSource>();
+        audioSource.clip = Resources.Load<AudioClip>("Gun");
     }
 
      
