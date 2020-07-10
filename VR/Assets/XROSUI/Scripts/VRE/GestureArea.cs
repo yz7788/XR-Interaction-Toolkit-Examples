@@ -7,7 +7,7 @@ public class GestureArea : MonoBehaviour
     public GameObject GestureCore;
     public GameObject Area;
     public GameObject GO_VE;
-    public VREquipment VE;
+    VREquipment VE;
     public float gestureDistance;
     public float DistanceY;
     public float DistanceZ;
@@ -26,8 +26,9 @@ public class GestureArea : MonoBehaviour
     public void RegisterVREquipment(VREquipment vre)
     {
         this.VE = vre;
-        this.GO_VE = vre.gameObject;
+        //this.GO_VE = vre.gameObject;
     }
+
     public void UnregisterVREquipment()
     {
         this.VE = null;
